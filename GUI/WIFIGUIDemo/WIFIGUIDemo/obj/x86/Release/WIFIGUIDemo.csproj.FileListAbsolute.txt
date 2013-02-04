@@ -34,3 +34,15 @@ N:\..University\Year2\Cybs Challenge\Code\Code\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x
 N:\..University\Year2\Cybs Challenge\Code\Code\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.Properties.Resources.resources
 N:\..University\Year2\Cybs Challenge\Code\Code\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.read.1.tlog
 N:\..University\Year2\Cybs Challenge\Code\Code\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.write.1.tlog
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.exe
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.pdb
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\WIFIGUIDemo.exe
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\WIFIGUIDemo.pdb
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\ServerLib.dll
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\ServerLib.pdb
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\ResolveAssemblyReference.cache
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.inputDialog.resources
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.Main.resources
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.Properties.Resources.resources
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.read.1.tlog
+N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.write.1.tlog
