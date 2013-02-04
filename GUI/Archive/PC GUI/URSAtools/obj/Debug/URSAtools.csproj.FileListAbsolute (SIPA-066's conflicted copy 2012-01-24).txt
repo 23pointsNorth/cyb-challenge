@@ -1,0 +1,35 @@
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.dll.config
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.dll
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.pdb
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\FTD2XX_NET.dll
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\FTD2XX_NET.xml
+C:\Dropbox\SE2P6_BJ\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+C:\Dropbox\SE2P6_BJ\URSAtools\obj\Debug\URSAtools.dll
+C:\Dropbox\SE2P6_BJ\URSAtools\obj\Debug\URSAtools.pdb
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.XML
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\bin\Debug\URSAtools.dll.config
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\bin\Debug\URSAtools.XML
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\bin\Debug\URSAtools.dll
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\bin\Debug\URSAtools.pdb
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\bin\Debug\FTD2XX_NET.dll
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\bin\Debug\FTD2XX_NET.xml
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\obj\Debug\URSAtools.dll
+\\ndrive.rdg.ac.uk\js010758\My Documents\SE2P6_BJ_withSource\URSAtools\obj\Debug\URSAtools.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\bin\Debug\URSAtools.dll.config
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\bin\Debug\URSAtools.XML
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\bin\Debug\URSAtools.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\bin\Debug\URSAtools.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\bin\Debug\FTD2XX_NET.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\bin\Debug\FTD2XX_NET.xml
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\obj\Debug\URSAtools.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSAtools\obj\Debug\URSAtools.pdb
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\bin\Debug\URSAtools.dll.config
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\bin\Debug\URSAtools.dll
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\bin\Debug\URSAtools.pdb
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\bin\Debug\FTD2XX_NET.dll
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\bin\Debug\FTD2XX_NET.xml
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\obj\Debug\URSAtools.dll
+C:\Users\Scott\Dropbox\PC GUI\URSAtools\obj\Debug\URSAtools.pdb

@@ -1,0 +1,118 @@
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\URSA.Tools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\URSA.Tools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Template\bin\Debug\URSA.Tools.xml
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.exe
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Template.exe
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Template.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Tools.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\FTD2XX_NET.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Tools.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Tools.xml
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\bin\Debug\FTD2XX_NET.xml
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Tools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Tools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\URSA.Tools.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\URSA.Tools.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\URSA.Tools.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\URSA.Tools.xml
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\js010758\Dropbox\MEng 4th Year Project\embedded\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSAtools.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSAtools.pdb
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSAtools.xml
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\js010758\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\qb010876\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\qb010876\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\URSAtools.dll
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\URSAtools.pdb
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\URSAtools.xml
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\vm003056\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\URSAtools.dll
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\URSAtools.pdb
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\URSAtools.xml
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\Scott\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\mk008791\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\mk008791\Dropbox\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSA.Template.exe
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSA.Template.pdb
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSAtools.dll
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.dll
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSAtools.pdb
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\URSAtools.xml
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\bin\Debug\FTD2XX_NET.xml
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.BaseStationGUI.resources
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.Properties.Resources.resources
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.read.1 (Scott Alexander's conflicted copy 2012-01-19).tlog
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1 (Scott Alexander's conflicted copy 2012-01-19).tlog
+C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Camera\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
