@@ -1,0 +1,25 @@
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll.config
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.pdb
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.xml
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.pdb
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\bin\Debug\FTD2XX_NET.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\bin\Debug\FTD2XX_NET.xml
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.dll.config
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.pdb
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\obj\Debug\RUSA.Tools.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\RUSA\RUSA.Tools\obj\Debug\RUSA.Tools.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.dll.config
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.xml
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\bin\Debug\RUSA.Tools.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\bin\Debug\FTD2XX_NET.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\bin\Debug\FTD2XX_NET.xml
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\obj\Debug\RUSA.Tools.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2SM11\Programming Sources\GUI\2012 RUSA\RUSA.Tools\obj\Debug\RUSA.Tools.pdb

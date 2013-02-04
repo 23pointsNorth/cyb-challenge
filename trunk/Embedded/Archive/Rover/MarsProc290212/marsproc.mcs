@@ -1,0 +1,110 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\PICC CODE Uni\mars proc track\build260212\HardwareProfile.o
+Folder=Intermediary
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=-g -Os
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=C:\PICC CODE Uni\mars proc track\build260212\SymbolTime.o
+Folder=Intermediary
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=-g -Os
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=C:\PICC CODE Uni\mars proc track\build260212\P2P.o
+Folder=Intermediary
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=-g -Os
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=C:\PICC CODE Uni\mars proc track\build260212\I2C.o
+Folder=Intermediary
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=-g -Os
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=C:\PICC CODE Uni\mars proc track\build260212\MSPI.o
+Folder=Intermediary
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=-g -Os
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=C:\PICC CODE Uni\mars proc track\build260212\procmain.o
+Folder=Intermediary
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=-g -Os
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=C:\PICC CODE Uni\mars proc track\build260212\marsproc.cof
+Folder=Output
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=--heap=100 -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=C:\PICC CODE Uni\mars proc track\build260212\marsproc.hex
+Folder=Output
+DeviceName=PIC24HJ64GP506
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\..\Microchip\Include;..\..\P2P\P2P Node 2||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|HardwareProfile.c|SymbolTime.c|P2P.c|I2C.c|MSPI.c|procmain.c||<obj>||<lib>||<lkr>|p24HJ64GP506.gld||
+SuiteArgsString=
+ToolArgsString=--heap=100 -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=
+[TOOL_LOC_STAMPS]
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files\Microchip\mplabc30\v3.25\bin\pic30-ld.exe

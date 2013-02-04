@@ -1,0 +1,25 @@
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.dll.config
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.dll
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.pdb
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\FTD2XX_NET.dll
+C:\Dropbox\SE2P6_BJ\URSAtools\bin\Debug\FTD2XX_NET.xml
+C:\Dropbox\SE2P6_BJ\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+C:\Dropbox\SE2P6_BJ\URSAtools\obj\Debug\URSAtools.dll
+C:\Dropbox\SE2P6_BJ\URSAtools\obj\Debug\URSAtools.pdb
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.dll.config
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.XML
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.dll
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\bin\Debug\URSAtools.pdb
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\bin\Debug\FTD2XX_NET.dll
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\bin\Debug\FTD2XX_NET.xml
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\obj\Debug\URSAtools.dll
+F:\SE2P6 Demonstration Code\SE2P6_BJ\URSAtools\obj\Debug\URSAtools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\URSAtools.dll.config
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\URSAtools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\URSAtools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\FTD2XX_NET.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\FTD2XX_NET.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\obj\Debug\URSAtools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\obj\Debug\URSAtools.pdb

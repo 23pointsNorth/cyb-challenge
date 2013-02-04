@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>URSA.Tools</name>
+    </assembly>
+    <members>
+        <member name="T:URSA.Tools.URSAPort">
+            <summary>
+            An FTDI device wrapper to handle communications between PC and URSA dongle
+            </summary>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.#ctor(System.String)">
+            <summary>
+            Default constructor. Don't forget to assign ReceiveMessage eventhandler
+            </summary>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.Finalize">
+            <summary>
+            Just in case we can catch out the unended thread..
+            </summary>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.ListDevices">
+            <summary>
+            Discover all FTDI devices attached to the computer
+            </summary>
+            <returns>Array of device descriptions</returns>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.SendData(System.Byte,System.Byte[],System.Byte)">
+            <summary>
+            Send a message to the processor board with payload
+            </summary>
+            <param name="CommandByte">Command byte</param>
+            <param name="Payload">Array of payload bytes</param>
+            <param name="numBytesToSendFromPayload">Number of items to send from the payload array</param>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.SendData(System.Byte,System.Byte[])">
+            <summary>
+            Send a message to the processor board with exact payload array
+            </summary>
+            <param name="CommandByte"></param>
+            <param name="Payload"></param>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.SendData(System.Byte)">
+            <summary>
+            Send a message to the processor board without a payload
+            </summary>
+            <param name="CommandByte">Command byte</param>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.OpenBySerialNumber(System.String)">
+            <summary>
+            Open the communications to a specific device. Use the ListDevices function to discover available devices
+            </summary>
+            <param name="SerialNumber">The serial number of the FTDI device to connect to</param>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.Close">
+            <summary>
+            Closes an open communication port
+            </summary>
+        </member>
+        <member name="M:URSA.Tools.URSAPort.FireMessageReceived(System.Byte[])">
+            <summary>
+            Function to call in order to fire the event
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:URSA.Tools.URSAPort.isOpen">
+            <summary>
+            Returns true if the device is opened already, false otherwise
+            </summary>
+        </member>
+        <member name="P:URSA.Tools.URSAPort.showDebugInformationOnConsole">
+            <summary>
+            Enable this property to get console output of raw incoming bytes from the Dongle
+            </summary>
+        </member>
+        <member name="E:URSA.Tools.URSAPort.OnError">
+            <summary>
+            Fires when an exception is raised.
+            </summary>
+        </member>
+        <member name="E:URSA.Tools.URSAPort.OnMessageReceived">
+            <summary>
+            This event is fired when a complete message has been received from the URSA dongle
+            </summary>
+        </member>
+        <member name="T:URSA.Tools.URSAPort.ExceptionHandler">
+            <summary>
+            Exception handler
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:URSA.Tools.URSAPort.MessageReceivedHandler">
+            <summary>
+            EventHandler for the MessageReceived event
+            </summary>
+            <param name="sender">Reference to the instance of URSAport</param>
+            <param name="message">Payload of the message 0-RSSI, 1-Type, 2->payload</param>
+        </member>
+        <member name="T:URSA.Tools.FTDIDeviceInfoNode">
+            <summary>
+            Structure which holds FTDI Device relevant information
+            </summary>
+        </member>
+        <member name="F:URSA.Tools.FTDIDeviceInfoNode.Flags">
+            <summary>
+            Device Flags - refer to the FTDI user manual for further information
+            </summary>
+        </member>
+        <member name="F:URSA.Tools.FTDIDeviceInfoNode.Type">
+            <summary>
+            Device type - the Name of the FTDI device
+            </summary>
+        </member>
+        <member name="F:URSA.Tools.FTDIDeviceInfoNode.ID">
+            <summary>
+            Device ID
+            </summary>
+        </member>
+        <member name="F:URSA.Tools.FTDIDeviceInfoNode.LocID">
+            <summary>
+            Device's USB LocationID
+            </summary>
+        </member>
+        <member name="F:URSA.Tools.FTDIDeviceInfoNode.SerialNumber">
+            <summary>
+            Device's SerialNumber, unique to each device
+            </summary>
+        </member>
+        <member name="F:URSA.Tools.FTDIDeviceInfoNode.Description">
+            <summary>
+            Device Description
+            </summary>
+        </member>
+        <member name="T:URSA.Tools.Utilities">
+            <summary>
+            Contains some useful functions
+            </summary>
+        </member>
+        <member name="M:URSA.Tools.Utilities.CreatePort(System.String)">
+            <summary>
+            Scan for, connect and return a URSA USB port instance.
+            </summary>
+            <param name="serialOverride">In the case of multiple dongles connected to the pc, 
+            the method will return the first it find, use the dongle's serial to override this.
+            Most of the time there will only by a single dongle connected so this can be ignored.
+            </param>
+            <returns>The port connected to the usb dongle</returns>
+        </member>
+        <member name="M:URSA.Tools.Utilities.ConvertByteArrayToString(System.Byte[])">
+            <summary>
+            Returns the string representation of the bytes in hex form
+            </summary>
+            <param name="data">A number of bytes</param>
+            <returns>A formatted string containing the bytes in hex representation</returns>
+        </member>
+    </members>
+</doc>

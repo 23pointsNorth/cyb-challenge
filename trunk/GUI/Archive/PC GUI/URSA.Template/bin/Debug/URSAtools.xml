@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>URSAtools</name>
+    </assembly>
+    <members>
+        <member name="T:URSAtools.Utilities">
+            <summary>
+            Contains some useful functions
+            </summary>
+        </member>
+        <member name="M:URSAtools.Utilities.ConvertByteArrayToString(System.Byte[])">
+            <summary>
+            Returns the string representation of the bytes in hex form
+            </summary>
+            <param name="data">A number of bytes</param>
+            <returns>A formatted string containing the bytes in hex representation</returns>
+        </member>
+        <member name="T:URSAtools.Comms.URSAport">
+            <summary>
+            An FTDI device wrapper to handle communications between PC and URSA dongle
+            </summary>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.#ctor">
+            <summary>
+            Default constructor. Don't forget to assign ReceiveMessage eventhandler
+            </summary>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.Finalize">
+            <summary>
+            Just in case we can catch out the unended thread..
+            </summary>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.ListDevices">
+            <summary>
+            Discover all FTDI devices attached to the computer
+            </summary>
+            <returns>Array of device descriptions</returns>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.SendData(System.Byte,System.Byte[],System.Byte)">
+            <summary>
+            Send a message to the processor board with payload
+            </summary>
+            <param name="CommandByte">Command byte</param>
+            <param name="Payload">Array of payload bytes</param>
+            <param name="numBytesToSendFromPayload">Number of items to send from the payload array</param>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.SendData(System.Byte,System.Byte[])">
+            <summary>
+            Send a message to the processor board with exact payload array
+            </summary>
+            <param name="CommandByte"></param>
+            <param name="Payload"></param>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.SendData(System.Byte)">
+            <summary>
+            Send a message to the processor board without a payload
+            </summary>
+            <param name="CommandByte">Command byte</param>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.OpenBySerialNumber(System.String)">
+            <summary>
+            Open the communications to a specific device. Use the ListDevices function to discover available devices
+            </summary>
+            <param name="SerialNumber">The serial number of the FTDI device to connect to</param>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.Close">
+            <summary>
+            Closes an open communication port
+            </summary>
+        </member>
+        <member name="M:URSAtools.Comms.URSAport.FireMessageReceived(System.Byte[])">
+            <summary>
+            Function to call in order to fire the event
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:URSAtools.Comms.URSAport.isOpen">
+            <summary>
+            Returns true if the device is opened already, false otherwise
+            </summary>
+        </member>
+        <member name="P:URSAtools.Comms.URSAport.showDebugInformationOnConsole">
+            <summary>
+            Enable this property to get console output of raw incoming bytes from the Dongle
+            </summary>
+        </member>
+        <member name="E:URSAtools.Comms.URSAport.onMessageReceived">
+            <summary>
+            This event is fired when a complete message has been received from the URSA dongle
+            </summary>
+        </member>
+        <member name="T:URSAtools.Comms.URSAport.MessageReceivedHandler">
+            <summary>
+            EventHandler for the MessageReceived event
+            </summary>
+            <param name="sender">Reference to the instance of URSAport</param>
+            <param name="message">Payload of the message 0-RSSI, 1-Type, 2->payload</param>
+        </member>
+        <member name="T:URSAtools.Comms.FTDI_DEVICE_INFO_NODE">
+            <summary>
+            Structure which holds FTDI Device relevant information
+            </summary>
+        </member>
+        <member name="F:URSAtools.Comms.FTDI_DEVICE_INFO_NODE.Flags">
+            <summary>
+            Device Flags - refer to the FTDI user manual for further information
+            </summary>
+        </member>
+        <member name="F:URSAtools.Comms.FTDI_DEVICE_INFO_NODE.Type">
+            <summary>
+            Device type - the Name of the FTDI device
+            </summary>
+        </member>
+        <member name="F:URSAtools.Comms.FTDI_DEVICE_INFO_NODE.ID">
+            <summary>
+            Device ID
+            </summary>
+        </member>
+        <member name="F:URSAtools.Comms.FTDI_DEVICE_INFO_NODE.LocID">
+            <summary>
+            Device's USB LocationID
+            </summary>
+        </member>
+        <member name="F:URSAtools.Comms.FTDI_DEVICE_INFO_NODE.SerialNumber">
+            <summary>
+            Device's SerialNumber, unique to each device
+            </summary>
+        </member>
+        <member name="F:URSAtools.Comms.FTDI_DEVICE_INFO_NODE.Description">
+            <summary>
+            Device Description
+            </summary>
+        </member>
+    </members>
+</doc>

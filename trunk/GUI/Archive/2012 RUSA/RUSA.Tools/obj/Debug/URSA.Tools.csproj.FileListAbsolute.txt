@@ -1,0 +1,52 @@
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\URSAtools.dll.config
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\URSAtools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\URSAtools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\FTD2XX_NET.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\bin\Debug\FTD2XX_NET.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\obj\Debug\URSAtools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSAtools\obj\Debug\URSAtools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll.config
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\bin\Debug\URSA.Tools.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\bin\Debug\URSA.Tools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\obj\Debug\URSA.Tools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Dropbox\Projects\URSA\URSA.Tools\obj\Debug\URSA.Tools.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll.config
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.pdb
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.xml
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.dll
+Z:\Extra Documents\Cyb Lab Experiments\SE2P6\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll.config
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.pdb
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.dll
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.xml
+C:\Documents and Settings\Jamie.MENO2\My Documents\Downloads\Copy of Earth Station V2.0\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.xml
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\bin\Debug\URSA.Tools.dll.config
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\bin\Debug\URSA.Tools.dll
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\bin\Debug\URSA.Tools.pdb
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\bin\Debug\FTD2XX_NET.dll
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\bin\Debug\FTD2XX_NET.xml
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\obj\Debug\URSA.Tools.dll
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\obj\Debug\URSA.Tools.pdb
+\\ndrive.rdg.ac.uk\xd015871\.do_not_delete\desktop.xp\URSA(23032011 - 18.56pm)\URSA(23032011 - 12.31pm)\URSA(23032011)\URSA.Tools\bin\Debug\URSA.Tools.xml
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll.config
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.xml
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\URSA.Tools.pdb
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\bin\Debug\FTD2XX_NET.xml
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\ResolveAssemblyReference.cache
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.dll
+C:\Code\GUI Template Software\GUI Template Software\Earth Station V2.0\URSA\URSA.Tools\obj\Debug\URSA.Tools.pdb
