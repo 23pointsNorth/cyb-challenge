@@ -34,6 +34,23 @@ volatile int IRstreamHead,IRstreamTail,IRstreamLen;
 volatile unsigned char IRres[512];
 volatile unsigned char IRres2[512];
 
+/*
+unsigned int ticker4 = 0;
+#define SYS_FREQ	80000000L
+#define PRESCALE	4
+#define T4_TICK		(SYS_FREQ/PRESCALE)
+void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
+{
+	// Increment internal high tick counter
+	ticker4++;
+	if (ticker4%10000 == 0)
+	{
+		mPORTDToggleBits(BIT_6);
+	}
+	// Reset interrupt flag
+	mT4ClearIntFlag();
+}
+*/
 
 //ADC
 // IR uC 
@@ -700,6 +717,10 @@ IEC1bits.AD1IE=1;
     // Enable the I2C bus
     I2CEnable(I2C1, TRUE);
 
+
+//Initialize timer4
+//OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_256, T4_TICK);
+//ConfigIntTimer4(T4_INT_ON | T4_INT_PRIOR_2);
 
 }
 
