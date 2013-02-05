@@ -168,6 +168,28 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
+                    case (byte)CommandID.GetTermData:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                int temp = (NewData[4] + NewData[5] << 8);
+                                tempLabel.Text = temp.ToString();
+                            }));
+                            break;
+                        }
+                    case (byte)CommandID.GetLightAuxValue:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                int light = NewData[4] + NewData[5] << 8;
+                                int aux = NewData[6] + NewData[7] << 8;
+                                LightLabel.Text = light.ToString();
+                                auxLabel.Text = aux.ToString();
+                            }));
+                            break;
+                        }
                 }
                /* if (NewData[3] == (byte)CommandID.SwitchLEDStatus)
                 {
@@ -350,5 +372,71 @@ namespace WIFIGUIDemo
                 }
             }
         }
+
+        bool dirSpeedMouseDown = false;
+        private void directionalSpeed_MouseDown(object sender, MouseEventArgs e)
+        {
+            dirSpeedMouseDown = true;
+            setSpeeds(e);
+            
+        }
+
+        private void directionalSpeed_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dirSpeedMouseDown)
+            {
+                setSpeeds(e);
+            }
+        }
+
+        private void setSpeeds(MouseEventArgs e)
+        {
+            Point c = new Point(directionalSpeed.Width / 2, directionalSpeed.Height / 2);
+            int power = (int)Math.Sqrt((e.Y - c.Y) * (e.Y - c.Y) + (e.X - c.X) * (e.X - c.X));
+            int h = directionalSpeed.Size.Height;
+            int w = directionalSpeed.Size.Width;
+            double alpha = Math.Acos((e.Y - c.Y) / power);
+            if ((e.X - c.X) < 0) alpha = -alpha;
+
+            int left_speed = Math.Min(127, (int) (power * Math.Cos(alpha * 2)));
+            int right_speed = Math.Min(127, power);
+            left_speed = Math.Max(-127, left_speed);
+            right_speed = Math.Max(-127, right_speed);
+
+            Bitmap img = new Bitmap(256, 256);
+            using (System.Drawing.Graphics g = Graphics.FromImage(img))
+            {
+                Pen p = new Pen(System.Drawing.Color.Red, 2);
+
+                g.DrawLine(p, e.Location, new Point(directionalSpeed.Width / 2, directionalSpeed.Height / 2));
+            }
+            directionalSpeed.Image = (Image)img;
+            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)left_speed, (byte)right_speed });
+        }
+
+        private void directionalSpeed_MouseUp(object sender, MouseEventArgs e)
+        {
+            dirSpeedMouseDown = false;
+            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            Bitmap img = new Bitmap(256, 256);
+            directionalSpeed.Image = (Image)img;
+        }
+
+        private void tempButton_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.GetTermData, new byte[] {});
+            }
+        }
+
+        private void lightLuxButton_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.GetLightAuxValue, new byte[] { });
+            }
+        }
+
     }
 }
