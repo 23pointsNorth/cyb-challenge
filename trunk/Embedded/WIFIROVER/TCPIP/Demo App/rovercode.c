@@ -15,7 +15,6 @@
 #include "i2c.h"
 
 
-
 void initi2Cs(void);
 
 // Private helper functions.
@@ -34,23 +33,27 @@ volatile int IRstreamHead,IRstreamTail,IRstreamLen;
 volatile unsigned char IRres[512];
 volatile unsigned char IRres2[512];
 
-/*
-unsigned int ticker4 = 0;
-#define SYS_FREQ	80000000L
-#define PRESCALE	4
-#define T4_TICK		(SYS_FREQ/PRESCALE)
+
+unsigned long ticker4 = 0;
+#define SYS_FREQ			80000000L
+#define PRESCALE			2
+#define PB_DIV				8
+#define TOGGLES_SEC			2048 //at 1Hz // lower value to increase freq
+#define T4_TICK       		(SYS_FREQ/PB_DIV/PRESCALE)
+
+
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
 {
 	// Increment internal high tick counter
 	ticker4++;
-	if (ticker4%10000 == 0)
+	if (ticker4 % TOGGLES_SEC == 0)
 	{
-		mPORTDToggleBits(BIT_6);
+		mPORTEToggleBits(BIT_3);
 	}
 	// Reset interrupt flag
 	mT4ClearIntFlag();
 }
-*/
+
 
 //ADC
 // IR uC 
@@ -719,8 +722,8 @@ IEC1bits.AD1IE=1;
 
 
 //Initialize timer4
-//OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_256, T4_TICK);
-//ConfigIntTimer4(T4_INT_ON | T4_INT_PRIOR_2);
-
+OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_2, T4_TICK);
+ConfigIntTimer4(T4_INT_ON | T4_INT_PRIOR_2);
+INTEnableSystemMultiVectoredInt();
 }
 
