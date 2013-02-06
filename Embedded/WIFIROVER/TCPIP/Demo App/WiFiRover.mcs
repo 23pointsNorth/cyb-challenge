@@ -988,7 +988,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=
 [File076]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ARCFOUR.o
 Folder=Intermediary
@@ -1001,7 +1001,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=
 [File077]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
 Folder=Intermediary
@@ -1014,7 +1014,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=
 [File078]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
 Folder=Intermediary
@@ -1027,7 +1027,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=
 [File079]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\BerkeleyAPI.o
 Folder=Intermediary
@@ -1040,7 +1040,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=
 [File080]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\BigInt.o
 Folder=Intermediary
@@ -1053,7 +1053,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File081]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\Delay.o
 Folder=Intermediary
@@ -1066,7 +1066,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File082]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
 Folder=Intermediary
@@ -1079,7 +1079,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File083]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\DHCPs.o
 Folder=Intermediary
@@ -1092,7 +1092,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File084]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
 Folder=Intermediary
@@ -1105,7 +1105,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File085]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\DNSs.o
 Folder=Intermediary
@@ -1118,7 +1118,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File086]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\DynDNS.o
 Folder=Intermediary
@@ -1131,7 +1131,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File087]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ENC28J60.o
 Folder=Intermediary
@@ -1144,7 +1144,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File088]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ENCX24J600.o
 Folder=Intermediary
@@ -1157,7 +1157,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File089]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\FileSystem.o
 Folder=Intermediary
@@ -1170,7 +1170,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File090]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\FTP.o
 Folder=Intermediary
@@ -1183,7 +1183,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File091]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\Hashes.o
 Folder=Intermediary
@@ -1196,7 +1196,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File092]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\Helpers.o
 Folder=Intermediary
@@ -1209,7 +1209,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File093]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ICMP.o
 Folder=Intermediary
@@ -1222,7 +1222,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File094]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
 Folder=Intermediary
@@ -1235,7 +1235,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File095]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\LCDBlocking.o
 Folder=Intermediary
@@ -1248,7 +1248,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File096]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\MPFS2.o
 Folder=Intermediary
@@ -1261,7 +1261,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File097]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\NBNS.o
 Folder=Intermediary
@@ -1274,7 +1274,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File098]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\Reboot.o
 Folder=Intermediary
@@ -1287,7 +1287,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File099]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\RSA.o
 Folder=Intermediary
@@ -1300,7 +1300,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File100]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SMTP.o
 Folder=Intermediary
@@ -1313,7 +1313,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File101]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SNMP.o
 Folder=Intermediary
@@ -1326,7 +1326,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File102]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SNMPv3.o
 Folder=Intermediary
@@ -1339,7 +1339,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File103]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SNMPv3USM.o
 Folder=Intermediary
@@ -1352,7 +1352,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File104]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
 Folder=Intermediary
@@ -1365,7 +1365,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File105]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SPIEEPROM.o
 Folder=Intermediary
@@ -1378,7 +1378,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File106]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SPIFlash.o
 Folder=Intermediary
@@ -1391,7 +1391,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File107]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SPIRAM.o
 Folder=Intermediary
@@ -1404,7 +1404,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File108]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\SSL.o
 Folder=Intermediary
@@ -1417,7 +1417,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File109]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
 Folder=Intermediary
@@ -1430,7 +1430,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File110]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
 Folder=Intermediary
@@ -1443,7 +1443,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File111]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\TFTPc.o
 Folder=Intermediary
@@ -1456,7 +1456,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File112]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
 Folder=Intermediary
@@ -1469,7 +1469,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File113]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\UART.o
 Folder=Intermediary
@@ -1482,7 +1482,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File114]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
 Folder=Intermediary
@@ -1495,7 +1495,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File115]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfHelper.o
 Folder=Intermediary
@@ -1508,7 +1508,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File116]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfLinkLocal.o
 Folder=Intermediary
@@ -1521,7 +1521,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File117]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfMulticastDNS.o
 Folder=Intermediary
@@ -1534,7 +1534,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File118]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WF_Eint.o
 Folder=Intermediary
@@ -1547,7 +1547,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File119]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
 Folder=Intermediary
@@ -1560,7 +1560,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File120]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionAlgorithm.o
 Folder=Intermediary
@@ -1573,7 +1573,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File121]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
 Folder=Intermediary
@@ -1586,7 +1586,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File122]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionProfile.o
 Folder=Intermediary
@@ -1599,7 +1599,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File123]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConsole.o
 Folder=Intermediary
@@ -1612,7 +1612,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File124]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIfconfig.o
 Folder=Intermediary
@@ -1625,7 +1625,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File125]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIwconfig.o
 Folder=Intermediary
@@ -1638,7 +1638,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File126]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIwpriv.o
 Folder=Intermediary
@@ -1651,7 +1651,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File127]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleMsgHandler.o
 Folder=Intermediary
@@ -1664,7 +1664,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File128]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleMsgs.o
 Folder=Intermediary
@@ -1677,7 +1677,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File129]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFDataTxRx.o
 Folder=Intermediary
@@ -1690,7 +1690,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File130]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
 Folder=Intermediary
@@ -1703,7 +1703,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File131]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
 Folder=Intermediary
@@ -1716,7 +1716,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File132]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFEasyConfig.o
 Folder=Intermediary
@@ -1729,7 +1729,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File133]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFEventHandler.o
 Folder=Intermediary
@@ -1742,7 +1742,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File134]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
 Folder=Intermediary
@@ -1755,7 +1755,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File135]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
 Folder=Intermediary
@@ -1768,7 +1768,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File136]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
 Folder=Intermediary
@@ -1781,7 +1781,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File137]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFParamMsg.o
 Folder=Intermediary
@@ -1794,7 +1794,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File138]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
 Folder=Intermediary
@@ -1807,7 +1807,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File139]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFScan.o
 Folder=Intermediary
@@ -1820,7 +1820,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File140]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WFTxPower.o
 Folder=Intermediary
@@ -1833,7 +1833,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File141]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\CustomSSLCert.o
 Folder=Intermediary
@@ -1846,7 +1846,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File142]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
 Folder=Intermediary
@@ -1859,7 +1859,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File143]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPClient.o
 Folder=Intermediary
@@ -1872,7 +1872,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File144]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
 Folder=Intermediary
@@ -1885,7 +1885,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File145]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\MPFSImg2.o
 Folder=Intermediary
@@ -1898,7 +1898,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File146]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
 Folder=Intermediary
@@ -1911,7 +1911,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File147]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\BigInt_helper_C32.o
 Folder=Intermediary
@@ -1924,7 +1924,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-DCFG_INCLUDE_PIC32_GP_SK_MRF24WB
 TraceCmdString=
-DebugOptions=--defsym=__DEBUG=1 --defsym=__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File148]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
 Folder=Intermediary
@@ -1937,7 +1937,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File149]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
 Folder=Intermediary
@@ -1950,7 +1950,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-g -DCFG_INCLUDE_PIC32_GP_SK_MRF24WB -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1
+DebugOptions=
 [File150]
 Location=C:\WIFIROVER\TCPIP\Demo App\WiFiRover.elf
 Folder=Output
@@ -1989,7 +1989,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Os
 TraceCmdString=
-DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_ICD3=1 --defsym=__ICD2RAM=1
+DebugOptions=
 [File153]
 Location=N:\..University\Year2\Cybs Challenge\Code Rep\Embedded\WIFIROVER\TCPIP\Demo App\WiFiRover.hex
 Folder=Output
@@ -2002,7 +2002,7 @@ SOLK=<src>|..\..\Microchip\TCPIP Stack\Announce.c|..\..\Microchip\TCPIP Stack\AR
 SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Os
 TraceCmdString=
-DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_ICD3=1 --defsym=__ICD2RAM=1
+DebugOptions=
 [TOOL_LOC_STAMPS]
 tool_loc{92E15EC6-5E91-4BF4-B5FA-C80AD2601AA7}=C:\Program Files\Microchip\MPLAB C32 Suite\bin\pic32-as.exe
 tool_loc{430F471F-7ECB-4852-A80D-DEF9A5C8E751}=C:\Program Files\Microchip\MPLAB C32 Suite\bin\pic32-gcc.exe

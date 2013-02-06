@@ -34,11 +34,12 @@ volatile unsigned char IRres[512];
 volatile unsigned char IRres2[512];
 
 
+#define MAX_SPEED_ENCODER_STEPS	230
 unsigned long ticker4 = 0;
 #define SYS_FREQ			80000000L
 #define PRESCALE			2
 #define PB_DIV				8
-#define TOGGLES_SEC			2048 //at 1Hz // lower value to increase freq
+#define TOGGLES_SEC			205 //at 10Hz // lower value to increase freq 2048 = 1Hz
 #define T4_TICK       		(SYS_FREQ/PB_DIV/PRESCALE)
 
 

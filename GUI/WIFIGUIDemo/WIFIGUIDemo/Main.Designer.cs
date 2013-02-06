@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.drive1secButton = new System.Windows.Forms.Button();
             this.auxLabel = new System.Windows.Forms.Label();
             this.LightLabel = new System.Windows.Forms.Label();
             this.lightLuxButton = new System.Windows.Forms.Button();
@@ -146,6 +147,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.drive1secButton);
             this.groupBox2.Controls.Add(this.auxLabel);
             this.groupBox2.Controls.Add(this.LightLabel);
             this.groupBox2.Controls.Add(this.lightLuxButton);
@@ -168,6 +170,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // drive1secButton
+            // 
+            this.drive1secButton.Location = new System.Drawing.Point(528, 70);
+            this.drive1secButton.Name = "drive1secButton";
+            this.drive1secButton.Size = new System.Drawing.Size(107, 30);
+            this.drive1secButton.TabIndex = 16;
+            this.drive1secButton.Text = "Drive for 1 sec";
+            this.drive1secButton.UseVisualStyleBackColor = true;
+            this.drive1secButton.Click += new System.EventHandler(this.drive1secButton_Click);
             // 
             // auxLabel
             // 
@@ -445,7 +457,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -518,6 +529,7 @@
         private System.Windows.Forms.Label auxLabel;
         private System.Windows.Forms.Label LightLabel;
         private System.Windows.Forms.Button lightLuxButton;
+        private System.Windows.Forms.Button drive1secButton;
     }
 }
 

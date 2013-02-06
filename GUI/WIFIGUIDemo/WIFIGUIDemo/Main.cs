@@ -100,6 +100,9 @@ namespace WIFIGUIDemo
         int left_encoder = 0;
         int right_encoder = 0;
 
+        int _1sec_l = 0;
+        int _1sec_r = 0;
+
         private void DataReceived_Handler(Client_Message_EventArgs e)
         {
             //Take the new data received and convert it into a more manageable format
@@ -147,6 +150,19 @@ namespace WIFIGUIDemo
 
                                 leftEncoderLabel.Text = le.ToString();
                                 rightEncoderLabel.Text = re.ToString();
+
+                                if (driving)
+                                {
+                                    _1sec_l = le;
+                                    _1sec_r = re;
+                                }
+                                else
+                                {
+                                    if (_1sec_l != 0 && _1sec_r != 0)
+                                    {
+                                        MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
+                                    }
+                                }
 
                                 if (!initial_value)
                                 {
@@ -301,6 +317,15 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 theClient.SendData(CommandID.InternalCounter, new byte[] { });
+
+                if (driving && _1sec_l != 0)
+                {
+                    setMotorSpeed(0, 0);
+                    theClient.SendData(CommandID.MotorPosition, new byte[] { });
+                    driving = false;
+                    timer1.Enabled = false;
+                }
+
             }   
         }
 
@@ -367,8 +392,9 @@ namespace WIFIGUIDemo
             {
                 if (theClient.isConnected)
                 {
-                    int right_speed = -120;
-                    theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)right_speed, (byte)right_speed });
+                    int right_speed = 120;
+                    int left_speed = 120;
+                    setMotorSpeed(left_speed, right_speed);
                 }
             }
         }
@@ -411,7 +437,15 @@ namespace WIFIGUIDemo
                 g.DrawLine(p, e.Location, new Point(directionalSpeed.Width / 2, directionalSpeed.Height / 2));
             }
             directionalSpeed.Image = (Image)img;
-            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)left_speed, (byte)right_speed });
+            setMotorSpeed(left_speed, right_speed);
+        }
+
+        private void setMotorSpeed(int left, int right)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)(-left), (byte)(-right) });
+            }
         }
 
         private void directionalSpeed_MouseUp(object sender, MouseEventArgs e)
@@ -437,6 +471,16 @@ namespace WIFIGUIDemo
                 theClient.SendData(CommandID.GetLightAuxValue, new byte[] { });
             }
         }
+
+        bool driving = false;
+        private void drive1secButton_Click(object sender, EventArgs e)
+        {
+            theClient.SendData(CommandID.MotorPosition, new byte[] { });
+            setMotorSpeed(80, 80);
+            timer1.Enabled = true;
+            driving = true;
+        }
+
 
     }
 }
