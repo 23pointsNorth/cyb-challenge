@@ -37,6 +37,11 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.auxLabel = new System.Windows.Forms.Label();
+            this.LightLabel = new System.Windows.Forms.Label();
+            this.lightLuxButton = new System.Windows.Forms.Button();
+            this.tempLabel = new System.Windows.Forms.Label();
+            this.tempButton = new System.Windows.Forms.Button();
             this.directionalSpeed = new System.Windows.Forms.PictureBox();
             this.rightSpeed = new System.Windows.Forms.TrackBar();
             this.leftSpeed = new System.Windows.Forms.TrackBar();
@@ -61,11 +66,6 @@
             this.cmdSetLEDs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
-            this.tempButton = new System.Windows.Forms.Button();
-            this.tempLabel = new System.Windows.Forms.Label();
-            this.LightLabel = new System.Windows.Forms.Label();
-            this.lightLuxButton = new System.Windows.Forms.Button();
-            this.auxLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -169,6 +169,53 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
             // 
+            // auxLabel
+            // 
+            this.auxLabel.AutoSize = true;
+            this.auxLabel.Location = new System.Drawing.Point(527, 213);
+            this.auxLabel.Name = "auxLabel";
+            this.auxLabel.Size = new System.Drawing.Size(25, 13);
+            this.auxLabel.TabIndex = 15;
+            this.auxLabel.Text = "Aux";
+            // 
+            // LightLabel
+            // 
+            this.LightLabel.AutoSize = true;
+            this.LightLabel.Location = new System.Drawing.Point(487, 213);
+            this.LightLabel.Name = "LightLabel";
+            this.LightLabel.Size = new System.Drawing.Size(30, 13);
+            this.LightLabel.TabIndex = 14;
+            this.LightLabel.Text = "Light";
+            // 
+            // lightLuxButton
+            // 
+            this.lightLuxButton.Location = new System.Drawing.Point(487, 235);
+            this.lightLuxButton.Name = "lightLuxButton";
+            this.lightLuxButton.Size = new System.Drawing.Size(101, 23);
+            this.lightLuxButton.TabIndex = 13;
+            this.lightLuxButton.Text = "Get Light Lux";
+            this.lightLuxButton.UseVisualStyleBackColor = true;
+            this.lightLuxButton.Click += new System.EventHandler(this.lightLuxButton_Click);
+            // 
+            // tempLabel
+            // 
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Location = new System.Drawing.Point(490, 148);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(67, 13);
+            this.tempLabel.TabIndex = 12;
+            this.tempLabel.Text = "Temperature";
+            // 
+            // tempButton
+            // 
+            this.tempButton.Location = new System.Drawing.Point(490, 170);
+            this.tempButton.Name = "tempButton";
+            this.tempButton.Size = new System.Drawing.Size(101, 23);
+            this.tempButton.TabIndex = 11;
+            this.tempButton.Text = "Get Temperature";
+            this.tempButton.UseVisualStyleBackColor = true;
+            this.tempButton.Click += new System.EventHandler(this.tempButton_Click);
+            // 
             // directionalSpeed
             // 
             this.directionalSpeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -188,7 +235,7 @@
             this.rightSpeed.Minimum = -127;
             this.rightSpeed.Name = "rightSpeed";
             this.rightSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rightSpeed.Size = new System.Drawing.Size(45, 104);
+            this.rightSpeed.Size = new System.Drawing.Size(45, 258);
             this.rightSpeed.TabIndex = 9;
             this.rightSpeed.ValueChanged += new System.EventHandler(this.rightSpeed_ValueChanged);
             // 
@@ -199,7 +246,7 @@
             this.leftSpeed.Minimum = -127;
             this.leftSpeed.Name = "leftSpeed";
             this.leftSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.leftSpeed.Size = new System.Drawing.Size(45, 102);
+            this.leftSpeed.Size = new System.Drawing.Size(45, 256);
             this.leftSpeed.TabIndex = 8;
             this.leftSpeed.ValueChanged += new System.EventHandler(this.leftSpeed_ValueChanged);
             // 
@@ -405,53 +452,6 @@
             // reqInfo
             // 
             this.reqInfo.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // tempButton
-            // 
-            this.tempButton.Location = new System.Drawing.Point(490, 170);
-            this.tempButton.Name = "tempButton";
-            this.tempButton.Size = new System.Drawing.Size(101, 23);
-            this.tempButton.TabIndex = 11;
-            this.tempButton.Text = "Get Temperature";
-            this.tempButton.UseVisualStyleBackColor = true;
-            this.tempButton.Click += new System.EventHandler(this.tempButton_Click);
-            // 
-            // tempLabel
-            // 
-            this.tempLabel.AutoSize = true;
-            this.tempLabel.Location = new System.Drawing.Point(490, 148);
-            this.tempLabel.Name = "tempLabel";
-            this.tempLabel.Size = new System.Drawing.Size(67, 13);
-            this.tempLabel.TabIndex = 12;
-            this.tempLabel.Text = "Temperature";
-            // 
-            // LightLabel
-            // 
-            this.LightLabel.AutoSize = true;
-            this.LightLabel.Location = new System.Drawing.Point(487, 213);
-            this.LightLabel.Name = "LightLabel";
-            this.LightLabel.Size = new System.Drawing.Size(30, 13);
-            this.LightLabel.TabIndex = 14;
-            this.LightLabel.Text = "Light";
-            // 
-            // lightLuxButton
-            // 
-            this.lightLuxButton.Location = new System.Drawing.Point(487, 235);
-            this.lightLuxButton.Name = "lightLuxButton";
-            this.lightLuxButton.Size = new System.Drawing.Size(101, 23);
-            this.lightLuxButton.TabIndex = 13;
-            this.lightLuxButton.Text = "Get Light Lux";
-            this.lightLuxButton.UseVisualStyleBackColor = true;
-            this.lightLuxButton.Click += new System.EventHandler(this.lightLuxButton_Click);
-            // 
-            // auxLabel
-            // 
-            this.auxLabel.AutoSize = true;
-            this.auxLabel.Location = new System.Drawing.Point(527, 213);
-            this.auxLabel.Name = "auxLabel";
-            this.auxLabel.Size = new System.Drawing.Size(25, 13);
-            this.auxLabel.TabIndex = 15;
-            this.auxLabel.Text = "Aux";
             // 
             // Main
             // 

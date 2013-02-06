@@ -18,6 +18,7 @@ namespace ServerLib
         SetLeftMotorSpeed = 0x05,
         SetRightMotorSpeed = 0x06,
         SetMotorsSpeed = 0x07,
+        LineFollowingData = 0x08,
         GetLightAuxValue = 0x11,
         GetTermData = 0x1B
     };
