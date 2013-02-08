@@ -46,3 +46,15 @@ N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x8
 N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.Properties.Resources.resources
 N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.read.1.tlog
 N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.write.1.tlog
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.exe
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.pdb
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\WIFIGUIDemo.exe
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\WIFIGUIDemo.pdb
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\ServerLib.dll
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\bin\Release\ServerLib.pdb
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\ResolveAssemblyReference.cache
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.inputDialog.resources
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.Main.resources
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\WIFIGUIDemo.Properties.Resources.resources
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.read.1.tlog
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\WIFIGUIDemo\obj\x86\Release\GenerateResource.write.1.tlog

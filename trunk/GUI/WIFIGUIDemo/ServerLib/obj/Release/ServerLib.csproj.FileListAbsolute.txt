@@ -33,3 +33,8 @@ N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\ServerLib\bin\Rele
 N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\ServerLib\obj\Release\ResolveAssemblyReference.cache
 N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\ServerLib\obj\Release\ServerLib.dll
 N:\..University\Year2\Cybs Challenge\Code Rep\GUI\WIFIGUIDemo\ServerLib\obj\Release\ServerLib.pdb
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\ServerLib\bin\Release\ServerLib.dll
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\ServerLib\bin\Release\ServerLib.pdb
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\ServerLib\obj\Release\ResolveAssemblyReference.cache
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\ServerLib\obj\Release\ServerLib.dll
+\\ndrive\pc014814\.do_not_delete\desktop.xp\cybs\GUI\WIFIGUIDemo\ServerLib\obj\Release\ServerLib.pdb
