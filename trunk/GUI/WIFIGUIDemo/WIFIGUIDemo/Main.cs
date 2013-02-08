@@ -93,8 +93,8 @@ namespace WIFIGUIDemo
         /// 
 
         int ENCODER_SPEED = -100;
-        double LEFT_PARAM = 1;
-        double RIGHT_PARAM = 1.05f;
+        double LEFT_PARAM = 1.18f;
+        double RIGHT_PARAM = 1.0f;
         bool activate_seq = false;
         bool initial_value = false;
         int left_encoder = 0;
@@ -199,8 +199,8 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int light = NewData[4] + NewData[5] << 8;
-                                int aux = NewData[6] + NewData[7] << 8;
+                                int light = NewData[5] + NewData[4] << 8;
+                                int aux = NewData[7] + NewData[6] << 8;
                                 LightLabel.Text = light.ToString();
                                 auxLabel.Text = aux.ToString();
                             }));
