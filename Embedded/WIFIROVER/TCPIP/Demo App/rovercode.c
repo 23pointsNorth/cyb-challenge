@@ -33,6 +33,17 @@ volatile int IRstreamHead,IRstreamTail,IRstreamLen;
 volatile unsigned char IRres[512];
 volatile unsigned char IRres2[512];
 
+int speed1=0x7fff;
+int pos1=0;
+int speed2=0x7fff;
+int pos2=0;
+
+void setspeed(int newspeed1,int newspeed2);
+
+int wanted_speed_left;
+int wanted_speed_right;
+int le_old;				//left encoder old value
+int re_old;
 
 #define MAX_SPEED_ENCODER_STEPS	230
 unsigned long ticker4 = 0;
@@ -40,19 +51,67 @@ unsigned long ticker4 = 0;
 #define PRESCALE			2
 #define PB_DIV				8
 #define TOGGLES_SEC			205 //at 10Hz // lower value to increase freq 2048 = 1Hz
+#define INTER_FREQ			10  //10HZ at 205 toggles
 #define T4_TICK       		(SYS_FREQ/PB_DIV/PRESCALE)
+#define MAX_SPEED			230 //encoder steps/second
 
+#define PD					2
 
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
 {
+	// Reset interrupt flag
+	mT4ClearIntFlag();	
+
 	// Increment internal high tick counter
 	ticker4++;
 	if (ticker4 % TOGGLES_SEC == 0)
 	{
 		mPORTEToggleBits(BIT_3);
+
+		//Feedback left motor
+		int delta_e_l = (wanted_speed_left*MAX_SPEED/1270);
+		int actual_de_l = (le_old - pos1);
+		if (actual_de_l < 0) {actual_de_l += 0xFFFF;} 
+		le_old = pos1;
+		
+		int l_error = actual_de_l - delta_e_l;
+
+		if (l_error > 0)
+		{
+			if (wanted_speed_left > 0)
+				speed1 = speed1 - PD * l_error; 
+			else speed1 = speed1 + PD * l_error;
+		}
+		else if (actual_de_l < delta_e_l)
+		{
+			if (wanted_speed_left > 0)
+				speed1 = speed1 + PD * l_error; 
+			else speed1 = speed1 - PD * l_error;
+		}
+
+		//Feedback right motor
+		int delta_e_r = (wanted_speed_right/127)*MAX_SPEED/10;
+		int actual_de_r = (re_old - pos2);
+		if (actual_de_r < 0) {actual_de_r += 0xFFFF;} 
+		re_old = pos2;
+		
+		int r_error = actual_de_r - delta_e_r;
+		if (r_error > 0)
+		{
+			if (wanted_speed_right > 0)
+				speed2 = speed2 - PD * r_error; 
+			else speed2 = speed2 + PD * r_error;
+		}
+		else if (actual_de_r < delta_e_r)
+		{
+			if (wanted_speed_right > 0)
+				speed2 = speed2 + PD * r_error; 
+			else speed2 = speed2 - PD * r_error;
+		}		
+
+		//Set new motor speeds
+		setspeed(speed1, speed2);
 	}
-	// Reset interrupt flag
-	mT4ClearIntFlag();
 }
 
 
@@ -99,12 +158,12 @@ void __attribute((interrupt(ipl3), vector(_ADC_VECTOR), nomips16)) _ADCInterrupt
 IFS1bits.AD1IF=0;
 }
 
-
-
+/* Moved up
 int speed1=0x7fff;
 int pos1=0;
 int speed2=0x7fff;
 int pos2=0;
+*/
 
 //encoder interrupt on rise and fall edge
 void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _IC1Interrupt(void)
@@ -264,18 +323,22 @@ void processcommand(void)
 			break;
 	case 5:if (commandlen==1)	// set motor1
 			{
+				wanted_speed_left = nextcommand[1];
 			  setspeed((char)nextcommand[1],speed2);
 			 POSTTCPhead(0,5);
 			}
 			break;
 	case 6:if (commandlen==1)	// set motor2
 			{
+				wanted_speed_right = nextcommand[1];
 			  setspeed(speed1,(char)nextcommand[1]);
 			 POSTTCPhead(0,6);
 			}
 			break;
 	case 7:if (commandlen==2)	// set both motors
 			{
+				wanted_speed_left = nextcommand[1];
+				wanted_speed_right = nextcommand[2];
 			  setspeed((char)nextcommand[1],(char)nextcommand[2]);
 			 POSTTCPhead(0,7);
 			}
@@ -722,9 +785,9 @@ IEC1bits.AD1IE=1;
     I2CEnable(I2C1, TRUE);
 
 
-//Initialize timer4
-OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_2, T4_TICK);
-ConfigIntTimer4(T4_INT_ON | T4_INT_PRIOR_2);
-INTEnableSystemMultiVectoredInt();
+	//Initialize timer4
+	OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_2, T4_TICK);
+	ConfigIntTimer4(T4_INT_ON | T4_INT_PRIOR_2);
+	INTEnableSystemMultiVectoredInt();
 }
 
