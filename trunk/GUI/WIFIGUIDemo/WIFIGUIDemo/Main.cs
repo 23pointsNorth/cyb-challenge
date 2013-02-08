@@ -212,9 +212,33 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                getXlabel.Text = (NewData[4] + NewData[3] << 8).ToString();
-                                getZlabel.Text = (NewData[6] + NewData[5] << 8).ToString();
-                                getYlabel.Text = (NewData[8] + NewData[7] << 8).ToString();
+                                int x = (NewData[5] + NewData[4] << 8);
+                                int y = (NewData[9] + NewData[8] << 8);
+                                int z = (NewData[7] + NewData[6] << 8);
+                                getXlabel.Text = x.ToString();
+                                getYlabel.Text = y.ToString();
+                                getZlabel.Text = z.ToString();
+                                xProgress.Value = x;
+                                yProgress.Value = y;
+                                zProgress.Value = z;  
+                            }));
+                            break;
+                        }
+
+                    case (byte)CommandID.GetAccelValue:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                int x = (NewData[5] + NewData[4] << 8);
+                                int y = (NewData[7] + NewData[6] << 8);
+                                int z = (NewData[9] + NewData[8] << 8);
+                                accelXlabel.Text = x.ToString();
+                                accelYlabel.Text = y.ToString();
+                                accelZlabel.Text = z.ToString();
+                                accelxProgress.Value = x;
+                                accelyProgress.Value = y;
+                                accelzProgress.Value = z;
                             }));
                             break;
                         }
@@ -500,5 +524,14 @@ namespace WIFIGUIDemo
                 theClient.SendData(CommandID.GetMagnetValue, new byte[] { });
             }
         }
+
+        private void getAccelerometer_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.GetAccelValue, new byte[] { });
+            }
+
+        } 
     }
 }

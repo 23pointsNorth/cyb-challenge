@@ -37,8 +37,17 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.accelYlabel = new System.Windows.Forms.Label();
+            this.accelXlabel = new System.Windows.Forms.Label();
+            this.accelzProgress = new System.Windows.Forms.ProgressBar();
+            this.zProgress = new System.Windows.Forms.ProgressBar();
+            this.accelyProgress = new System.Windows.Forms.ProgressBar();
+            this.accelxProgress = new System.Windows.Forms.ProgressBar();
+            this.yProgress = new System.Windows.Forms.ProgressBar();
+            this.xProgress = new System.Windows.Forms.ProgressBar();
+            this.accelZlabel = new System.Windows.Forms.Label();
+            this.getZlabel = new System.Windows.Forms.Label();
             this.getYlabel = new System.Windows.Forms.Label();
-            this.getAccelerometerlabel = new System.Windows.Forms.Label();
             this.getAccelerometer = new System.Windows.Forms.Button();
             this.getXlabel = new System.Windows.Forms.Label();
             this.getMagnet = new System.Windows.Forms.Button();
@@ -72,7 +81,6 @@
             this.cmdSetLEDs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
-            this.getZlabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -153,9 +161,17 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.accelYlabel);
+            this.groupBox2.Controls.Add(this.accelXlabel);
+            this.groupBox2.Controls.Add(this.accelzProgress);
+            this.groupBox2.Controls.Add(this.zProgress);
+            this.groupBox2.Controls.Add(this.accelyProgress);
+            this.groupBox2.Controls.Add(this.accelxProgress);
+            this.groupBox2.Controls.Add(this.yProgress);
+            this.groupBox2.Controls.Add(this.xProgress);
+            this.groupBox2.Controls.Add(this.accelZlabel);
             this.groupBox2.Controls.Add(this.getZlabel);
             this.groupBox2.Controls.Add(this.getYlabel);
-            this.groupBox2.Controls.Add(this.getAccelerometerlabel);
             this.groupBox2.Controls.Add(this.getAccelerometer);
             this.groupBox2.Controls.Add(this.getXlabel);
             this.groupBox2.Controls.Add(this.getMagnet);
@@ -183,6 +199,102 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
             // 
+            // accelYlabel
+            // 
+            this.accelYlabel.AutoSize = true;
+            this.accelYlabel.Location = new System.Drawing.Point(527, 384);
+            this.accelYlabel.Name = "accelYlabel";
+            this.accelYlabel.Size = new System.Drawing.Size(14, 13);
+            this.accelYlabel.TabIndex = 27;
+            this.accelYlabel.Text = "Y";
+            // 
+            // accelXlabel
+            // 
+            this.accelXlabel.AutoSize = true;
+            this.accelXlabel.Location = new System.Drawing.Point(487, 384);
+            this.accelXlabel.Name = "accelXlabel";
+            this.accelXlabel.Size = new System.Drawing.Size(14, 13);
+            this.accelXlabel.TabIndex = 26;
+            this.accelXlabel.Text = "X";
+            // 
+            // accelzProgress
+            // 
+            this.accelzProgress.Location = new System.Drawing.Point(628, 458);
+            this.accelzProgress.Maximum = 150000;
+            this.accelzProgress.Name = "accelzProgress";
+            this.accelzProgress.Size = new System.Drawing.Size(82, 23);
+            this.accelzProgress.Step = 100;
+            this.accelzProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.accelzProgress.TabIndex = 25;
+            // 
+            // zProgress
+            // 
+            this.zProgress.Location = new System.Drawing.Point(628, 352);
+            this.zProgress.Maximum = 150000;
+            this.zProgress.Name = "zProgress";
+            this.zProgress.Size = new System.Drawing.Size(82, 23);
+            this.zProgress.Step = 100;
+            this.zProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.zProgress.TabIndex = 25;
+            // 
+            // accelyProgress
+            // 
+            this.accelyProgress.Location = new System.Drawing.Point(628, 429);
+            this.accelyProgress.Maximum = 130000;
+            this.accelyProgress.Name = "accelyProgress";
+            this.accelyProgress.Size = new System.Drawing.Size(82, 23);
+            this.accelyProgress.Step = 100;
+            this.accelyProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.accelyProgress.TabIndex = 24;
+            // 
+            // accelxProgress
+            // 
+            this.accelxProgress.Location = new System.Drawing.Point(628, 400);
+            this.accelxProgress.Maximum = 130000;
+            this.accelxProgress.Name = "accelxProgress";
+            this.accelxProgress.Size = new System.Drawing.Size(82, 23);
+            this.accelxProgress.Step = 100;
+            this.accelxProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.accelxProgress.TabIndex = 23;
+            // 
+            // yProgress
+            // 
+            this.yProgress.Location = new System.Drawing.Point(628, 323);
+            this.yProgress.Maximum = 130000;
+            this.yProgress.Name = "yProgress";
+            this.yProgress.Size = new System.Drawing.Size(82, 23);
+            this.yProgress.Step = 100;
+            this.yProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.yProgress.TabIndex = 24;
+            // 
+            // xProgress
+            // 
+            this.xProgress.Location = new System.Drawing.Point(628, 294);
+            this.xProgress.Maximum = 130000;
+            this.xProgress.Name = "xProgress";
+            this.xProgress.Size = new System.Drawing.Size(82, 23);
+            this.xProgress.Step = 100;
+            this.xProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.xProgress.TabIndex = 23;
+            // 
+            // accelZlabel
+            // 
+            this.accelZlabel.AutoSize = true;
+            this.accelZlabel.Location = new System.Drawing.Point(574, 384);
+            this.accelZlabel.Name = "accelZlabel";
+            this.accelZlabel.Size = new System.Drawing.Size(14, 13);
+            this.accelZlabel.TabIndex = 22;
+            this.accelZlabel.Text = "Z";
+            // 
+            // getZlabel
+            // 
+            this.getZlabel.AutoSize = true;
+            this.getZlabel.Location = new System.Drawing.Point(574, 277);
+            this.getZlabel.Name = "getZlabel";
+            this.getZlabel.Size = new System.Drawing.Size(14, 13);
+            this.getZlabel.TabIndex = 22;
+            this.getZlabel.Text = "Z";
+            // 
             // getYlabel
             // 
             this.getYlabel.AutoSize = true;
@@ -192,23 +304,15 @@
             this.getYlabel.TabIndex = 21;
             this.getYlabel.Text = "Y";
             // 
-            // getAccelerometerlabel
-            // 
-            this.getAccelerometerlabel.AutoSize = true;
-            this.getAccelerometerlabel.Location = new System.Drawing.Point(486, 348);
-            this.getAccelerometerlabel.Name = "getAccelerometerlabel";
-            this.getAccelerometerlabel.Size = new System.Drawing.Size(75, 13);
-            this.getAccelerometerlabel.TabIndex = 20;
-            this.getAccelerometerlabel.Text = "Accelerometer";
-            // 
             // getAccelerometer
             // 
-            this.getAccelerometer.Location = new System.Drawing.Point(482, 367);
+            this.getAccelerometer.Location = new System.Drawing.Point(483, 400);
             this.getAccelerometer.Name = "getAccelerometer";
             this.getAccelerometer.Size = new System.Drawing.Size(108, 23);
             this.getAccelerometer.TabIndex = 19;
             this.getAccelerometer.Text = "Accelerometer";
             this.getAccelerometer.UseVisualStyleBackColor = true;
+            this.getAccelerometer.Click += new System.EventHandler(this.getAccelerometer_Click);
             // 
             // getXlabel
             // 
@@ -522,15 +626,6 @@
             // 
             this.reqInfo.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // getZlabel
-            // 
-            this.getZlabel.AutoSize = true;
-            this.getZlabel.Location = new System.Drawing.Point(574, 277);
-            this.getZlabel.Name = "getZlabel";
-            this.getZlabel.Size = new System.Drawing.Size(14, 13);
-            this.getZlabel.TabIndex = 22;
-            this.getZlabel.Text = "Z";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,10 +694,18 @@
         private System.Windows.Forms.Button drive1secButton;
         private System.Windows.Forms.Label getXlabel;
         private System.Windows.Forms.Button getMagnet;
-        private System.Windows.Forms.Label getAccelerometerlabel;
         private System.Windows.Forms.Button getAccelerometer;
         private System.Windows.Forms.Label getYlabel;
         private System.Windows.Forms.Label getZlabel;
+        private System.Windows.Forms.ProgressBar xProgress;
+        private System.Windows.Forms.ProgressBar zProgress;
+        private System.Windows.Forms.ProgressBar yProgress;
+        private System.Windows.Forms.Label accelYlabel;
+        private System.Windows.Forms.Label accelXlabel;
+        private System.Windows.Forms.Label accelZlabel;
+        private System.Windows.Forms.ProgressBar accelzProgress;
+        private System.Windows.Forms.ProgressBar accelyProgress;
+        private System.Windows.Forms.ProgressBar accelxProgress;
     }
 }
 

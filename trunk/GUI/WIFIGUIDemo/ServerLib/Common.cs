@@ -21,6 +21,7 @@ namespace ServerLib
         LineFollowingData = 0x08,
         GetLightAuxValue = 0x11,
         GetTermData = 0x1B,
-        GetMagnetValue= 0x2D
+        GetMagnetValue= 0x2D,
+        GetAccelValue=0x28 
     };
 }
