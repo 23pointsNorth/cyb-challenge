@@ -199,13 +199,12 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int light = NewData[4] + NewData[5] << 8;
+                                int light = NewData[5] + NewData[4] << 8;
                                 int aux = NewData[7] + NewData[6] << 8;
                                 LightLabel.Text = light.ToString();
                                 auxLabel.Text = aux.ToString();
                             }));
                             break;
-
                         }
                     case (byte)CommandID.GetMagnetValue:
                         {
@@ -241,7 +240,32 @@ namespace WIFIGUIDemo
                                 accelzProgress.Value = z;
                             }));
                             break;
-                        }
+                    // change between here 
+							}
+                      case (byte)CommandID.LineFollowingData:
+                        //Invokation to allow cross thread manipulation
+                        this.BeginInvoke(new EventHandler(delegate
+                        {
+                            string thresh = null;
+                            int line = NewData[5] + NewData[6] << 8;
+                            int line2 = NewData[7] + NewData[8] << 8;
+                            int line3 = NewData[4];
+                            lineLabel.Text = line.ToString();
+                            lineLabel2.Text = line2.ToString();
+
+                            if (line3 == 0){
+                                thresh = ("ok");
+                            }else if(line3 == 1){
+                                thresh = ("Test Needed 1");
+                            }else if(line3 == 2){
+                                thresh = ("Test Needed 2");
+                            }
+                            else if (line3 == 3){
+                                thresh = ("Both over threshold");
+                            }
+                            threshLabel.Text = thresh;
+                        }));
+                        break;
                 }
                /* if (NewData[3] == (byte)CommandID.SwitchLEDStatus)
                 {
@@ -517,21 +541,12 @@ namespace WIFIGUIDemo
             driving = true;
         }
 
-        private void getMagnet_Click(object sender, EventArgs e)
+        // change here 
+        private void lineData_Click(object sender, EventArgs e)
         {
-            if (theClient.isConnected)
-            {
-                theClient.SendData(CommandID.GetMagnetValue, new byte[] { });
-            }
+            theClient.SendData(CommandID.LineFollowingData, new byte[] { });
+
         }
 
-        private void getAccelerometer_Click(object sender, EventArgs e)
-        {
-            if (theClient.isConnected)
-            {
-                theClient.SendData(CommandID.GetAccelValue, new byte[] { });
-            }
-
-        } 
     }
 }
