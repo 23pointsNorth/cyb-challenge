@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lineData = new System.Windows.Forms.Button();
             this.accelYlabel = new System.Windows.Forms.Label();
             this.accelXlabel = new System.Windows.Forms.Label();
             this.accelzProgress = new System.Windows.Forms.ProgressBar();
@@ -81,6 +82,9 @@
             this.cmdSetLEDs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
+            this.lineLabel = new System.Windows.Forms.Label();
+            this.lineLabel2 = new System.Windows.Forms.Label();
+            this.threshLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -161,6 +165,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.threshLabel);
+            this.groupBox2.Controls.Add(this.lineLabel2);
+            this.groupBox2.Controls.Add(this.lineLabel);
+            this.groupBox2.Controls.Add(this.lineData);
             this.groupBox2.Controls.Add(this.accelYlabel);
             this.groupBox2.Controls.Add(this.accelXlabel);
             this.groupBox2.Controls.Add(this.accelzProgress);
@@ -198,6 +206,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // lineData
+            // 
+            this.lineData.Location = new System.Drawing.Point(37, 434);
+            this.lineData.Name = "lineData";
+            this.lineData.Size = new System.Drawing.Size(111, 33);
+            this.lineData.TabIndex = 28;
+            this.lineData.Text = "Line Data";
+            this.lineData.UseVisualStyleBackColor = true;
+            this.lineData.Click += new System.EventHandler(this.lineData_Click);
             // 
             // accelYlabel
             // 
@@ -312,7 +330,6 @@
             this.getAccelerometer.TabIndex = 19;
             this.getAccelerometer.Text = "Accelerometer";
             this.getAccelerometer.UseVisualStyleBackColor = true;
-            this.getAccelerometer.Click += new System.EventHandler(this.getAccelerometer_Click);
             // 
             // getXlabel
             // 
@@ -331,7 +348,6 @@
             this.getMagnet.TabIndex = 17;
             this.getMagnet.Text = "Get Magnet";
             this.getMagnet.UseVisualStyleBackColor = true;
-            this.getMagnet.Click += new System.EventHandler(this.getMagnet_Click);
             // 
             // drive1secButton
             // 
@@ -626,6 +642,33 @@
             // 
             this.reqInfo.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // lineLabel
+            // 
+            this.lineLabel.AutoSize = true;
+            this.lineLabel.Location = new System.Drawing.Point(166, 434);
+            this.lineLabel.Name = "lineLabel";
+            this.lineLabel.Size = new System.Drawing.Size(39, 13);
+            this.lineLabel.TabIndex = 29;
+            this.lineLabel.Text = "Left IR";
+            // 
+            // lineLabel2
+            // 
+            this.lineLabel2.AutoSize = true;
+            this.lineLabel2.Location = new System.Drawing.Point(240, 434);
+            this.lineLabel2.Name = "lineLabel2";
+            this.lineLabel2.Size = new System.Drawing.Size(46, 13);
+            this.lineLabel2.TabIndex = 30;
+            this.lineLabel2.Text = "Right IR";
+            // 
+            // threshLabel
+            // 
+            this.threshLabel.AutoSize = true;
+            this.threshLabel.Location = new System.Drawing.Point(202, 458);
+            this.threshLabel.Name = "threshLabel";
+            this.threshLabel.Size = new System.Drawing.Size(54, 13);
+            this.threshLabel.TabIndex = 31;
+            this.threshLabel.Text = "Threshold";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -706,6 +749,10 @@
         private System.Windows.Forms.ProgressBar accelzProgress;
         private System.Windows.Forms.ProgressBar accelyProgress;
         private System.Windows.Forms.ProgressBar accelxProgress;
+        private System.Windows.Forms.Button lineData;
+        private System.Windows.Forms.Label threshLabel;
+        private System.Windows.Forms.Label lineLabel2;
+        private System.Windows.Forms.Label lineLabel;
     }
 }
 
