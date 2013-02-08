@@ -205,6 +205,18 @@ namespace WIFIGUIDemo
                                 auxLabel.Text = aux.ToString();
                             }));
                             break;
+
+                        }
+                    case (byte)CommandID.GetMagnetValue:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                getXlabel.Text = (NewData[4] + NewData[3] << 8).ToString();
+                                getZlabel.Text = (NewData[6] + NewData[5] << 8).ToString();
+                                getYlabel.Text = (NewData[8] + NewData[7] << 8).ToString();
+                            }));
+                            break;
                         }
                 }
                /* if (NewData[3] == (byte)CommandID.SwitchLEDStatus)
@@ -481,6 +493,12 @@ namespace WIFIGUIDemo
             driving = true;
         }
 
-
+        private void getMagnet_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.GetMagnetValue, new byte[] { });
+            }
+        }
     }
 }

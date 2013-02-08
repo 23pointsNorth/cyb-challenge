@@ -37,6 +37,11 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.getYlabel = new System.Windows.Forms.Label();
+            this.getAccelerometerlabel = new System.Windows.Forms.Label();
+            this.getAccelerometer = new System.Windows.Forms.Button();
+            this.getXlabel = new System.Windows.Forms.Label();
+            this.getMagnet = new System.Windows.Forms.Button();
             this.drive1secButton = new System.Windows.Forms.Button();
             this.auxLabel = new System.Windows.Forms.Label();
             this.LightLabel = new System.Windows.Forms.Label();
@@ -67,6 +72,7 @@
             this.cmdSetLEDs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
+            this.getZlabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -147,6 +153,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.getZlabel);
+            this.groupBox2.Controls.Add(this.getYlabel);
+            this.groupBox2.Controls.Add(this.getAccelerometerlabel);
+            this.groupBox2.Controls.Add(this.getAccelerometer);
+            this.groupBox2.Controls.Add(this.getXlabel);
+            this.groupBox2.Controls.Add(this.getMagnet);
             this.groupBox2.Controls.Add(this.drive1secButton);
             this.groupBox2.Controls.Add(this.auxLabel);
             this.groupBox2.Controls.Add(this.LightLabel);
@@ -170,6 +182,52 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // getYlabel
+            // 
+            this.getYlabel.AutoSize = true;
+            this.getYlabel.Location = new System.Drawing.Point(527, 277);
+            this.getYlabel.Name = "getYlabel";
+            this.getYlabel.Size = new System.Drawing.Size(14, 13);
+            this.getYlabel.TabIndex = 21;
+            this.getYlabel.Text = "Y";
+            // 
+            // getAccelerometerlabel
+            // 
+            this.getAccelerometerlabel.AutoSize = true;
+            this.getAccelerometerlabel.Location = new System.Drawing.Point(486, 348);
+            this.getAccelerometerlabel.Name = "getAccelerometerlabel";
+            this.getAccelerometerlabel.Size = new System.Drawing.Size(75, 13);
+            this.getAccelerometerlabel.TabIndex = 20;
+            this.getAccelerometerlabel.Text = "Accelerometer";
+            // 
+            // getAccelerometer
+            // 
+            this.getAccelerometer.Location = new System.Drawing.Point(482, 367);
+            this.getAccelerometer.Name = "getAccelerometer";
+            this.getAccelerometer.Size = new System.Drawing.Size(108, 23);
+            this.getAccelerometer.TabIndex = 19;
+            this.getAccelerometer.Text = "Accelerometer";
+            this.getAccelerometer.UseVisualStyleBackColor = true;
+            // 
+            // getXlabel
+            // 
+            this.getXlabel.AutoSize = true;
+            this.getXlabel.Location = new System.Drawing.Point(490, 277);
+            this.getXlabel.Name = "getXlabel";
+            this.getXlabel.Size = new System.Drawing.Size(14, 13);
+            this.getXlabel.TabIndex = 18;
+            this.getXlabel.Text = "X";
+            // 
+            // getMagnet
+            // 
+            this.getMagnet.Location = new System.Drawing.Point(487, 294);
+            this.getMagnet.Name = "getMagnet";
+            this.getMagnet.Size = new System.Drawing.Size(101, 23);
+            this.getMagnet.TabIndex = 17;
+            this.getMagnet.Text = "Get Magnet";
+            this.getMagnet.UseVisualStyleBackColor = true;
+            this.getMagnet.Click += new System.EventHandler(this.getMagnet_Click);
             // 
             // drive1secButton
             // 
@@ -464,6 +522,15 @@
             // 
             this.reqInfo.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // getZlabel
+            // 
+            this.getZlabel.AutoSize = true;
+            this.getZlabel.Location = new System.Drawing.Point(574, 277);
+            this.getZlabel.Name = "getZlabel";
+            this.getZlabel.Size = new System.Drawing.Size(14, 13);
+            this.getZlabel.TabIndex = 22;
+            this.getZlabel.Text = "Z";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,6 +597,12 @@
         private System.Windows.Forms.Label LightLabel;
         private System.Windows.Forms.Button lightLuxButton;
         private System.Windows.Forms.Button drive1secButton;
+        private System.Windows.Forms.Label getXlabel;
+        private System.Windows.Forms.Button getMagnet;
+        private System.Windows.Forms.Label getAccelerometerlabel;
+        private System.Windows.Forms.Button getAccelerometer;
+        private System.Windows.Forms.Label getYlabel;
+        private System.Windows.Forms.Label getZlabel;
     }
 }
 
