@@ -266,6 +266,15 @@ namespace WIFIGUIDemo
                             threshLabel.Text = thresh;
                         }));
                         break;
+                    case (byte)CommandID.DriveSteps:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                MessageBox.Show("Moved!");
+                            }));
+                            break;
+                        }
                 }
                /* if (NewData[3] == (byte)CommandID.SwitchLEDStatus)
                 {
@@ -422,8 +431,9 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                reqInfo.Enabled = true;
-                initial_value = false;
+                //reqInfo.Enabled = true;
+                //initial_value = false;
+                theClient.SendData(CommandID.DriveSteps, new byte[] { 0, 100 });
             }
         }
 
@@ -547,6 +557,5 @@ namespace WIFIGUIDemo
             theClient.SendData(CommandID.LineFollowingData, new byte[] { });
 
         }
-
     }
 }
