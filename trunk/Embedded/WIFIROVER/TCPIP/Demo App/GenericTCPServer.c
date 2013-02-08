@@ -100,6 +100,7 @@
 
 char tcptxbuffer[601];
 int tcptxbufferpoint=0;
+extern int bptag;
 
 void putcomsdata(char v);
 
@@ -184,9 +185,17 @@ void GenericTCPServer(void)
                         {
                           w=wMaxPut;
                         }
-                    tcptxbufferpoint-=w;
 					if (w)
+						{
 						TCPPutArray(MySocket,  (BYTE*)&tcptxbuffer[0], w);
+						if (tcptxbufferpoint!=w)
+							{
+		                        tcptxbufferpoint-=w;
+								memcpy((BYTE*)&tcptxbuffer[0],(BYTE*)&tcptxbuffer[w],tcptxbufferpoint);
+							}
+							else   tcptxbufferpoint=0;
+
+						}
 				}
 			for(w = 0; w < wMaxGet; w += sizeof(AppBuffer))
 			{

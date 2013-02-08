@@ -199,7 +199,7 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int light = NewData[5] + NewData[4] << 8;
+                                int light = NewData[4] + NewData[5] << 8;
                                 int aux = NewData[7] + NewData[6] << 8;
                                 LightLabel.Text = light.ToString();
                                 auxLabel.Text = aux.ToString();

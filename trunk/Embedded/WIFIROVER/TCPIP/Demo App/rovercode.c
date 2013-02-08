@@ -15,6 +15,7 @@
 #include "i2c.h"
 
 
+
 void initi2Cs(void);
 
 // Private helper functions.
@@ -32,7 +33,6 @@ volatile char lastIR;
 volatile int IRstreamHead,IRstreamTail,IRstreamLen;
 volatile unsigned char IRres[512];
 volatile unsigned char IRres2[512];
-
 int speed1=0x7fff;
 int pos1=0;
 int speed2=0x7fff;
@@ -144,7 +144,6 @@ void __attribute((interrupt(ipl3), vector(_ADC_VECTOR), nomips16)) _ADCInterrupt
 		}
      bitdelcount=7;
     }	
-//Actuator 2 buffered
   if (AD1CON2bits.BUFS)
 		{
 		   LINEA=ADC1BUF0;
@@ -157,6 +156,7 @@ void __attribute((interrupt(ipl3), vector(_ADC_VECTOR), nomips16)) _ADCInterrupt
 		}
 IFS1bits.AD1IF=0;
 }
+
 
 /* Moved up
 int speed1=0x7fff;
@@ -228,7 +228,7 @@ unsigned char nextcommand[256];
 UINT16 REQCOUNT=0;
 int waveid=0;
 
-void initi2Cs(void)
+void initi2Cs(void)  // called once when rover starts
 {
 	//setup accn MMA8452Q
 										I2S();I2send(0x38);I2send(0x2a);I2send(0x20);/*50Hz nonactive */ I2send(0x2);I2P();
@@ -244,7 +244,8 @@ void initi2Cs(void)
 }
 
 
-void setspeed(int newspeed1,int newspeed2)
+void setspeed(int newspeed1,int newspeed2)  // routine sets speed of motors 
+											// only alters motors if speed has changed
 {
   if (newspeed1!=speed1)
 	{
@@ -283,14 +284,14 @@ void setspeed(int newspeed1,int newspeed2)
 	}
 }
 
+int bptag=0;
 
-//main 
-void processcommand(void)
+void processcommand(void)		// the main routine which processes commands
 {
  int i;
  unsigned char wk;
  int blocklen;
-  switch (nextcommand[0]) 
+  switch (nextcommand[0]) // sort on command id (each case is for a different command)
   {
     case 0:POSTTCPhead(0,0);break;
 	case 1:POSTTCPhead(1,1);    //Ask for Led and Switch status Packet
@@ -303,7 +304,7 @@ void processcommand(void)
 			  POSTTCPhead(0,2);break;
 			}
 			break;
-	case 3:POSTTCPhead(2,3);  // get internal counter // len - 2 id value - 3
+	case 3:POSTTCPhead(2,3);  // get internal counter
 			POSTTCPchar(REQCOUNT & 0xff);
 			POSTTCPchar((REQCOUNT>>8) & 0xff);REQCOUNT++;
 			break;
@@ -393,6 +394,8 @@ void processcommand(void)
 			  for (i=1;i<=85;i++)
 				{POSTTCPchar(I2GET(i!=85));
 				}
+			 if (waveid==3) 
+					bptag=1;
 			  I2P();
 			 } 
 			break;
@@ -783,7 +786,6 @@ IEC1bits.AD1IE=1;
     actualClock = I2CSetFrequency(I2C1, GetPeripheralClock(), 50000);
     // Enable the I2C bus
     I2CEnable(I2C1, TRUE);
-
 
 	//Initialize timer4
 	OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_2, T4_TICK);
