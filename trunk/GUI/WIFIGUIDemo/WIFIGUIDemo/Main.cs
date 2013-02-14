@@ -666,5 +666,22 @@ namespace WIFIGUIDemo
         {
             stop();
         }
+
+        private void getMagnet_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.GetMagnetValue, new byte[] { });
+            }
+        }
+
+        private void getAccelerometer_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.GetAccelValue, new byte[] { });
+            }
+
+        }
     }
 }
