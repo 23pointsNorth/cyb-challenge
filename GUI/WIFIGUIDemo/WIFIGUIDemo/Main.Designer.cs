@@ -37,6 +37,8 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.driveButton = new System.Windows.Forms.Button();
+            this.motorPositionButton = new System.Windows.Forms.Button();
             this.threshLabel = new System.Windows.Forms.Label();
             this.lineLabel2 = new System.Windows.Forms.Label();
             this.lineLabel = new System.Windows.Forms.Label();
@@ -86,8 +88,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
-            this.motorPositionButton = new System.Windows.Forms.Button();
-            this.driveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -211,6 +211,25 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // driveButton
+            // 
+            this.driveButton.Location = new System.Drawing.Point(145, 77);
+            this.driveButton.Name = "driveButton";
+            this.driveButton.Size = new System.Drawing.Size(84, 23);
+            this.driveButton.TabIndex = 33;
+            this.driveButton.Text = "Drive";
+            this.driveButton.UseVisualStyleBackColor = true;
+            // 
+            // motorPositionButton
+            // 
+            this.motorPositionButton.Location = new System.Drawing.Point(528, 28);
+            this.motorPositionButton.Name = "motorPositionButton";
+            this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
+            this.motorPositionButton.TabIndex = 32;
+            this.motorPositionButton.Text = "Moto position";
+            this.motorPositionButton.UseVisualStyleBackColor = true;
+            this.motorPositionButton.Click += new System.EventHandler(this.motorPositionButton_Click);
             // 
             // threshLabel
             // 
@@ -362,6 +381,7 @@
             this.getAccelerometer.TabIndex = 19;
             this.getAccelerometer.Text = "Accelerometer";
             this.getAccelerometer.UseVisualStyleBackColor = true;
+            this.getAccelerometer.Click += new System.EventHandler(this.getAccelerometer_Click);
             // 
             // getXlabel
             // 
@@ -380,6 +400,7 @@
             this.getMagnet.TabIndex = 17;
             this.getMagnet.Text = "Get Magnet";
             this.getMagnet.UseVisualStyleBackColor = true;
+            this.getMagnet.Click += new System.EventHandler(this.getMagnet_Click);
             // 
             // drive1secButton
             // 
@@ -678,25 +699,6 @@
             // 
             this.motoPositionTimer.Interval = 200;
             this.motoPositionTimer.Tick += new System.EventHandler(this.motoPositionTimer_Tick);
-            // 
-            // motorPositionButton
-            // 
-            this.motorPositionButton.Location = new System.Drawing.Point(528, 28);
-            this.motorPositionButton.Name = "motorPositionButton";
-            this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
-            this.motorPositionButton.TabIndex = 32;
-            this.motorPositionButton.Text = "Moto position";
-            this.motorPositionButton.UseVisualStyleBackColor = true;
-            this.motorPositionButton.Click += new System.EventHandler(this.motorPositionButton_Click);
-            // 
-            // driveButton
-            // 
-            this.driveButton.Location = new System.Drawing.Point(145, 77);
-            this.driveButton.Name = "driveButton";
-            this.driveButton.Size = new System.Drawing.Size(84, 23);
-            this.driveButton.TabIndex = 33;
-            this.driveButton.Text = "Drive";
-            this.driveButton.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
