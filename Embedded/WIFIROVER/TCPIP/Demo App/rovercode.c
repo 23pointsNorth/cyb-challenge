@@ -51,20 +51,22 @@ int wanted_speed_right;
 int le_old;				//left encoder old value
 int re_old;
 
-#define MAX_SPEED_ENCODER_STEPS	230
+
 unsigned long ticker4 = 0;
 #define SYS_FREQ			80000000L
 #define PRESCALE			2
 #define PB_DIV				8
 #define TOGGLES_SEC_SPEED	205 //At 10Hz // lower value to increase freq 2048 = 1Hz
-#define TOGGLE_SEC_POSITION	8	//At ¬250Hz
+#define TOGGLE_SEC_POSITION	10	//At ¬205Hz
 #define INTER_FREQ			10  //10HZ at 205 toggles
 #define T4_TICK       		(SYS_FREQ/PB_DIV/PRESCALE)
-#define MAX_SPEED			230 //encoder steps/second
 
+#define MAX_SPEED_ENCODER_STEPS	230
+
+#define MAX_SPEED			127 //encoder steps/second
 #define MIN_SPEED			35	// [-127;128] values
 
-#define PROP				2
+#define PROP				3
 
 //Called with freq = 2048Hz
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
@@ -79,18 +81,30 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 	{
 		if (drive_by_steps != 0)
 		{
-			if ((pos1 + wanted_encoder_steps <= encoder_l_old) ||
-			   (pos2 + wanted_encoder_steps <= encoder_r_old))
+/*
+			unsigned int driven_pos_l = pos1;
+			unsigned int driven_pos_r = pos2;
+			if (pos1 < encoder_l_old) driven_pos_l =+ 0xFFFF;
+			if (pos2 < encoder_r_old) driven_pos_r =+ 0xFFFF;
+
+			if ((encoder_l_old + wanted_encoder_steps <= driven_pos_l) &&
+			   ( encoder_r_old + wanted_encoder_steps <= driven_pos_r))
+*/
+			if ((abs(encoder_l_old - pos1) >= wanted_encoder_steps) ||
+				(abs(encoder_r_old - pos2) >= wanted_encoder_steps))
 			{
 				drive_by_steps = 0;
 				wanted_speed_right = 0;
 				wanted_speed_left = 0;
 				setspeed(wanted_speed_left, wanted_speed_right);
-				POSTTCPchar((char)1); // send a command that i am done
+				POSTTCPhead(1 ,128);				
+				POSTTCPchar(1); // send a command that i am done
 			}
 			else
 			{
-				if (encoder_l_old - pos1 > MAX_SPEED)   
+				mPORTEToggleBits(BIT_2);
+				//Left
+				if (pos1 - encoder_l_old > MAX_SPEED_ENCODER_STEPS)   
 				{
 					wanted_speed_left = MAX_SPEED;
 				}
@@ -98,15 +112,16 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				{
 					wanted_speed_left = max(encoder_l_old - pos1, MIN_SPEED);
 				}    
-	
-				if (encoder_r_old - pos2 > MAX_SPEED)   
+				//Right
+				if (pos2 - encoder_r_old > MAX_SPEED_ENCODER_STEPS)   
 				{
 					wanted_speed_right = MAX_SPEED;
 				}
 				else
 				{
 					wanted_speed_right = max(encoder_r_old - pos2, MIN_SPEED);
-				}      
+				}
+      
 				setspeed(wanted_speed_left, wanted_speed_right);   
 			}   
 		}
@@ -117,9 +132,9 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		mPORTEToggleBits(BIT_3);
 
 		//Feedback left motor
-		int delta_e_l = (wanted_speed_left*MAX_SPEED/1270);
-		int actual_de_l = (le_old - pos1);
-		if (actual_de_l < 0) {actual_de_l += 0xFFFF;} 
+		int delta_e_l = (wanted_speed_left/127)*MAX_SPEED_ENCODER_STEPS/10;
+		int actual_de_l = (pos1 - le_old);
+		if (actual_de_l < 0) {actual_de_l = 0xFFFF - le_old + pos1;} 
 		le_old = pos1;
 		
 		int l_error = actual_de_l - delta_e_l;
@@ -138,9 +153,9 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		}
 
 		//Feedback right motor
-		int delta_e_r = (wanted_speed_right/127)*MAX_SPEED/10;
-		int actual_de_r = (re_old - pos2);
-		if (actual_de_r < 0) {actual_de_r += 0xFFFF;} 
+		int delta_e_r = (wanted_speed_right/127)*MAX_SPEED_ENCODER_STEPS/10;
+		int actual_de_r = (pos2 - re_old);
+		if (actual_de_r < 0) {actual_de_r = 0xFFFF - re_old + pos2;} 
 		re_old = pos2;
 		
 		int r_error = actual_de_r - delta_e_r;
@@ -220,17 +235,18 @@ int speed2=0x7fff;
 int pos2=0;
 */
 
+//REVERSE SOGNS TO ACCOMODATE REVERSED SPEED > to <
 //encoder interrupt on rise and fall edge
 void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _IC1Interrupt(void)
 {
-if (speed1>0) pos1++; else pos1--;
-IFS0bits.IC1IF=0;
+	if (speed1 < 0) pos1++; else pos1--;
+	IFS0bits.IC1IF=0;
 }
 
 void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_3_VECTOR), nomips16)) _IC3Interrupt(void)
 {
-if (speed2>0) pos2++; else pos2--;
-IFS0bits.IC3IF=0;
+	if (speed2 < 0) pos2++; else pos2--;
+	IFS0bits.IC3IF=0;
 }
 
 #define comsdatasize 1024
@@ -299,6 +315,7 @@ void initi2Cs(void)  // called once when rover starts
 }
 
 
+//REVERSE MOTOR SPEED IF  == < > to == > <
 void setspeed(int newspeed1,int newspeed2)  // routine sets speed of motors 
 											// only alters motors if speed has changed
 {
@@ -306,13 +323,13 @@ void setspeed(int newspeed1,int newspeed2)  // routine sets speed of motors
 	{
 			speed1=newspeed1;
 			  if (speed1==0) {LATD&=~0x006;OC3CON=0;OC2CON=0;OC3R=OC3RS=0;OC2R=OC2RS=0;}
-			  if (speed1<0) 
+			  if (speed1>0) 
 				{	
 					OC3CON=0;OC3R=OC3RS=0;
 					OC2RS=abs(speed1);
 					if (!OC2CON) OC2CON=0x8006;											 
 				}
-			  if (speed1>0) 
+			  if (speed1<0) 
 				{
 					OC2CON=0;OC2R=OC2RS=0;
 					OC3RS=abs(speed1);
@@ -324,13 +341,13 @@ void setspeed(int newspeed1,int newspeed2)  // routine sets speed of motors
 			speed2=newspeed2;
 			  if (speed2==0) {LATD&=~0x0018;OC4CON=0;OC5CON=0;OC4R=OC4RS=0;OC5R=OC5RS=0;}
 			
-			  if (speed2<0) 
+			  if (speed2>0) 
 					{
 						OC5CON=0;OC5R=OC5RS=0;
 						OC4RS=abs(speed2);
 						if (!OC4CON) OC4CON=0x8006;										 
 					}
-			  if (speed2>0) 
+			  if (speed2<0) 
 					{
 						OC4CON=0;OC4R=OC4RS=0;
 						OC5RS=abs(speed2);
@@ -674,9 +691,9 @@ void processcommand(void)		// the main routine which processes commands
 			 if (commandlen==2)	// move amount of encoder steps
 			 {
 			    drive_by_steps = 1; // activated
-				wanted_encoder_steps = nextcommand[1] + nextcommand[2] << 8;
-				pos1 = 0xFF;
-				pos2 = 0xFF;
+				wanted_encoder_steps = nextcommand[1] + (nextcommand[2] << 8);
+				pos1 = 0x3FFF; //x7FFF;
+				pos2 = 0x3FFF; //x7FFF;// for middle
 				encoder_l_old = pos1;
 				encoder_r_old = pos2;
 			 } 
