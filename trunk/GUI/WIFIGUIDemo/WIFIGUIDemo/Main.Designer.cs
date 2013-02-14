@@ -37,6 +37,9 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.threshLabel = new System.Windows.Forms.Label();
+            this.lineLabel2 = new System.Windows.Forms.Label();
+            this.lineLabel = new System.Windows.Forms.Label();
             this.lineData = new System.Windows.Forms.Button();
             this.accelYlabel = new System.Windows.Forms.Label();
             this.accelXlabel = new System.Windows.Forms.Label();
@@ -82,9 +85,9 @@
             this.cmdSetLEDs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
-            this.lineLabel = new System.Windows.Forms.Label();
-            this.lineLabel2 = new System.Windows.Forms.Label();
-            this.threshLabel = new System.Windows.Forms.Label();
+            this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
+            this.motorPositionButton = new System.Windows.Forms.Button();
+            this.driveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -165,6 +168,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.driveButton);
+            this.groupBox2.Controls.Add(this.motorPositionButton);
             this.groupBox2.Controls.Add(this.threshLabel);
             this.groupBox2.Controls.Add(this.lineLabel2);
             this.groupBox2.Controls.Add(this.lineLabel);
@@ -206,6 +211,33 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // threshLabel
+            // 
+            this.threshLabel.AutoSize = true;
+            this.threshLabel.Location = new System.Drawing.Point(166, 454);
+            this.threshLabel.Name = "threshLabel";
+            this.threshLabel.Size = new System.Drawing.Size(54, 13);
+            this.threshLabel.TabIndex = 31;
+            this.threshLabel.Text = "Threshold";
+            // 
+            // lineLabel2
+            // 
+            this.lineLabel2.AutoSize = true;
+            this.lineLabel2.Location = new System.Drawing.Point(240, 434);
+            this.lineLabel2.Name = "lineLabel2";
+            this.lineLabel2.Size = new System.Drawing.Size(46, 13);
+            this.lineLabel2.TabIndex = 30;
+            this.lineLabel2.Text = "Right IR";
+            // 
+            // lineLabel
+            // 
+            this.lineLabel.AutoSize = true;
+            this.lineLabel.Location = new System.Drawing.Point(166, 434);
+            this.lineLabel.Name = "lineLabel";
+            this.lineLabel.Size = new System.Drawing.Size(39, 13);
+            this.lineLabel.TabIndex = 29;
+            this.lineLabel.Text = "Left IR";
             // 
             // lineData
             // 
@@ -642,32 +674,29 @@
             // 
             this.reqInfo.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // lineLabel
+            // motoPositionTimer
             // 
-            this.lineLabel.AutoSize = true;
-            this.lineLabel.Location = new System.Drawing.Point(166, 434);
-            this.lineLabel.Name = "lineLabel";
-            this.lineLabel.Size = new System.Drawing.Size(39, 13);
-            this.lineLabel.TabIndex = 29;
-            this.lineLabel.Text = "Left IR";
+            this.motoPositionTimer.Interval = 200;
+            this.motoPositionTimer.Tick += new System.EventHandler(this.motoPositionTimer_Tick);
             // 
-            // lineLabel2
+            // motorPositionButton
             // 
-            this.lineLabel2.AutoSize = true;
-            this.lineLabel2.Location = new System.Drawing.Point(240, 434);
-            this.lineLabel2.Name = "lineLabel2";
-            this.lineLabel2.Size = new System.Drawing.Size(46, 13);
-            this.lineLabel2.TabIndex = 30;
-            this.lineLabel2.Text = "Right IR";
+            this.motorPositionButton.Location = new System.Drawing.Point(528, 28);
+            this.motorPositionButton.Name = "motorPositionButton";
+            this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
+            this.motorPositionButton.TabIndex = 32;
+            this.motorPositionButton.Text = "Moto position";
+            this.motorPositionButton.UseVisualStyleBackColor = true;
+            this.motorPositionButton.Click += new System.EventHandler(this.motorPositionButton_Click);
             // 
-            // threshLabel
+            // driveButton
             // 
-            this.threshLabel.AutoSize = true;
-            this.threshLabel.Location = new System.Drawing.Point(202, 458);
-            this.threshLabel.Name = "threshLabel";
-            this.threshLabel.Size = new System.Drawing.Size(54, 13);
-            this.threshLabel.TabIndex = 31;
-            this.threshLabel.Text = "Threshold";
+            this.driveButton.Location = new System.Drawing.Point(145, 77);
+            this.driveButton.Name = "driveButton";
+            this.driveButton.Size = new System.Drawing.Size(84, 23);
+            this.driveButton.TabIndex = 33;
+            this.driveButton.Text = "Drive";
+            this.driveButton.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -682,6 +711,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Main_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -753,6 +784,9 @@
         private System.Windows.Forms.Label threshLabel;
         private System.Windows.Forms.Label lineLabel2;
         private System.Windows.Forms.Label lineLabel;
+        private System.Windows.Forms.Timer motoPositionTimer;
+        private System.Windows.Forms.Button motorPositionButton;
+        private System.Windows.Forms.Button driveButton;
     }
 }
 

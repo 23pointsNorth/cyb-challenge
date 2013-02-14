@@ -28,6 +28,7 @@ namespace WIFIGUIDemo
         /// </summary>
         public Main()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -93,7 +94,7 @@ namespace WIFIGUIDemo
         /// 
 
         int ENCODER_SPEED = -100;
-        double LEFT_PARAM = 1.18f;
+        double LEFT_PARAM = 1.25f;
         double RIGHT_PARAM = 1.0f;
         bool activate_seq = false;
         bool initial_value = false;
@@ -163,7 +164,7 @@ namespace WIFIGUIDemo
                                         MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
                                     }
                                 }
-
+                                /*
                                 if (!initial_value)
                                 {
                                     left_encoder = NewData[5] + (NewData[6] << 8);
@@ -180,7 +181,7 @@ namespace WIFIGUIDemo
                                         new byte[] { 0, 0 });
                                     initial_value = false;
                                     reqInfo.Enabled = false;
-                                }
+                                }*/
                             }));
                             break;
                         }
@@ -411,8 +412,8 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                int left_speed = - int.Parse(leftMotorSpeed.Text);
-                int right_speed = - int.Parse(rightMotorSpeed.Text);
+                int left_speed = int.Parse(leftMotorSpeed.Text);
+                int right_speed = int.Parse(rightMotorSpeed.Text);
                 theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)left_speed, (byte)right_speed });
             }
         }
@@ -433,7 +434,8 @@ namespace WIFIGUIDemo
             {
                 //reqInfo.Enabled = true;
                 //initial_value = false;
-                theClient.SendData(CommandID.DriveSteps, new byte[] { 0, 100 });
+                int distance = int.Parse(PositionStatusBox.Text);
+                theClient.SendData(CommandID.DriveSteps, new byte[] { (byte)(distance), (byte)(distance >> 8) });
             }
         }
 
@@ -441,7 +443,7 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                int left_speed = -leftSpeed.Value;
+                int left_speed = leftSpeed.Value;
                 theClient.SendData(CommandID.SetLeftMotorSpeed, new byte[] { (byte)left_speed});
             }
         }
@@ -450,23 +452,37 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                int right_speed = -rightSpeed.Value;
+                int right_speed = rightSpeed.Value;
                 theClient.SendData(CommandID.SetRightMotorSpeed, new byte[] { (byte)right_speed });
             }
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show(e.KeyValue.ToString());
-            if (e.KeyValue == (int)'a')
+            
+            int speed_p = (e.Shift) ? 75 : 100;
+  
+            if (e.KeyCode.Equals(Keys.W))
             {
-                if (theClient.isConnected)
-                {
-                    int right_speed = 120;
-                    int left_speed = 120;
-                    setMotorSpeed(left_speed, right_speed);
-                }
+                forward(speed_p);
             }
+            else if (e.KeyCode.Equals(Keys.S))
+            {
+                backwards(speed_p);
+            }
+            else if (e.KeyCode.Equals(Keys.A))
+            {
+                rotate_left(speed_p);
+            }
+            else if (e.KeyCode.Equals(Keys.D))
+            {
+                rotate_right(speed_p);
+            }
+            else
+            {
+                stop();
+            }
+            e.Handled = true;
         }
 
         bool dirSpeedMouseDown = false;
@@ -514,7 +530,7 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)(-left), (byte)(-right) });
+                theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)(left), (byte)(right) });
             }
         }
 
@@ -556,6 +572,99 @@ namespace WIFIGUIDemo
         {
             theClient.SendData(CommandID.LineFollowingData, new byte[] { });
 
+        }
+
+        private void Main_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Moved to key down
+            /*
+            if (e.KeyChar.Equals('w'))
+            {
+                forward();
+            }
+            else if (e.KeyChar.Equals('s'))
+            {
+                backwards();
+            }
+            else if (e.KeyChar.Equals('a'))
+            {
+                rotate_left();
+            }
+            else if (e.KeyChar.Equals('d'))
+            {
+                rotate_right();
+            }
+            else
+            {
+                stop();
+            }*/
+        }
+
+        const int speed = 120;
+        private void forward(int speed_percentage)
+        {
+            if (theClient.isConnected)
+            {
+                int right_speed = (speed * speed_percentage)/100;
+                int left_speed = (speed * speed_percentage)/100;
+                setMotorSpeed(left_speed, right_speed);
+            }
+        }
+
+        private void backwards(int speed_percentage)
+        {
+            if (theClient.isConnected)
+            {
+                int right_speed = -(speed * speed_percentage) / 100;
+                int left_speed = -(speed * speed_percentage) / 100;
+                setMotorSpeed(left_speed, right_speed);
+            }
+        }
+
+        private void rotate_left(int speed_percentage)
+        {
+            if (theClient.isConnected)
+            {
+                int right_speed = (speed * speed_percentage) / 100;
+                int left_speed = -(speed * speed_percentage) / 100;
+                setMotorSpeed(left_speed, right_speed);
+            }
+        }
+
+        private void rotate_right(int speed_percentage)
+        {
+            if (theClient.isConnected)
+            {
+                int right_speed = -(speed * speed_percentage) / 100;
+                int left_speed = (speed * speed_percentage) / 100;
+                setMotorSpeed(left_speed, right_speed);
+            }
+        }
+
+        private void stop()
+        {
+            if (theClient.isConnected)
+            {
+                setMotorSpeed(0, 0);
+            }
+        }
+
+        private void motoPositionTimer_Tick(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.MotorPosition, new byte[] { });
+            }
+        }
+
+        private void motorPositionButton_Click(object sender, EventArgs e)
+        {
+            motoPositionTimer.Enabled = true;
+        }
+
+        private void Main_KeyUp(object sender, KeyEventArgs e)
+        {
+            stop();
         }
     }
 }
