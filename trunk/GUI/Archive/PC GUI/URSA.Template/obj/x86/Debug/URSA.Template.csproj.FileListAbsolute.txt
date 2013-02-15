@@ -156,3 +156,5 @@ C:\Users\js010758.RDG-HOME\Dropbox\MEng 4th Year Project\GUI, screenshots and Ca
 \\ndrive\sis07sg\.do_not_delete\desktop.xp\PC GUI\URSA.Template\obj\x86\Debug\GenerateResource.write.1.tlog
 N:\..University\Year2\Cybs Challenge\Code\Code\GUI\Archive\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
 N:\..University\Year2\Cybs Challenge\Code\Code\GUI\Archive\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
+N:\CybChallenge\GUI\Archive\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.exe
+N:\CybChallenge\GUI\Archive\PC GUI\URSA.Template\obj\x86\Debug\URSA.Template.pdb
