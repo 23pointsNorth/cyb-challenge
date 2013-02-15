@@ -40,8 +40,8 @@
             this.driveButton = new System.Windows.Forms.Button();
             this.motorPositionButton = new System.Windows.Forms.Button();
             this.threshLabel = new System.Windows.Forms.Label();
-            this.lineLabel2 = new System.Windows.Forms.Label();
-            this.lineLabel = new System.Windows.Forms.Label();
+            this.rightIR = new System.Windows.Forms.Label();
+            this.leftIR = new System.Windows.Forms.Label();
             this.lineData = new System.Windows.Forms.Button();
             this.accelYlabel = new System.Windows.Forms.Label();
             this.accelXlabel = new System.Windows.Forms.Label();
@@ -173,8 +173,8 @@
             this.groupBox2.Controls.Add(this.driveButton);
             this.groupBox2.Controls.Add(this.motorPositionButton);
             this.groupBox2.Controls.Add(this.threshLabel);
-            this.groupBox2.Controls.Add(this.lineLabel2);
-            this.groupBox2.Controls.Add(this.lineLabel);
+            this.groupBox2.Controls.Add(this.rightIR);
+            this.groupBox2.Controls.Add(this.leftIR);
             this.groupBox2.Controls.Add(this.lineData);
             this.groupBox2.Controls.Add(this.accelYlabel);
             this.groupBox2.Controls.Add(this.accelXlabel);
@@ -242,23 +242,23 @@
             this.threshLabel.TabIndex = 31;
             this.threshLabel.Text = "Threshold";
             // 
-            // lineLabel2
+            // rightIR
             // 
-            this.lineLabel2.AutoSize = true;
-            this.lineLabel2.Location = new System.Drawing.Point(240, 434);
-            this.lineLabel2.Name = "lineLabel2";
-            this.lineLabel2.Size = new System.Drawing.Size(46, 13);
-            this.lineLabel2.TabIndex = 30;
-            this.lineLabel2.Text = "Right IR";
+            this.rightIR.AutoSize = true;
+            this.rightIR.Location = new System.Drawing.Point(240, 434);
+            this.rightIR.Name = "rightIR";
+            this.rightIR.Size = new System.Drawing.Size(46, 13);
+            this.rightIR.TabIndex = 30;
+            this.rightIR.Text = "Right IR";
             // 
-            // lineLabel
+            // leftIR
             // 
-            this.lineLabel.AutoSize = true;
-            this.lineLabel.Location = new System.Drawing.Point(166, 434);
-            this.lineLabel.Name = "lineLabel";
-            this.lineLabel.Size = new System.Drawing.Size(39, 13);
-            this.lineLabel.TabIndex = 29;
-            this.lineLabel.Text = "Left IR";
+            this.leftIR.AutoSize = true;
+            this.leftIR.Location = new System.Drawing.Point(166, 434);
+            this.leftIR.Name = "leftIR";
+            this.leftIR.Size = new System.Drawing.Size(39, 13);
+            this.leftIR.TabIndex = 29;
+            this.leftIR.Text = "Left IR";
             // 
             // lineData
             // 
@@ -266,7 +266,7 @@
             this.lineData.Name = "lineData";
             this.lineData.Size = new System.Drawing.Size(111, 33);
             this.lineData.TabIndex = 28;
-            this.lineData.Text = "Line Data";
+            this.lineData.Text = "Follow Line";
             this.lineData.UseVisualStyleBackColor = true;
             this.lineData.Click += new System.EventHandler(this.lineData_Click);
             // 
@@ -801,8 +801,8 @@
         private System.Windows.Forms.ProgressBar accelxProgress;
         private System.Windows.Forms.Button lineData;
         private System.Windows.Forms.Label threshLabel;
-        private System.Windows.Forms.Label lineLabel2;
-        private System.Windows.Forms.Label lineLabel;
+        private System.Windows.Forms.Label rightIR;
+        private System.Windows.Forms.Label leftIR;
         private System.Windows.Forms.Timer motoPositionTimer;
         private System.Windows.Forms.Button motorPositionButton;
         private System.Windows.Forms.Button driveButton;

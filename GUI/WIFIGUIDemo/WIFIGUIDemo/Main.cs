@@ -49,7 +49,7 @@ namespace WIFIGUIDemo
                 */
                 try
                 {
-                    string IPinput = "10.215.2.15";
+                    string IPinput = "10.215.2.13";
                     //Subscribe to message received event
                     theClient.OnMessageReceived += new ClientBase.ClientMessageReceivedEvent(DataReceived_Handler);
 
@@ -93,6 +93,8 @@ namespace WIFIGUIDemo
         /// <param name="e"></param>
         /// 
 
+        const int MAX_SPEED = 127;
+
         int ENCODER_SPEED = -100;
         double LEFT_PARAM = 1.25f;
         double RIGHT_PARAM = 1.0f;
@@ -101,6 +103,7 @@ namespace WIFIGUIDemo
         bool accel_start = false;
         int left_encoder = 0;
         int right_encoder = 0;
+
 
         int _1sec_l = 0;
         int _1sec_r = 0;
@@ -269,23 +272,23 @@ namespace WIFIGUIDemo
                         this.BeginInvoke(new EventHandler(delegate
                         {
                             string thresh = null;
-                            int line = NewData[5] + NewData[6] << 8;
-                            int line2 = NewData[7] + NewData[8] << 8;
-                            int line3 = NewData[4];
-                            lineLabel.Text = line.ToString();
-                            lineLabel2.Text = line2.ToString();
+                            int leftval = NewData[5] + (NewData[6] << 8);
+                            int rightval = NewData[7] + (NewData[8] << 8);
+                            int linestatus = NewData[4];
 
-                            if (line3 == 0){
-                                thresh = ("ok");
-                            }else if(line3 == 1){
-                                thresh = ("Test Needed 1");
-                            }else if(line3 == 2){
-                                thresh = ("Test Needed 2");
+                            leftIR.Text = leftval.ToString();
+                            rightIR.Text = rightval.ToString();
+
+                            if (follow_line)
+                            {
+                                int rs = MAX_SPEED * (rightval) / 1024;
+                                int ls = MAX_SPEED * (leftval) / 1024;
+
+                                setMotorSpeed(ls, rs);
+                                //Resend line data
+                                theClient.SendData(CommandID.LineFollowingData, new byte[] { });
                             }
-                            else if (line3 == 3){
-                                thresh = ("Both over threshold");
-                            }
-                            threshLabel.Text = thresh;
+                           threshLabel.Text = follow_line.ToString();
                         }));
                         break;
                     case (byte)CommandID.DriveSteps:
@@ -589,10 +592,13 @@ namespace WIFIGUIDemo
         }
 
         // change here 
+        bool follow_line = false;
         private void lineData_Click(object sender, EventArgs e)
         {
             theClient.SendData(CommandID.LineFollowingData, new byte[] { });
 
+            follow_line = !follow_line;
+            if (!follow_line) setMotorSpeed(0, 0);
         }
 
         private void Main_KeyPress(object sender, KeyPressEventArgs e)
