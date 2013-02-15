@@ -88,6 +88,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
@@ -579,7 +581,7 @@
             this.groupBox3.Controls.Add(this.cmdSetLEDs);
             this.groupBox3.Location = new System.Drawing.Point(821, 136);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 374);
+            this.groupBox3.Size = new System.Drawing.Size(225, 230);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Commands";
@@ -588,7 +590,7 @@
             // 
             this.chkSwitch2Stat.AutoSize = true;
             this.chkSwitch2Stat.Enabled = false;
-            this.chkSwitch2Stat.Location = new System.Drawing.Point(133, 243);
+            this.chkSwitch2Stat.Location = new System.Drawing.Point(133, 174);
             this.chkSwitch2Stat.Name = "chkSwitch2Stat";
             this.chkSwitch2Stat.Size = new System.Drawing.Size(67, 17);
             this.chkSwitch2Stat.TabIndex = 11;
@@ -599,7 +601,7 @@
             // 
             this.chkSwitch1Stat.AutoSize = true;
             this.chkSwitch1Stat.Enabled = false;
-            this.chkSwitch1Stat.Location = new System.Drawing.Point(28, 243);
+            this.chkSwitch1Stat.Location = new System.Drawing.Point(25, 176);
             this.chkSwitch1Stat.Name = "chkSwitch1Stat";
             this.chkSwitch1Stat.Size = new System.Drawing.Size(67, 17);
             this.chkSwitch1Stat.TabIndex = 10;
@@ -610,7 +612,7 @@
             // 
             this.chkGreenStat.AutoSize = true;
             this.chkGreenStat.Enabled = false;
-            this.chkGreenStat.Location = new System.Drawing.Point(133, 219);
+            this.chkGreenStat.Location = new System.Drawing.Point(133, 149);
             this.chkGreenStat.Name = "chkGreenStat";
             this.chkGreenStat.Size = new System.Drawing.Size(79, 17);
             this.chkGreenStat.TabIndex = 9;
@@ -621,7 +623,7 @@
             // 
             this.chkRedStat.AutoSize = true;
             this.chkRedStat.Enabled = false;
-            this.chkRedStat.Location = new System.Drawing.Point(28, 219);
+            this.chkRedStat.Location = new System.Drawing.Point(25, 149);
             this.chkRedStat.Name = "chkRedStat";
             this.chkRedStat.Size = new System.Drawing.Size(70, 17);
             this.chkRedStat.TabIndex = 8;
@@ -658,7 +660,7 @@
             // 
             // cmdSwitchLedStatus
             // 
-            this.cmdSwitchLedStatus.Location = new System.Drawing.Point(62, 266);
+            this.cmdSwitchLedStatus.Location = new System.Drawing.Point(63, 201);
             this.cmdSwitchLedStatus.Name = "cmdSwitchLedStatus";
             this.cmdSwitchLedStatus.Size = new System.Drawing.Size(100, 21);
             this.cmdSwitchLedStatus.TabIndex = 3;
@@ -700,11 +702,26 @@
             this.motoPositionTimer.Interval = 200;
             this.motoPositionTimer.Tick += new System.EventHandler(this.motoPositionTimer_Tick);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(825, 371);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(220, 139);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "groupBox4";
+            // 
+            // accelTimer
+            // 
+            this.accelTimer.Interval = 1000;
+            this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 522);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -789,6 +806,8 @@
         private System.Windows.Forms.Timer motoPositionTimer;
         private System.Windows.Forms.Button motorPositionButton;
         private System.Windows.Forms.Button driveButton;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Timer accelTimer;
     }
 }
 

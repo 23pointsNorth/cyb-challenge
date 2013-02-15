@@ -98,11 +98,28 @@ namespace WIFIGUIDemo
         double RIGHT_PARAM = 1.0f;
         bool activate_seq = false;
         bool initial_value = false;
+        bool accel_start = false;
         int left_encoder = 0;
         int right_encoder = 0;
 
         int _1sec_l = 0;
         int _1sec_r = 0;
+
+        private int to8BitConversion(int _2scomp)
+        {
+            int result;
+
+            if (_2scomp < 128)
+            {
+                result = _2scomp;
+            }
+            else
+            {
+                result = (~(_2scomp))&0xFF + 1;
+            }
+
+            return result;
+        }
 
         private void DataReceived_Handler(Client_Message_EventArgs e)
         {
@@ -212,9 +229,9 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int x = (NewData[5] + NewData[4] << 8);
-                                int y = (NewData[9] + NewData[8] << 8);
-                                int z = (NewData[7] + NewData[6] << 8);
+                                int x = (NewData[5] + (NewData[4] << 8));
+                                int y = (NewData[9] + (NewData[8] << 8));
+                                int z = (NewData[7] + (NewData[6] << 8));
                                 getXlabel.Text = x.ToString();
                                 getYlabel.Text = y.ToString();
                                 getZlabel.Text = z.ToString();
@@ -230,18 +247,22 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int x = (NewData[5] + NewData[4] << 8);
-                                int y = (NewData[7] + NewData[6] << 8);
-                                int z = (NewData[9] + NewData[8] << 8);
+                                int x_raw = ((NewData[5] + (NewData[4] << 8)) >> 4);
+                                int y_raw= ((NewData[7] + (NewData[6] << 8)) >> 4);
+                                int z_raw = ((NewData[9] + (NewData[8] << 8)) >> 4);
+                                
+                                int x = to8BitConversion(x_raw);
+                                int y = to8BitConversion(y_raw);
+                                int z = to8BitConversion(z_raw);
+
                                 accelXlabel.Text = x.ToString();
                                 accelYlabel.Text = y.ToString();
                                 accelZlabel.Text = z.ToString();
-                                accelxProgress.Value = x;
-                                accelyProgress.Value = y;
-                                accelzProgress.Value = z;
+                                //accelxProgress.Value = x;
+                                //accelyProgress.Value = y;
+                                //accelzProgress.Value = z;
                             }));
                             break;
-                    // change between here 
 							}
                       case (byte)CommandID.LineFollowingData:
                         //Invokation to allow cross thread manipulation
@@ -677,11 +698,29 @@ namespace WIFIGUIDemo
 
         private void getAccelerometer_Click(object sender, EventArgs e)
         {
+            if (theClient.isConnected)      //Starts the timer when clicked to refresh accel data
+            {                               //Or stops it if it is running.
+                theClient.SendData(CommandID.GetAccelValue, new byte[] { });    
+                if (accel_start == false)
+                {
+                    accel_start = true;
+                    accelTimer.Start();
+                }
+                else
+                {
+                    accel_start = false;
+                    accelTimer.Stop();
+                }
+            }
+        }
+
+        private void accelTimer_Tick(object sender, EventArgs e)
+        {
             if (theClient.isConnected)
             {
-                theClient.SendData(CommandID.GetAccelValue, new byte[] { });
+                theClient.SendData(CommandID.GetAccelValue, new byte[] { });    //Refreshe accel data when required.
             }
-
         }
     }
 }
+
