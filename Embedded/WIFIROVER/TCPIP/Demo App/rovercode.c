@@ -396,6 +396,7 @@ void processcommand(void)		// the main routine which processes commands
 			break;
 	case 5:if (commandlen==1)	// set motor1
 			{
+				drive_by_steps = 0;
 				wanted_speed_left = nextcommand[1];
 			  setspeed((char)nextcommand[1],speed2);
 			 POSTTCPhead(0,5);
@@ -403,6 +404,7 @@ void processcommand(void)		// the main routine which processes commands
 			break;
 	case 6:if (commandlen==1)	// set motor2
 			{
+				drive_by_steps = 0;
 				wanted_speed_right = nextcommand[1];
 			  setspeed(speed1,(char)nextcommand[1]);
 			 POSTTCPhead(0,6);
@@ -410,6 +412,7 @@ void processcommand(void)		// the main routine which processes commands
 			break;
 	case 7:if (commandlen==2)	// set both motors
 			{
+				drive_by_steps = 0;
 				wanted_speed_left = nextcommand[1];
 				wanted_speed_right = nextcommand[2];
 			  setspeed((char)nextcommand[1],(char)nextcommand[2]);
@@ -698,6 +701,24 @@ void processcommand(void)		// the main routine which processes commands
 				encoder_r_old = pos2;
 			 } 
 			break;
+	case 129:
+		if (commandlen==0)	//send light/aux
+		{
+			I2S();I2send(0xB8);I2send(10);I2SR();I2send(0xb9);
+			POSTTCPhead(8,17);
+			for (i=1;i<=4;i++)
+			{
+				POSTTCPchar(I2GET(i!=4));
+			}
+			I2P();
+
+			POSTTCPchar(pos1);
+			POSTTCPchar(pos1>>8);
+
+			POSTTCPchar(pos2);
+			POSTTCPchar(pos2>>8);
+		} 
+		break;
   }
 }
 

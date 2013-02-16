@@ -86,13 +86,6 @@ namespace WIFIGUIDemo
             }
         }
 
-        /// <summary>
-        /// Data received handler - when data is pushed from the rover to this program the event handler here
-        /// parses the incoming data
-        /// </summary>
-        /// <param name="e"></param>
-        /// 
-
         const int MAX_SPEED = 127;
 
         int ENCODER_SPEED = -100;
@@ -118,11 +111,21 @@ namespace WIFIGUIDemo
             }
             else
             {
-                result = (~(_2scomp))&0xFF + 1;
+                result = ~(_2scomp);
+                result++;
+                result &= 0xFF;
+                result = -result;
             }
 
             return result;
         }
+
+        /// <summary>
+        /// Data received handler - when data is pushed from the rover to this program the event handler here
+        /// parses the incoming data
+        /// </summary>
+        /// <param name="e"></param>
+        /// 
 
         private void DataReceived_Handler(Client_Message_EventArgs e)
         {
@@ -184,24 +187,7 @@ namespace WIFIGUIDemo
                                         MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
                                     }
                                 }
-                                /*
-                                if (!initial_value)
-                                {
-                                    left_encoder = NewData[5] + (NewData[6] << 8);
-                                    right_encoder = NewData[8] + (NewData[9] << 8);
-                                    initial_value = true;
-                                    theClient.SendData(CommandID.SetMotorsSpeed,
-                                        new byte[] { (byte)(ENCODER_SPEED * LEFT_PARAM), (byte)(ENCODER_SPEED * RIGHT_PARAM)});
-                                }
 
-                                if ((Math.Abs(left_encoder - le) >= int.Parse(PositionStatusBox.Text)) ||
-                                    (Math.Abs(right_encoder - re) >= int.Parse(PositionStatusBox.Text)))
-                                {
-                                    theClient.SendData(CommandID.SetMotorsSpeed,
-                                        new byte[] { 0, 0 });
-                                    initial_value = false;
-                                    reqInfo.Enabled = false;
-                                }*/
                             }));
                             break;
                         }
@@ -267,30 +253,32 @@ namespace WIFIGUIDemo
                             }));
                             break;
 							}
-                      case (byte)CommandID.LineFollowingData:
-                        //Invokation to allow cross thread manipulation
-                        this.BeginInvoke(new EventHandler(delegate
+                    case (byte)CommandID.LineFollowingData:
                         {
-                            string thresh = null;
-                            int leftval = NewData[5] + (NewData[6] << 8);
-                            int rightval = NewData[7] + (NewData[8] << 8);
-                            int linestatus = NewData[4];
-
-                            leftIR.Text = leftval.ToString();
-                            rightIR.Text = rightval.ToString();
-
-                            if (follow_line)
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
                             {
-                                int rs = MAX_SPEED * (rightval) / 1024;
-                                int ls = MAX_SPEED * (leftval) / 1024;
+                                string thresh = null;
+                                int leftval = NewData[5] + (NewData[6] << 8);
+                                int rightval = NewData[7] + (NewData[8] << 8);
+                                int linestatus = NewData[4];
 
-                                setMotorSpeed(ls, rs);
-                                //Resend line data
-                                theClient.SendData(CommandID.LineFollowingData, new byte[] { });
-                            }
-                           threshLabel.Text = follow_line.ToString();
-                        }));
-                        break;
+                                leftIR.Text = leftval.ToString();
+                                rightIR.Text = rightval.ToString();
+
+                                if (follow_line)
+                                {
+                                    int rs = MAX_SPEED * (rightval) / 1024;
+                                    int ls = MAX_SPEED * (leftval) / 1024;
+
+                                    setMotorSpeed(ls, rs);
+                                    //Resend line data
+                                    theClient.SendData(CommandID.LineFollowingData, new byte[] { });
+                                }
+                                threshLabel.Text = follow_line.ToString();
+                            }));
+                            break;
+                        }
                     case (byte)CommandID.DriveSteps:
                         {
                             //Invokation to allow cross thread manipulation
@@ -300,14 +288,17 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
+                    case (byte)CommandID.LightPositionData:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                //lightTunnelForm.lightIntensityChart;
+                                lightTunnelForm.AddDataPoint();
+                            }));
+                            break;
+                        }
                 }
-               /* if (NewData[3] == (byte)CommandID.SwitchLEDStatus)
-                {
-                    bool switch1 = ((NewData[4] & 0x01) == 0x01) ? true : false;
-                    activate_seq = switch1;
-                    idx = 0;
-
-                }*/
             }
         }
        
@@ -604,27 +595,6 @@ namespace WIFIGUIDemo
         private void Main_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Moved to key down
-            /*
-            if (e.KeyChar.Equals('w'))
-            {
-                forward();
-            }
-            else if (e.KeyChar.Equals('s'))
-            {
-                backwards();
-            }
-            else if (e.KeyChar.Equals('a'))
-            {
-                rotate_left();
-            }
-            else if (e.KeyChar.Equals('d'))
-            {
-                rotate_right();
-            }
-            else
-            {
-                stop();
-            }*/
         }
 
         const int speed = 120;
@@ -726,6 +696,22 @@ namespace WIFIGUIDemo
             {
                 theClient.SendData(CommandID.GetAccelValue, new byte[] { });    //Refreshe accel data when required.
             }
+        }
+
+        private void servoTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                //send new servo postion
+                //theClient.SendData(CommandID.GetAccelValue, new byte[] { });    //Refreshe accel data when required.
+            }
+        }
+
+        LightTunnel lightTunnelForm;
+        private void lightTunnelButton_Click(object sender, EventArgs e)
+        {
+            lightTunnelForm = new LightTunnel(theClient);
+            lightTunnelForm.Show();
         }
     }
 }

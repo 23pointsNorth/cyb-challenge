@@ -23,6 +23,7 @@ namespace ServerLib
         GetTermData = 0x1B,
         GetMagnetValue= 0x2D,
         GetAccelValue=0x28,
-        DriveSteps = 0x80
+        DriveSteps = 0x80,
+        LightPositionData = 0x81
     };
 }

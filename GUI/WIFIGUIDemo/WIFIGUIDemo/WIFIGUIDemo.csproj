@@ -38,6 +38,7 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,12 @@
     <Compile Include="inputDialog.Designer.cs">
       <DependentUpon>inputDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="LightTunnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LightTunnel.Designer.cs">
+      <DependentUpon>LightTunnel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="inputDialog.resx">
       <DependentUpon>inputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LightTunnel.resx">
+      <DependentUpon>LightTunnel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
