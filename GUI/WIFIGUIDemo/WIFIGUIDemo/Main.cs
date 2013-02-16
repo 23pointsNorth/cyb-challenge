@@ -294,7 +294,13 @@ namespace WIFIGUIDemo
                             this.BeginInvoke(new EventHandler(delegate
                             {
                                 //lightTunnelForm.lightIntensityChart;
-                                lightTunnelForm.AddDataPoint();
+                                int light = NewData[5] + NewData[4] << 8;
+                                
+                                int le = NewData[8] + (NewData[9] << 8);
+                                int re = NewData[10] + (NewData[11] << 8);
+                                int avrgEncoder = (le + re) / 2;
+
+                                lightTunnelForm.AddDataPoint(avrgEncoder, light);
                             }));
                             break;
                         }
@@ -472,7 +478,7 @@ namespace WIFIGUIDemo
             }
         }
 
-        private void Main_KeyDown(object sender, KeyEventArgs e)
+        public void Main_KeyDown(object sender, KeyEventArgs e)
         {
             
             int speed_p = (e.Shift) ? 75 : 100;
@@ -659,7 +665,7 @@ namespace WIFIGUIDemo
             motoPositionTimer.Enabled = true;
         }
 
-        private void Main_KeyUp(object sender, KeyEventArgs e)
+        public void Main_KeyUp(object sender, KeyEventArgs e)
         {
             stop();
         }
@@ -710,7 +716,7 @@ namespace WIFIGUIDemo
         LightTunnel lightTunnelForm;
         private void lightTunnelButton_Click(object sender, EventArgs e)
         {
-            lightTunnelForm = new LightTunnel(theClient);
+            lightTunnelForm = new LightTunnel(theClient, this);
             lightTunnelForm.Show();
         }
     }

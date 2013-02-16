@@ -14,10 +14,12 @@ namespace WIFIGUIDemo
     public partial class LightTunnel : Form
     {
         TCPClient rover;
+        Main mainForm;
 
-        public LightTunnel(TCPClient theClient)
+        public LightTunnel(TCPClient theClient, Main main_form)
         {
             rover = theClient;
+            mainForm = main_form;
             InitializeComponent();
         }
 
@@ -48,5 +50,16 @@ namespace WIFIGUIDemo
         {
             rover.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
         }
+
+        private void LightTunnel_KeyDown(object sender, KeyEventArgs e)
+        {
+            mainForm.Main_KeyDown(sender, e);
+        }
+
+        private void LightTunnel_KeyUp(object sender, KeyEventArgs e)
+        {
+            mainForm.Main_KeyUp(sender, e);
+        }
+
     }
 }
