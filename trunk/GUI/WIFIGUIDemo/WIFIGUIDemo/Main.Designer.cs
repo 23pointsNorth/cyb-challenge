@@ -37,6 +37,8 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.servoGroupBox = new System.Windows.Forms.GroupBox();
+            this.servoTrackBar = new System.Windows.Forms.TrackBar();
             this.driveButton = new System.Windows.Forms.Button();
             this.motorPositionButton = new System.Windows.Forms.Button();
             this.threshLabel = new System.Windows.Forms.Label();
@@ -90,8 +92,11 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
+            this.lightTunnelButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.servoGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.servoTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).BeginInit();
@@ -170,6 +175,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lightTunnelButton);
+            this.groupBox2.Controls.Add(this.servoGroupBox);
             this.groupBox2.Controls.Add(this.driveButton);
             this.groupBox2.Controls.Add(this.motorPositionButton);
             this.groupBox2.Controls.Add(this.threshLabel);
@@ -213,6 +220,28 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // servoGroupBox
+            // 
+            this.servoGroupBox.Controls.Add(this.servoTrackBar);
+            this.servoGroupBox.Location = new System.Drawing.Point(686, 20);
+            this.servoGroupBox.Name = "servoGroupBox";
+            this.servoGroupBox.Size = new System.Drawing.Size(111, 143);
+            this.servoGroupBox.TabIndex = 34;
+            this.servoGroupBox.TabStop = false;
+            this.servoGroupBox.Text = "Servo Control";
+            // 
+            // servoTrackBar
+            // 
+            this.servoTrackBar.Location = new System.Drawing.Point(19, 25);
+            this.servoTrackBar.Maximum = 255;
+            this.servoTrackBar.Name = "servoTrackBar";
+            this.servoTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.servoTrackBar.Size = new System.Drawing.Size(45, 104);
+            this.servoTrackBar.TabIndex = 0;
+            this.servoTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.servoTrackBar.Value = 128;
+            this.servoTrackBar.ValueChanged += new System.EventHandler(this.servoTrackBar_ValueChanged);
             // 
             // driveButton
             // 
@@ -716,6 +745,16 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
+            // lightTunnelButton
+            // 
+            this.lightTunnelButton.Location = new System.Drawing.Point(686, 171);
+            this.lightTunnelButton.Name = "lightTunnelButton";
+            this.lightTunnelButton.Size = new System.Drawing.Size(111, 36);
+            this.lightTunnelButton.TabIndex = 35;
+            this.lightTunnelButton.Text = "Light Tunnel";
+            this.lightTunnelButton.UseVisualStyleBackColor = true;
+            this.lightTunnelButton.Click += new System.EventHandler(this.lightTunnelButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,6 +775,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.servoGroupBox.ResumeLayout(false);
+            this.servoGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.servoTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).EndInit();
@@ -808,6 +850,9 @@
         private System.Windows.Forms.Button driveButton;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Timer accelTimer;
+        private System.Windows.Forms.GroupBox servoGroupBox;
+        private System.Windows.Forms.TrackBar servoTrackBar;
+        private System.Windows.Forms.Button lightTunnelButton;
     }
 }
 
