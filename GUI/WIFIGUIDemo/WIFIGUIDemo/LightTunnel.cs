@@ -40,7 +40,7 @@ namespace WIFIGUIDemo
         {
             if (rover.isConnected)
             {
-                rover.SendData(CommandID.DriveSteps, new byte[] { 10, 255 });
+                rover.SendData(CommandID.DriveSteps, new byte[] { 0, 255 });
             }
         }
 
