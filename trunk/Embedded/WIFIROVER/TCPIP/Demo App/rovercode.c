@@ -62,11 +62,12 @@ unsigned long ticker4 = 0;
 #define T4_TICK       		(SYS_FREQ/PB_DIV/PRESCALE)
 
 #define MAX_SPEED_ENCODER_STEPS	230
+#define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
-#define MIN_SPEED			35	// [-127;128] values
+#define MIN_SPEED			50	// [-127;128] values
 
-#define PROP				3
+#define PROP				15
 
 //Called with freq = 2048Hz
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
@@ -104,22 +105,25 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 			{
 				mPORTEToggleBits(BIT_2);
 				//Left
-				if (pos1 - encoder_l_old > MAX_SPEED_ENCODER_STEPS)   
+				if (abs(encoder_l_old + wanted_encoder_steps - pos1) > MAX_SPEED_ENCODER_STEPS)   
 				{
 					wanted_speed_left = MAX_SPEED;
 				}
 				else
 				{
-					wanted_speed_left = max(encoder_l_old - pos1, MIN_SPEED);
-				}    
+					//wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE, MIN_SPEED), MAX_SPEED);
+					wanted_speed_left = MIN_SPEED;
+				}   
+ 
 				//Right
-				if (pos2 - encoder_r_old > MAX_SPEED_ENCODER_STEPS)   
+				if (abs(encoder_r_old + wanted_encoder_steps - pos2) > MAX_SPEED_ENCODER_STEPS)   
 				{
 					wanted_speed_right = MAX_SPEED;
 				}
 				else
 				{
-					wanted_speed_right = max(encoder_r_old - pos2, MIN_SPEED);
+					//wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), MAX_SPEED);
+					wanted_speed_right = MIN_SPEED;
 				}
       
 				setspeed(wanted_speed_left, wanted_speed_right);   
@@ -145,11 +149,11 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				speed1 = speed1 - PROP * l_error; 
 			else speed1 = speed1 + PROP * l_error;
 		}
-		else if (actual_de_l < delta_e_l)
+		else if (l_error < 0)
 		{
 			if (wanted_speed_left > 0)
-				speed1 = speed1 + PROP * l_error; 
-			else speed1 = speed1 - PROP * l_error;
+				speed1 = speed1 + PROP * abs(l_error); 
+			else speed1 = speed1 - PROP * abs(l_error);
 		}
 
 		//Feedback right motor
@@ -165,11 +169,11 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				speed2 = speed2 - PROP * r_error; 
 			else speed2 = speed2 + PROP * r_error;
 		}
-		else if (actual_de_r < delta_e_r)
+		else if (r_error < 0)
 		{
 			if (wanted_speed_right > 0)
-				speed2 = speed2 + PROP * r_error; 
-			else speed2 = speed2 - PROP * r_error;
+				speed2 = speed2 + PROP * abs(r_error); 
+			else speed2 = speed2 - PROP * abs(r_error);
 		}		
 
 		//Check motor speeds
@@ -180,7 +184,7 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 	
 		//Set new motor speeds
 		setspeed(speed1, speed2);
-		ticker4 = 0; //REset
+		ticker4 = 0; //Reset
 	}
 }
 
@@ -690,7 +694,8 @@ void processcommand(void)		// the main routine which processes commands
 				    I2P();
 			 } 
 			break;
-	case 128:  
+
+	case 128:  //Drive amount of encoder steps
 			 if (commandlen==2)	// move amount of encoder steps
 			 {
 			    drive_by_steps = 1; // activated
@@ -701,7 +706,7 @@ void processcommand(void)		// the main routine which processes commands
 				encoder_r_old = pos2;
 			 } 
 			break;
-	case 129:
+	case 129: //Send light and motor position
 		if (commandlen==0)	//send light/aux
 		{
 			I2S();I2send(0xB8);I2send(10);I2SR();I2send(0xb9);

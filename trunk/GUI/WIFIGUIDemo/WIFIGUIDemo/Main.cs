@@ -710,7 +710,11 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 //send new servo postion
-                //theClient.SendData(CommandID., new byte[] { });
+                int pos = servoTrackBar.Value;
+                //if (pos < 128) pos = - pos;
+                //else pos = 255 - pos;
+                pos = pos - 128;
+                theClient.SendData(CommandID.SetServoPosition, new byte[] { (byte)pos });
             }
         }
 

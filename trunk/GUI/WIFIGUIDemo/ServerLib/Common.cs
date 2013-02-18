@@ -20,6 +20,7 @@ namespace ServerLib
         SetMotorsSpeed = 0x07,
         LineFollowingData = 0x08,
         GetLightAuxValue = 0x11,
+        SetServoPosition = 0x17,
         GetTermData = 0x1B,
         GetMagnetValue= 0x2D,
         GetAccelValue=0x28,
