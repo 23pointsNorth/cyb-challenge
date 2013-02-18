@@ -54,6 +54,7 @@ namespace WIFIGUIDemo
                     theClient.OnMessageReceived += new ClientBase.ClientMessageReceivedEvent(DataReceived_Handler);
 
                     //Connect the Client to the server based on passed data
+                    //Commented lines for debugging
                     theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
@@ -709,7 +710,7 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 //send new servo postion
-                //theClient.SendData(CommandID.GetAccelValue, new byte[] { });    //Refreshe accel data when required.
+                //theClient.SendData(CommandID., new byte[] { });
             }
         }
 
