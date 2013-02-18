@@ -38,17 +38,26 @@ namespace WIFIGUIDemo
 
         private void tunnelMapButton_Click(object sender, EventArgs e)
         {
-            rover.SendData(CommandID.DriveSteps, new byte[] {10, 255});
+            if (rover.isConnected)
+            {
+                rover.SendData(CommandID.DriveSteps, new byte[] { 10, 255 });
+            }
         }
 
         private void lightPosTimer_Tick(object sender, EventArgs e)
         {
-            rover.SendData(CommandID.LightPositionData, new byte[] { });
+            if (rover.isConnected)
+            {
+                rover.SendData(CommandID.LightPositionData, new byte[] { });
+            }
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            rover.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            if (rover.isConnected)
+            {
+                rover.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            }
         }
 
         private void LightTunnel_KeyDown(object sender, KeyEventArgs e)
