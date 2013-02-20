@@ -25,15 +25,13 @@ namespace WIFIGUIDemo
 
         public void AddDataPoint(double pos, double light)
         {
-            Series lightPathPoint = new Series();
-            lightPathPoint.Points.AddXY(pos, light);
             //Add data to the datapoint
-            lightIntensityChart.Series.Add(lightPathPoint);
+            lightIntensityChart.Series["lightPathPoint"].Points.AddXY(pos, light);
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            lightIntensityChart.Series.Clear();
+            lightIntensityChart.Series["lighPathPoint"].Points.Clear();
         }
 
         private void tunnelMapButton_Click(object sender, EventArgs e)

@@ -111,8 +111,8 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				}
 				else
 				{
-					//wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE, MIN_SPEED), MAX_SPEED);
-					wanted_speed_left = MIN_SPEED;
+					wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE, MIN_SPEED), MAX_SPEED);
+					//wanted_speed_left = MIN_SPEED;
 				}   
  
 				//Right
@@ -122,8 +122,8 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				}
 				else
 				{
-					//wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), MAX_SPEED);
-					wanted_speed_right = MIN_SPEED;
+					wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), MAX_SPEED);
+					//wanted_speed_right = MIN_SPEED;
 				}
       
 				setspeed(wanted_speed_left, wanted_speed_right);   
@@ -717,6 +717,26 @@ void processcommand(void)		// the main routine which processes commands
 			}
 			I2P();
 
+			POSTTCPchar(pos1);
+			POSTTCPchar(pos1>>8);
+
+			POSTTCPchar(pos2);
+			POSTTCPchar(pos2>>8);
+		} 
+		break;
+	case 130: //Send IR data and motor position
+		if (commandlen == 0)	
+		{
+			POSTTCPhead(8,130);
+			//IR 
+			i=LINEA;
+			POSTTCPchar(i);
+			POSTTCPchar(i>>8);
+			i=LINEB;
+			POSTTCPchar(i);
+			POSTTCPchar(i>>8);
+
+			//Motor position
 			POSTTCPchar(pos1);
 			POSTTCPchar(pos1>>8);
 

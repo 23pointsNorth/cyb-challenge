@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lightTunnelButton = new System.Windows.Forms.Button();
             this.servoGroupBox = new System.Windows.Forms.GroupBox();
             this.servoTrackBar = new System.Windows.Forms.TrackBar();
             this.driveButton = new System.Windows.Forms.Button();
@@ -92,7 +93,7 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
-            this.lightTunnelButton = new System.Windows.Forms.Button();
+            this.riverBedButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -175,6 +176,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.riverBedButton);
             this.groupBox2.Controls.Add(this.lightTunnelButton);
             this.groupBox2.Controls.Add(this.servoGroupBox);
             this.groupBox2.Controls.Add(this.driveButton);
@@ -220,6 +222,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // lightTunnelButton
+            // 
+            this.lightTunnelButton.Location = new System.Drawing.Point(686, 171);
+            this.lightTunnelButton.Name = "lightTunnelButton";
+            this.lightTunnelButton.Size = new System.Drawing.Size(111, 36);
+            this.lightTunnelButton.TabIndex = 35;
+            this.lightTunnelButton.Text = "Light Tunnel";
+            this.lightTunnelButton.UseVisualStyleBackColor = true;
+            this.lightTunnelButton.Click += new System.EventHandler(this.lightTunnelButton_Click);
             // 
             // servoGroupBox
             // 
@@ -745,15 +757,15 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
-            // lightTunnelButton
+            // riverBedButton
             // 
-            this.lightTunnelButton.Location = new System.Drawing.Point(686, 171);
-            this.lightTunnelButton.Name = "lightTunnelButton";
-            this.lightTunnelButton.Size = new System.Drawing.Size(111, 36);
-            this.lightTunnelButton.TabIndex = 35;
-            this.lightTunnelButton.Text = "Light Tunnel";
-            this.lightTunnelButton.UseVisualStyleBackColor = true;
-            this.lightTunnelButton.Click += new System.EventHandler(this.lightTunnelButton_Click);
+            this.riverBedButton.Location = new System.Drawing.Point(686, 215);
+            this.riverBedButton.Name = "riverBedButton";
+            this.riverBedButton.Size = new System.Drawing.Size(111, 36);
+            this.riverBedButton.TabIndex = 36;
+            this.riverBedButton.Text = "River Bed";
+            this.riverBedButton.UseVisualStyleBackColor = true;
+            this.riverBedButton.Click += new System.EventHandler(this.riverBedButton_Click);
             // 
             // Main
             // 
@@ -853,6 +865,7 @@
         private System.Windows.Forms.GroupBox servoGroupBox;
         private System.Windows.Forms.TrackBar servoTrackBar;
         private System.Windows.Forms.Button lightTunnelButton;
+        private System.Windows.Forms.Button riverBedButton;
     }
 }
 
