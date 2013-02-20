@@ -267,10 +267,28 @@ namespace WIFIGUIDemo
                                 leftIR.Text = leftval.ToString();
                                 rightIR.Text = rightval.ToString();
 
+                                int rs = 0;
+                                int ls = 0;
+
                                 if (follow_line)
                                 {
-                                    int rs = MAX_SPEED * (rightval) / 1024;
-                                    int ls = MAX_SPEED * (leftval) / 1024;
+                                    //int rs = MAX_SPEED * (rightval) / 1024;
+                                   // int ls = MAX_SPEED * (leftval) / 1024;
+                                    if (leftval < rightval)
+                                    {
+                                        rs = MAX_SPEED;
+                                        ls = MAX_SPEED * (leftval / rightval);
+                                    }
+                                    else if (leftval > rightval)
+                                    {
+                                        ls = MAX_SPEED;
+                                        rs = MAX_SPEED * (rightval / leftval);
+                                    }
+                                    else
+                                    {
+                                        rs = MAX_SPEED * (rightval) / 1024;
+                                        ls = MAX_SPEED * (leftval) / 1024;
+                                    }
 
                                     setMotorSpeed(ls, rs);
                                     //Resend line data
@@ -723,6 +741,13 @@ namespace WIFIGUIDemo
         {
             lightTunnelForm = new LightTunnel(theClient, this);
             lightTunnelForm.Show();
+        }
+
+        RiverBedForm riverBedForm;
+        private void riverBedButton_Click(object sender, EventArgs e)
+        {
+            riverBedForm = new RiverBedForm(this, theClient);
+            riverBedForm.Show();
         }
     }
 }
