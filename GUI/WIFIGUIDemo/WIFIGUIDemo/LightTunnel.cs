@@ -27,18 +27,20 @@ namespace WIFIGUIDemo
         {
             //Add data to the datapoint
             lightIntensityChart.Series["lightPathPoint"].Points.AddXY(pos, light);
+           
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            lightIntensityChart.Series["lighPathPoint"].Points.Clear();
+            lightIntensityChart.Series["lightPathPoint"].Points.Clear();
         }
 
         private void tunnelMapButton_Click(object sender, EventArgs e)
         {
             if (rover.isConnected)
             {
-                rover.SendData(CommandID.DriveSteps, new byte[] { 0, 255 });
+                rover.SendData(CommandID.DriveSteps, new byte[] { 255, 6 });
+                lightPosTimer.Enabled = true;
             }
         }
 
@@ -55,6 +57,7 @@ namespace WIFIGUIDemo
             if (rover.isConnected)
             {
                 rover.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+                lightPosTimer.Enabled = false;
             }
         }
 

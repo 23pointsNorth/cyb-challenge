@@ -37,6 +37,7 @@
             this.stopButton = new System.Windows.Forms.Button();
             this.riverBedMapButton = new System.Windows.Forms.Button();
             this.IRIntensityDistanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.IRDataLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IRIntensityDistanceChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,21 @@
             title1.Name = "IR Intesity vs Distance";
             this.IRIntensityDistanceChart.Titles.Add(title1);
             // 
+            // IRDataLabel
+            // 
+            this.IRDataLabel.AutoSize = true;
+            this.IRDataLabel.Location = new System.Drawing.Point(258, 10);
+            this.IRDataLabel.Name = "IRDataLabel";
+            this.IRDataLabel.Size = new System.Drawing.Size(42, 13);
+            this.IRDataLabel.TabIndex = 8;
+            this.IRDataLabel.Text = "IR data";
+            // 
             // RiverBedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 295);
+            this.Controls.Add(this.IRDataLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.riverBedMapButton);
@@ -114,6 +125,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RiverBedForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.IRIntensityDistanceChart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button riverBedMapButton;
         public System.Windows.Forms.DataVisualization.Charting.Chart IRIntensityDistanceChart;
+        private System.Windows.Forms.Label IRDataLabel;
     }
 }

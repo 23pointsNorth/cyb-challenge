@@ -91,6 +91,7 @@
             // 
             // lightPosTimer
             // 
+            this.lightPosTimer.Interval = 200;
             this.lightPosTimer.Tick += new System.EventHandler(this.lightPosTimer_Tick);
             // 
             // LightTunnel
