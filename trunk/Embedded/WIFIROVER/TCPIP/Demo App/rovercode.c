@@ -40,6 +40,18 @@ int pos2=0;
 
 void setspeed(int newspeed1,int newspeed2);
 
+#define IR_DATA_BUFFER_SIZE		20
+
+#define IR_DATA_DELAY_PERIOD	100
+unsigned int ti	= 0;
+unsigned int IR_pos_l[IR_DATA_BUFFER_SIZE];
+unsigned int IR_pos_r[IR_DATA_BUFFER_SIZE];
+int IR_data_l[IR_DATA_BUFFER_SIZE];
+int IR_data_r[IR_DATA_BUFFER_SIZE];
+int current_pos = 0;
+unsigned int avrg_pos=0;
+
+
 unsigned int wanted_encoder_steps = 0;
 unsigned int encoder_l_old = 0;
 unsigned int encoder_r_old = 0;
@@ -65,7 +77,7 @@ unsigned long ticker4 = 0;
 #define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
-#define DRIVE_MAX_SPEED		100
+#define DRIVE_MAX_SPEED		70
 #define MIN_SPEED			50	// [-127;128] values
 
 #define PROP				15
@@ -747,8 +759,26 @@ void processcommand(void)		// the main routine which processes commands
 			POSTTCPchar(pos2>>8);
 		} 
 		break;
+	case 131:
+	{
+		POSTTCPhead(120, 131);
+		for (i = 0; i < IR_DATA_BUFFER_SIZE; i++)
+		{
+			POSTTCPchar(IR_data_l[i]);
+			POSTTCPchar(IR_data_l[i] >> 8);
+
+			POSTTCPchar(IR_data_r[i]);
+			POSTTCPchar(IR_data_r[i] >> 8);
+
+			avrg_pos = IR_pos_l[i]/2 + IR_pos_r[i]/2;
+			POSTTCPchar(avrg_pos);
+			POSTTCPchar(avrg_pos >> 8);
+		}
+		break;
+	}
   }
 }
+
 
 //Process packets
 void ProcessIO(void)
@@ -791,8 +821,23 @@ void ProcessIO(void)
 				}
 		}
    }
-
+	
  }
+
+//REAAD IR data
+	ti++;
+	if (ti % IR_DATA_DELAY_PERIOD == 0)
+	{
+		IR_pos_l[current_pos] = pos1;
+		IR_pos_r[current_pos] = pos2;
+		IR_data_l[current_pos] = LINEA;
+		IR_data_r[current_pos] = LINEB;
+		
+		current_pos++;
+		if (current_pos >= IR_DATA_BUFFER_SIZE)
+		{ current_pos = 0; }
+		ti = 0;
+	}
 
 }
 

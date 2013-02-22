@@ -21,11 +21,12 @@ namespace ServerLib
         LineFollowingData = 0x08,
         GetLightAuxValue = 0x11,
         SetServoPosition = 0x17,
-        GetTermData = 0x1B,
+        GetTermData = 0x1B,    
         GetMagnetValue= 0x2D,
         GetAccelValue=0x28,
         DriveSteps = 0x80,
         LightPositionData = 0x81,
-        IRDistanceData = 0x82
+        IRDistanceData = 0x82,
+        IRDataBuffer = 0x83
     };
 }
