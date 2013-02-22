@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -38,6 +39,7 @@
             this.riverBedMapButton = new System.Windows.Forms.Button();
             this.IRIntensityDistanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.IRDataLabel = new System.Windows.Forms.Label();
+            this.IRDataTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IRIntensityDistanceChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,13 +84,13 @@
             this.IRIntensityDistanceChart.Location = new System.Drawing.Point(12, 34);
             this.IRIntensityDistanceChart.Name = "IRIntensityDistanceChart";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series1.Legend = "Legend1";
             series1.Name = "IRDataLeft";
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series2.Legend = "Legend1";
             series2.Name = "IRDataRight";
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
@@ -109,6 +111,10 @@
             this.IRDataLabel.Size = new System.Drawing.Size(42, 13);
             this.IRDataLabel.TabIndex = 8;
             this.IRDataLabel.Text = "IR data";
+            // 
+            // IRDataTimer
+            // 
+            this.IRDataTimer.Tick += new System.EventHandler(this.IRDataTimer_Tick);
             // 
             // RiverBedForm
             // 
@@ -136,5 +142,6 @@
         private System.Windows.Forms.Button riverBedMapButton;
         public System.Windows.Forms.DataVisualization.Charting.Chart IRIntensityDistanceChart;
         private System.Windows.Forms.Label IRDataLabel;
+        private System.Windows.Forms.Timer IRDataTimer;
     }
 }
