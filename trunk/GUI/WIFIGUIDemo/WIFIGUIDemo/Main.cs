@@ -197,7 +197,7 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int temp = (NewData[4] + NewData[5] << 8);
+                                int temp = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
                                 tempLabel.Text = temp.ToString();
                             }));
                             break;
@@ -207,8 +207,10 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int light = NewData[5] + NewData[4] << 8;
-                                int aux = NewData[7] + NewData[6] << 8;
+                                int light = Convert.ToUInt16(NewData[4] << 8) + Convert.ToUInt16(NewData[5]);
+                                //int light = (int)((NewData[5] + NewData[4] << 8));
+                                //UInt16 light = Convert.ToUInt16(NewData[5] + NewData[4] << 8);
+                                int aux = (NewData[7] + NewData[6] << 8);
                                 LightLabel.Text = light.ToString();
                                 auxLabel.Text = aux.ToString();
                             }));
@@ -303,7 +305,7 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                MessageBox.Show("Moved!");
+                                //MessageBox.Show("Moved!");
                             }));
                             break;
                         }
@@ -313,13 +315,14 @@ namespace WIFIGUIDemo
                             this.BeginInvoke(new EventHandler(delegate
                             {
                                 //lightTunnelForm.lightIntensityChart;
-                                int light = NewData[5] + NewData[4] << 8;
-                                
+                                int light = Convert.ToUInt16(NewData[4] << 8) + Convert.ToUInt16(NewData[5]);
+                                light -= 58000;
                                 int le = NewData[8] + (NewData[9] << 8);
                                 int re = NewData[10] + (NewData[11] << 8);
                                 int avrgEncoder = (le + re) / 2;
 
                                 lightTunnelForm.AddDataPoint(avrgEncoder, light);
+                                
                             }));
                             break;
                         }
@@ -545,16 +548,36 @@ namespace WIFIGUIDemo
         {
             Point c = new Point(directionalSpeed.Width / 2, directionalSpeed.Height / 2);
             int power = (int)Math.Sqrt((e.Y - c.Y) * (e.Y - c.Y) + (e.X - c.X) * (e.X - c.X));
-            int h = directionalSpeed.Size.Height;
-            int w = directionalSpeed.Size.Width;
-            double alpha = Math.Acos((e.Y - c.Y) / power);
-            if ((e.X - c.X) < 0) alpha = -alpha;
+            double alpha = Math.Atan2(e.X - c.X, e.Y - c.Y) + Math.PI;
+            if (alpha < 0) alpha += 2*Math.PI;
+            if (alpha > 2*Math.PI) alpha -= 2*Math.PI;
 
-            int left_speed = Math.Min(127, (int) (power * Math.Cos(alpha * 2)));
-            int right_speed = Math.Min(127, power);
-            left_speed = Math.Max(-127, left_speed);
-            right_speed = Math.Max(-127, right_speed);
+            //MessageBox.Show(alpha.ToString());
+            int left_speed = 0;
+            int right_speed = 0; 
+            if (alpha >= 0 && alpha < Math.PI / 2)
+            {
+                right_speed = MAX_SPEED * 1; // scale with power
+                left_speed =(int) ((1 - ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED*1);
+                //MessageBox.Show(left_speed.ToString() + " " + alpha.ToString());
+            }
+            else if (alpha >= Math.PI / 2 && alpha < Math.PI)
+            {
+                right_speed = (int)(3 - 4*alpha / Math.PI) * MAX_SPEED * 1; // scale with power
+                left_speed = -1 * MAX_SPEED * 1;
+            }
+            else if (alpha >= Math.PI && alpha < 3 * Math.PI/2)
+            {
+                right_speed = -1 * MAX_SPEED * 1;
+                left_speed = (int)((-3 + ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED * 1);
+            }
+            else if (alpha >= 3* Math.PI/2 && alpha < 2 * Math.PI)
+            {
+                right_speed = (int)((-5 + ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED * 1);
+                left_speed = 1 * MAX_SPEED * 1;
+            }
 
+            //Draw line
             Bitmap img = new Bitmap(256, 256);
             using (System.Drawing.Graphics g = Graphics.FromImage(img))
             {

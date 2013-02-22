@@ -44,16 +44,22 @@ namespace WIFIGUIDemo
                         //Invokation to allow cross thread manipulation
                         this.BeginInvoke(new EventHandler(delegate
                         {
-                            int IRl = NewData[5] + NewData[4] << 8;
-                            int IRr = NewData[7] + NewData[6] << 8;
+                            int IRl = (NewData[4]) + (NewData[5] << 8);
+                            int IRr = (NewData[6]) + (NewData[7] << 8);
                             int le = NewData[8] + (NewData[9] << 8);
                             int re = NewData[10] + (NewData[11] << 8);
+                            //int IRl = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
+                           // int IRr = Convert.ToUInt16(NewData[6]) + Convert.ToUInt16(NewData[7] << 8);
+                            //int le = Convert.ToUInt16(NewData[8]) + Convert.ToUInt16((NewData[9] << 8));
+                            //int re = Convert.ToUInt16(NewData[10]) + Convert.ToUInt16((NewData[11] << 8));
                             int avr_e = (le + re) / 2;
 
-                            IRIntensityDistanceChart.Series["IRDataLeft"].Points.AddXY(IRl, avr_e);
-                            IRIntensityDistanceChart.Series["IRDataRight"].Points.AddXY(IRr, avr_e);
+                            IRIntensityDistanceChart.Series["IRDataLeft"].Points.AddXY(avr_e, IRl);
+                            IRIntensityDistanceChart.Series["IRDataRight"].Points.AddXY(avr_e, IRr);
 
+                            IRDataLabel.Text = IRl.ToString() + " " + IRr.ToString();
                             if (map_on) rover.SendData(CommandID.IRDistanceData, new byte[] { });
+                           
                         }));
                         break;
                 }
@@ -85,7 +91,8 @@ namespace WIFIGUIDemo
             {
                 map_on = true;
                 riverBedMapButton.Text = "River Bed Map - ON";
-                rover.SendData(CommandID.DriveSteps, new byte[] { 0, 255 });
+                rover.SendData(CommandID.DriveSteps, new byte[] { 200, 2 });
+                rover.SendData(CommandID.IRDistanceData, new byte[] { });
             }
         }
     }

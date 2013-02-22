@@ -65,6 +65,7 @@ unsigned long ticker4 = 0;
 #define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
+#define DRIVE_MAX_SPEED		100
 #define MIN_SPEED			50	// [-127;128] values
 
 #define PROP				15
@@ -107,22 +108,22 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				//Left
 				if (abs(encoder_l_old + wanted_encoder_steps - pos1) > MAX_SPEED_ENCODER_STEPS)   
 				{
-					wanted_speed_left = MAX_SPEED;
+					wanted_speed_left = DRIVE_MAX_SPEED;
 				}
 				else
 				{
-					wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE, MIN_SPEED), MAX_SPEED);
+					wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE, MIN_SPEED), DRIVE_MAX_SPEED);
 					//wanted_speed_left = MIN_SPEED;
 				}   
  
 				//Right
 				if (abs(encoder_r_old + wanted_encoder_steps - pos2) > MAX_SPEED_ENCODER_STEPS)   
 				{
-					wanted_speed_right = MAX_SPEED;
+					wanted_speed_right = DRIVE_MAX_SPEED;
 				}
 				else
 				{
-					wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), MAX_SPEED);
+					wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), DRIVE_MAX_SPEED);
 					//wanted_speed_right = MIN_SPEED;
 				}
       
@@ -710,7 +711,7 @@ void processcommand(void)		// the main routine which processes commands
 		if (commandlen==0)	//send light/aux
 		{
 			I2S();I2send(0xB8);I2send(10);I2SR();I2send(0xb9);
-			POSTTCPhead(8,17);
+			POSTTCPhead(8,129);
 			for (i=1;i<=4;i++)
 			{
 				POSTTCPchar(I2GET(i!=4));
@@ -727,7 +728,9 @@ void processcommand(void)		// the main routine which processes commands
 	case 130: //Send IR data and motor position
 		if (commandlen == 0)	
 		{
-			POSTTCPhead(8,130);
+			//mPORTEToggleBits(BIT_2);
+			i = 0;
+			POSTTCPhead(8, 130);
 			//IR 
 			i=LINEA;
 			POSTTCPchar(i);

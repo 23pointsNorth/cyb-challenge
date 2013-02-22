@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.riverBedButton = new System.Windows.Forms.Button();
             this.lightTunnelButton = new System.Windows.Forms.Button();
             this.servoGroupBox = new System.Windows.Forms.GroupBox();
             this.servoTrackBar = new System.Windows.Forms.TrackBar();
@@ -93,7 +94,6 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
-            this.riverBedButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -222,6 +222,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // riverBedButton
+            // 
+            this.riverBedButton.Location = new System.Drawing.Point(686, 215);
+            this.riverBedButton.Name = "riverBedButton";
+            this.riverBedButton.Size = new System.Drawing.Size(111, 36);
+            this.riverBedButton.TabIndex = 36;
+            this.riverBedButton.Text = "River Bed";
+            this.riverBedButton.UseVisualStyleBackColor = true;
+            this.riverBedButton.Click += new System.EventHandler(this.riverBedButton_Click);
             // 
             // lightTunnelButton
             // 
@@ -479,7 +489,7 @@
             this.lightLuxButton.Name = "lightLuxButton";
             this.lightLuxButton.Size = new System.Drawing.Size(101, 23);
             this.lightLuxButton.TabIndex = 13;
-            this.lightLuxButton.Text = "Get Light Lux";
+            this.lightLuxButton.Text = "Get Light Aux";
             this.lightLuxButton.UseVisualStyleBackColor = true;
             this.lightLuxButton.Click += new System.EventHandler(this.lightLuxButton_Click);
             // 
@@ -756,16 +766,6 @@
             // 
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
-            // 
-            // riverBedButton
-            // 
-            this.riverBedButton.Location = new System.Drawing.Point(686, 215);
-            this.riverBedButton.Name = "riverBedButton";
-            this.riverBedButton.Size = new System.Drawing.Size(111, 36);
-            this.riverBedButton.TabIndex = 36;
-            this.riverBedButton.Text = "River Bed";
-            this.riverBedButton.UseVisualStyleBackColor = true;
-            this.riverBedButton.Click += new System.EventHandler(this.riverBedButton_Click);
             // 
             // Main
             // 
