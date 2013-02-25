@@ -352,7 +352,7 @@
             // zProgress
             // 
             this.zProgress.Location = new System.Drawing.Point(628, 352);
-            this.zProgress.Maximum = 150000;
+            this.zProgress.Maximum = 66000;
             this.zProgress.Name = "zProgress";
             this.zProgress.Size = new System.Drawing.Size(82, 23);
             this.zProgress.Step = 100;
@@ -382,7 +382,7 @@
             // yProgress
             // 
             this.yProgress.Location = new System.Drawing.Point(628, 323);
-            this.yProgress.Maximum = 130000;
+            this.yProgress.Maximum = 66000;
             this.yProgress.Name = "yProgress";
             this.yProgress.Size = new System.Drawing.Size(82, 23);
             this.yProgress.Step = 100;
@@ -392,7 +392,7 @@
             // xProgress
             // 
             this.xProgress.Location = new System.Drawing.Point(628, 294);
-            this.xProgress.Maximum = 130000;
+            this.xProgress.Maximum = 66000;
             this.xProgress.Name = "xProgress";
             this.xProgress.Size = new System.Drawing.Size(82, 23);
             this.xProgress.Step = 100;

@@ -210,7 +210,7 @@ namespace WIFIGUIDemo
                                 int light = Convert.ToUInt16(NewData[4] << 8) + Convert.ToUInt16(NewData[5]);
                                 //int light = (int)((NewData[5] + NewData[4] << 8));
                                 //UInt16 light = Convert.ToUInt16(NewData[5] + NewData[4] << 8);
-                                int aux = (NewData[7] + NewData[6] << 8);
+                                int aux = Convert.ToUInt16(NewData[7]) + Convert.ToUInt16(NewData[6] << 8);
                                 LightLabel.Text = light.ToString();
                                 auxLabel.Text = aux.ToString();
                             }));
@@ -221,9 +221,9 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int x = (NewData[5] + (NewData[4] << 8));
-                                int y = (NewData[9] + (NewData[8] << 8));
-                                int z = (NewData[7] + (NewData[6] << 8));
+                                int x = (Convert.ToUInt16(NewData[5]) +  Convert.ToUInt16(NewData[4] << 8));
+                                int y = (Convert.ToUInt16(NewData[9]) +  Convert.ToUInt16(NewData[8] << 8));
+                                int z = (Convert.ToUInt16(NewData[7]) +  Convert.ToUInt16(NewData[6] << 8));
                                 getXlabel.Text = x.ToString();
                                 getYlabel.Text = y.ToString();
                                 getZlabel.Text = z.ToString();
@@ -239,20 +239,23 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int x_raw = ((NewData[5] + (NewData[4] << 8)) >> 4);
-                                int y_raw= ((NewData[7] + (NewData[6] << 8)) >> 4);
-                                int z_raw = ((NewData[9] + (NewData[8] << 8)) >> 4);
-                                
-                                int x = to8BitConversion(x_raw);
-                                int y = to8BitConversion(y_raw);
-                                int z = to8BitConversion(z_raw);
+                                if (NewData.Count >= 10)
+                                {
+                                    int x_raw = ((Convert.ToUInt16(NewData[5]) + Convert.ToUInt16(NewData[4] << 8)) >> 4);
+                                    int y_raw = ((Convert.ToUInt16(NewData[7]) +  Convert.ToUInt16(NewData[6] << 8)) >> 4);
+                                    int z_raw = ((Convert.ToUInt16(NewData[9]) +  Convert.ToUInt16(NewData[8] << 8)) >> 4);
 
-                                accelXlabel.Text = x.ToString();
-                                accelYlabel.Text = y.ToString();
-                                accelZlabel.Text = z.ToString();
-                                //accelxProgress.Value = x;
-                                //accelyProgress.Value = y;
-                                //accelzProgress.Value = z;
+                                    int x = to8BitConversion(x_raw);
+                                    int y = to8BitConversion(y_raw);
+                                    int z = to8BitConversion(z_raw);
+
+                                    accelXlabel.Text = x.ToString();
+                                    accelYlabel.Text = y.ToString();
+                                    accelZlabel.Text = z.ToString();
+                                    //accelxProgress.Value = x;
+                                    //accelyProgress.Value = y;
+                                    //accelzProgress.Value = z;
+                                }
                             }));
                             break;
 							}
