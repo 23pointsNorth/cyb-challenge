@@ -33,6 +33,7 @@ namespace WIFIGUIDemo
         }
 
         const int IR_data_buffer_size = 20;
+        const int offset_dist = 16368;
 
         private void DataReceivedRiverBed_Handler(Client_Message_EventArgs e)
         {
@@ -50,8 +51,8 @@ namespace WIFIGUIDemo
                         {
                             int IRl = (NewData[4]) + (NewData[5] << 8);
                             int IRr = (NewData[6]) + (NewData[7] << 8);
-                            int le = NewData[8] + (NewData[9] << 8);
-                            int re = NewData[10] + (NewData[11] << 8);
+                            int le = Math.Abs(NewData[8] + (NewData[9] << 8) - offset_dist);
+                            int re = Math.Abs(NewData[10] + (NewData[11] << 8) - offset_dist);
                             //int IRl = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
                            // int IRr = Convert.ToUInt16(NewData[6]) + Convert.ToUInt16(NewData[7] << 8);
                             //int le = Convert.ToUInt16(NewData[8]) + Convert.ToUInt16((NewData[9] << 8));
@@ -76,7 +77,7 @@ namespace WIFIGUIDemo
                                 int IRl = Convert.ToUInt16(NewData[4 + i]) + Convert.ToUInt16(NewData[5 + i] << 8);
                                 
                                 int IRr = Convert.ToUInt16(NewData[6 + i]) + Convert.ToUInt16(NewData[7 + i] << 8);
-                                int avr_e = Convert.ToUInt16(NewData[8 + i]) + Convert.ToUInt16((NewData[9 + i] << 8));
+                                int avr_e = Math.Abs(Convert.ToUInt16(NewData[8 + i]) + Convert.ToUInt16((NewData[9 + i] << 8)) - offset_dist);
 
                                 IRIntensityDistanceChart.Series["IRDataLeft"].Points.AddXY(avr_e, IRl);
                                 IRIntensityDistanceChart.Series["IRDataRight"].Points.AddXY(avr_e, IRr);
@@ -129,6 +130,24 @@ namespace WIFIGUIDemo
         {
             //rover.SendData(CommandID.IRDistanceData, new byte[] { });
             rover.SendData(CommandID.IRDataBuffer, new byte[] { });
+        }
+
+        private void saveDataButton_Click(object sender, EventArgs e)
+        {
+            // Write the string to a file.
+            System.IO.StreamWriter file_left = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataLeft.txt");
+            foreach (DataPoint left in IRIntensityDistanceChart.Series["IRDataLeft"].Points)
+            {
+                file_left.WriteLine(left.XValue.ToString() + "," + left.YValues[0].ToString());
+            }
+            file_left.Close();
+
+            System.IO.StreamWriter file_right = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataRight.txt");
+            foreach (DataPoint right in IRIntensityDistanceChart.Series["IRDataRight"].Points)
+            {
+                file_right.WriteLine(right.XValue.ToString() + "," + right.YValues[0].ToString());
+            }
+            file_right.Close();
         }
     }
 }

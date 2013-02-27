@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.clearButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.riverBedMapButton = new System.Windows.Forms.Button();
             this.IRIntensityDistanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.IRDataLabel = new System.Windows.Forms.Label();
             this.IRDataTimer = new System.Windows.Forms.Timer(this.components);
+            this.saveDataButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IRIntensityDistanceChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // 
             this.stopButton.Location = new System.Drawing.Point(137, 5);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(87, 22);
+            this.stopButton.Size = new System.Drawing.Size(87, 23);
             this.stopButton.TabIndex = 6;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
@@ -75,33 +76,33 @@
             // 
             // IRIntensityDistanceChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.IRIntensityDistanceChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend1.Name = "Legend1";
-            this.IRIntensityDistanceChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.IRIntensityDistanceChart.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend5.Name = "Legend1";
+            this.IRIntensityDistanceChart.Legends.Add(legend5);
             this.IRIntensityDistanceChart.Location = new System.Drawing.Point(12, 34);
             this.IRIntensityDistanceChart.Name = "IRIntensityDistanceChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series1.Legend = "Legend1";
-            series1.Name = "IRDataLeft";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series2.Legend = "Legend1";
-            series2.Name = "IRDataRight";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            this.IRIntensityDistanceChart.Series.Add(series1);
-            this.IRIntensityDistanceChart.Series.Add(series2);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series9.Legend = "Legend1";
+            series9.Name = "IRDataLeft";
+            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            series9.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series10.Legend = "Legend1";
+            series10.Name = "IRDataRight";
+            series10.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            series10.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            this.IRIntensityDistanceChart.Series.Add(series9);
+            this.IRIntensityDistanceChart.Series.Add(series10);
             this.IRIntensityDistanceChart.Size = new System.Drawing.Size(645, 251);
             this.IRIntensityDistanceChart.TabIndex = 4;
             this.IRIntensityDistanceChart.Text = "Light Tunnel Chart";
-            title1.Name = "IR Intesity vs Distance";
-            this.IRIntensityDistanceChart.Titles.Add(title1);
+            title5.Name = "IR Intesity vs Distance";
+            this.IRIntensityDistanceChart.Titles.Add(title5);
             // 
             // IRDataLabel
             // 
@@ -114,13 +115,25 @@
             // 
             // IRDataTimer
             // 
+            this.IRDataTimer.Interval = 120;
             this.IRDataTimer.Tick += new System.EventHandler(this.IRDataTimer_Tick);
+            // 
+            // saveDataButton
+            // 
+            this.saveDataButton.Location = new System.Drawing.Point(503, 4);
+            this.saveDataButton.Name = "saveDataButton";
+            this.saveDataButton.Size = new System.Drawing.Size(81, 23);
+            this.saveDataButton.TabIndex = 9;
+            this.saveDataButton.Text = "Save Data";
+            this.saveDataButton.UseVisualStyleBackColor = true;
+            this.saveDataButton.Click += new System.EventHandler(this.saveDataButton_Click);
             // 
             // RiverBedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 295);
+            this.Controls.Add(this.saveDataButton);
             this.Controls.Add(this.IRDataLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.stopButton);
@@ -143,5 +156,6 @@
         public System.Windows.Forms.DataVisualization.Charting.Chart IRIntensityDistanceChart;
         private System.Windows.Forms.Label IRDataLabel;
         private System.Windows.Forms.Timer IRDataTimer;
+        private System.Windows.Forms.Button saveDataButton;
     }
 }
