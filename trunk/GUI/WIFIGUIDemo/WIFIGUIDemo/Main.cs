@@ -88,6 +88,8 @@ namespace WIFIGUIDemo
         }
 
         const int MAX_SPEED = 127;
+        const int MIN_SPEED = 50;
+
 
         int ENCODER_SPEED = -100;
         double LEFT_PARAM = 1.25f;
@@ -120,6 +122,10 @@ namespace WIFIGUIDemo
 
             return result;
         }
+
+        const int EDGE = 200;
+        const int OFFLINE = 350;
+        const int ONLINE = 30;
 
         /// <summary>
         /// Data received handler - when data is pushed from the rover to this program the event handler here
@@ -277,25 +283,52 @@ namespace WIFIGUIDemo
 
                                 if (follow_line)
                                 {
-                                    //int rs = MAX_SPEED * (rightval) / 1024;
-                                   // int ls = MAX_SPEED * (leftval) / 1024;
-                                    if (leftval < rightval)
+                                    if (leftval > EDGE)
                                     {
-                                        rs = MAX_SPEED;
-                                        ls = MAX_SPEED * (leftval / rightval);
+                                        ls = (OFFLINE - leftval) / (OFFLINE - EDGE); 
                                     }
-                                    else if (leftval > rightval)
+                                    else if (leftval < EDGE)
                                     {
-                                        ls = MAX_SPEED;
-                                        rs = MAX_SPEED * (rightval / leftval);
+                                        ls = (leftval - ONLINE) / (EDGE - ONLINE);
                                     }
                                     else
                                     {
-                                        rs = MAX_SPEED * (rightval) / 1024;
-                                        ls = MAX_SPEED * (leftval) / 1024;
+                                        ls = 1;
                                     }
 
-                                    setMotorSpeed(ls, rs);
+
+                                    if (rightval > EDGE)
+                                    {
+                                        rs = (OFFLINE - rightval) / (OFFLINE - EDGE);
+                                    }
+                                    else if (rightval < EDGE)
+                                    {
+                                        rs = (rightval - ONLINE) / (EDGE - ONLINE);
+                                    }
+                                    else
+                                    {
+                                        rs = 1;
+                                    }
+                                    /*
+                                    if (leftval < rightval)
+                                    {
+                                        rs = 1;
+                                        ls = (leftval / rightval);
+                                    }
+                                    else if (leftval > rightval)
+                                    {
+                                        ls = 1;
+                                        rs = (rightval / leftval);
+                                    }
+                                    else
+                                    {
+                                        rs =1;
+                                        ls =1;
+                                    }
+                                    */
+                                    //MessageBox.Show(ls.ToString() + " " + rs.ToString());
+                                    setMotorSpeed(MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED), 
+                                                 rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
                                     //Resend line data
                                     theClient.SendData(CommandID.LineFollowingData, new byte[] { });
                                 }
