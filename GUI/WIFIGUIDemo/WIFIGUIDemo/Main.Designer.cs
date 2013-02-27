@@ -94,6 +94,9 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
+            this.x_angle = new System.Windows.Forms.Label();
+            this.y_angle = new System.Windows.Forms.Label();
+            this.z_angle = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -176,6 +179,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.z_angle);
+            this.groupBox2.Controls.Add(this.y_angle);
+            this.groupBox2.Controls.Add(this.x_angle);
             this.groupBox2.Controls.Add(this.riverBedButton);
             this.groupBox2.Controls.Add(this.lightTunnelButton);
             this.groupBox2.Controls.Add(this.servoGroupBox);
@@ -342,7 +348,7 @@
             // accelzProgress
             // 
             this.accelzProgress.Location = new System.Drawing.Point(628, 458);
-            this.accelzProgress.Maximum = 17;
+            this.accelzProgress.Maximum = 210;
             this.accelzProgress.Name = "accelzProgress";
             this.accelzProgress.Size = new System.Drawing.Size(82, 23);
             this.accelzProgress.Step = 100;
@@ -362,7 +368,7 @@
             // accelyProgress
             // 
             this.accelyProgress.Location = new System.Drawing.Point(628, 429);
-            this.accelyProgress.Maximum = 17;
+            this.accelyProgress.Maximum = 210;
             this.accelyProgress.Name = "accelyProgress";
             this.accelyProgress.Size = new System.Drawing.Size(82, 23);
             this.accelyProgress.Step = 100;
@@ -372,7 +378,7 @@
             // accelxProgress
             // 
             this.accelxProgress.Location = new System.Drawing.Point(628, 400);
-            this.accelxProgress.Maximum = 17;
+            this.accelxProgress.Maximum = 210;
             this.accelxProgress.Name = "accelxProgress";
             this.accelxProgress.Size = new System.Drawing.Size(82, 23);
             this.accelxProgress.Step = 100;
@@ -767,6 +773,33 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
+            // x_angle
+            // 
+            this.x_angle.AutoSize = true;
+            this.x_angle.Location = new System.Drawing.Point(469, 438);
+            this.x_angle.Name = "x_angle";
+            this.x_angle.Size = new System.Drawing.Size(44, 13);
+            this.x_angle.TabIndex = 37;
+            this.x_angle.Text = "X Angle";
+            // 
+            // y_angle
+            // 
+            this.y_angle.AutoSize = true;
+            this.y_angle.Location = new System.Drawing.Point(526, 436);
+            this.y_angle.Name = "y_angle";
+            this.y_angle.Size = new System.Drawing.Size(44, 13);
+            this.y_angle.TabIndex = 38;
+            this.y_angle.Text = "Y Angle";
+            // 
+            // z_angle
+            // 
+            this.z_angle.AutoSize = true;
+            this.z_angle.Location = new System.Drawing.Point(574, 434);
+            this.z_angle.Name = "z_angle";
+            this.z_angle.Size = new System.Drawing.Size(44, 13);
+            this.z_angle.TabIndex = 39;
+            this.z_angle.Text = "Z Angle";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,6 +899,9 @@
         private System.Windows.Forms.TrackBar servoTrackBar;
         private System.Windows.Forms.Button lightTunnelButton;
         private System.Windows.Forms.Button riverBedButton;
+        private System.Windows.Forms.Label y_angle;
+        private System.Windows.Forms.Label x_angle;
+        private System.Windows.Forms.Label z_angle;
     }
 }
 
