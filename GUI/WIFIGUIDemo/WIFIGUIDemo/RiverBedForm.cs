@@ -136,16 +136,20 @@ namespace WIFIGUIDemo
         {
             // Write the string to a file.
             System.IO.StreamWriter file_left = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataLeft.txt");
+            System.IO.StreamWriter dist = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\DistData.txt");
             foreach (DataPoint left in IRIntensityDistanceChart.Series["IRDataLeft"].Points)
             {
-                file_left.WriteLine(left.XValue.ToString() + "," + left.YValues[0].ToString());
+                file_left.WriteLine(left.XValue.ToString());
+                dist.WriteLine(left.YValues[0].ToString());
             }
             file_left.Close();
+            dist.Close();
+            
 
             System.IO.StreamWriter file_right = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataRight.txt");
             foreach (DataPoint right in IRIntensityDistanceChart.Series["IRDataRight"].Points)
             {
-                file_right.WriteLine(right.XValue.ToString() + "," + right.YValues[0].ToString());
+                file_right.WriteLine(right.XValue.ToString());
             }
             file_right.Close();
         }
