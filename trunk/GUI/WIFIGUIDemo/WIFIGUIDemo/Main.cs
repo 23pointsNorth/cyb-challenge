@@ -255,17 +255,41 @@ namespace WIFIGUIDemo
                                     y = y / 1024;
                                     z = z / 1024;
                                     
-                                    int x1 = (int)(x);
-                                    int y1 = (int)(y);
-                                    int z1 = (int)(z);
+                                    float x1 = (x * 100)+100;
+                                    float y1 = (y * 100)+100;
+                                    float z1 = (z * 100)+100;
+                                    int xprogress = (int)(x1);
+                                    int yprogress = (int)(y1);
+                                    int zprogress = (int)(z1);
 
-                                    accelXlabel.Text = x.ToString();
-                                    accelYlabel.Text = y.ToString();
-                                    accelZlabel.Text = z.ToString();
+                                    double xsq = (x * x);
+                                    double ysq = (y * y);
+                                    double zsq = (z * z);
 
-                                   // accelxProgress.Value = x1+8;
-                                   // accelyProgress.Value = y1+8;
-                                   // accelzProgress.Value = z1+8;
+                                    double xresult = Math.Sqrt(ysq + zsq);
+                                    xresult = x / xresult;
+                                    double Ax = Math.Atan(xresult) * 180 / Math.PI;
+
+
+                                    double yresult = Math.Sqrt(xsq + zsq);
+                                    yresult = y / yresult;
+                                    double Ay = Math.Atan(yresult) * 180 / Math.PI;
+
+                                    double zresult = Math.Sqrt(xsq + ysq);
+                                    zresult = z / zresult;
+                                    double Az = Math.Atan(zresult) * 180 / Math.PI;
+
+                                    x_angle.Text = Ax.ToString(".00");
+                                    y_angle.Text = Ay.ToString(".00");
+                                    z_angle.Text = Az.ToString(".00");
+
+                                    accelXlabel.Text = x.ToString("0.00");
+                                    accelYlabel.Text = y.ToString("0.00");
+                                    accelZlabel.Text = z.ToString("0.00");
+
+                                    //accelxProgress.Value = xprogress;
+                                    //accelyProgress.Value = yprogress;
+                                    //accelzProgress.Value = zprogress;
                                 }
                             }));
                             break;
