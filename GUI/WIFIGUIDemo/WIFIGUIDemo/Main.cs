@@ -104,11 +104,11 @@ namespace WIFIGUIDemo
         int _1sec_l = 0;
         int _1sec_r = 0;
 
-        private int to8BitConversion(int _2scomp)
+        private int to12BitConversion(int _2scomp)
         {
             int result;
 
-            if (_2scomp < 128)
+            if (_2scomp < 2048)
             {
                 result = _2scomp;
             }
@@ -116,7 +116,7 @@ namespace WIFIGUIDemo
             {
                 result = ~(_2scomp);
                 result++;
-                result &= 0xFF;
+                result &= 0xFFF;
                 result = -result;
             }
 
@@ -247,20 +247,25 @@ namespace WIFIGUIDemo
                             {
                                 if (NewData.Count >= 10)
                                 {
-                                    int x_raw = ((Convert.ToUInt16(NewData[5]) + Convert.ToUInt16(NewData[4] << 8)) >> 4);
-                                    int y_raw = ((Convert.ToUInt16(NewData[7]) +  Convert.ToUInt16(NewData[6] << 8)) >> 4);
-                                    int z_raw = ((Convert.ToUInt16(NewData[9]) +  Convert.ToUInt16(NewData[8] << 8)) >> 4);
+                                    float x = to12BitConversion((NewData[5]) + (NewData[4] << 8) >> 4);
+                                    float y = to12BitConversion((NewData[7]) +  (NewData[6] << 8) >> 4);
+                                    float z = to12BitConversion((NewData[9]) +  (NewData[8] << 8) >> 4);
 
-                                    int x = to8BitConversion(x_raw);
-                                    int y = to8BitConversion(y_raw);
-                                    int z = to8BitConversion(z_raw);
+                                    x = x / 1024;
+                                    y = y / 1024;
+                                    z = z / 1024;
+                                    
+                                    int x1 = (int)(x);
+                                    int y1 = (int)(y);
+                                    int z1 = (int)(z);
 
                                     accelXlabel.Text = x.ToString();
                                     accelYlabel.Text = y.ToString();
                                     accelZlabel.Text = z.ToString();
-                                    //accelxProgress.Value = x;
-                                    //accelyProgress.Value = y;
-                                    //accelzProgress.Value = z;
+
+                                   // accelxProgress.Value = x1+8;
+                                   // accelyProgress.Value = y1+8;
+                                   // accelzProgress.Value = z1+8;
                                 }
                             }));
                             break;

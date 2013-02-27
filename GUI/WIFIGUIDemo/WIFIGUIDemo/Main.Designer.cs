@@ -324,7 +324,7 @@
             // accelYlabel
             // 
             this.accelYlabel.AutoSize = true;
-            this.accelYlabel.Location = new System.Drawing.Point(527, 384);
+            this.accelYlabel.Location = new System.Drawing.Point(525, 384);
             this.accelYlabel.Name = "accelYlabel";
             this.accelYlabel.Size = new System.Drawing.Size(14, 13);
             this.accelYlabel.TabIndex = 27;
@@ -333,7 +333,7 @@
             // accelXlabel
             // 
             this.accelXlabel.AutoSize = true;
-            this.accelXlabel.Location = new System.Drawing.Point(487, 384);
+            this.accelXlabel.Location = new System.Drawing.Point(469, 384);
             this.accelXlabel.Name = "accelXlabel";
             this.accelXlabel.Size = new System.Drawing.Size(14, 13);
             this.accelXlabel.TabIndex = 26;
@@ -342,7 +342,7 @@
             // accelzProgress
             // 
             this.accelzProgress.Location = new System.Drawing.Point(628, 458);
-            this.accelzProgress.Maximum = 150000;
+            this.accelzProgress.Maximum = 17;
             this.accelzProgress.Name = "accelzProgress";
             this.accelzProgress.Size = new System.Drawing.Size(82, 23);
             this.accelzProgress.Step = 100;
@@ -362,7 +362,7 @@
             // accelyProgress
             // 
             this.accelyProgress.Location = new System.Drawing.Point(628, 429);
-            this.accelyProgress.Maximum = 130000;
+            this.accelyProgress.Maximum = 17;
             this.accelyProgress.Name = "accelyProgress";
             this.accelyProgress.Size = new System.Drawing.Size(82, 23);
             this.accelyProgress.Step = 100;
@@ -372,7 +372,7 @@
             // accelxProgress
             // 
             this.accelxProgress.Location = new System.Drawing.Point(628, 400);
-            this.accelxProgress.Maximum = 130000;
+            this.accelxProgress.Maximum = 17;
             this.accelxProgress.Name = "accelxProgress";
             this.accelxProgress.Size = new System.Drawing.Size(82, 23);
             this.accelxProgress.Step = 100;
@@ -402,7 +402,7 @@
             // accelZlabel
             // 
             this.accelZlabel.AutoSize = true;
-            this.accelZlabel.Location = new System.Drawing.Point(574, 384);
+            this.accelZlabel.Location = new System.Drawing.Point(587, 384);
             this.accelZlabel.Name = "accelZlabel";
             this.accelZlabel.Size = new System.Drawing.Size(14, 13);
             this.accelZlabel.TabIndex = 22;
