@@ -27,6 +27,7 @@ namespace ServerLib
         DriveSteps = 0x80,
         LightPositionData = 0x81,
         IRDistanceData = 0x82,
-        IRDataBuffer = 0x83
+        IRDataBuffer = 0x83,
+        AutomaticIRBuffer = 0x84
     };
 }

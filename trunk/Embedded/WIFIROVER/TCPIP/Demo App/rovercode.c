@@ -41,6 +41,7 @@ int pos2=0;
 void setspeed(int newspeed1,int newspeed2);
 
 #define IR_DATA_BUFFER_SIZE		20
+char send_IR_update = 0;
 
 #define IR_DATA_DELAY_PERIOD	100
 unsigned int ti	= 0;
@@ -256,8 +257,37 @@ int pos2=0;
 //encoder interrupt on rise and fall edge
 void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _IC1Interrupt(void)
 {
+	int q;
 	if (speed1 < 0) pos1++; else pos1--;
 	IFS0bits.IC1IF=0;
+
+	if (send_IR_update != 0)
+	{
+		//REAAD IR data
+		IR_pos_l[current_pos] = pos1;
+		IR_pos_r[current_pos] = pos2;
+		IR_data_l[current_pos] = LINEA;
+		IR_data_r[current_pos] = LINEB;
+		
+		current_pos++;
+		if (current_pos >= IR_DATA_BUFFER_SIZE)
+		{ 
+			current_pos = 0; 
+			POSTTCPhead(120, 132);
+			for (q = 0; q < IR_DATA_BUFFER_SIZE; q++)
+			{
+				POSTTCPchar(IR_data_l[q]);
+				POSTTCPchar(IR_data_l[q] >> 8);
+
+				POSTTCPchar(IR_data_r[q]);
+				POSTTCPchar(IR_data_r[q] >> 8);
+
+				avrg_pos = IR_pos_l[q]/2 + IR_pos_r[q]/2;
+				POSTTCPchar(avrg_pos);
+				POSTTCPchar(avrg_pos >> 8);
+			}
+		}
+	}
 }
 
 void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_3_VECTOR), nomips16)) _IC3Interrupt(void)
@@ -776,6 +806,14 @@ void processcommand(void)		// the main routine which processes commands
 		}
 		break;
 	}
+	case 132:
+	{
+		if (commandlen == 1)
+		{
+			send_IR_update = nextcommand[1];
+		}
+		break;
+	}
   }
 }
 
@@ -823,21 +861,6 @@ void ProcessIO(void)
    }
 	
  }
-
-//REAAD IR data
-	ti++;
-	if (ti % IR_DATA_DELAY_PERIOD == 0)
-	{
-		IR_pos_l[current_pos] = pos1;
-		IR_pos_r[current_pos] = pos2;
-		IR_data_l[current_pos] = LINEA;
-		IR_data_r[current_pos] = LINEB;
-		
-		current_pos++;
-		if (current_pos >= IR_DATA_BUFFER_SIZE)
-		{ current_pos = 0; }
-		ti = 0;
-	}
 
 }
 

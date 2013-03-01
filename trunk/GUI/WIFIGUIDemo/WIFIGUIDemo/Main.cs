@@ -49,14 +49,14 @@ namespace WIFIGUIDemo
                 */
                 try
                 {
-                    string IPinput = "10.215.2.13";
+                    string IPinput = "192.168.1.13"; //"10.215.2.13";
                     //Subscribe to message received event
                     theClient.OnMessageReceived += new ClientBase.ClientMessageReceivedEvent(DataReceived_Handler);
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-                    theClient.ConnectToServer(IPinput, 9760);
-
+                    //theClient.ConnectToServer(IPinput, 9760);
+                    
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
                     txtPort.Text = "9760";
