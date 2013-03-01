@@ -34,7 +34,7 @@ namespace WIFIGUIDemo
             IRDataTimer.Enabled = false;
         }
 
-        const int IR_data_buffer_size = 20;
+        const int IR_data_buffer_size = 10;
         const int offset_dist = 16368;
 
         private void DataReceivedRiverBed_Handler(Client_Message_EventArgs e)
