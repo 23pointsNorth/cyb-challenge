@@ -40,7 +40,7 @@ int pos2=0;
 
 void setspeed(int newspeed1,int newspeed2);
 
-#define IR_DATA_BUFFER_SIZE		20
+#define IR_DATA_BUFFER_SIZE		10
 char send_IR_update = 0;
 
 #define IR_DATA_DELAY_PERIOD	100
@@ -78,7 +78,7 @@ unsigned long ticker4 = 0;
 #define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
-#define DRIVE_MAX_SPEED		70
+#define DRIVE_MAX_SPEED		65
 #define MIN_SPEED			50	// [-127;128] values
 
 #define PROP				15
@@ -272,8 +272,9 @@ void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _
 		current_pos++;
 		if (current_pos >= IR_DATA_BUFFER_SIZE)
 		{ 
+			setspeed(0, 0); 
 			current_pos = 0; 
-			POSTTCPhead(120, 132);
+			POSTTCPhead(6 * IR_DATA_BUFFER_SIZE, 132);
 			for (q = 0; q < IR_DATA_BUFFER_SIZE; q++)
 			{
 				POSTTCPchar(IR_data_l[q]);
@@ -286,6 +287,7 @@ void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _
 				POSTTCPchar(avrg_pos);
 				POSTTCPchar(avrg_pos >> 8);
 			}
+			setspeed(wanted_speed_left, wanted_speed_right); 
 		}
 	}
 }

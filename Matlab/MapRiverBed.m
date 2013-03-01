@@ -2,12 +2,12 @@ function MapRiverBed()
 
 %file = strcat('N:\\Data\\', filename);
 
-left = load('N:\\Data\\RiverDataLeft.txt');
-right = load('N:\\Data\\RiverDataRight.txt');
-dist = load('N:\\Data\\DistData.txt');
+left = load('N:\..University\Year2\Cybs Challenge\Data\\RiverDataLeft.txt');
+right = load('N:\..University\Year2\Cybs Challenge\Data\\RiverDataRight.txt');
+dist = load('N:\..University\Year2\Cybs Challenge\Data\\DistData.txt');
 
 figure;
-plot(left, dist, '.' ,right, dist, '.');
+plot(dist, left, 'r' ,dist, right,'m');
 
 xlabel('Distance in (mm)');
 ylabel('Deflection from Rover (mm)');
