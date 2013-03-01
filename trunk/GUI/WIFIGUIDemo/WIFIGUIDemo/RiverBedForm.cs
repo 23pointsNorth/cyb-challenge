@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -139,8 +139,8 @@ namespace WIFIGUIDemo
             System.IO.StreamWriter dist = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\DistData.txt");
             foreach (DataPoint left in IRIntensityDistanceChart.Series["IRDataLeft"].Points)
             {
-                file_left.WriteLine(left.XValue.ToString());
-                dist.WriteLine(left.YValues[0].ToString());
+                file_left.WriteLine(left.YValue.ToString());
+                dist.WriteLine(left.XValues[0].ToString());
             }
             file_left.Close();
             dist.Close();
@@ -149,7 +149,7 @@ namespace WIFIGUIDemo
             System.IO.StreamWriter file_right = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataRight.txt");
             foreach (DataPoint right in IRIntensityDistanceChart.Series["IRDataRight"].Points)
             {
-                file_right.WriteLine(right.XValue.ToString());
+                file_right.WriteLine(right.YValue.ToString());
             }
             file_right.Close();
         }
