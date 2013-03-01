@@ -70,7 +70,7 @@ unsigned long ticker4 = 0;
 #define PRESCALE			2
 #define PB_DIV				8
 #define TOGGLES_SEC_SPEED	205 //At 10Hz // lower value to increase freq 2048 = 1Hz
-#define TOGGLE_SEC_POSITION	10	//At ¬205Hz
+#define TOGGLE_SEC_POSITION	10	//At Â¬205Hz
 #define INTER_FREQ			10  //10HZ at 205 toggles
 #define T4_TICK       		(SYS_FREQ/PB_DIV/PRESCALE)
 
@@ -811,6 +811,7 @@ void processcommand(void)		// the main routine which processes commands
 		if (commandlen == 1)
 		{
 			send_IR_update = nextcommand[1];
+      current_pos = 0;
 		}
 		break;
 	}
