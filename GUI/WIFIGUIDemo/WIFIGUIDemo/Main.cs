@@ -309,7 +309,7 @@ namespace WIFIGUIDemo
                                 int leftval = NewData[5] + (NewData[6] << 8);
                                 int rightval = NewData[7] + (NewData[8] << 8);
                                 int linestatus = NewData[4];
-                                long millisecs;
+                                long millisecs = 0;
 
                                 leftIR.Text = leftval.ToString();
                                 rightIR.Text = rightval.ToString();
@@ -319,65 +319,38 @@ namespace WIFIGUIDemo
 
                                 if (follow_line)
                                 {
-                                    /*if (leftval > EDGE)
-                                    {
-                                        ls = (OFFLINE - leftval) / (OFFLINE - EDGE); 
-                                    }
-                                    else if (leftval < EDGE)
-                                    {
-                                        ls = (leftval - ONLINE) / (EDGE - ONLINE);
-                                    }
-                                    else
-                                    {
-                                        ls = 1;
-                                    }
-
-
-                                    if (rightval > EDGE)
-                                    {
-                                        rs = (OFFLINE - rightval) / (OFFLINE - EDGE);
-                                    }
-                                    else if (rightval < EDGE)
-                                    {
-                                        rs = (rightval - ONLINE) / (EDGE - ONLINE);
-                                    }
-                                    else
-                                    {
-                                        rs = 1;
-                                    }*/
-                                    
-                                    
-                                    
                                     if (leftval < rightval)
                                     {
+                                        //set right to max speed and increase left proportionally
                                         rs = 1;
                                         ls = (leftval / rightval);
                                     }
                                     else if (leftval > rightval)
                                     {
+                                        //set left to max speed and increase right proportionally
                                         ls = 1;
                                         rs = (rightval / leftval);
                                     }
                                     else
                                     {
+                                        //peg it
                                         rs =1;
                                         ls =1;
                                     }
 
-
-                                    millisecs = stopwatch.ElapsedMilliseconds;
                                     fileinfo = leftspeed.ToString() + " " + rightspeed.ToString() + " " + millisecs.ToString() + "\n";
+                                    //write line in file of; leftspeed, rightspeed and how long it's been moving with those speeds
                                     file.WriteLine(fileinfo);
+                                    millisecs = stopwatch.ElapsedMilliseconds;
                                     stopwatch.Restart();
 
+                                    //speeds are always range from 50 to 127 in proportion to rs and ls
                                     leftspeed = MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED);
                                     rightspeed = rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED;   
 
                                     //MessageBox.Show(ls.ToString() + " " + rs.ToString());
                                     setMotorSpeed((int)leftspeed, (int)rightspeed);
                                     
-                                   
-
                                     //Resend line data
                                     theClient.SendData(CommandID.LineFollowingData, new byte[] { });
                                 }
