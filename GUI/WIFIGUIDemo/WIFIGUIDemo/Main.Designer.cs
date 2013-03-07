@@ -37,6 +37,9 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.z_angle = new System.Windows.Forms.Label();
+            this.y_angle = new System.Windows.Forms.Label();
+            this.x_angle = new System.Windows.Forms.Label();
             this.riverBedButton = new System.Windows.Forms.Button();
             this.lightTunnelButton = new System.Windows.Forms.Button();
             this.servoGroupBox = new System.Windows.Forms.GroupBox();
@@ -94,9 +97,7 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
-            this.x_angle = new System.Windows.Forms.Label();
-            this.y_angle = new System.Windows.Forms.Label();
-            this.z_angle = new System.Windows.Forms.Label();
+            this.Seismic_Activity = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -179,6 +180,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Seismic_Activity);
             this.groupBox2.Controls.Add(this.z_angle);
             this.groupBox2.Controls.Add(this.y_angle);
             this.groupBox2.Controls.Add(this.x_angle);
@@ -229,9 +231,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
             // 
+            // z_angle
+            // 
+            this.z_angle.AutoSize = true;
+            this.z_angle.Location = new System.Drawing.Point(574, 434);
+            this.z_angle.Name = "z_angle";
+            this.z_angle.Size = new System.Drawing.Size(44, 13);
+            this.z_angle.TabIndex = 39;
+            this.z_angle.Text = "Z Angle";
+            // 
+            // y_angle
+            // 
+            this.y_angle.AutoSize = true;
+            this.y_angle.Location = new System.Drawing.Point(526, 436);
+            this.y_angle.Name = "y_angle";
+            this.y_angle.Size = new System.Drawing.Size(44, 13);
+            this.y_angle.TabIndex = 38;
+            this.y_angle.Text = "Y Angle";
+            // 
+            // x_angle
+            // 
+            this.x_angle.AutoSize = true;
+            this.x_angle.Location = new System.Drawing.Point(469, 438);
+            this.x_angle.Name = "x_angle";
+            this.x_angle.Size = new System.Drawing.Size(44, 13);
+            this.x_angle.TabIndex = 37;
+            this.x_angle.Text = "X Angle";
+            // 
             // riverBedButton
             // 
-            this.riverBedButton.Location = new System.Drawing.Point(686, 215);
+            this.riverBedButton.Location = new System.Drawing.Point(686, 209);
             this.riverBedButton.Name = "riverBedButton";
             this.riverBedButton.Size = new System.Drawing.Size(111, 36);
             this.riverBedButton.TabIndex = 36;
@@ -773,32 +802,15 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
-            // x_angle
+            // Seismic_Activity
             // 
-            this.x_angle.AutoSize = true;
-            this.x_angle.Location = new System.Drawing.Point(469, 438);
-            this.x_angle.Name = "x_angle";
-            this.x_angle.Size = new System.Drawing.Size(44, 13);
-            this.x_angle.TabIndex = 37;
-            this.x_angle.Text = "X Angle";
-            // 
-            // y_angle
-            // 
-            this.y_angle.AutoSize = true;
-            this.y_angle.Location = new System.Drawing.Point(526, 436);
-            this.y_angle.Name = "y_angle";
-            this.y_angle.Size = new System.Drawing.Size(44, 13);
-            this.y_angle.TabIndex = 38;
-            this.y_angle.Text = "Y Angle";
-            // 
-            // z_angle
-            // 
-            this.z_angle.AutoSize = true;
-            this.z_angle.Location = new System.Drawing.Point(574, 434);
-            this.z_angle.Name = "z_angle";
-            this.z_angle.Size = new System.Drawing.Size(44, 13);
-            this.z_angle.TabIndex = 39;
-            this.z_angle.Text = "Z Angle";
+            this.Seismic_Activity.Location = new System.Drawing.Point(686, 249);
+            this.Seismic_Activity.Name = "Seismic_Activity";
+            this.Seismic_Activity.Size = new System.Drawing.Size(111, 39);
+            this.Seismic_Activity.TabIndex = 40;
+            this.Seismic_Activity.Text = "Seismic Activity";
+            this.Seismic_Activity.UseVisualStyleBackColor = true;
+            this.Seismic_Activity.Click += new System.EventHandler(this.Seismic_Activity_Click);
             // 
             // Main
             // 
@@ -902,6 +914,7 @@
         private System.Windows.Forms.Label y_angle;
         private System.Windows.Forms.Label x_angle;
         private System.Windows.Forms.Label z_angle;
+        private System.Windows.Forms.Button Seismic_Activity;
     }
 }
 
