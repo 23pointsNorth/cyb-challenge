@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using ServerLib;
+
 
 namespace WIFIGUIDemo
 {
@@ -20,8 +23,6 @@ namespace WIFIGUIDemo
         //TCP Client variable from 
         TCPClient theClient;
         #endregion
-
-
 
         /// <summary>
         /// Main Form Constructor
@@ -299,20 +300,26 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                string thresh = null;
+                                Stopwatch stopwatch = new Stopwatch();
+                                System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt");
+
+                                string fileinfo;
+                                float leftspeed = 0, rightspeed = 0;
+                                int thresh = 0;
                                 int leftval = NewData[5] + (NewData[6] << 8);
                                 int rightval = NewData[7] + (NewData[8] << 8);
                                 int linestatus = NewData[4];
+                                long millisecs;
 
                                 leftIR.Text = leftval.ToString();
                                 rightIR.Text = rightval.ToString();
 
-                                int rs = 0;
-                                int ls = 0;
+                                float rs = 0;
+                                float ls = 0;
 
                                 if (follow_line)
                                 {
-                                    if (leftval > EDGE)
+                                    /*if (leftval > EDGE)
                                     {
                                         ls = (OFFLINE - leftval) / (OFFLINE - EDGE); 
                                     }
@@ -337,8 +344,10 @@ namespace WIFIGUIDemo
                                     else
                                     {
                                         rs = 1;
-                                    }
-                                    /*
+                                    }*/
+                                    
+                                    
+                                    
                                     if (leftval < rightval)
                                     {
                                         rs = 1;
@@ -354,10 +363,21 @@ namespace WIFIGUIDemo
                                         rs =1;
                                         ls =1;
                                     }
-                                    */
+
+
+                                    millisecs = stopwatch.ElapsedMilliseconds;
+                                    fileinfo = leftspeed.ToString() + " " + rightspeed.ToString() + " " + millisecs.ToString() + "\n";
+                                    file.WriteLine(fileinfo);
+                                    stopwatch.Restart();
+
+                                    leftspeed = MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED);
+                                    rightspeed = rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED;   
+
                                     //MessageBox.Show(ls.ToString() + " " + rs.ToString());
-                                    setMotorSpeed(MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED), 
-                                                 rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
+                                    setMotorSpeed((int)leftspeed, (int)rightspeed);
+                                    
+                                   
+
                                     //Resend line data
                                     theClient.SendData(CommandID.LineFollowingData, new byte[] { });
                                 }
