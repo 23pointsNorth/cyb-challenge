@@ -28,6 +28,7 @@ namespace ServerLib
         LightPositionData = 0x81,
         IRDistanceData = 0x82,
         IRDataBuffer = 0x83,
-        AutomaticIRBuffer = 0x84
+        AutomaticIRBuffer = 0x84,
+        AutomaticAccelBuffer = 0x85
     };
 }

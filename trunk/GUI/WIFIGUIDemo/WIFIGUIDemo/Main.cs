@@ -105,7 +105,7 @@ namespace WIFIGUIDemo
         int _1sec_l = 0;
         int _1sec_r = 0;
 
-        private int to12BitConversion(int _2scomp)
+        public int to12BitConversion(int _2scomp)
         {
             int result;
 
@@ -248,45 +248,45 @@ namespace WIFIGUIDemo
                             {
                                 if (NewData.Count >= 10)
                                 {
-                                    float x = to12BitConversion((NewData[5]) + (NewData[4] << 8) >> 4);
-                                    float y = to12BitConversion((NewData[7]) +  (NewData[6] << 8) >> 4);
-                                    float z = to12BitConversion((NewData[9]) +  (NewData[8] << 8) >> 4);
+                                    float Accelx = to12BitConversion((NewData[5]) + (NewData[4] << 8) >> 4);
+                                    float Accely = to12BitConversion((NewData[7]) +  (NewData[6] << 8) >> 4);
+                                    float Accelz = to12BitConversion((NewData[9]) +  (NewData[8] << 8) >> 4);
 
-                                    x = x / 1024;
-                                    y = y / 1024;
-                                    z = z / 1024;
+                                    Accelx = Accelx / 1024;
+                                    Accely = Accely / 1024;
+                                    Accelz = Accelz / 1024;
                                     
-                                    float x1 = (x * 100)+100;
-                                    float y1 = (y * 100)+100;
-                                    float z1 = (z * 100)+100;
+                                    float x1 = (Accelx * 100)+100;
+                                    float y1 = (Accely * 100)+100;
+                                    float z1 = (Accelz * 100)+100;
                                     int xprogress = (int)(x1);
                                     int yprogress = (int)(y1);
                                     int zprogress = (int)(z1);
 
-                                    double xsq = (x * x);
-                                    double ysq = (y * y);
-                                    double zsq = (z * z);
+                                    double xsq = (Accelx * Accelx);
+                                    double ysq = (Accely * Accely);
+                                    double zsq = (Accelz * Accelz);
 
                                     double xresult = Math.Sqrt(ysq + zsq);
-                                    xresult = x / xresult;
+                                    xresult = Accelx / xresult;
                                     double Ax = Math.Atan(xresult) * 180 / Math.PI;
 
 
                                     double yresult = Math.Sqrt(xsq + zsq);
-                                    yresult = y / yresult;
+                                    yresult = Accely / yresult;
                                     double Ay = Math.Atan(yresult) * 180 / Math.PI;
 
                                     double zresult = Math.Sqrt(xsq + ysq);
-                                    zresult = z / zresult;
+                                    zresult = Accelz / zresult;
                                     double Az = Math.Atan(zresult) * 180 / Math.PI;
 
                                     x_angle.Text = Ax.ToString(".00");
                                     y_angle.Text = Ay.ToString(".00");
                                     z_angle.Text = Az.ToString(".00");
 
-                                    accelXlabel.Text = x.ToString("0.00");
-                                    accelYlabel.Text = y.ToString("0.00");
-                                    accelZlabel.Text = z.ToString("0.00");
+                                    accelXlabel.Text = Accelx.ToString("0.00");
+                                    accelYlabel.Text = Accely.ToString("0.00");
+                                    accelZlabel.Text = Accelz.ToString("0.00");
 
                                     //accelxProgress.Value = xprogress;
                                     //accelyProgress.Value = yprogress;
@@ -856,6 +856,13 @@ namespace WIFIGUIDemo
         {
             riverBedForm = new RiverBedForm(this, theClient);
             riverBedForm.Show();
+        }
+
+        SeismicActivityForm seismicForm;
+        private void Seismic_Activity_Click(object sender, EventArgs e)
+        {
+            seismicForm = new SeismicActivityForm(this, theClient);
+            seismicForm.Show();
         }
     }
 }
