@@ -304,12 +304,13 @@ namespace WIFIGUIDemo
                                 System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt");
 
                                 string fileinfo;
-                                float leftspeed = 0, rightspeed = 0;
+                                int leftspeed = 0, rightspeed = 0;
                                 int thresh = 0;
                                 int leftval = NewData[5] + (NewData[6] << 8);
                                 int rightval = NewData[7] + (NewData[8] << 8);
                                 int linestatus = NewData[4];
                                 long millisecs = 0;
+
 
                                 leftIR.Text = leftval.ToString();
                                 rightIR.Text = rightval.ToString();
@@ -338,18 +339,18 @@ namespace WIFIGUIDemo
                                         ls =1;
                                     }
 
-                                    fileinfo = leftspeed.ToString() + " " + rightspeed.ToString() + " " + millisecs.ToString() + "\n";
+                                    fileinfo = "blah \n";
                                     //write line in file of; leftspeed, rightspeed and how long it's been moving with those speeds
                                     file.WriteLine(fileinfo);
                                     millisecs = stopwatch.ElapsedMilliseconds;
                                     stopwatch.Restart();
 
-                                    //speeds are always range from 50 to 127 in proportion to rs and ls
-                                    leftspeed = MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED);
-                                    rightspeed = rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED;   
+                                    //speeds are always range from MIN_SPEED to MAX_SPEED in proportion to rs and ls
+                                    leftspeed = (int)(MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED));
+                                    rightspeed = (int)(rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);   
 
                                     //MessageBox.Show(ls.ToString() + " " + rs.ToString());
-                                    setMotorSpeed((int)leftspeed, (int)rightspeed);
+                                    setMotorSpeed(leftspeed, rightspeed);
                                     
                                     //Resend line data
                                     theClient.SendData(CommandID.LineFollowingData, new byte[] { });
