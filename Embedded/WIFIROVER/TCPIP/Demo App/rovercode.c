@@ -40,6 +40,19 @@ int pos2=0;
 
 void setspeed(int newspeed1,int newspeed2);
 
+
+#define ACC_MAX_BUFFER_PACKET	60
+#define ACC_PACKETS				8
+#define ACC_DATA_BUFFER			(ACC_MAX_BUFFER_PACKET * ACC_PACKETS)	
+
+unsigned int acc_data_z[ACC_DATA_BUFFER];
+unsigned int acc_cur_pos = 0;
+char acc_data_aquire = 0;
+char should_send_acc = 0;
+unsigned int acc_data_ticker = 0;
+#define ACC_DATA_PERIOD			5
+
+
 #define IR_DATA_BUFFER_SIZE		10
 char send_IR_update = 0;
 
@@ -78,7 +91,7 @@ unsigned long ticker4 = 0;
 #define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
-#define DRIVE_MAX_SPEED		65
+#define DRIVE_MAX_SPEED		100
 #define MIN_SPEED			50	// [-127;128] values
 
 #define PROP				15
@@ -86,11 +99,34 @@ unsigned long ticker4 = 0;
 //Called with freq = 2048Hz
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
 {
+	int z = 0;
 	// Reset interrupt flag
 	mT4ClearIntFlag();	
 
 	// Increment internal high tick counter
 	ticker4++;
+	acc_data_ticker++;
+	if ((acc_data_ticker % ACC_DATA_PERIOD == 0) && (acc_data_aquire != 0))
+	{
+		//read z_pos;
+		I2S();I2send(0x38);
+		I2send(0x05);I2SR();I2send(0x39);
+		acc_data_z[acc_cur_pos] = I2GET(1) << 4; //0x05 reg -  msb
+		acc_data_z[acc_cur_pos] += (I2GET(0) >> 4); //0x06 - lsb
+		I2P();
+		//End read
+
+		acc_cur_pos++;
+
+		if (acc_cur_pos >= ACC_DATA_BUFFER)
+		{
+			acc_cur_pos = 0;
+			acc_data_aquire = 0;
+			should_send_acc = 1;
+		}
+
+		acc_data_ticker=0;
+	}
 
 	if (ticker4 % TOGGLE_SEC_POSITION)
 	{
@@ -257,11 +293,19 @@ int pos2=0;
 //encoder interrupt on rise and fall edge
 void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _IC1Interrupt(void)
 {
-	int q;
 	if (speed1 < 0) pos1++; else pos1--;
 	IFS0bits.IC1IF=0;
 
-	if (send_IR_update != 0)
+	
+}
+
+void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_3_VECTOR), nomips16)) _IC3Interrupt(void)
+{
+	int q;
+	if (speed2 < 0) pos2++; else pos2--;
+	IFS0bits.IC3IF=0;
+
+if (send_IR_update != 0)
 	{
 		//REAAD IR data
 		IR_pos_l[current_pos] = pos1;
@@ -290,12 +334,6 @@ void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_1_VECTOR), nomips16)) _
 			setspeed(wanted_speed_left, wanted_speed_right); 
 		}
 	}
-}
-
-void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_3_VECTOR), nomips16)) _IC3Interrupt(void)
-{
-	if (speed2 < 0) pos2++; else pos2--;
-	IFS0bits.IC3IF=0;
 }
 
 #define comsdatasize 1024
@@ -350,9 +388,11 @@ int waveid=0;
 
 void initi2Cs(void)  // called once when rover starts
 {
-	//setup accn MMA8452Q
-										I2S();I2send(0x38);I2send(0x2a);I2send(0x20);/*50Hz nonactive */ I2send(0x2);I2P();
-										I2S();I2send(0x38);I2send(0x2a);I2send(0x21);/*50Hz active */ /*I2send(0x2);*/I2P();
+	//setup accn MMA8452Q									//Data rate active mode
+										//I2S();I2send(0x38);I2send(0x2a);I2send(0x20);/*50Hz nonactive */ I2send(0x2);I2P();
+										//I2S();I2send(0x38);I2send(0x2a);I2send(0x21);/*50Hz active */ /*I2send(0x2);*/I2P();
+										I2S();I2send(0x38);I2send(0x2a);I2send(0x09);/*400Hz active noise reduction*/ I2P();
+										//As above are commented values should be -> +-2g, at 400Hz
 	//setup ad MCP3425
 										I2S();I2send(0xd0);I2send(0x90);I2P();
 	//setup io MCP23008  // to be done
@@ -817,6 +857,14 @@ void processcommand(void)		// the main routine which processes commands
 		}
 		break;
 	}
+	case 133:
+		//Read ACC data
+		break;
+	case 134:
+		// ACC buffer read
+		acc_cur_pos = 0;
+		acc_data_aquire = 1;
+		break;
   }
 }
 
@@ -824,6 +872,7 @@ void processcommand(void)		// the main routine which processes commands
 //Process packets
 void ProcessIO(void)
 {
+ unsigned int i = 0, j = 0;
  if (yescomsdata())
  {
   if (commandstate<0)
@@ -864,6 +913,23 @@ void ProcessIO(void)
    }
 	
  }
+
+	//GENERAL SEND ACC DATA
+
+	if (should_send_acc != 0)
+	{
+		for (j = 0; j < ACC_PACKETS; j++)
+		{ 
+			POSTTCPhead(ACC_MAX_BUFFER_PACKET * 2 + 1, 134);
+			POSTTCPchar(j);
+			for (i = 0; i < ACC_MAX_BUFFER_PACKET; i++)
+			{
+				POSTTCPchar(acc_data_z[i + ACC_MAX_BUFFER_PACKET * j]);
+				POSTTCPchar(acc_data_z[i + ACC_MAX_BUFFER_PACKET * j] >> 8);
+			}
+		}
+		should_send_acc = 0;
+	}
 
 }
 
