@@ -98,7 +98,7 @@
 // Defines which port the server will listen on
 #define SERVER_PORT	9760
 
-char tcptxbuffer[601];
+char tcptxbuffer[2025];
 int tcptxbufferpoint=0;
 extern int bptag;
 
@@ -107,7 +107,7 @@ void putcomsdata(char v);
 
 void POSTTCPchar(char b)
 {
-   if (tcptxbufferpoint<601) tcptxbuffer[tcptxbufferpoint++]=b;
+   if (tcptxbufferpoint<2025) tcptxbuffer[tcptxbufferpoint++]=b;
 }
 
 /*****************************************************************************

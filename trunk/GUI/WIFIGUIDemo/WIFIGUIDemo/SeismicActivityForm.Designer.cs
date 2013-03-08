@@ -97,7 +97,7 @@
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
             series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series3.Legend = "Legend1";
             series3.Name = "Accelz";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
@@ -154,7 +154,7 @@
             this.Controls.Add(this.seismicActivitybutton);
             this.Controls.Add(this.SeismicActivityChart);
             this.Name = "SeismicActivityForm";
-            this.Text = "RiverBedForm";
+            this.Text = "SeismicActivityForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RiverBedForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.SeismicActivityChart)).EndInit();
             this.ResumeLayout(false);

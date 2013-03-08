@@ -29,6 +29,7 @@ namespace ServerLib
         IRDistanceData = 0x82,
         IRDataBuffer = 0x83,
         AutomaticIRBuffer = 0x84,
-        AutomaticAccelBuffer = 0x85
+        AutomaticAccelBuffer = 0x85,
+        AccDATABuffer = 0x86
     };
 }

@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Seismic_Activity = new System.Windows.Forms.Button();
             this.z_angle = new System.Windows.Forms.Label();
             this.y_angle = new System.Windows.Forms.Label();
             this.x_angle = new System.Windows.Forms.Label();
@@ -97,7 +98,6 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
-            this.Seismic_Activity = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -230,6 +230,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // Seismic_Activity
+            // 
+            this.Seismic_Activity.Location = new System.Drawing.Point(686, 249);
+            this.Seismic_Activity.Name = "Seismic_Activity";
+            this.Seismic_Activity.Size = new System.Drawing.Size(111, 39);
+            this.Seismic_Activity.TabIndex = 40;
+            this.Seismic_Activity.Text = "Seismic Activity";
+            this.Seismic_Activity.UseVisualStyleBackColor = true;
+            this.Seismic_Activity.Click += new System.EventHandler(this.Seismic_Activity_Click);
             // 
             // z_angle
             // 
@@ -801,16 +811,6 @@
             // 
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
-            // 
-            // Seismic_Activity
-            // 
-            this.Seismic_Activity.Location = new System.Drawing.Point(686, 249);
-            this.Seismic_Activity.Name = "Seismic_Activity";
-            this.Seismic_Activity.Size = new System.Drawing.Size(111, 39);
-            this.Seismic_Activity.TabIndex = 40;
-            this.Seismic_Activity.Text = "Seismic Activity";
-            this.Seismic_Activity.UseVisualStyleBackColor = true;
-            this.Seismic_Activity.Click += new System.EventHandler(this.Seismic_Activity_Click);
             // 
             // Main
             // 

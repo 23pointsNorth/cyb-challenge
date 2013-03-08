@@ -837,6 +837,9 @@ namespace WIFIGUIDemo
         {
             seismicForm = new SeismicActivityForm(this, theClient);
             seismicForm.Show();
+            
+
+            //theClient.SendData(CommandID.AccDATABuffer, new byte[] { });
         }
     }
 }

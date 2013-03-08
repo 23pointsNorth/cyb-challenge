@@ -33,6 +33,9 @@ namespace WIFIGUIDemo
         const int accel_data_buffer_size = 10;
         const int offset_dist = 16368;
 
+        const int acc_packet_size = 8;
+        const int acc_packet_buffer_size = 60;
+
         private void DataReceivedSeismicActivity_Handler(Client_Message_EventArgs e)
         {
              //Take the new data received and convert it into a more manageable format
@@ -114,6 +117,29 @@ namespace WIFIGUIDemo
                             }
                         }));
                         break;
+
+
+                    case (byte)CommandID.AccDATABuffer:
+                        //Invokation to allow cross thread manipulation
+                        this.BeginInvoke(new EventHandler(delegate
+                        {
+
+                            int id = Convert.ToUInt16(NewData[4]);
+
+                            for (int i = 0; i < accel_data_buffer_size - 1; i++)
+                            {
+                                double Accelz = mainForm.to12BitConversion(NewData[(5 + i)]  + (NewData[(6 + i)] << 8));
+                                Accelz = Accelz / 1024.0; // normilize in +- 2g
+
+                                SeismicActivityChart.Series["Accelz"].Points.AddXY(id * acc_packet_buffer_size + i, Accelz);
+                            }
+                            
+                            if (id == acc_packet_size - 1) seismicActivityButton_Click(null, null);
+
+                        }));
+                        break;
+
+
                     case (byte)CommandID.DriveSteps:
                         //Invokation to allow cross thread manipulation
                         this.BeginInvoke(new EventHandler(delegate
@@ -146,19 +172,29 @@ namespace WIFIGUIDemo
                 data_on = false;
                 seismicActivitybutton.Text = "Map Seismic Activity - Off";
                 stopButton_Click(sender, e);
-                rover.SendData(CommandID.AutomaticAccelBuffer, new byte[] { 0 });
+                //rover.SendData(CommandID.AutomaticAccelBuffer, new byte[] { 0 });
             }
             else
             {
                 data_on = true;
                 seismicActivitybutton.Text = "Map Seismic Activity - On";
-                rover.SendData(CommandID.AutomaticAccelBuffer, new byte[] { 1 });
+
+                rover.SendData(CommandID.AccDATABuffer, new byte[] { });
+                //rover.SendData(CommandID.AutomaticAccelBuffer, new byte[] { 1 });
             }
         }
 
 
         private void saveDataButton_Click(object sender, EventArgs e)
         {
+            System.IO.StreamWriter acc_z = new System.IO.StreamWriter("N:\\Data\\ACC_Z.txt");
+
+            foreach (DataPoint left in SeismicActivityChart.Series["Accelz"].Points)
+            {
+                acc_z.WriteLine(left.YValues[0].ToString());
+            }
+            acc_z.Close();
+
             /*
             // Write the string to a file.
             System.IO.StreamWriter file_left = new System.IO.StreamWriter("N:\\Data\\RiverDataLeft.txt");
