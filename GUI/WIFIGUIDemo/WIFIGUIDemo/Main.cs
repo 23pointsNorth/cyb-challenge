@@ -56,7 +56,7 @@ namespace WIFIGUIDemo
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-					theClient.ConnectToServer(IPinput, 9760);
+					//theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
@@ -840,6 +840,13 @@ namespace WIFIGUIDemo
             
 
             //theClient.SendData(CommandID.AccDATABuffer, new byte[] { });
+        }
+
+        CrashedRocketForm crashedRocket;
+        private void crashedRocketButton_Click(object sender, EventArgs e)
+        {
+            crashedRocket = new CrashedRocketForm(this, theClient);
+            crashedRocket.Show();
         }
     }
 }

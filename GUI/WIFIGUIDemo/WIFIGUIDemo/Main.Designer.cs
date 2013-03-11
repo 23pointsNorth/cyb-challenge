@@ -53,10 +53,7 @@
             this.lineData = new System.Windows.Forms.Button();
             this.accelYlabel = new System.Windows.Forms.Label();
             this.accelXlabel = new System.Windows.Forms.Label();
-            this.accelzProgress = new System.Windows.Forms.ProgressBar();
             this.zProgress = new System.Windows.Forms.ProgressBar();
-            this.accelyProgress = new System.Windows.Forms.ProgressBar();
-            this.accelxProgress = new System.Windows.Forms.ProgressBar();
             this.yProgress = new System.Windows.Forms.ProgressBar();
             this.xProgress = new System.Windows.Forms.ProgressBar();
             this.accelZlabel = new System.Windows.Forms.Label();
@@ -98,6 +95,7 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
+            this.crashedRocketButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -180,6 +178,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.crashedRocketButton);
             this.groupBox2.Controls.Add(this.Seismic_Activity);
             this.groupBox2.Controls.Add(this.z_angle);
             this.groupBox2.Controls.Add(this.y_angle);
@@ -195,10 +194,7 @@
             this.groupBox2.Controls.Add(this.lineData);
             this.groupBox2.Controls.Add(this.accelYlabel);
             this.groupBox2.Controls.Add(this.accelXlabel);
-            this.groupBox2.Controls.Add(this.accelzProgress);
             this.groupBox2.Controls.Add(this.zProgress);
-            this.groupBox2.Controls.Add(this.accelyProgress);
-            this.groupBox2.Controls.Add(this.accelxProgress);
             this.groupBox2.Controls.Add(this.yProgress);
             this.groupBox2.Controls.Add(this.xProgress);
             this.groupBox2.Controls.Add(this.accelZlabel);
@@ -384,16 +380,6 @@
             this.accelXlabel.TabIndex = 26;
             this.accelXlabel.Text = "X";
             // 
-            // accelzProgress
-            // 
-            this.accelzProgress.Location = new System.Drawing.Point(628, 458);
-            this.accelzProgress.Maximum = 210;
-            this.accelzProgress.Name = "accelzProgress";
-            this.accelzProgress.Size = new System.Drawing.Size(82, 23);
-            this.accelzProgress.Step = 100;
-            this.accelzProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.accelzProgress.TabIndex = 25;
-            // 
             // zProgress
             // 
             this.zProgress.Location = new System.Drawing.Point(628, 352);
@@ -403,26 +389,6 @@
             this.zProgress.Step = 100;
             this.zProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.zProgress.TabIndex = 25;
-            // 
-            // accelyProgress
-            // 
-            this.accelyProgress.Location = new System.Drawing.Point(628, 429);
-            this.accelyProgress.Maximum = 210;
-            this.accelyProgress.Name = "accelyProgress";
-            this.accelyProgress.Size = new System.Drawing.Size(82, 23);
-            this.accelyProgress.Step = 100;
-            this.accelyProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.accelyProgress.TabIndex = 24;
-            // 
-            // accelxProgress
-            // 
-            this.accelxProgress.Location = new System.Drawing.Point(628, 400);
-            this.accelxProgress.Maximum = 210;
-            this.accelxProgress.Name = "accelxProgress";
-            this.accelxProgress.Size = new System.Drawing.Size(82, 23);
-            this.accelxProgress.Step = 100;
-            this.accelxProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.accelxProgress.TabIndex = 23;
             // 
             // yProgress
             // 
@@ -812,6 +778,16 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
+            // crashedRocketButton
+            // 
+            this.crashedRocketButton.Location = new System.Drawing.Point(686, 392);
+            this.crashedRocketButton.Name = "crashedRocketButton";
+            this.crashedRocketButton.Size = new System.Drawing.Size(111, 39);
+            this.crashedRocketButton.TabIndex = 41;
+            this.crashedRocketButton.Text = "Crashed Rocket";
+            this.crashedRocketButton.UseVisualStyleBackColor = true;
+            this.crashedRocketButton.Click += new System.EventHandler(this.crashedRocketButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,9 +871,6 @@
         private System.Windows.Forms.Label accelYlabel;
         private System.Windows.Forms.Label accelXlabel;
         private System.Windows.Forms.Label accelZlabel;
-        private System.Windows.Forms.ProgressBar accelzProgress;
-        private System.Windows.Forms.ProgressBar accelyProgress;
-        private System.Windows.Forms.ProgressBar accelxProgress;
         private System.Windows.Forms.Button lineData;
         private System.Windows.Forms.Label threshLabel;
         private System.Windows.Forms.Label rightIR;
@@ -915,6 +888,7 @@
         private System.Windows.Forms.Label x_angle;
         private System.Windows.Forms.Label z_angle;
         private System.Windows.Forms.Button Seismic_Activity;
+        private System.Windows.Forms.Button crashedRocketButton;
     }
 }
 
