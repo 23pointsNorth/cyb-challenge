@@ -56,7 +56,7 @@ namespace WIFIGUIDemo
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-					//theClient.ConnectToServer(IPinput, 9760);
+					theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
@@ -385,6 +385,19 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
+                   /* case (byte)CommandID.GetCrashedRoverData:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                MessageBox.Show(NewData.Count.ToString());
+                                for (int i = 4; i < NewData.Count; i++)
+                                {
+                                    //CrashedMessageBox.Text += NewData[i] + " ";
+                                }
+                            }));
+                            break;
+                        }   */
                 }
             }
         }
@@ -847,6 +860,8 @@ namespace WIFIGUIDemo
         {
             crashedRocket = new CrashedRocketForm(this, theClient);
             crashedRocket.Show();
+
+            //theClient.SendData(CommandID.GetCrashedRoverData, new byte[] { });
         }
     }
 }
