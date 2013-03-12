@@ -101,6 +101,8 @@ namespace WIFIGUIDemo
         int left_encoder = 0;
         int right_encoder = 0;
 
+        const double DIST_PARAM = 9.5;
+
 
         int _1sec_l = 0;
         int _1sec_r = 0;
@@ -549,7 +551,7 @@ namespace WIFIGUIDemo
             {
                 //reqInfo.Enabled = true;
                 //initial_value = false;
-                int distance = int.Parse(PositionStatusBox.Text);
+                int distance = (int)(int.Parse(PositionStatusBox.Text) * DIST_PARAM);
                 theClient.SendData(CommandID.DriveSteps, new byte[] { (byte)(distance), (byte)(distance >> 8) });
             }
         }
@@ -597,6 +599,24 @@ namespace WIFIGUIDemo
             {
                 stop();
             }
+
+            int gap = 2;
+
+            if (e.KeyCode.Equals(Keys.PageDown))
+            {
+                servoTrackBar.Value = ((servoTrackBar.Value - gap) < 0) ? 0 : (servoTrackBar.Value - gap);
+                int pos = servoTrackBar.Value;
+                pos = pos - 128;
+                theClient.SendData(CommandID.SetServoPosition, new byte[] { (byte)pos });
+            }
+            else if (e.KeyCode.Equals(Keys.PageUp))
+            {
+                servoTrackBar.Value = ((servoTrackBar.Value + gap) > servoTrackBar.Maximum) ? servoTrackBar.Maximum:  (servoTrackBar.Value + gap);
+                int pos = servoTrackBar.Value;
+                pos = pos - 128;
+                theClient.SendData(CommandID.SetServoPosition, new byte[] { (byte)pos });
+            }
+
             e.Handled = true;
         }
 

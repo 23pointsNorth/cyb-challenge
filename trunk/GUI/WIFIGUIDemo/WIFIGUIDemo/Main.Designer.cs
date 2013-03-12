@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.crashedRocketButton = new System.Windows.Forms.Button();
             this.Seismic_Activity = new System.Windows.Forms.Button();
             this.z_angle = new System.Windows.Forms.Label();
             this.y_angle = new System.Windows.Forms.Label();
@@ -95,7 +96,7 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
-            this.crashedRocketButton = new System.Windows.Forms.Button();
+            this.smlabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -178,6 +179,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.smlabel);
             this.groupBox2.Controls.Add(this.crashedRocketButton);
             this.groupBox2.Controls.Add(this.Seismic_Activity);
             this.groupBox2.Controls.Add(this.z_angle);
@@ -226,6 +228,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualisation";
+            // 
+            // crashedRocketButton
+            // 
+            this.crashedRocketButton.Location = new System.Drawing.Point(686, 392);
+            this.crashedRocketButton.Name = "crashedRocketButton";
+            this.crashedRocketButton.Size = new System.Drawing.Size(111, 39);
+            this.crashedRocketButton.TabIndex = 41;
+            this.crashedRocketButton.Text = "Crashed Rocket";
+            this.crashedRocketButton.UseVisualStyleBackColor = true;
+            this.crashedRocketButton.Click += new System.EventHandler(this.crashedRocketButton_Click);
             // 
             // Seismic_Activity
             // 
@@ -297,7 +309,7 @@
             // servoTrackBar
             // 
             this.servoTrackBar.Location = new System.Drawing.Point(19, 25);
-            this.servoTrackBar.Maximum = 255;
+            this.servoTrackBar.Maximum = 220;
             this.servoTrackBar.Name = "servoTrackBar";
             this.servoTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.servoTrackBar.Size = new System.Drawing.Size(45, 104);
@@ -577,7 +589,7 @@
             // 
             // driveSteps
             // 
-            this.driveSteps.Location = new System.Drawing.Point(226, 47);
+            this.driveSteps.Location = new System.Drawing.Point(145, 47);
             this.driveSteps.Name = "driveSteps";
             this.driveSteps.Size = new System.Drawing.Size(113, 23);
             this.driveSteps.TabIndex = 5;
@@ -587,11 +599,11 @@
             // 
             // PositionStatusBox
             // 
-            this.PositionStatusBox.Location = new System.Drawing.Point(228, 22);
+            this.PositionStatusBox.Location = new System.Drawing.Point(145, 20);
             this.PositionStatusBox.Name = "PositionStatusBox";
-            this.PositionStatusBox.Size = new System.Drawing.Size(111, 20);
+            this.PositionStatusBox.Size = new System.Drawing.Size(48, 20);
             this.PositionStatusBox.TabIndex = 4;
-            this.PositionStatusBox.Text = "100";
+            this.PositionStatusBox.Text = "10";
             // 
             // stopButton
             // 
@@ -778,15 +790,14 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
-            // crashedRocketButton
+            // smlabel
             // 
-            this.crashedRocketButton.Location = new System.Drawing.Point(686, 392);
-            this.crashedRocketButton.Name = "crashedRocketButton";
-            this.crashedRocketButton.Size = new System.Drawing.Size(111, 39);
-            this.crashedRocketButton.TabIndex = 41;
-            this.crashedRocketButton.Text = "Crashed Rocket";
-            this.crashedRocketButton.UseVisualStyleBackColor = true;
-            this.crashedRocketButton.Click += new System.EventHandler(this.crashedRocketButton_Click);
+            this.smlabel.AutoSize = true;
+            this.smlabel.Location = new System.Drawing.Point(204, 24);
+            this.smlabel.Name = "smlabel";
+            this.smlabel.Size = new System.Drawing.Size(24, 13);
+            this.smlabel.TabIndex = 42;
+            this.smlabel.Text = "cm.";
             // 
             // Main
             // 
@@ -889,6 +900,7 @@
         private System.Windows.Forms.Label z_angle;
         private System.Windows.Forms.Button Seismic_Activity;
         private System.Windows.Forms.Button crashedRocketButton;
+        private System.Windows.Forms.Label smlabel;
     }
 }
 
