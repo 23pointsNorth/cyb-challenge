@@ -170,35 +170,35 @@ namespace WIFIGUIDemo
                         break;
                     case (byte)CommandID.MotorPosition:
                         {//Invokation to allow cross thread manipulation
-                        this.BeginInvoke(new EventHandler(delegate
-                            {
-                                /*PositionStatusBox.Text = NewData[4].ToString() + " " + // 256 - Speed //Left
-                                     NewData[5].ToString() + " " + //Encoder lower part
-                                     NewData[6].ToString() + " " + //Encoder upper
-                                     NewData[7].ToString() + " " + // 256 - Speed // Right
-                                     NewData[8].ToString() + " " + // lower encoder
-                                     NewData[9].ToString();         // upper
-                                */
-                                int le = NewData[5] + (NewData[6] << 8);
-                                int re = NewData[8] + (NewData[9] << 8);
-
-                                leftEncoderLabel.Text = le.ToString();
-                                rightEncoderLabel.Text = re.ToString();
-
-                                if (driving)
+                            this.BeginInvoke(new EventHandler(delegate
                                 {
-                                    _1sec_l = le;
-                                    _1sec_r = re;
-                                }
-                                else
-                                {
-                                    if (_1sec_l != 0 && _1sec_r != 0)
+                                    /*PositionStatusBox.Text = NewData[4].ToString() + " " + // 256 - Speed //Left
+                                         NewData[5].ToString() + " " + //Encoder lower part
+                                         NewData[6].ToString() + " " + //Encoder upper
+                                         NewData[7].ToString() + " " + // 256 - Speed // Right
+                                         NewData[8].ToString() + " " + // lower encoder
+                                         NewData[9].ToString();         // upper
+                                    */
+                                    int le = NewData[5] + (NewData[6] << 8);
+                                    int re = NewData[8] + (NewData[9] << 8);
+
+                                    leftEncoderLabel.Text = le.ToString();
+                                    rightEncoderLabel.Text = re.ToString();
+
+                                    if (driving)
                                     {
-                                        MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
+                                        _1sec_l = le;
+                                        _1sec_r = re;
                                     }
-                                }
+                                    else
+                                    {
+                                        if (_1sec_l != 0 && _1sec_r != 0)
+                                        {
+                                            MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
+                                        }
+                                    }
 
-                            }));
+                                }));
                             break;
                         }
                     case (byte)CommandID.GetTermData:
@@ -208,6 +208,8 @@ namespace WIFIGUIDemo
                             {
                                 int temp = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
                                 tempLabel.Text = temp.ToString();
+                                double temp_celsius = (temp - 3106.1) / (-35.83);
+                                temp_Celsius.Text = temp_celsius.ToString("0.00") + "'C";
                             }));
                             break;
                         }
@@ -230,15 +232,16 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                int x = (Convert.ToUInt16(NewData[5]) +  Convert.ToUInt16(NewData[4] << 8));
-                                int y = (Convert.ToUInt16(NewData[9]) +  Convert.ToUInt16(NewData[8] << 8));
-                                int z = (Convert.ToUInt16(NewData[7]) +  Convert.ToUInt16(NewData[6] << 8));
+
+                                int x = (Convert.ToUInt16(NewData[5]) + Convert.ToUInt16(NewData[4] << 8));
+                                int y = (Convert.ToUInt16(NewData[9]) + Convert.ToUInt16(NewData[8] << 8));
+                                int z = (Convert.ToUInt16(NewData[7]) + Convert.ToUInt16(NewData[6] << 8));
                                 getXlabel.Text = x.ToString();
                                 getYlabel.Text = y.ToString();
                                 getZlabel.Text = z.ToString();
                                 xProgress.Value = x;
                                 yProgress.Value = y;
-                                zProgress.Value = z;  
+                                zProgress.Value = z;
                             }));
                             break;
                         }
@@ -251,16 +254,16 @@ namespace WIFIGUIDemo
                                 if (NewData.Count >= 10)
                                 {
                                     float Accelx = to12BitConversion((NewData[5]) + (NewData[4] << 8) >> 4);
-                                    float Accely = to12BitConversion((NewData[7]) +  (NewData[6] << 8) >> 4);
-                                    float Accelz = to12BitConversion((NewData[9]) +  (NewData[8] << 8) >> 4);
+                                    float Accely = to12BitConversion((NewData[7]) + (NewData[6] << 8) >> 4);
+                                    float Accelz = to12BitConversion((NewData[9]) + (NewData[8] << 8) >> 4);
 
                                     Accelx = Accelx / 1024;
                                     Accely = Accely / 1024;
                                     Accelz = Accelz / 1024;
-                                    
-                                    float x1 = (Accelx * 100)+100;
-                                    float y1 = (Accely * 100)+100;
-                                    float z1 = (Accelz * 100)+100;
+
+                                    float x1 = (Accelx * 100) + 100;
+                                    float y1 = (Accely * 100) + 100;
+                                    float z1 = (Accelz * 100) + 100;
                                     int xprogress = (int)(x1);
                                     int yprogress = (int)(y1);
                                     int zprogress = (int)(z1);
@@ -296,7 +299,7 @@ namespace WIFIGUIDemo
                                 }
                             }));
                             break;
-							}
+                        }
                     case (byte)CommandID.LineFollowingData:
                         {
                             //Invokation to allow cross thread manipulation
@@ -337,8 +340,8 @@ namespace WIFIGUIDemo
                                     else
                                     {
                                         //peg it
-                                        rs =1;
-                                        ls =1;
+                                        rs = 1;
+                                        ls = 1;
                                     }
 
                                     fileinfo = "blah \n";
@@ -349,11 +352,11 @@ namespace WIFIGUIDemo
 
                                     //speeds are always range from MIN_SPEED to MAX_SPEED in proportion to rs and ls
                                     leftspeed = (int)(MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED));
-                                    rightspeed = (int)(rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);   
+                                    rightspeed = (int)(rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
 
                                     //MessageBox.Show(ls.ToString() + " " + rs.ToString());
                                     setMotorSpeed(leftspeed, rightspeed);
-                                    
+
                                     //Resend line data
                                     theClient.SendData(CommandID.LineFollowingData, new byte[] { });
                                 }
@@ -383,7 +386,7 @@ namespace WIFIGUIDemo
                                 int avrgEncoder = (le + re) / 2;
 
                                 lightTunnelForm.AddDataPoint(avrgEncoder, light);
-                                
+
                             }));
                             break;
                         }
@@ -403,7 +406,7 @@ namespace WIFIGUIDemo
                 }
             }
         }
-       
+
         #region FORM CONTROL EVENT FUNCTIONS
         /// <summary>
         /// Connection function
@@ -432,7 +435,7 @@ namespace WIFIGUIDemo
         /// <param name="e"></param>
         private void cmdDisconnect_Click(object sender, EventArgs e)
         {
-            if(theClient.isConnected)
+            if (theClient.isConnected)
                 theClient.Disconnect();
 
             cmdConnect.Enabled = true;
@@ -474,7 +477,7 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 theClient.SendData(CommandID.InternalCounter, new byte[] { });
-            }            
+            }
         }
 
         /// <summary>
@@ -513,7 +516,7 @@ namespace WIFIGUIDemo
                     timer1.Enabled = false;
                 }
 
-            }   
+            }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -561,7 +564,7 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 int left_speed = leftSpeed.Value;
-                theClient.SendData(CommandID.SetLeftMotorSpeed, new byte[] { (byte)left_speed});
+                theClient.SendData(CommandID.SetLeftMotorSpeed, new byte[] { (byte)left_speed });
             }
         }
 
@@ -576,9 +579,9 @@ namespace WIFIGUIDemo
 
         public void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             int speed_p = (e.Shift) ? 75 : 100;
-            
+
             if (e.KeyCode.Equals(Keys.W))
             {
                 forward(speed_p);
@@ -625,7 +628,7 @@ namespace WIFIGUIDemo
         {
             dirSpeedMouseDown = true;
             setSpeeds(e);
-            
+
         }
 
         private void directionalSpeed_MouseMove(object sender, MouseEventArgs e)
@@ -641,29 +644,29 @@ namespace WIFIGUIDemo
             Point c = new Point(directionalSpeed.Width / 2, directionalSpeed.Height / 2);
             int power = (int)Math.Sqrt((e.Y - c.Y) * (e.Y - c.Y) + (e.X - c.X) * (e.X - c.X));
             double alpha = Math.Atan2(e.X - c.X, e.Y - c.Y) + Math.PI;
-            if (alpha < 0) alpha += 2*Math.PI;
-            if (alpha > 2*Math.PI) alpha -= 2*Math.PI;
+            if (alpha < 0) alpha += 2 * Math.PI;
+            if (alpha > 2 * Math.PI) alpha -= 2 * Math.PI;
 
             //MessageBox.Show(alpha.ToString());
             int left_speed = 0;
-            int right_speed = 0; 
+            int right_speed = 0;
             if (alpha >= 0 && alpha < Math.PI / 2)
             {
                 right_speed = MAX_SPEED * 1; // scale with power
-                left_speed =(int) ((1 - ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED*1);
+                left_speed = (int)((1 - ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED * 1);
                 //MessageBox.Show(left_speed.ToString() + " " + alpha.ToString());
             }
             else if (alpha >= Math.PI / 2 && alpha < Math.PI)
             {
-                right_speed = (int)(3 - 4*alpha / Math.PI) * MAX_SPEED * 1; // scale with power
+                right_speed = (int)(3 - 4 * alpha / Math.PI) * MAX_SPEED * 1; // scale with power
                 left_speed = -1 * MAX_SPEED * 1;
             }
-            else if (alpha >= Math.PI && alpha < 3 * Math.PI/2)
+            else if (alpha >= Math.PI && alpha < 3 * Math.PI / 2)
             {
                 right_speed = -1 * MAX_SPEED * 1;
                 left_speed = (int)((-3 + ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED * 1);
             }
-            else if (alpha >= 3* Math.PI/2 && alpha < 2 * Math.PI)
+            else if (alpha >= 3 * Math.PI / 2 && alpha < 2 * Math.PI)
             {
                 right_speed = (int)((-5 + ((double)(4.0 * alpha) / Math.PI)) * MAX_SPEED * 1);
                 left_speed = 1 * MAX_SPEED * 1;
@@ -701,7 +704,7 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                theClient.SendData(CommandID.GetTermData, new byte[] {});
+                theClient.SendData(CommandID.GetTermData, new byte[] { });
             }
         }
 
@@ -742,8 +745,8 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                int right_speed = (speed * speed_percentage)/100;
-                int left_speed = (speed * speed_percentage)/100;
+                int right_speed = (speed * speed_percentage) / 100;
+                int left_speed = (speed * speed_percentage) / 100;
                 setMotorSpeed(left_speed, right_speed);
             }
         }
@@ -816,7 +819,7 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)      //Starts the timer when clicked to refresh accel data
             {                               //Or stops it if it is running.
-                theClient.SendData(CommandID.GetAccelValue, new byte[] { });    
+                theClient.SendData(CommandID.GetAccelValue, new byte[] { });
                 if (accel_start == false)
                 {
                     accel_start = true;
@@ -870,7 +873,7 @@ namespace WIFIGUIDemo
         {
             seismicForm = new SeismicActivityForm(this, theClient);
             seismicForm.Show();
-            
+
 
             //theClient.SendData(CommandID.AccDATABuffer, new byte[] { });
         }

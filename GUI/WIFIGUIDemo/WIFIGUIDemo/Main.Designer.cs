@@ -96,7 +96,10 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
+            this.temp_Celsius = new System.Windows.Forms.Label();
+            this.crashedRocketButton = new System.Windows.Forms.Button();
             this.smlabel = new System.Windows.Forms.Label();
+
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
@@ -179,8 +182,11 @@
             // 
             // groupBox2
             // 
+
+            this.groupBox2.Controls.Add(this.temp_Celsius);
             this.groupBox2.Controls.Add(this.smlabel);
             this.groupBox2.Controls.Add(this.crashedRocketButton);
+
             this.groupBox2.Controls.Add(this.Seismic_Activity);
             this.groupBox2.Controls.Add(this.z_angle);
             this.groupBox2.Controls.Add(this.y_angle);
@@ -790,14 +796,37 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
+
+            // temp_Celsius
+             // crashedRocketButton
+          // 
+
+            this.temp_Celsius.AutoSize = true;
+            this.temp_Celsius.Location = new System.Drawing.Point(569, 148);
+            this.temp_Celsius.Name = "temp_Celsius";
+            this.temp_Celsius.Size = new System.Drawing.Size(40, 13);
+            this.temp_Celsius.TabIndex = 41;
+            this.temp_Celsius.Text = "Celsius";
+
+
             // smlabel
             // 
+
+            this.crashedRocketButton.Location = new System.Drawing.Point(686, 392);
+            this.crashedRocketButton.Name = "crashedRocketButton";
+            this.crashedRocketButton.Size = new System.Drawing.Size(111, 39);
+            this.crashedRocketButton.TabIndex = 41;
+            this.crashedRocketButton.Text = "Crashed Rocket";
+            this.crashedRocketButton.UseVisualStyleBackColor = true;
+            
+
             this.smlabel.AutoSize = true;
             this.smlabel.Location = new System.Drawing.Point(204, 24);
             this.smlabel.Name = "smlabel";
             this.smlabel.Size = new System.Drawing.Size(24, 13);
             this.smlabel.TabIndex = 42;
             this.smlabel.Text = "cm.";
+
             // 
             // Main
             // 
@@ -899,7 +928,11 @@
         private System.Windows.Forms.Label x_angle;
         private System.Windows.Forms.Label z_angle;
         private System.Windows.Forms.Button Seismic_Activity;
+
+        private System.Windows.Forms.Label temp_Celsius;
+
         private System.Windows.Forms.Button crashedRocketButton;
+
         private System.Windows.Forms.Label smlabel;
     }
 }
