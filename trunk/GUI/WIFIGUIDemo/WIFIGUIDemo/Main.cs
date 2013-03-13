@@ -56,7 +56,7 @@ namespace WIFIGUIDemo
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-					//theClient.ConnectToServer(IPinput, 9760);
+					theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
@@ -120,6 +120,26 @@ namespace WIFIGUIDemo
                 result = ~(_2scomp);
                 result++;
                 result &= 0xFFF;
+                result = -result;
+            }
+
+            return result;
+        }
+
+
+        public int to16BitConversion(int _2scomp)
+        {
+            int result;
+
+            if (_2scomp < 32768)
+            {
+                result = _2scomp;
+            }
+            else
+            {
+                result = ~(_2scomp);
+                result++;
+                result &= 0xFFFF;
                 result = -result;
             }
 
