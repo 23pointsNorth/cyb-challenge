@@ -304,7 +304,7 @@ void __attribute((interrupt(ipl4), vector(_INPUT_CAPTURE_3_VECTOR), nomips16)) _
 	int q;
 	if (speed2 < 0) pos2++; else pos2--;
 	IFS0bits.IC3IF=0;
-
+/*
 if (send_IR_update != 0)
 	{
 		//REAAD IR data
@@ -333,7 +333,7 @@ if (send_IR_update != 0)
 			}
 			setspeed(wanted_speed_left, wanted_speed_right); 
 		}
-	}
+	}*/
 }
 
 #define comsdatasize 1024

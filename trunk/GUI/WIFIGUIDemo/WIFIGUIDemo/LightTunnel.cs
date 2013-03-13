@@ -23,10 +23,12 @@ namespace WIFIGUIDemo
             InitializeComponent();
         }
 
+        const int offset_dist = 16368;
+
         public void AddDataPoint(double pos, double light)
         {
             //Add data to the datapoint
-            lightIntensityChart.Series["lightPathPoint"].Points.AddXY(pos, light);
+            lightIntensityChart.Series["lightPathPoint"].Points.AddXY(Math.Abs(pos - offset_dist), light);
            
         }
 
@@ -69,6 +71,22 @@ namespace WIFIGUIDemo
         private void LightTunnel_KeyUp(object sender, KeyEventArgs e)
         {
             mainForm.Main_KeyUp(sender, e);
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //lightIntensityChart.Series["lightPathPoint"].Points.OrderBy(p => p.XValue).ThenBy(p => p.YValues);
+
+            System.IO.StreamWriter file_light = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\LightTunnelData.txt");
+            System.IO.StreamWriter dist = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\LightDistData.txt");
+
+            foreach (DataPoint light in lightIntensityChart.Series["lightPathPoint"].Points)
+            {
+                file_light.WriteLine(light.YValues[0].ToString());
+                dist.WriteLine(light.XValue.ToString());
+            }
+            file_light.Close();
+            dist.Close();
         }
 
     }

@@ -37,6 +37,7 @@
             this.stopButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.lightPosTimer = new System.Windows.Forms.Timer(this.components);
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lightIntensityChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,11 +95,22 @@
             this.lightPosTimer.Interval = 200;
             this.lightPosTimer.Tick += new System.EventHandler(this.lightPosTimer_Tick);
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(509, 12);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 22);
+            this.saveButton.TabIndex = 4;
+            this.saveButton.Text = "Save to file";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // LightTunnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 304);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.tunnelMapButton);
@@ -119,5 +131,6 @@
         public System.Windows.Forms.DataVisualization.Charting.Chart lightIntensityChart;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Timer lightPosTimer;
+        private System.Windows.Forms.Button saveButton;
     }
 }
