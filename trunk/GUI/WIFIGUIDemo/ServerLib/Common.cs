@@ -31,6 +31,7 @@ namespace ServerLib
         IRDataBuffer = 0x83,
         AutomaticIRBuffer = 0x84,
         AutomaticAccelBuffer = 0x85,
-        AccDATABuffer = 0x86
+        AccDATABuffer = 0x86,
+        AccDATABufferPacket = 0x87
     };
 }

@@ -41,9 +41,9 @@ int pos2=0;
 void setspeed(int newspeed1,int newspeed2);
 
 
-#define ACC_MAX_BUFFER_PACKET	60
+#define ACC_BUFFER_PACKET_SIZE	60
 #define ACC_PACKETS				8
-#define ACC_DATA_BUFFER			(ACC_MAX_BUFFER_PACKET * ACC_PACKETS)	
+#define ACC_DATA_BUFFER			(ACC_BUFFER_PACKET_SIZE * ACC_PACKETS)	
 
 unsigned int acc_data_z[ACC_DATA_BUFFER];
 unsigned int acc_cur_pos = 0;
@@ -123,6 +123,7 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 			acc_cur_pos = 0;
 			acc_data_aquire = 0;
 			should_send_acc = 1;
+			//should_send_acc = 0;
 		}
 
 		acc_data_ticker=0;
@@ -449,7 +450,7 @@ int bptag=0;
 
 void processcommand(void)		// the main routine which processes commands
 {
- int i;
+ int i; int pack;
  unsigned char wk;
  int blocklen;
   switch (nextcommand[0]) // sort on command id (each case is for a different command)
@@ -865,6 +866,18 @@ void processcommand(void)		// the main routine which processes commands
 		acc_cur_pos = 0;
 		acc_data_aquire = 1;
 		break;
+	case 135:
+		if (commandlen == 1)
+		{
+			pack = nextcommand[1];
+			POSTTCPhead(ACC_DATA_BUFFER + 1, 135);
+			POSTTCPchar(pack);
+			for (i = pack * ACC_BUFFER_PACKET_SIZE; i< (pack + 1)* ACC_BUFFER_PACKET_SIZE; i++)
+			{
+				POSTTCPchar(acc_data_z[i]);
+			}
+		}	
+		break;
   }
 }
 
@@ -920,12 +933,12 @@ void ProcessIO(void)
 	{
 		for (j = 0; j < ACC_PACKETS; j++)
 		{ 
-			POSTTCPhead(ACC_MAX_BUFFER_PACKET * 2 + 1, 134);
+			POSTTCPhead(ACC_BUFFER_PACKET_SIZE * 2 + 1, 134);
 			POSTTCPchar(j);
-			for (i = 0; i < ACC_MAX_BUFFER_PACKET; i++)
+			for (i = 0; i < ACC_BUFFER_PACKET_SIZE; i++)
 			{
-				POSTTCPchar(acc_data_z[i + ACC_MAX_BUFFER_PACKET * j]);
-				POSTTCPchar(acc_data_z[i + ACC_MAX_BUFFER_PACKET * j] >> 8);
+				POSTTCPchar(acc_data_z[i + ACC_BUFFER_PACKET_SIZE * j]);
+				POSTTCPchar(acc_data_z[i + ACC_BUFFER_PACKET_SIZE * j] >> 8);
 			}
 		}
 		should_send_acc = 0;
