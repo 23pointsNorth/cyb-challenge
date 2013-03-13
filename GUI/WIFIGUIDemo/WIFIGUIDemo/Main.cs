@@ -196,7 +196,7 @@ namespace WIFIGUIDemo
                                          NewData[5].ToString() + " " + //Encoder lower part
                                          NewData[6].ToString() + " " + //Encoder upper
                                          NewData[7].ToString() + " " + // 256 - Speed // Right
-                                         NewData[8].ToString() + " " + // lower encoder
+                                          NewData[8].ToString() + " " + // lower encoder
                                          NewData[9].ToString();         // upper
                                     */
                                     int le = NewData[5] + (NewData[6] << 8);
@@ -323,17 +323,19 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-                                Stopwatch stopwatch = new Stopwatch();
-                                System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt");
-
-                                string fileinfo;
                                 int leftspeed = 0, rightspeed = 0;
-                                int thresh = 0;
+                                int rot = 0;
                                 int leftval = NewData[5] + (NewData[6] << 8);
                                 int rightval = NewData[7] + (NewData[8] << 8);
                                 int linestatus = NewData[4];
-                                long millisecs = 0;
 
+                                if (linestatus == 2)
+                                {
+                                    rot = 0;
+                                } else if(linestatus == 1)
+                                {
+                                    rot = 1;
+                                }
 
                                 leftIR.Text = leftval.ToString();
                                 rightIR.Text = rightval.ToString();
@@ -355,22 +357,30 @@ namespace WIFIGUIDemo
                                         ls = 1;
                                         rs = (rightval / leftval);
                                     }
+
+                                    //rs = rightval / 8;
+                                    //ls = leftval / 8;
+                                    
+
+                                    if (linestatus == 0)
+                                    {
+                                        if (rot == 0)
+                                        {
+                                            leftspeed = -MAX_SPEED;
+                                            rightspeed = MAX_SPEED;
+                                        }
+                                        else if (rot == 1)
+                                        {
+                                            leftspeed = MAX_SPEED;
+                                            rightspeed = -MAX_SPEED;
+                                        }
+                                    }
                                     else
                                     {
-                                        //peg it
-                                        rs = 1;
-                                        ls = 1;
+                                        //speeds are always range from MIN_SPEED to MAX_SPEED in proportion to rs and ls
+                                        leftspeed = (int)(MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED));
+                                        rightspeed = (int)(rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
                                     }
-
-                                    fileinfo = "blah \n";
-                                    //write line in file of; leftspeed, rightspeed and how long it's been moving with those speeds
-                                    file.WriteLine(fileinfo);
-                                    millisecs = stopwatch.ElapsedMilliseconds;
-                                    stopwatch.Restart();
-
-                                    //speeds are always range from MIN_SPEED to MAX_SPEED in proportion to rs and ls
-                                    leftspeed = (int)(MIN_SPEED + ls * (MAX_SPEED - MIN_SPEED));
-                                    rightspeed = (int)(rs * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
 
                                     //MessageBox.Show(ls.ToString() + " " + rs.ToString());
                                     setMotorSpeed(leftspeed, rightspeed);
@@ -378,7 +388,7 @@ namespace WIFIGUIDemo
                                     //Resend line data
                                     theClient.SendData(CommandID.LineFollowingData, new byte[] { });
                                 }
-                                threshLabel.Text = follow_line.ToString();
+                                threshLabel.Text = linestatus.ToString();
                             }));
                             break;
                         }
@@ -707,6 +717,16 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)(left), (byte)(right) });
+            }
+        }
+
+        private void setThresholds_Click(int left, int right)
+        {
+            if (theClient.isConnected)
+            {
+                left = 300;
+                right = 300;
+                theClient.SendData(CommandID.SetLineThresholds, new byte[] { (byte)(left), (byte)(right) });
             }
         }
 
