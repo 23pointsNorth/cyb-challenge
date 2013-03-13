@@ -30,7 +30,7 @@ namespace WIFIGUIDemo
             message.To.Add("kp015255@reading.ac.uk");
             message.Subject = "Crashed Rocket Message!";
             message.From = new System.Net.Mail.MailAddress("kp015255@reading.ac.uk");
-            message.Body = "Hello Dan, \n\t We are happy to announce that we have reached the crashed rocket! " +
+            message.Body = "Hello Stephen Gould, \n\t We are happy to announce that we have reached the crashed rocket! " +
                 "We recevied and decoded the following message: \n\n \t\t \"" + decodedMessage.Text + "\""+
                 " \n\n \t Hope this helps the mission!" + "\n\n Best wishes,\n \t Project Nova\n \t Cyb01";
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.reading.ac.uk");

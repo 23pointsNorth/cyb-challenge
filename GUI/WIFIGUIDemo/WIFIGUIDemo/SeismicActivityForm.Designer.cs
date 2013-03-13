@@ -41,12 +41,13 @@
             this.AccelDataLabel = new System.Windows.Forms.Label();
             this.saveDataButton = new System.Windows.Forms.Button();
             this.getValButton = new System.Windows.Forms.Button();
+            this.getAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SeismicActivityChart)).BeginInit();
             this.SuspendLayout();
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(590, 5);
+            this.clearButton.Location = new System.Drawing.Point(740, 5);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(67, 22);
             this.clearButton.TabIndex = 7;
@@ -56,7 +57,7 @@
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(252, 4);
+            this.stopButton.Location = new System.Drawing.Point(380, 4);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(87, 23);
             this.stopButton.TabIndex = 6;
@@ -105,17 +106,16 @@
             this.SeismicActivityChart.Series.Add(series1);
             this.SeismicActivityChart.Series.Add(series2);
             this.SeismicActivityChart.Series.Add(series3);
-            this.SeismicActivityChart.Size = new System.Drawing.Size(645, 251);
+            this.SeismicActivityChart.Size = new System.Drawing.Size(790, 251);
             this.SeismicActivityChart.TabIndex = 4;
             this.SeismicActivityChart.Text = "Light Tunnel Chart";
             title1.Name = "IR Intesity vs Distance";
             this.SeismicActivityChart.Titles.Add(title1);
-            this.SeismicActivityChart.Click += new System.EventHandler(this.SeismicActivityChart_Click);
             // 
             // AccelDataLabel
             // 
             this.AccelDataLabel.AutoSize = true;
-            this.AccelDataLabel.Location = new System.Drawing.Point(345, 10);
+            this.AccelDataLabel.Location = new System.Drawing.Point(473, 10);
             this.AccelDataLabel.Name = "AccelDataLabel";
             this.AccelDataLabel.Size = new System.Drawing.Size(60, 13);
             this.AccelDataLabel.TabIndex = 8;
@@ -123,7 +123,7 @@
             // 
             // saveDataButton
             // 
-            this.saveDataButton.Location = new System.Drawing.Point(503, 4);
+            this.saveDataButton.Location = new System.Drawing.Point(653, 4);
             this.saveDataButton.Name = "saveDataButton";
             this.saveDataButton.Size = new System.Drawing.Size(81, 23);
             this.saveDataButton.TabIndex = 9;
@@ -135,17 +135,28 @@
             // 
             this.getValButton.Location = new System.Drawing.Point(159, 5);
             this.getValButton.Name = "getValButton";
-            this.getValButton.Size = new System.Drawing.Size(87, 23);
+            this.getValButton.Size = new System.Drawing.Size(104, 23);
             this.getValButton.TabIndex = 10;
-            this.getValButton.Text = "Get Value";
+            this.getValButton.Text = "Get Single Value";
             this.getValButton.UseVisualStyleBackColor = true;
             this.getValButton.Click += new System.EventHandler(this.getValButton_Click);
+            // 
+            // getAllButton
+            // 
+            this.getAllButton.Location = new System.Drawing.Point(269, 5);
+            this.getAllButton.Name = "getAllButton";
+            this.getAllButton.Size = new System.Drawing.Size(104, 23);
+            this.getAllButton.TabIndex = 11;
+            this.getAllButton.Text = "Get ALL Values";
+            this.getAllButton.UseVisualStyleBackColor = true;
+            this.getAllButton.Click += new System.EventHandler(this.getAllButton_Click);
             // 
             // SeismicActivityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 295);
+            this.ClientSize = new System.Drawing.Size(814, 295);
+            this.Controls.Add(this.getAllButton);
             this.Controls.Add(this.getValButton);
             this.Controls.Add(this.saveDataButton);
             this.Controls.Add(this.AccelDataLabel);
@@ -171,5 +182,6 @@
         private System.Windows.Forms.Label AccelDataLabel;
         private System.Windows.Forms.Button saveDataButton;
         private System.Windows.Forms.Button getValButton;
+        private System.Windows.Forms.Button getAllButton;
     }
 }

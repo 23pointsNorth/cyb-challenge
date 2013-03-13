@@ -36,6 +36,11 @@ namespace WIFIGUIDemo
         const int acc_packet_size = 8;
         const int acc_packet_buffer_size = 60;
 
+        const int packets_count = 8;
+        const int packet_size = 60;
+
+        bool done_packet_transfer = true;
+
         private void DataReceivedSeismicActivity_Handler(Client_Message_EventArgs e)
         {
              //Take the new data received and convert it into a more manageable format
@@ -126,7 +131,7 @@ namespace WIFIGUIDemo
 
                             int id = Convert.ToUInt16(NewData[4]);
 
-                            for (int i = 0; i < accel_data_buffer_size - 1; i++)
+                            for (int i = 0; i < accel_data_buffer_size - 1; i+=2)
                             {
                                 double Accelz = mainForm.to12BitConversion(NewData[(5 + i)]  + (NewData[(6 + i)] << 8));
                                 Accelz = Accelz / 1024.0; // normilize in +- 2g
@@ -145,6 +150,25 @@ namespace WIFIGUIDemo
                         this.BeginInvoke(new EventHandler(delegate
                         {
                             rover.SendData(CommandID.AutomaticIRBuffer, new byte[] { 0 });
+                        }));
+                        break;
+
+                    case (byte)CommandID.AccDATABufferPacket:
+                        //Invokation to allow cross thread manipulation
+                        this.BeginInvoke(new EventHandler(delegate
+                        {
+                            int id = Convert.ToUInt16(NewData[4]);
+
+                            for (int i = 0; i < packet_size; i+=2)
+                            {
+                                double Accelz = mainForm.to12BitConversion(NewData[(5 + i)] + (NewData[(6 + i)] << 8));
+                                Accelz = Accelz / 1024.0; // normilize in +- 2g
+
+                                SeismicActivityChart.Series["Accelz"].Points.AddXY(id * packet_size + i, Accelz);
+                            }
+
+                            done_packet_transfer = true;
+                            
                         }));
                         break;
                 }
@@ -231,9 +255,18 @@ namespace WIFIGUIDemo
 
         }
 
-        private void SeismicActivityChart_Click(object sender, EventArgs e)
+        private void getAllButton_Click(object sender, EventArgs e)
         {
-            
+            done_packet_transfer = true;
+            for (int p = 0; p < packets_count; p++)
+            {
+                while (!done_packet_transfer) {  }
+                if (done_packet_transfer)
+                {
+                    done_packet_transfer = false;
+                    rover.SendData(CommandID.AccDATABufferPacket, new byte[] { (byte)p });
+                }
+            }
         }
     }
 }
