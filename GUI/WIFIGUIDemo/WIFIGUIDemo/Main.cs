@@ -239,9 +239,7 @@ namespace WIFIGUIDemo
                                 getXlabel.Text = x.ToString();
                                 getYlabel.Text = y.ToString();
                                 getZlabel.Text = z.ToString();
-                                xProgress.Value = x;
-                                yProgress.Value = y;
-                                zProgress.Value = z;
+
                             }));
                             break;
                         }
@@ -885,6 +883,11 @@ namespace WIFIGUIDemo
             crashedRocket.Show();
 
             //theClient.SendData(CommandID.GetCrashedRoverData, new byte[] { });
+        }
+
+        private void start_rotate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
