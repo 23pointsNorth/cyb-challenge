@@ -37,6 +37,9 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.angle_Val = new System.Windows.Forms.TextBox();
+            this.start_rotate = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lightTunnelButton = new System.Windows.Forms.Button();
             this.riverBedButton = new System.Windows.Forms.Button();
@@ -97,9 +100,8 @@
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
-            this.start_rotate = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.turnTimer = new System.Windows.Forms.Timer(this.components);
+            this.additionalTrackBar = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -110,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -185,7 +188,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.angle_Val);
             this.groupBox2.Controls.Add(this.start_rotate);
             this.groupBox2.Controls.Add(this.groupBox6);
             this.groupBox2.Controls.Add(this.groupBox5);
@@ -215,6 +218,33 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(340, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 13);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "°";
+            // 
+            // angle_Val
+            // 
+            this.angle_Val.Location = new System.Drawing.Point(279, 22);
+            this.angle_Val.Name = "angle_Val";
+            this.angle_Val.Size = new System.Drawing.Size(51, 20);
+            this.angle_Val.TabIndex = 46;
+            this.angle_Val.Text = "90";
+            // 
+            // start_rotate
+            // 
+            this.start_rotate.Location = new System.Drawing.Point(267, 48);
+            this.start_rotate.Name = "start_rotate";
+            this.start_rotate.Size = new System.Drawing.Size(98, 21);
+            this.start_rotate.TabIndex = 45;
+            this.start_rotate.Text = "Rotate";
+            this.start_rotate.UseVisualStyleBackColor = true;
+            this.start_rotate.Click += new System.EventHandler(this.start_rotate_Click);
             // 
             // groupBox6
             // 
@@ -463,10 +493,11 @@
             // 
             // servoGroupBox
             // 
+            this.servoGroupBox.Controls.Add(this.additionalTrackBar);
             this.servoGroupBox.Controls.Add(this.servoTrackBar);
-            this.servoGroupBox.Location = new System.Drawing.Point(656, 20);
+            this.servoGroupBox.Location = new System.Drawing.Point(641, 19);
             this.servoGroupBox.Name = "servoGroupBox";
-            this.servoGroupBox.Size = new System.Drawing.Size(111, 143);
+            this.servoGroupBox.Size = new System.Drawing.Size(147, 143);
             this.servoGroupBox.TabIndex = 34;
             this.servoGroupBox.TabStop = false;
             this.servoGroupBox.Text = "Servo Control";
@@ -474,13 +505,13 @@
             // servoTrackBar
             // 
             this.servoTrackBar.Location = new System.Drawing.Point(19, 25);
-            this.servoTrackBar.Maximum = 220;
+            this.servoTrackBar.Maximum = 200;
             this.servoTrackBar.Name = "servoTrackBar";
             this.servoTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.servoTrackBar.Size = new System.Drawing.Size(45, 104);
             this.servoTrackBar.TabIndex = 0;
             this.servoTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.servoTrackBar.Value = 128;
+            this.servoTrackBar.Value = 80;
             this.servoTrackBar.ValueChanged += new System.EventHandler(this.servoTrackBar_ValueChanged);
             // 
             // driveButton
@@ -804,31 +835,22 @@
             this.accelTimer.Interval = 1000;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
-            // start_rotate
+            // turnTimer
             // 
-            this.start_rotate.Location = new System.Drawing.Point(267, 48);
-            this.start_rotate.Name = "start_rotate";
-            this.start_rotate.Size = new System.Drawing.Size(98, 21);
-            this.start_rotate.TabIndex = 45;
-            this.start_rotate.Text = "Rotate";
-            this.start_rotate.UseVisualStyleBackColor = true;
-            this.start_rotate.Click += new System.EventHandler(this.start_rotate_Click);
+            this.turnTimer.Interval = 1000;
+            this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
             // 
-            // textBox1
+            // additionalTrackBar
             // 
-            this.textBox1.Location = new System.Drawing.Point(279, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 20);
-            this.textBox1.TabIndex = 46;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(11, 13);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "°";
+            this.additionalTrackBar.Location = new System.Drawing.Point(87, 25);
+            this.additionalTrackBar.Maximum = 55;
+            this.additionalTrackBar.Name = "additionalTrackBar";
+            this.additionalTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.additionalTrackBar.Size = new System.Drawing.Size(45, 104);
+            this.additionalTrackBar.TabIndex = 1;
+            this.additionalTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.additionalTrackBar.Value = 30;
+            this.additionalTrackBar.ValueChanged += new System.EventHandler(this.additionalTrackbar_Val);
             // 
             // Main
             // 
@@ -861,6 +883,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -939,8 +962,10 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox angle_Val;
         private System.Windows.Forms.Button start_rotate;
+        private System.Windows.Forms.Timer turnTimer;
+        private System.Windows.Forms.TrackBar additionalTrackBar;
     }
 }
 

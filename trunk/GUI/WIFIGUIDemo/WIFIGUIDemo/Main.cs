@@ -56,7 +56,7 @@ namespace WIFIGUIDemo
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-					theClient.ConnectToServer(IPinput, 9760);
+					//theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
@@ -844,10 +844,13 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 //send new servo postion
-                int pos = servoTrackBar.Value;
-                //if (pos < 128) pos = - pos;
-                //else pos = 255 - pos;
-                pos = pos - 128;
+                int pos1 = servoTrackBar.Value;
+                int pos2 = additionalTrackBar.Value;
+                
+                int pos = (pos1+pos2)-128;
+
+              
+
                 theClient.SendData(CommandID.SetServoPosition, new byte[] { (byte)pos });
             }
         }
@@ -885,9 +888,41 @@ namespace WIFIGUIDemo
             //theClient.SendData(CommandID.GetCrashedRoverData, new byte[] { });
         }
 
+        const double _360_TURN_COEF = 4900;
+        const int TURN_SPEED = 120;
         private void start_rotate_Click(object sender, EventArgs e)
         {
+            int angle = int.Parse(angle_Val.Text);
 
+            turnTimer.Interval = (int)(Math.Abs(angle) * _360_TURN_COEF) / 360;
+            turnTimer.Enabled = true;
+
+            int ls = TURN_SPEED * Math.Sign(angle);
+            int rs = -ls;
+
+            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)ls, (byte)(rs) });
+        }
+
+        private void turnTimer_Tick(object sender, EventArgs e)
+        {
+            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            turnTimer.Enabled = false;
+        }
+
+        private void additionalTrackbar_Val(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                //send new servo postion
+                int pos1 = servoTrackBar.Value;//initial fork movement
+                int pos2 = additionalTrackBar.Value;//fine tuning
+
+                int pos = pos1 + pos2 - 128;
+
+           
+
+                theClient.SendData(CommandID.SetServoPosition, new byte[] { (byte)pos });
+            }
         }
     }
 }
