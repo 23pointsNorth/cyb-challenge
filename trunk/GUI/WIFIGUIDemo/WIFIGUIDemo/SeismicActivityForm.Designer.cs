@@ -100,7 +100,7 @@
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
             series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series3.Legend = "Legend1";
             series3.Name = "Accelz";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
