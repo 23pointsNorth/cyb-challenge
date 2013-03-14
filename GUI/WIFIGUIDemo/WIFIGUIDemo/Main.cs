@@ -192,7 +192,17 @@ namespace WIFIGUIDemo
                         {//Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                                 {
-                                    /*PositionStatusBox.Text = NewData[4].ToString() + " " + // 256 - Speed //Left
+                                    if (NewData.Count >= 10)
+                                    {
+                                        /*PositionStatusBox.Text = NewData[4].ToString() + " " + // 256 - Speed //Left
+                                             NewData[5].ToString() + " " + //Encoder lower part
+                                             NewData[6].ToString() + " " + //Encoder upper
+                                             NewData[7].ToString() + " " + // 256 - Speed // Right
+                                             NewData[8].ToString() + " " + // lower encoder
+                                             NewData[9].ToString();         // upper
+                                        */
+                                        int le = NewData[5] + (NewData[6] << 8);
+                                        int re = NewData[8] + (NewData[9] << 8);
                                          NewData[5].ToString() + " " + //Encoder lower part
                                          NewData[6].ToString() + " " + //Encoder upper
                                          NewData[7].ToString() + " " + // 256 - Speed // Right
@@ -202,19 +212,20 @@ namespace WIFIGUIDemo
                                     int le = NewData[5] + (NewData[6] << 8);
                                     int re = NewData[8] + (NewData[9] << 8);
 
-                                    leftEncoderLabel.Text = le.ToString();
-                                    rightEncoderLabel.Text = re.ToString();
+                                        leftEncoderLabel.Text = le.ToString();
+                                        rightEncoderLabel.Text = re.ToString();
 
-                                    if (driving)
-                                    {
-                                        _1sec_l = le;
-                                        _1sec_r = re;
-                                    }
-                                    else
-                                    {
-                                        if (_1sec_l != 0 && _1sec_r != 0)
+                                        if (driving)
                                         {
-                                            MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
+                                            _1sec_l = le;
+                                            _1sec_r = re;
+                                        }
+                                        else
+                                        {
+                                            if (_1sec_l != 0 && _1sec_r != 0)
+                                            {
+                                                MessageBox.Show(_1sec_l.ToString() + " " + _1sec_r.ToString() + " : " + le.ToString() + " " + re.ToString());
+                                            }
                                         }
                                     }
 

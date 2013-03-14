@@ -33,10 +33,10 @@ namespace WIFIGUIDemo
         const int accel_data_buffer_size = 10;
         const int offset_dist = 16368;
 
-        const int acc_packet_size = 8;
+        const int acc_packet_size = 16;
         const int acc_packet_buffer_size = 60;
 
-        const int packets_count = 8;
+        const int packets_count = 16;
         const int packet_size = 60;
 
         bool done_packet_transfer = true;
@@ -128,7 +128,7 @@ namespace WIFIGUIDemo
                         //Invokation to allow cross thread manipulation
                         this.BeginInvoke(new EventHandler(delegate
                         {
-
+                            /*
                             int id = Convert.ToUInt16(NewData[4]);
 
                             for (int i = 0; i < accel_data_buffer_size - 1; i+=2)
@@ -140,7 +140,9 @@ namespace WIFIGUIDemo
                             }
                             
                             if (id == acc_packet_size - 1) seismicActivityButton_Click(null, null);
-
+                             */
+                            seismicActivityButton_Click(null, null);
+                            AccelDataLabel.Text = "Data Collected on the rover.";
                         }));
                         break;
 
@@ -211,7 +213,9 @@ namespace WIFIGUIDemo
 
         private void saveDataButton_Click(object sender, EventArgs e)
         {
-            System.IO.StreamWriter acc_z = new System.IO.StreamWriter("N:\\Data\\ACC_Z.txt");
+
+            // Write the string to a file.
+            System.IO.StreamWriter acc_z = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\SeismicData.txt");
 
             foreach (DataPoint left in SeismicActivityChart.Series["Accelz"].Points)
             {
@@ -260,10 +264,10 @@ namespace WIFIGUIDemo
             done_packet_transfer = true;
             for (int p = 0; p < packets_count; p++)
             {
-                while (!done_packet_transfer) {  }
+                //while (!done_packet_transfer) {  }
                 if (done_packet_transfer)
                 {
-                    done_packet_transfer = false;
+                    //done_packet_transfer = false;
                     rover.SendData(CommandID.AccDATABufferPacket, new byte[] { (byte)p });
                 }
             }

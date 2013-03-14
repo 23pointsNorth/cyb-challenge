@@ -42,7 +42,7 @@ void setspeed(int newspeed1,int newspeed2);
 
 
 #define ACC_BUFFER_PACKET_SIZE	60
-#define ACC_PACKETS				8
+#define ACC_PACKETS				16
 #define ACC_DATA_BUFFER			(ACC_BUFFER_PACKET_SIZE * ACC_PACKETS)	
 
 unsigned int acc_data_z[ACC_DATA_BUFFER];
@@ -123,7 +123,7 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 			acc_cur_pos = 0;
 			acc_data_aquire = 0;
 			should_send_acc = 1;
-			//should_send_acc = 0;
+			//should_send_acc = 0; // Retreiving data in other ways! Don't send it automatically
 		}
 
 		acc_data_ticker=0;
@@ -870,11 +870,12 @@ void processcommand(void)		// the main routine which processes commands
 		if (commandlen == 1)
 		{
 			pack = nextcommand[1];
-			POSTTCPhead(ACC_DATA_BUFFER + 1, 135);
+			POSTTCPhead(ACC_BUFFER_PACKET_SIZE*2 + 1, 135);
 			POSTTCPchar(pack);
 			for (i = pack * ACC_BUFFER_PACKET_SIZE; i< (pack + 1)* ACC_BUFFER_PACKET_SIZE; i++)
 			{
 				POSTTCPchar(acc_data_z[i]);
+				POSTTCPchar(acc_data_z[i] >> 8);
 			}
 		}	
 		break;
@@ -931,6 +932,10 @@ void ProcessIO(void)
 
 	if (should_send_acc != 0)
 	{
+//In stead of saving data, send that it has been recorded!
+		POSTTCPhead(1, 134);
+		POSTTCPchar(1);
+/*
 		for (j = 0; j < ACC_PACKETS; j++)
 		{ 
 			POSTTCPhead(ACC_BUFFER_PACKET_SIZE * 2 + 1, 134);
@@ -941,6 +946,7 @@ void ProcessIO(void)
 				POSTTCPchar(acc_data_z[i + ACC_BUFFER_PACKET_SIZE * j] >> 8);
 			}
 		}
+*/
 		should_send_acc = 0;
 	}
 
