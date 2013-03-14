@@ -77,6 +77,8 @@
             // 
             // SeismicActivityChart
             // 
+            chartArea1.AxisY.Maximum = 2D;
+            chartArea1.AxisY.Minimum = -2D;
             chartArea1.Name = "ChartArea1";
             this.SeismicActivityChart.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
