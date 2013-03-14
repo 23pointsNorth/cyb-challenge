@@ -91,7 +91,11 @@ unsigned long ticker4 = 0;
 #define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
-#define DRIVE_MAX_SPEED		100
+#define DRIVE_MAX_SPEED		110
+
+#define LEFT_DRIVE_COEF		(float)(1)
+#define RIGHT_DRIVE_COEF	(float)(1.09)
+
 #define MIN_SPEED			50	// [-127;128] values
 
 #define PROP				15
@@ -176,7 +180,17 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 					wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), DRIVE_MAX_SPEED);
 					//wanted_speed_right = MIN_SPEED;
 				}
+
+				wanted_speed_left = (int)(wanted_speed_left * LEFT_DRIVE_COEF);
+				wanted_speed_right = (int)(wanted_speed_right * RIGHT_DRIVE_COEF);
       
+				//Check motor speeds
+				if (wanted_speed_left > 127) wanted_speed_left = 127;
+				if (wanted_speed_left < -127) wanted_speed_left = -127;
+				if (wanted_speed_right > 127) wanted_speed_right = 127;
+				if (wanted_speed_right < -127) wanted_speed_right = -127;
+
+
 				setspeed(wanted_speed_left, wanted_speed_right);   
 			}   
 		}
@@ -230,8 +244,8 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		//Check motor speeds
 		if (speed1 > 127) speed1 = 127;
 		if (speed1 < -127) speed1 = -127;
-		if (speed2 > 127) speed1 = 127;
-		if (speed2 < -127) speed1 = -127;
+		if (speed2 > 127) speed2 = 127;
+		if (speed2 < -127) speed2 = -127;
 	
 		//Set new motor speeds
 		setspeed(speed1, speed2);
