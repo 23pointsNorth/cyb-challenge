@@ -223,31 +223,6 @@ namespace WIFIGUIDemo
             }
             acc_z.Close();
 
-            /*
-            // Write the string to a file.
-            System.IO.StreamWriter file_left = new System.IO.StreamWriter("N:\\Data\\RiverDataLeft.txt");
-            System.IO.StreamWriter dist = new System.IO.StreamWriter("N:\\\\Data\\DistData.txt");
-
-            SeismicActivityChart.Series["IRDataLeft"].Points.OrderBy(p => p.XValue).ThenBy(p => p.YValues);
-
-            foreach (DataPoint left in SeismicActivityChart.Series["IRDataLeft"].Points)
-            {
-                file_left.WriteLine(left.YValues[0].ToString());
-                dist.WriteLine(left.XValue.ToString());
-            }
-            file_left.Close();
-            dist.Close();
-
-            System.IO.StreamWriter file_right = new System.IO.StreamWriter("N:\\Data\\RiverDataRight.txt");
-
-            SeismicActivityChart.Series["IRDataRight"].Points.OrderBy(p => p.XValue).ThenBy(p => p.YValues);
-
-            foreach (DataPoint right in SeismicActivityChart.Series["IRDataRight"].Points)
-            {
-                file_right.WriteLine(right.YValues[0].ToString());
-            }
-            file_right.Close();
-             */
         }
 
         private void getValButton_Click(object sender, EventArgs e)
