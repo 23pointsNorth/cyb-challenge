@@ -65,6 +65,7 @@
             this.getAccelerometer = new System.Windows.Forms.Button();
             this.smlabel = new System.Windows.Forms.Label();
             this.servoGroupBox = new System.Windows.Forms.GroupBox();
+            this.additionalTrackBar = new System.Windows.Forms.TrackBar();
             this.servoTrackBar = new System.Windows.Forms.TrackBar();
             this.driveButton = new System.Windows.Forms.Button();
             this.motorPositionButton = new System.Windows.Forms.Button();
@@ -101,18 +102,18 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            this.additionalTrackBar = new System.Windows.Forms.TrackBar();
+            this.vortexButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servoTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -222,7 +223,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 24);
+            this.label1.Location = new System.Drawing.Point(288, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(11, 13);
             this.label1.TabIndex = 47;
@@ -230,17 +231,17 @@
             // 
             // angle_Val
             // 
-            this.angle_Val.Location = new System.Drawing.Point(279, 22);
+            this.angle_Val.Location = new System.Drawing.Point(248, 22);
             this.angle_Val.Name = "angle_Val";
-            this.angle_Val.Size = new System.Drawing.Size(51, 20);
+            this.angle_Val.Size = new System.Drawing.Size(34, 20);
             this.angle_Val.TabIndex = 46;
             this.angle_Val.Text = "90";
             // 
             // start_rotate
             // 
-            this.start_rotate.Location = new System.Drawing.Point(267, 48);
+            this.start_rotate.Location = new System.Drawing.Point(236, 48);
             this.start_rotate.Name = "start_rotate";
-            this.start_rotate.Size = new System.Drawing.Size(98, 21);
+            this.start_rotate.Size = new System.Drawing.Size(72, 21);
             this.start_rotate.TabIndex = 45;
             this.start_rotate.Text = "Rotate";
             this.start_rotate.UseVisualStyleBackColor = true;
@@ -248,13 +249,14 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.vortexButton);
             this.groupBox6.Controls.Add(this.lightTunnelButton);
             this.groupBox6.Controls.Add(this.riverBedButton);
             this.groupBox6.Controls.Add(this.Seismic_Activity);
             this.groupBox6.Controls.Add(this.crashedRocketButton);
-            this.groupBox6.Location = new System.Drawing.Point(656, 183);
+            this.groupBox6.Location = new System.Drawing.Point(629, 190);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(132, 209);
+            this.groupBox6.Size = new System.Drawing.Size(126, 257);
             this.groupBox6.TabIndex = 44;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Tasks";
@@ -485,7 +487,7 @@
             // smlabel
             // 
             this.smlabel.AutoSize = true;
-            this.smlabel.Location = new System.Drawing.Point(204, 24);
+            this.smlabel.Location = new System.Drawing.Point(190, 24);
             this.smlabel.Name = "smlabel";
             this.smlabel.Size = new System.Drawing.Size(24, 13);
             this.smlabel.TabIndex = 42;
@@ -502,10 +504,22 @@
             this.servoGroupBox.TabStop = false;
             this.servoGroupBox.Text = "Servo Control";
             // 
+            // additionalTrackBar
+            // 
+            this.additionalTrackBar.Location = new System.Drawing.Point(87, 25);
+            this.additionalTrackBar.Maximum = 30;
+            this.additionalTrackBar.Name = "additionalTrackBar";
+            this.additionalTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.additionalTrackBar.Size = new System.Drawing.Size(45, 104);
+            this.additionalTrackBar.TabIndex = 1;
+            this.additionalTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.additionalTrackBar.Value = 30;
+            this.additionalTrackBar.ValueChanged += new System.EventHandler(this.additionalTrackbar_Val);
+            // 
             // servoTrackBar
             // 
             this.servoTrackBar.Location = new System.Drawing.Point(19, 25);
-            this.servoTrackBar.Maximum = 200;
+            this.servoTrackBar.Maximum = 215;
             this.servoTrackBar.Name = "servoTrackBar";
             this.servoTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.servoTrackBar.Size = new System.Drawing.Size(45, 104);
@@ -636,7 +650,7 @@
             // 
             this.driveSteps.Location = new System.Drawing.Point(145, 47);
             this.driveSteps.Name = "driveSteps";
-            this.driveSteps.Size = new System.Drawing.Size(113, 23);
+            this.driveSteps.Size = new System.Drawing.Size(84, 23);
             this.driveSteps.TabIndex = 5;
             this.driveSteps.Text = "Drive Steps";
             this.driveSteps.UseVisualStyleBackColor = true;
@@ -646,7 +660,7 @@
             // 
             this.PositionStatusBox.Location = new System.Drawing.Point(145, 20);
             this.PositionStatusBox.Name = "PositionStatusBox";
-            this.PositionStatusBox.Size = new System.Drawing.Size(48, 20);
+            this.PositionStatusBox.Size = new System.Drawing.Size(39, 20);
             this.PositionStatusBox.TabIndex = 4;
             this.PositionStatusBox.Text = "10";
             // 
@@ -840,17 +854,15 @@
             this.turnTimer.Interval = 1000;
             this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
             // 
-            // additionalTrackBar
+            // vortexButton
             // 
-            this.additionalTrackBar.Location = new System.Drawing.Point(87, 25);
-            this.additionalTrackBar.Maximum = 55;
-            this.additionalTrackBar.Name = "additionalTrackBar";
-            this.additionalTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.additionalTrackBar.Size = new System.Drawing.Size(45, 104);
-            this.additionalTrackBar.TabIndex = 1;
-            this.additionalTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.additionalTrackBar.Value = 30;
-            this.additionalTrackBar.ValueChanged += new System.EventHandler(this.additionalTrackbar_Val);
+            this.vortexButton.Location = new System.Drawing.Point(6, 199);
+            this.vortexButton.Name = "vortexButton";
+            this.vortexButton.Size = new System.Drawing.Size(111, 39);
+            this.vortexButton.TabIndex = 42;
+            this.vortexButton.Text = "Vortex";
+            this.vortexButton.UseVisualStyleBackColor = true;
+            this.vortexButton.Click += new System.EventHandler(this.vortexButton_Click);
             // 
             // Main
             // 
@@ -877,13 +889,13 @@
             this.groupBox5.PerformLayout();
             this.servoGroupBox.ResumeLayout(false);
             this.servoGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servoTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -966,6 +978,7 @@
         private System.Windows.Forms.Button start_rotate;
         private System.Windows.Forms.Timer turnTimer;
         private System.Windows.Forms.TrackBar additionalTrackBar;
+        private System.Windows.Forms.Button vortexButton;
     }
 }
 

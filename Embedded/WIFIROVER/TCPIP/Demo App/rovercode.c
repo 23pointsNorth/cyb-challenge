@@ -41,6 +41,26 @@ int pos2=0;
 void setspeed(int newspeed1,int newspeed2);
 
 
+//MAG VAR
+
+#define MAG_BUFFER_PACKET_SIZE		60
+#define MAG_PACKETS_PER_AXIS		16
+#define MAG_DATA_BUFFER_PER_AXIS	(MAG_BUFFER_PACKET_SIZE * MAG_PACKETS_PER_AXIS)
+
+#define MAG_DATA_PERIOD				68
+
+unsigned int mag_data_x[MAG_DATA_BUFFER_PER_AXIS];
+unsigned int mag_data_y[MAG_DATA_BUFFER_PER_AXIS];
+unsigned int mag_data_z[MAG_DATA_BUFFER_PER_AXIS];
+
+char mag_acquire_data = 0;
+char should_send_mag = 0;
+unsigned int mag_data_pos = 0;
+unsigned int mag_ticker = 0;
+
+
+//ACCELEROMETER VAR
+
 #define ACC_BUFFER_PACKET_SIZE	60
 #define ACC_PACKETS				16
 #define ACC_DATA_BUFFER			(ACC_BUFFER_PACKET_SIZE * ACC_PACKETS)	
@@ -52,6 +72,8 @@ char should_send_acc = 0;
 unsigned int acc_data_ticker = 0;
 #define ACC_DATA_PERIOD			5
 
+
+// IR DATA
 
 #define IR_DATA_BUFFER_SIZE		10
 char send_IR_update = 0;
@@ -66,6 +88,8 @@ int current_pos = 0;
 unsigned int avrg_pos=0;
 
 
+// ENCODER STEPS
+
 unsigned int wanted_encoder_steps = 0;
 unsigned int encoder_l_old = 0;
 unsigned int encoder_r_old = 0;
@@ -77,6 +101,8 @@ int wanted_speed_right;
 int le_old;				//left encoder old value
 int re_old;
 
+
+// CONTROL SYSTEMS
 
 unsigned long ticker4 = 0;
 #define SYS_FREQ			80000000L
@@ -94,11 +120,12 @@ unsigned long ticker4 = 0;
 #define DRIVE_MAX_SPEED		110
 
 #define LEFT_DRIVE_COEF		(float)(1)
-#define RIGHT_DRIVE_COEF	(float)(1.09)
+#define RIGHT_DRIVE_COEF	(float)(1.091)
 
 #define MIN_SPEED			50	// [-127;128] values
 
 #define PROP				15
+
 
 //Called with freq = 2048Hz
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
@@ -107,9 +134,37 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 	// Reset interrupt flag
 	mT4ClearIntFlag();	
 
+
 	// Increment internal high tick counter
 	ticker4++;
 	acc_data_ticker++;
+	mag_ticker++;
+
+	if ((mag_ticker % MAG_DATA_PERIOD ==0) && (mag_acquire_data != 0))
+	{
+		I2S();I2send(0x3c);I2send(3);I2SR();
+		I2send(0x3d);
+		// X		
+		mag_data_x[mag_data_pos] = (I2GET(1) << 8);
+		mag_data_x[mag_data_pos] += I2GET(1);
+		// Y		
+		mag_data_y[mag_data_pos] = (I2GET(1) << 8);
+		mag_data_y[mag_data_pos] += I2GET(1);
+		// Z		
+		mag_data_z[mag_data_pos] = (I2GET(1) << 8);
+		mag_data_z[mag_data_pos] += I2GET(0);
+
+		I2P();
+
+		mag_data_pos++;
+		if (mag_data_pos >= MAG_DATA_BUFFER_PER_AXIS)
+		{
+			mag_data_pos = 0;
+			mag_acquire_data = 0;
+			should_send_mag = 1;
+		}
+	}
+
 	if ((acc_data_ticker % ACC_DATA_PERIOD == 0) && (acc_data_aquire != 0))
 	{
 		//read z_pos;
@@ -126,8 +181,7 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		{
 			acc_cur_pos = 0;
 			acc_data_aquire = 0;
-			should_send_acc = 1;
-			//should_send_acc = 0; // Retreiving data in other ways! Don't send it automatically
+			should_send_acc = 1; // Send report that it has finished
 		}
 
 		acc_data_ticker=0;
@@ -415,7 +469,8 @@ void initi2Cs(void)  // called once when rover starts
 	//setup gyro L3G4200D  // to be done
 //										I2S();I2send(0xd2);I2send(0x90);I2P();
 //setup mag HMC5883L
-										I2S();I2send(0x3c);I2send(0x0);I2send(0x70);I2send(0x20);I2send(0x00);I2P();
+										//I2S();I2send(0x3c);I2send(0x0);I2send(0x70);I2send(0x20);I2send(0x00);I2P();
+										I2S();I2send(0x3c);I2send(0x0);I2send(0x68);I2send(0x20);I2send(0x00);I2P(); // Set to 30Hz
 }
 
 
@@ -464,7 +519,7 @@ int bptag=0;
 
 void processcommand(void)		// the main routine which processes commands
 {
- int i; int pack;
+ int i; int pack; int axis;
  unsigned char wk;
  int blocklen;
   switch (nextcommand[0]) // sort on command id (each case is for a different command)
@@ -893,6 +948,53 @@ void processcommand(void)		// the main routine which processes commands
 			}
 		}	
 		break;
+	case 136:
+		//Request MAG data acquire
+		mag_acquire_data = 1;
+		mag_data_pos = 0;
+		break;
+	case 137:
+		//Send MAG X data packet
+		if (commandlen == 1)
+		{
+			pack = nextcommand[1];
+			POSTTCPhead(MAG_DATA_BUFFER_PER_AXIS * 2 + 1, 137);
+			POSTTCPchar(pack);
+			for (i = pack * MAG_DATA_BUFFER_PER_AXIS; i < (pack + 1)* MAG_DATA_BUFFER_PER_AXIS; i++)
+			{
+				POSTTCPchar(mag_data_x[i]);
+				POSTTCPchar(mag_data_x[i] >> 8);
+			}	
+		} // end of if commanlen
+		break; // break of case
+	case 138:
+		// MAG Y data
+		if (commandlen == 1)
+		{
+			pack = nextcommand[1];
+			POSTTCPhead(MAG_DATA_BUFFER_PER_AXIS * 2 + 1, 138);
+			POSTTCPchar(pack);
+			for (i = pack * MAG_DATA_BUFFER_PER_AXIS; i < (pack + 1)* MAG_DATA_BUFFER_PER_AXIS; i++)
+			{
+				POSTTCPchar(mag_data_y[i]);
+				POSTTCPchar(mag_data_y[i] >> 8);
+			}
+		}
+		break;
+	case 139:
+		// MAG Z data
+		if (commandlen == 1)
+		{
+			pack = nextcommand[1];
+			POSTTCPhead(MAG_DATA_BUFFER_PER_AXIS * 2 + 1, 139);
+			POSTTCPchar(pack);
+			for (i = pack * MAG_DATA_BUFFER_PER_AXIS; i < (pack + 1)* MAG_DATA_BUFFER_PER_AXIS; i++)
+			{
+				POSTTCPchar(mag_data_z[i]);
+				POSTTCPchar(mag_data_z[i] >> 8);
+			}
+		}
+		break;
   }
 }
 
@@ -962,6 +1064,13 @@ void ProcessIO(void)
 		}
 */
 		should_send_acc = 0;
+	}
+
+	if (should_send_mag != 0)
+	{
+		POSTTCPhead(1, 136);
+		POSTTCPchar(1);
+		should_send_mag = 0;
 	}
 
 }

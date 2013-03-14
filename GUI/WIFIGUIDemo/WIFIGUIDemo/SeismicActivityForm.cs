@@ -161,12 +161,12 @@ namespace WIFIGUIDemo
                         {
                             int id = Convert.ToUInt16(NewData[4]);
 
-                            for (int i = 0; i < packet_size; i+=2)
+                            for (int i = 0; i < packet_size * 2; i+=2)
                             {
                                 double Accelz = mainForm.to12BitConversion(NewData[(5 + i)] + (NewData[(6 + i)] << 8));
                                 Accelz = Accelz / 1024.0; // normilize in +- 2g
 
-                                SeismicActivityChart.Series["Accelz"].Points.AddXY(id * packet_size + i, Accelz);
+                                SeismicActivityChart.Series["Accelz"].Points.AddXY(id * packet_size + i/2, Accelz);
                             }
 
                             done_packet_transfer = true;

@@ -33,6 +33,10 @@ namespace ServerLib
         AutomaticIRBuffer = 0x84,
         AutomaticAccelBuffer = 0x85,
         AccDATABuffer = 0x86,
-        AccDATABufferPacket = 0x87
+        AccDATABufferPacket = 0x87,
+        MagDATABuffer = 0x88,
+        MagDATABufferPacketX = 0x89,
+        MagDATABufferPacketY = 0x90,
+        MagDATABufferPacketZ = 0x9A
     };
 }

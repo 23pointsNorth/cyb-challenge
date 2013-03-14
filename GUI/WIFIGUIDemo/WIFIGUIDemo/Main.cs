@@ -201,14 +201,7 @@ namespace WIFIGUIDemo
                                              NewData[8].ToString() + " " + // lower encoder
                                              NewData[9].ToString();         // upper
                                         */
-                                        int le = NewData[5] + (NewData[6] << 8);
-                                        int re = NewData[8] + (NewData[9] << 8);
-                                         NewData[5].ToString() + " " + //Encoder lower part
-                                         NewData[6].ToString() + " " + //Encoder upper
-                                         NewData[7].ToString() + " " + // 256 - Speed // Right
-                                          NewData[8].ToString() + " " + // lower encoder
-                                         NewData[9].ToString();         // upper
-                                    */
+   
                                     int le = NewData[5] + (NewData[6] << 8);
                                     int re = NewData[8] + (NewData[9] << 8);
 
@@ -264,9 +257,9 @@ namespace WIFIGUIDemo
                             this.BeginInvoke(new EventHandler(delegate
                             {
 
-                                int x = (Convert.ToUInt16(NewData[5]) + Convert.ToUInt16(NewData[4] << 8));
-                                int y = (Convert.ToUInt16(NewData[9]) + Convert.ToUInt16(NewData[8] << 8));
-                                int z = (Convert.ToUInt16(NewData[7]) + Convert.ToUInt16(NewData[6] << 8));
+                                int x = to16BitConversion(Convert.ToUInt16(NewData[5]) + Convert.ToUInt16(NewData[4] << 8));
+                                int y = to16BitConversion(Convert.ToUInt16(NewData[9]) + Convert.ToUInt16(NewData[8] << 8));
+                                int z = to16BitConversion(Convert.ToUInt16(NewData[7]) + Convert.ToUInt16(NewData[6] << 8));
                                 getXlabel.Text = x.ToString();
                                 getYlabel.Text = y.ToString();
                                 getZlabel.Text = z.ToString();
@@ -974,6 +967,13 @@ namespace WIFIGUIDemo
 
                 theClient.SendData(CommandID.SetServoPosition, new byte[] { (byte)pos });
             }
+        }
+
+        VortexForm vortexForm;
+        private void vortexButton_Click(object sender, EventArgs e)
+        {
+            vortexForm = new VortexForm(this, theClient);
+            vortexForm.Show();
         }
     }
 }
