@@ -25,6 +25,7 @@ void InitializeBoard(void);
 void ProcessIO(void);
 
 volatile int LINEA,LINEB;
+volatile int LINEAOFF, LINEBOFF, LINEAON, LINEBON;
 int LINETa=512;	// if below this value then black line
 int LINETb=512;
 
@@ -39,6 +40,15 @@ int speed2=0x7fff;
 int pos2=0;
 
 void setspeed(int newspeed1,int newspeed2);
+
+
+// IR settings
+
+#define IR_ON_PERIOD	15000
+#define IR_OFF_PERIOD	1000
+#define RESPONSE_TIME	1000
+volatile int status = 1;
+volatile int ir_timer = 0;
 
 
 //MAG VAR
@@ -70,7 +80,7 @@ unsigned int acc_cur_pos = 0;
 char acc_data_aquire = 0;
 char should_send_acc = 0;
 unsigned int acc_data_ticker = 0;
-#define ACC_DATA_PERIOD			5
+#define ACC_DATA_PERIOD			2
 
 
 // IR DATA
@@ -130,16 +140,19 @@ unsigned long ticker4 = 0;
 //Called with freq = 2048Hz
 void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interrupt(void)
 {
+	int new = 0;
 	int z = 0;
 	// Reset interrupt flag
 	mT4ClearIntFlag();	
 
 
+	mPORTEToggleBits(BIT_3);
 	// Increment internal high tick counter
 	ticker4++;
 	acc_data_ticker++;
 	mag_ticker++;
 
+	//MAG
 	if ((mag_ticker % MAG_DATA_PERIOD ==0) && (mag_acquire_data != 0))
 	{
 		I2S();I2send(0x3c);I2send(3);I2SR();
@@ -165,17 +178,25 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		}
 	}
 
+	//ACC
 	if ((acc_data_ticker % ACC_DATA_PERIOD == 0) && (acc_data_aquire != 0))
 	{
-		//read z_pos;
 		I2S();I2send(0x38);
-		I2send(0x05);I2SR();I2send(0x39);
-		acc_data_z[acc_cur_pos] = I2GET(1) << 4; //0x05 reg -  msb
-		acc_data_z[acc_cur_pos] += (I2GET(0) >> 4); //0x06 - lsb
+		I2send(0x00);I2SR();I2send(0x39);
+		new = I2GET(0) & 0x04; //0x00 reg - status
 		I2P();
-		//End read
-
-		acc_cur_pos++;
+		if (new != 0)
+		{
+			//read z_pos;
+			I2S();I2send(0x38);
+			I2send(0x05);I2SR();I2send(0x39);
+			acc_data_z[acc_cur_pos] = I2GET(1) << 4; //0x05 reg -  msb
+			acc_data_z[acc_cur_pos] += (I2GET(0) >> 4); //0x06 - lsb
+			I2P();
+			//End read
+	
+			acc_cur_pos++;
+		}
 
 		if (acc_cur_pos >= ACC_DATA_BUFFER)
 		{
@@ -212,7 +233,6 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 			}
 			else
 			{
-				mPORTEToggleBits(BIT_2);
 				//Left
 				if (abs(encoder_l_old + wanted_encoder_steps - pos1) > MAX_SPEED_ENCODER_STEPS)   
 				{
@@ -252,7 +272,7 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 
 	if (ticker4 % TOGGLES_SEC_SPEED == 0)
 	{
-		mPORTEToggleBits(BIT_3);
+		//mPORTEToggleBits(BIT_3);
 
 		//Feedback left motor
 		int delta_e_l = (wanted_speed_left/127)*MAX_SPEED_ENCODER_STEPS/10;
@@ -339,13 +359,83 @@ void __attribute((interrupt(ipl3), vector(_ADC_VECTOR), nomips16)) _ADCInterrupt
     }	
   if (AD1CON2bits.BUFS)
 		{
-		   LINEA=ADC1BUF0;
-		   LINEB=ADC1BUF1;
+			//Standard!
+			LINEA=ADC1BUF0; //IR LED ON
+		    LINEB=ADC1BUF1;
+	
+			if ((status == 1) && (ir_timer < IR_ON_PERIOD - RESPONSE_TIME))
+			{
+				//CUSTOM
+				LINEAON=ADC1BUF0; //IR LED ON
+				LINEBON=ADC1BUF1;
+			}
+			ir_timer--;
+			if (ir_timer <= 0)
+			{
+				if (status == 1)
+				{
+					//CUSTOM
+					LINEAON=ADC1BUF0; //IR LED ON
+					LINEBON=ADC1BUF1;
+
+					//switch IR Off
+					status = 0;
+					LED2_IO = 0;
+					LED3_IO = 0;
+					ir_timer = IR_OFF_PERIOD;
+				}
+				else
+				{
+					LINEAOFF=ADC1BUF0; 
+					LINEBOFF=ADC1BUF1;
+
+					//Swtich ON
+					status = 1;
+					LED2_IO = 1;
+					LED3_IO = 1;
+					ir_timer = IR_ON_PERIOD;				
+				}
+			}
 		}
 		else
 		{
-		   LINEA=ADC1BUF8;
-		   LINEB=ADC1BUF9;
+			//Standard!
+		   LINEAOFF=ADC1BUF8; //IR LED OFF
+		   LINEBOFF=ADC1BUF9;
+
+			if ((status == 1) && (ir_timer < IR_ON_PERIOD - RESPONSE_TIME))
+			{
+				//CUSTOM
+				LINEAON=ADC1BUF8; //IR LED ON
+				LINEBON=ADC1BUF9;
+			}
+			ir_timer--;
+			if (ir_timer <= 0)
+			{
+				if (status == 1)
+				{
+					//CUSTOM
+					LINEAON=ADC1BUF8; //IR LED ON
+					LINEBON=ADC1BUF9;
+
+					//switch IR Off
+					status = 0;
+					LED2_IO = 0;
+					LED3_IO = 0;
+					ir_timer = IR_OFF_PERIOD;
+				}
+				else
+				{
+					LINEAOFF=ADC1BUF8; 
+					LINEBOFF=ADC1BUF9;
+
+					//Swtich ON
+					status = 1;
+					LED2_IO = 1;
+					LED3_IO = 1;
+					ir_timer = IR_ON_PERIOD;				
+				}
+			}
 		}
 IFS1bits.AD1IF=0;
 }
@@ -449,6 +539,7 @@ void POSTTCPhead(int len,int id)
 {
    POSTTCPchar(0xff);POSTTCPchar(len+2);POSTTCPchar(globalRSSI);POSTTCPchar(id);
 }
+
 int commandstate=-1;
 int commandlen;
 unsigned char nextcommand[256];
@@ -879,17 +970,19 @@ void processcommand(void)		// the main routine which processes commands
 			POSTTCPchar(pos2>>8);
 		} 
 		break;
-	case 130: //Send IR data and motor position
+	case 130: //Send IR LINE data and motor position
 		if (commandlen == 0)	
 		{
+			//if (nextcommand[1]& 1) LED2_IO=1; else LED2_IO=0;
+			//if (nextcommand[1]& 2) LED3_IO=1; else LED3_IO=0;
 			//mPORTEToggleBits(BIT_2);
 			i = 0;
 			POSTTCPhead(8, 130);
 			//IR 
-			i=LINEA;
+			i = LINEA; //(LINEAON - LINEAOFF);
 			POSTTCPchar(i);
 			POSTTCPchar(i>>8);
-			i=LINEB;
+			i = LINEB; //(LINEBON - LINEBOFF);
 			POSTTCPchar(i);
 			POSTTCPchar(i>>8);
 
@@ -1199,6 +1292,8 @@ IEC1bits.AD1IE=1;
     I2CEnable(I2C1, TRUE);
 
 	//Initialize timer4
+//PR4 = 999 ; // 1000 ticks foe each itnerrupt 
+	PR4 = 2047;
 	OpenTimer4(T4_ON | T4_SOURCE_INT | T4_PS_1_2, T4_TICK);
 	ConfigIntTimer4(T4_INT_ON | T4_INT_PRIOR_2);
 	INTEnableSystemMultiVectoredInt();

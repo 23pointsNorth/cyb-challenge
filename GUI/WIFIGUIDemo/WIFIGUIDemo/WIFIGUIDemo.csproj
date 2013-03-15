@@ -67,6 +67,12 @@
     <Compile Include="LightTunnel.Designer.cs">
       <DependentUpon>LightTunnel.cs</DependentUpon>
     </Compile>
+    <Compile Include="LineFollowingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LineFollowingForm.Designer.cs">
+      <DependentUpon>LineFollowingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LightTunnel.resx">
       <DependentUpon>LightTunnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineFollowingForm.resx">
+      <DependentUpon>LineFollowingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

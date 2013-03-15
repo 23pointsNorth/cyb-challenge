@@ -41,6 +41,7 @@
             this.angle_Val = new System.Windows.Forms.TextBox();
             this.start_rotate = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.vortexButton = new System.Windows.Forms.Button();
             this.lightTunnelButton = new System.Windows.Forms.Button();
             this.riverBedButton = new System.Windows.Forms.Button();
             this.Seismic_Activity = new System.Windows.Forms.Button();
@@ -102,7 +103,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            this.vortexButton = new System.Windows.Forms.Button();
+            this.lineButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -249,6 +250,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.lineButton);
             this.groupBox6.Controls.Add(this.vortexButton);
             this.groupBox6.Controls.Add(this.lightTunnelButton);
             this.groupBox6.Controls.Add(this.riverBedButton);
@@ -256,10 +258,20 @@
             this.groupBox6.Controls.Add(this.crashedRocketButton);
             this.groupBox6.Location = new System.Drawing.Point(629, 190);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(126, 257);
+            this.groupBox6.Size = new System.Drawing.Size(126, 302);
             this.groupBox6.TabIndex = 44;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Tasks";
+            // 
+            // vortexButton
+            // 
+            this.vortexButton.Location = new System.Drawing.Point(6, 199);
+            this.vortexButton.Name = "vortexButton";
+            this.vortexButton.Size = new System.Drawing.Size(111, 39);
+            this.vortexButton.TabIndex = 42;
+            this.vortexButton.Text = "Vortex";
+            this.vortexButton.UseVisualStyleBackColor = true;
+            this.vortexButton.Click += new System.EventHandler(this.vortexButton_Click);
             // 
             // lightTunnelButton
             // 
@@ -854,15 +866,15 @@
             this.turnTimer.Interval = 1000;
             this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
             // 
-            // vortexButton
+            // lineButton
             // 
-            this.vortexButton.Location = new System.Drawing.Point(6, 199);
-            this.vortexButton.Name = "vortexButton";
-            this.vortexButton.Size = new System.Drawing.Size(111, 39);
-            this.vortexButton.TabIndex = 42;
-            this.vortexButton.Text = "Vortex";
-            this.vortexButton.UseVisualStyleBackColor = true;
-            this.vortexButton.Click += new System.EventHandler(this.vortexButton_Click);
+            this.lineButton.Location = new System.Drawing.Point(6, 244);
+            this.lineButton.Name = "lineButton";
+            this.lineButton.Size = new System.Drawing.Size(111, 39);
+            this.lineButton.TabIndex = 43;
+            this.lineButton.Text = "Line Following";
+            this.lineButton.UseVisualStyleBackColor = true;
+            this.lineButton.Click += new System.EventHandler(this.lineButton_Click);
             // 
             // Main
             // 
@@ -979,6 +991,7 @@
         private System.Windows.Forms.Timer turnTimer;
         private System.Windows.Forms.TrackBar additionalTrackBar;
         private System.Windows.Forms.Button vortexButton;
+        private System.Windows.Forms.Button lineButton;
     }
 }
 
