@@ -975,6 +975,13 @@ namespace WIFIGUIDemo
             vortexForm = new VortexForm(this, theClient);
             vortexForm.Show();
         }
+
+        LineFollowingForm lineForm;
+        private void lineButton_Click(object sender, EventArgs e)
+        {
+            lineForm = new LineFollowingForm(this, theClient);
+            lineForm.Show();
+        }
     }
 }
 
