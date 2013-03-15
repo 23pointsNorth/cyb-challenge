@@ -35,6 +35,10 @@
             this.rightValueLabel = new System.Windows.Forms.Label();
             this.calibrationTimer = new System.Windows.Forms.Timer(this.components);
             this.dataTimer = new System.Windows.Forms.Timer(this.components);
+            this.max_Label = new System.Windows.Forms.Label();
+            this.min_Label = new System.Windows.Forms.Label();
+            this.turnTimer = new System.Windows.Forms.Timer(this.components);
+            this.waitTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // followLineButton
@@ -45,6 +49,7 @@
             this.followLineButton.TabIndex = 0;
             this.followLineButton.Text = "Follow Line";
             this.followLineButton.UseVisualStyleBackColor = true;
+            this.followLineButton.Click += new System.EventHandler(this.followLineButton_Click);
             // 
             // calibrateButton
             // 
@@ -82,11 +87,41 @@
             // 
             this.dataTimer.Interval = 75;
             // 
+            // max_Label
+            // 
+            this.max_Label.AutoSize = true;
+            this.max_Label.Location = new System.Drawing.Point(32, 76);
+            this.max_Label.Name = "max_Label";
+            this.max_Label.Size = new System.Drawing.Size(27, 13);
+            this.max_Label.TabIndex = 4;
+            this.max_Label.Text = "Max";
+            // 
+            // min_Label
+            // 
+            this.min_Label.AutoSize = true;
+            this.min_Label.Location = new System.Drawing.Point(72, 76);
+            this.min_Label.Name = "min_Label";
+            this.min_Label.Size = new System.Drawing.Size(24, 13);
+            this.min_Label.TabIndex = 5;
+            this.min_Label.Text = "Min";
+            // 
+            // turnTimer
+            // 
+            this.turnTimer.Interval = 1000;
+            this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
+            // 
+            // waitTimer
+            // 
+            this.waitTimer.Interval = 1000;
+            this.waitTimer.Tick += new System.EventHandler(this.waitTimer_Tick);
+            // 
             // LineFollowingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 311);
+            this.Controls.Add(this.min_Label);
+            this.Controls.Add(this.max_Label);
             this.Controls.Add(this.rightValueLabel);
             this.Controls.Add(this.leftValueLabel);
             this.Controls.Add(this.calibrateButton);
@@ -107,5 +142,9 @@
         private System.Windows.Forms.Label rightValueLabel;
         private System.Windows.Forms.Timer calibrationTimer;
         private System.Windows.Forms.Timer dataTimer;
+        private System.Windows.Forms.Label max_Label;
+        private System.Windows.Forms.Label min_Label;
+        private System.Windows.Forms.Timer turnTimer;
+        private System.Windows.Forms.Timer waitTimer;
     }
 }
