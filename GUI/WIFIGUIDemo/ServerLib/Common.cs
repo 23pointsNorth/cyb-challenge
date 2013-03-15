@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +36,7 @@ namespace ServerLib
         AccDATABufferPacket = 0x87,
         MagDATABuffer = 0x88,
         MagDATABufferPacketX = 0x89,
-        MagDATABufferPacketY = 0x90,
-        MagDATABufferPacketZ = 0x9A
+        MagDATABufferPacketY = 0x8A,
+        MagDATABufferPacketZ = 0x8B
     };
 }
