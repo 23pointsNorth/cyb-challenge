@@ -88,8 +88,8 @@ namespace WIFIGUIDemo
             }
         }
 
-        const int MAX_SPEED = 127;
-        const int MIN_SPEED = 50;
+        public const int MAX_SPEED = 127;
+        public const int MIN_SPEED = 50;
 
 
         int ENCODER_SPEED = -100;
@@ -101,11 +101,16 @@ namespace WIFIGUIDemo
         int left_encoder = 0;
         int right_encoder = 0;
 
-        const double DIST_PARAM = 9.5;
+        public const double DIST_PARAM = 9.5;
 
 
         int _1sec_l = 0;
         int _1sec_r = 0;
+
+        public double ConvertToTemperature(int temp)
+        {
+            return (temp - 3106.1) / (-35.83);
+        }
 
         public int to12BitConversion(int _2scomp)
         {
@@ -232,7 +237,7 @@ namespace WIFIGUIDemo
                             {
                                 int temp = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
                                 tempLabel.Text = temp.ToString();
-                                double temp_celsius = (temp - 3106.1) / (-35.83);
+                                double temp_celsius = ConvertToTemperature(temp);
                                 temp_Celsius.Text = temp_celsius.ToString("0.00") + "'C";
                             }));
                             break;
@@ -307,9 +312,9 @@ namespace WIFIGUIDemo
                                     zresult = Accelz / zresult;
                                     double Az = Math.Atan(zresult) * 180 / Math.PI;
 
-                                    x_angle.Text = Ax.ToString(".00");
-                                    y_angle.Text = Ay.ToString(".00");
-                                    z_angle.Text = Az.ToString(".00");
+                                    x_angle.Text = Ax.ToString("0.00");
+                                    y_angle.Text = Ay.ToString("0.00");
+                                    z_angle.Text = Az.ToString("0.00");
 
                                     accelXlabel.Text = Accelx.ToString("0.00");
                                     accelYlabel.Text = Accely.ToString("0.00");
@@ -576,7 +581,7 @@ namespace WIFIGUIDemo
             {
                 leftMotorSpeed.Text = "0";
                 rightMotorSpeed.Text = "0";
-                theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+                stop();
             }
         }
 
@@ -614,19 +619,19 @@ namespace WIFIGUIDemo
 
             int speed_p = (e.Shift) ? 75 : 100;
 
-            if (e.KeyCode.Equals(Keys.W))
+            if (e.KeyCode.Equals(Keys.W) || e.KeyCode.Equals(Keys.Up))
             {
                 forward(speed_p);
             }
-            else if (e.KeyCode.Equals(Keys.S))
+            else if (e.KeyCode.Equals(Keys.S) || e.KeyCode.Equals(Keys.Down))
             {
                 backwards(speed_p);
             }
-            else if (e.KeyCode.Equals(Keys.A))
+            else if (e.KeyCode.Equals(Keys.A) || e.KeyCode.Equals(Keys.Left))
             {
                 rotate_left(speed_p);
             }
-            else if (e.KeyCode.Equals(Keys.D))
+            else if (e.KeyCode.Equals(Keys.D) || e.KeyCode.Equals(Keys.Right))
             {
                 rotate_right(speed_p);
             }
@@ -828,6 +833,8 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)
             {
                 setMotorSpeed(0, 0);
+                setMotorSpeed(0, 0);
+                setMotorSpeed(0, 0);
             }
         }
 
@@ -932,8 +939,8 @@ namespace WIFIGUIDemo
             //theClient.SendData(CommandID.GetCrashedRoverData, new byte[] { });
         }
 
-        const double _360_TURN_COEF = 4900;
-        const int TURN_SPEED = 120;
+        public const double _360_TURN_COEF = 4900;
+        public const int TURN_SPEED = 120;
         private void start_rotate_Click(object sender, EventArgs e)
         {
             int angle = int.Parse(angle_Val.Text);
@@ -981,6 +988,36 @@ namespace WIFIGUIDemo
         {
             lineForm = new LineFollowingForm(this, theClient);
             lineForm.Show();
+        }
+
+        VolcanoForm volcanoForm;
+        private void volcanoButton_Click(object sender, EventArgs e)
+        {
+            volcanoForm = new VolcanoForm(this, theClient);
+            volcanoForm.Show();
+        }
+
+        private void releaseButton_Click(object sender, EventArgs e)
+        {
+            servoTrackBar.Value = 20;
+            additionalTrackBar.Value = 30;
+        }
+
+        private void holdButton_Click(object sender, EventArgs e)
+        {
+            servoTrackBar.Value = 215;
+            additionalTrackBar.Value = 30;
+        }
+
+        private void absZeroButton_Click(object sender, EventArgs e)
+        {
+            servoTrackBar.Value = 0;
+            additionalTrackBar.Value = 5;
+        }
+
+        private void driveButton_Click(object sender, EventArgs e)
+        {
+            DrivetextBox.Focus();
         }
     }
 }

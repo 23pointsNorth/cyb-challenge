@@ -40,13 +40,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.angle_Val = new System.Windows.Forms.TextBox();
             this.start_rotate = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.taskGroupBox = new System.Windows.Forms.GroupBox();
+            this.volcanoButton = new System.Windows.Forms.Button();
+            this.lineButton = new System.Windows.Forms.Button();
             this.vortexButton = new System.Windows.Forms.Button();
             this.lightTunnelButton = new System.Windows.Forms.Button();
             this.riverBedButton = new System.Windows.Forms.Button();
             this.Seismic_Activity = new System.Windows.Forms.Button();
             this.crashedRocketButton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.XLabel = new System.Windows.Forms.Label();
+            this.YLabel = new System.Windows.Forms.Label();
+            this.ZLabel = new System.Windows.Forms.Label();
             this.tempLabel = new System.Windows.Forms.Label();
             this.temp_Celsius = new System.Windows.Forms.Label();
             this.tempButton = new System.Windows.Forms.Button();
@@ -103,10 +108,15 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            this.lineButton = new System.Windows.Forms.Button();
+            this.GLabel = new System.Windows.Forms.Label();
+            this.angleLabel = new System.Windows.Forms.Label();
+            this.holdButton = new System.Windows.Forms.Button();
+            this.releaseButton = new System.Windows.Forms.Button();
+            this.absZeroButton = new System.Windows.Forms.Button();
+            this.DrivetextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.taskGroupBox.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).BeginInit();
@@ -189,10 +199,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.DrivetextBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.angle_Val);
             this.groupBox2.Controls.Add(this.start_rotate);
-            this.groupBox2.Controls.Add(this.groupBox6);
+            this.groupBox2.Controls.Add(this.taskGroupBox);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.smlabel);
             this.groupBox2.Controls.Add(this.servoGroupBox);
@@ -248,28 +259,49 @@
             this.start_rotate.UseVisualStyleBackColor = true;
             this.start_rotate.Click += new System.EventHandler(this.start_rotate_Click);
             // 
-            // groupBox6
+            // taskGroupBox
             // 
-            this.groupBox6.Controls.Add(this.lineButton);
-            this.groupBox6.Controls.Add(this.vortexButton);
-            this.groupBox6.Controls.Add(this.lightTunnelButton);
-            this.groupBox6.Controls.Add(this.riverBedButton);
-            this.groupBox6.Controls.Add(this.Seismic_Activity);
-            this.groupBox6.Controls.Add(this.crashedRocketButton);
-            this.groupBox6.Location = new System.Drawing.Point(629, 190);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(126, 302);
-            this.groupBox6.TabIndex = 44;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Tasks";
+            this.taskGroupBox.Controls.Add(this.volcanoButton);
+            this.taskGroupBox.Controls.Add(this.lineButton);
+            this.taskGroupBox.Controls.Add(this.vortexButton);
+            this.taskGroupBox.Controls.Add(this.lightTunnelButton);
+            this.taskGroupBox.Controls.Add(this.riverBedButton);
+            this.taskGroupBox.Controls.Add(this.Seismic_Activity);
+            this.taskGroupBox.Controls.Add(this.crashedRocketButton);
+            this.taskGroupBox.Location = new System.Drawing.Point(551, 263);
+            this.taskGroupBox.Name = "taskGroupBox";
+            this.taskGroupBox.Size = new System.Drawing.Size(244, 229);
+            this.taskGroupBox.TabIndex = 44;
+            this.taskGroupBox.TabStop = false;
+            this.taskGroupBox.Text = "Tasks";
+            // 
+            // volcanoButton
+            // 
+            this.volcanoButton.Location = new System.Drawing.Point(123, 148);
+            this.volcanoButton.Name = "volcanoButton";
+            this.volcanoButton.Size = new System.Drawing.Size(111, 39);
+            this.volcanoButton.TabIndex = 44;
+            this.volcanoButton.Text = "Volcano";
+            this.volcanoButton.UseVisualStyleBackColor = true;
+            this.volcanoButton.Click += new System.EventHandler(this.volcanoButton_Click);
+            // 
+            // lineButton
+            // 
+            this.lineButton.Location = new System.Drawing.Point(123, 103);
+            this.lineButton.Name = "lineButton";
+            this.lineButton.Size = new System.Drawing.Size(111, 39);
+            this.lineButton.TabIndex = 43;
+            this.lineButton.Text = "Line Following";
+            this.lineButton.UseVisualStyleBackColor = true;
+            this.lineButton.Click += new System.EventHandler(this.lineButton_Click);
             // 
             // vortexButton
             // 
-            this.vortexButton.Location = new System.Drawing.Point(6, 199);
+            this.vortexButton.Location = new System.Drawing.Point(6, 103);
             this.vortexButton.Name = "vortexButton";
             this.vortexButton.Size = new System.Drawing.Size(111, 39);
             this.vortexButton.TabIndex = 42;
-            this.vortexButton.Text = "Vortex";
+            this.vortexButton.Text = "Vortex  /    Magnetic Rock";
             this.vortexButton.UseVisualStyleBackColor = true;
             this.vortexButton.Click += new System.EventHandler(this.vortexButton_Click);
             // 
@@ -285,7 +317,7 @@
             // 
             // riverBedButton
             // 
-            this.riverBedButton.Location = new System.Drawing.Point(6, 112);
+            this.riverBedButton.Location = new System.Drawing.Point(6, 61);
             this.riverBedButton.Name = "riverBedButton";
             this.riverBedButton.Size = new System.Drawing.Size(111, 36);
             this.riverBedButton.TabIndex = 36;
@@ -295,9 +327,9 @@
             // 
             // Seismic_Activity
             // 
-            this.Seismic_Activity.Location = new System.Drawing.Point(6, 154);
+            this.Seismic_Activity.Location = new System.Drawing.Point(123, 61);
             this.Seismic_Activity.Name = "Seismic_Activity";
-            this.Seismic_Activity.Size = new System.Drawing.Size(111, 39);
+            this.Seismic_Activity.Size = new System.Drawing.Size(111, 36);
             this.Seismic_Activity.TabIndex = 40;
             this.Seismic_Activity.Text = "Seismic Activity";
             this.Seismic_Activity.UseVisualStyleBackColor = true;
@@ -305,9 +337,9 @@
             // 
             // crashedRocketButton
             // 
-            this.crashedRocketButton.Location = new System.Drawing.Point(6, 67);
+            this.crashedRocketButton.Location = new System.Drawing.Point(123, 18);
             this.crashedRocketButton.Name = "crashedRocketButton";
-            this.crashedRocketButton.Size = new System.Drawing.Size(111, 39);
+            this.crashedRocketButton.Size = new System.Drawing.Size(111, 37);
             this.crashedRocketButton.TabIndex = 41;
             this.crashedRocketButton.Text = "Crashed Rocket";
             this.crashedRocketButton.UseVisualStyleBackColor = true;
@@ -315,6 +347,11 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.angleLabel);
+            this.groupBox5.Controls.Add(this.GLabel);
+            this.groupBox5.Controls.Add(this.XLabel);
+            this.groupBox5.Controls.Add(this.YLabel);
+            this.groupBox5.Controls.Add(this.ZLabel);
             this.groupBox5.Controls.Add(this.tempLabel);
             this.groupBox5.Controls.Add(this.temp_Celsius);
             this.groupBox5.Controls.Add(this.tempButton);
@@ -332,12 +369,39 @@
             this.groupBox5.Controls.Add(this.accelYlabel);
             this.groupBox5.Controls.Add(this.accelZlabel);
             this.groupBox5.Controls.Add(this.getAccelerometer);
-            this.groupBox5.Location = new System.Drawing.Point(426, 133);
+            this.groupBox5.Location = new System.Drawing.Point(452, 19);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(146, 238);
+            this.groupBox5.Size = new System.Drawing.Size(183, 238);
             this.groupBox5.TabIndex = 43;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Utility";
+            // 
+            // XLabel
+            // 
+            this.XLabel.AutoSize = true;
+            this.XLabel.Location = new System.Drawing.Point(44, 152);
+            this.XLabel.Name = "XLabel";
+            this.XLabel.Size = new System.Drawing.Size(14, 13);
+            this.XLabel.TabIndex = 43;
+            this.XLabel.Text = "X";
+            // 
+            // YLabel
+            // 
+            this.YLabel.AutoSize = true;
+            this.YLabel.Location = new System.Drawing.Point(86, 152);
+            this.YLabel.Name = "YLabel";
+            this.YLabel.Size = new System.Drawing.Size(14, 13);
+            this.YLabel.TabIndex = 44;
+            this.YLabel.Text = "Y";
+            // 
+            // ZLabel
+            // 
+            this.ZLabel.AutoSize = true;
+            this.ZLabel.Location = new System.Drawing.Point(134, 152);
+            this.ZLabel.Name = "ZLabel";
+            this.ZLabel.Size = new System.Drawing.Size(14, 13);
+            this.ZLabel.TabIndex = 42;
+            this.ZLabel.Text = "Z";
             // 
             // tempLabel
             // 
@@ -379,7 +443,7 @@
             // z_angle
             // 
             this.z_angle.AutoSize = true;
-            this.z_angle.Location = new System.Drawing.Point(96, 168);
+            this.z_angle.Location = new System.Drawing.Point(134, 188);
             this.z_angle.Name = "z_angle";
             this.z_angle.Size = new System.Drawing.Size(44, 13);
             this.z_angle.TabIndex = 39;
@@ -397,7 +461,7 @@
             // y_angle
             // 
             this.y_angle.AutoSize = true;
-            this.y_angle.Location = new System.Drawing.Point(48, 168);
+            this.y_angle.Location = new System.Drawing.Point(86, 188);
             this.y_angle.Name = "y_angle";
             this.y_angle.Size = new System.Drawing.Size(44, 13);
             this.y_angle.TabIndex = 38;
@@ -416,7 +480,7 @@
             // x_angle
             // 
             this.x_angle.AutoSize = true;
-            this.x_angle.Location = new System.Drawing.Point(6, 168);
+            this.x_angle.Location = new System.Drawing.Point(44, 188);
             this.x_angle.Name = "x_angle";
             this.x_angle.Size = new System.Drawing.Size(44, 13);
             this.x_angle.TabIndex = 37;
@@ -462,7 +526,7 @@
             // accelXlabel
             // 
             this.accelXlabel.AutoSize = true;
-            this.accelXlabel.Location = new System.Drawing.Point(6, 150);
+            this.accelXlabel.Location = new System.Drawing.Point(44, 170);
             this.accelXlabel.Name = "accelXlabel";
             this.accelXlabel.Size = new System.Drawing.Size(14, 13);
             this.accelXlabel.TabIndex = 26;
@@ -471,7 +535,7 @@
             // accelYlabel
             // 
             this.accelYlabel.AutoSize = true;
-            this.accelYlabel.Location = new System.Drawing.Point(48, 150);
+            this.accelYlabel.Location = new System.Drawing.Point(86, 170);
             this.accelYlabel.Name = "accelYlabel";
             this.accelYlabel.Size = new System.Drawing.Size(14, 13);
             this.accelYlabel.TabIndex = 27;
@@ -480,7 +544,7 @@
             // accelZlabel
             // 
             this.accelZlabel.AutoSize = true;
-            this.accelZlabel.Location = new System.Drawing.Point(96, 150);
+            this.accelZlabel.Location = new System.Drawing.Point(134, 170);
             this.accelZlabel.Name = "accelZlabel";
             this.accelZlabel.Size = new System.Drawing.Size(14, 13);
             this.accelZlabel.TabIndex = 22;
@@ -488,7 +552,7 @@
             // 
             // getAccelerometer
             // 
-            this.getAccelerometer.Location = new System.Drawing.Point(9, 184);
+            this.getAccelerometer.Location = new System.Drawing.Point(9, 204);
             this.getAccelerometer.Name = "getAccelerometer";
             this.getAccelerometer.Size = new System.Drawing.Size(101, 23);
             this.getAccelerometer.TabIndex = 19;
@@ -507,11 +571,14 @@
             // 
             // servoGroupBox
             // 
+            this.servoGroupBox.Controls.Add(this.absZeroButton);
+            this.servoGroupBox.Controls.Add(this.releaseButton);
+            this.servoGroupBox.Controls.Add(this.holdButton);
             this.servoGroupBox.Controls.Add(this.additionalTrackBar);
             this.servoGroupBox.Controls.Add(this.servoTrackBar);
             this.servoGroupBox.Location = new System.Drawing.Point(641, 19);
             this.servoGroupBox.Name = "servoGroupBox";
-            this.servoGroupBox.Size = new System.Drawing.Size(147, 143);
+            this.servoGroupBox.Size = new System.Drawing.Size(147, 224);
             this.servoGroupBox.TabIndex = 34;
             this.servoGroupBox.TabStop = false;
             this.servoGroupBox.Text = "Servo Control";
@@ -548,10 +615,11 @@
             this.driveButton.TabIndex = 33;
             this.driveButton.Text = "Drive";
             this.driveButton.UseVisualStyleBackColor = true;
+            this.driveButton.Click += new System.EventHandler(this.driveButton_Click);
             // 
             // motorPositionButton
             // 
-            this.motorPositionButton.Location = new System.Drawing.Point(426, 28);
+            this.motorPositionButton.Location = new System.Drawing.Point(339, 20);
             this.motorPositionButton.Name = "motorPositionButton";
             this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
             this.motorPositionButton.TabIndex = 32;
@@ -598,7 +666,7 @@
             // 
             // drive1secButton
             // 
-            this.drive1secButton.Location = new System.Drawing.Point(426, 57);
+            this.drive1secButton.Location = new System.Drawing.Point(339, 49);
             this.drive1secButton.Name = "drive1secButton";
             this.drive1secButton.Size = new System.Drawing.Size(107, 30);
             this.drive1secButton.TabIndex = 16;
@@ -866,15 +934,62 @@
             this.turnTimer.Interval = 1000;
             this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
             // 
-            // lineButton
+            // GLabel
             // 
-            this.lineButton.Location = new System.Drawing.Point(6, 244);
-            this.lineButton.Name = "lineButton";
-            this.lineButton.Size = new System.Drawing.Size(111, 39);
-            this.lineButton.TabIndex = 43;
-            this.lineButton.Text = "Line Following";
-            this.lineButton.UseVisualStyleBackColor = true;
-            this.lineButton.Click += new System.EventHandler(this.lineButton_Click);
+            this.GLabel.AutoSize = true;
+            this.GLabel.Location = new System.Drawing.Point(24, 170);
+            this.GLabel.Name = "GLabel";
+            this.GLabel.Size = new System.Drawing.Size(15, 13);
+            this.GLabel.TabIndex = 45;
+            this.GLabel.Text = "G";
+            // 
+            // angleLabel
+            // 
+            this.angleLabel.AutoSize = true;
+            this.angleLabel.Location = new System.Drawing.Point(5, 188);
+            this.angleLabel.Name = "angleLabel";
+            this.angleLabel.Size = new System.Drawing.Size(34, 13);
+            this.angleLabel.TabIndex = 46;
+            this.angleLabel.Text = "Angle";
+            // 
+            // holdButton
+            // 
+            this.holdButton.Location = new System.Drawing.Point(6, 129);
+            this.holdButton.Name = "holdButton";
+            this.holdButton.Size = new System.Drawing.Size(126, 27);
+            this.holdButton.TabIndex = 2;
+            this.holdButton.Text = "Hold Claim";
+            this.holdButton.UseVisualStyleBackColor = true;
+            this.holdButton.Click += new System.EventHandler(this.holdButton_Click);
+            // 
+            // releaseButton
+            // 
+            this.releaseButton.Location = new System.Drawing.Point(6, 162);
+            this.releaseButton.Name = "releaseButton";
+            this.releaseButton.Size = new System.Drawing.Size(126, 27);
+            this.releaseButton.TabIndex = 3;
+            this.releaseButton.Text = "Release Claim";
+            this.releaseButton.UseVisualStyleBackColor = true;
+            this.releaseButton.Click += new System.EventHandler(this.releaseButton_Click);
+            // 
+            // absZeroButton
+            // 
+            this.absZeroButton.Location = new System.Drawing.Point(6, 195);
+            this.absZeroButton.Name = "absZeroButton";
+            this.absZeroButton.Size = new System.Drawing.Size(126, 20);
+            this.absZeroButton.TabIndex = 4;
+            this.absZeroButton.Text = "Absolute Zero";
+            this.absZeroButton.UseVisualStyleBackColor = true;
+            this.absZeroButton.Click += new System.EventHandler(this.absZeroButton_Click);
+            // 
+            // DrivetextBox
+            // 
+            this.DrivetextBox.Location = new System.Drawing.Point(235, 80);
+            this.DrivetextBox.Name = "DrivetextBox";
+            this.DrivetextBox.Size = new System.Drawing.Size(34, 20);
+            this.DrivetextBox.TabIndex = 48;
+            this.DrivetextBox.Text = "Drive";
+            this.DrivetextBox.Visible = false;
             // 
             // Main
             // 
@@ -896,7 +1011,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
+            this.taskGroupBox.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.servoGroupBox.ResumeLayout(false);
@@ -983,7 +1098,7 @@
         private System.Windows.Forms.Button crashedRocketButton;
 
         private System.Windows.Forms.Label smlabel;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox taskGroupBox;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox angle_Val;
@@ -992,6 +1107,16 @@
         private System.Windows.Forms.TrackBar additionalTrackBar;
         private System.Windows.Forms.Button vortexButton;
         private System.Windows.Forms.Button lineButton;
+        private System.Windows.Forms.Button volcanoButton;
+        private System.Windows.Forms.Label XLabel;
+        private System.Windows.Forms.Label YLabel;
+        private System.Windows.Forms.Label ZLabel;
+        private System.Windows.Forms.Label angleLabel;
+        private System.Windows.Forms.Label GLabel;
+        private System.Windows.Forms.Button releaseButton;
+        private System.Windows.Forms.Button holdButton;
+        private System.Windows.Forms.Button absZeroButton;
+        private System.Windows.Forms.TextBox DrivetextBox;
     }
 }
 
