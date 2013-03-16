@@ -40,10 +40,10 @@ api2.setColor('g');
 
 %% Fourier 
 
-% windowing
+% Windowing
 % M = length(time); 
 % w = hanning(M); 
-% accw = acc'.*y;
+% accw = w'.*acc;
 % for windowing use accw later on
 
 
