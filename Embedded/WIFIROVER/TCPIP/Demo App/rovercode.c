@@ -155,27 +155,36 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 	//MAG
 	if ((mag_ticker % MAG_DATA_PERIOD ==0) && (mag_acquire_data != 0))
 	{
-		I2S();I2send(0x3c);I2send(3);I2SR();
-		I2send(0x3d);
-		// X		
-		mag_data_x[mag_data_pos] = (I2GET(1) << 8);
-		mag_data_x[mag_data_pos] += I2GET(1);
-		// Y		
-		mag_data_y[mag_data_pos] = (I2GET(1) << 8);
-		mag_data_y[mag_data_pos] += I2GET(1);
-		// Z		
-		mag_data_z[mag_data_pos] = (I2GET(1) << 8);
-		mag_data_z[mag_data_pos] += I2GET(0);
-
+		I2S();I2send(0x3c);I2send(9);I2SR();I2send(0x3d);
+		new = I2GET(0) & 0x01; // status register
 		I2P();
+		if (new != 0)
+		{
+			I2S();I2send(0x3c);I2send(3);I2SR();
+			I2send(0x3d);
+			// X		
+			mag_data_x[mag_data_pos] = (I2GET(1) << 8);
+			mag_data_x[mag_data_pos] += I2GET(1);
+			// Y		
+			mag_data_y[mag_data_pos] = (I2GET(1) << 8);
+			mag_data_y[mag_data_pos] += I2GET(1);
+			// Z		
+			mag_data_z[mag_data_pos] = (I2GET(1) << 8);
+			mag_data_z[mag_data_pos] += I2GET(0);
+	
+			I2P();
+	
+			mag_data_pos++;
+		}
 
-		mag_data_pos++;
 		if (mag_data_pos >= MAG_DATA_BUFFER_PER_AXIS)
 		{
 			mag_data_pos = 0;
 			mag_acquire_data = 0;
 			should_send_mag = 1;
 		}
+
+		mag_ticker = 0;
 	}
 
 	//ACC
@@ -285,8 +294,8 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		if (l_error > 0)
 		{
 			if (wanted_speed_left > 0)
-				speed1 = speed1 - PROP * l_error; 
-			else speed1 = speed1 + PROP * l_error;
+				speed1 = speed1 - PROP * abs(l_error); 
+			else speed1 = speed1 + PROP * abs(l_error);
 		}
 		else if (l_error < 0)
 		{
@@ -305,8 +314,8 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 		if (r_error > 0)
 		{
 			if (wanted_speed_right > 0)
-				speed2 = speed2 - PROP * r_error; 
-			else speed2 = speed2 + PROP * r_error;
+				speed2 = speed2 - PROP * abs(r_error); 
+			else speed2 = speed2 + PROP * abs(r_error);
 		}
 		else if (r_error < 0)
 		{
@@ -560,8 +569,8 @@ void initi2Cs(void)  // called once when rover starts
 	//setup gyro L3G4200D  // to be done
 //										I2S();I2send(0xd2);I2send(0x90);I2P();
 //setup mag HMC5883L
-										//I2S();I2send(0x3c);I2send(0x0);I2send(0x70);I2send(0x20);I2send(0x00);I2P();
-										I2S();I2send(0x3c);I2send(0x0);I2send(0x68);I2send(0x20);I2send(0x00);I2P(); // Set to 30Hz
+										I2S();I2send(0x3c);I2send(0x0);I2send(0x70);I2send(0x20);I2send(0x00);I2P(); // Leave standard 15Hz
+										//I2S();I2send(0x3c);I2send(0x0);I2send(0x68);I2send(0x20);I2send(0x00);I2P(); // Set to 30Hz
 }
 
 
@@ -1055,8 +1064,8 @@ void processcommand(void)		// the main routine which processes commands
 			POSTTCPchar(pack);
 			for (i = pack * MAG_DATA_BUFFER_PER_AXIS; i < (pack + 1)* MAG_DATA_BUFFER_PER_AXIS; i++)
 			{
+				POSTTCPchar(mag_data_x[i] >> 8); //
 				POSTTCPchar(mag_data_x[i]);
-				POSTTCPchar(mag_data_x[i] >> 8);
 			}	
 		} // end of if commanlen
 		break; // break of case
@@ -1069,8 +1078,8 @@ void processcommand(void)		// the main routine which processes commands
 			POSTTCPchar(pack);
 			for (i = pack * MAG_DATA_BUFFER_PER_AXIS; i < (pack + 1)* MAG_DATA_BUFFER_PER_AXIS; i++)
 			{
-				POSTTCPchar(mag_data_y[i]);
 				POSTTCPchar(mag_data_y[i] >> 8);
+				POSTTCPchar(mag_data_y[i]);
 			}
 		}
 		break;
@@ -1083,8 +1092,8 @@ void processcommand(void)		// the main routine which processes commands
 			POSTTCPchar(pack);
 			for (i = pack * MAG_DATA_BUFFER_PER_AXIS; i < (pack + 1)* MAG_DATA_BUFFER_PER_AXIS; i++)
 			{
-				POSTTCPchar(mag_data_z[i]);
 				POSTTCPchar(mag_data_z[i] >> 8);
+				POSTTCPchar(mag_data_z[i]);
 			}
 		}
 		break;

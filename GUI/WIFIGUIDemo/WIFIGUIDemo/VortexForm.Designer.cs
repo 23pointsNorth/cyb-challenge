@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.getMagButton = new System.Windows.Forms.Button();
             this.magDataLabel = new System.Windows.Forms.Label();
             this.receiveButton = new System.Windows.Forms.Button();
@@ -45,6 +45,7 @@
             this.singleValueButton = new System.Windows.Forms.Button();
             this.dataTimer = new System.Windows.Forms.Timer(this.components);
             this.saveButton = new System.Windows.Forms.Button();
+            this.streamButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SeismicActivityChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // magDataLabel
             // 
             this.magDataLabel.AutoSize = true;
-            this.magDataLabel.Location = new System.Drawing.Point(442, 19);
+            this.magDataLabel.Location = new System.Drawing.Point(562, 20);
             this.magDataLabel.Name = "magDataLabel";
             this.magDataLabel.Size = new System.Drawing.Size(87, 13);
             this.magDataLabel.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             // receiveButton
             // 
-            this.receiveButton.Location = new System.Drawing.Point(131, 14);
+            this.receiveButton.Location = new System.Drawing.Point(251, 15);
             this.receiveButton.Name = "receiveButton";
             this.receiveButton.Size = new System.Drawing.Size(83, 23);
             this.receiveButton.TabIndex = 2;
@@ -79,44 +80,44 @@
             // 
             // SeismicActivityChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.SeismicActivityChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend2.Name = "Legend1";
-            this.SeismicActivityChart.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.SeismicActivityChart.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend3.Name = "Legend1";
+            this.SeismicActivityChart.Legends.Add(legend3);
             this.SeismicActivityChart.Location = new System.Drawing.Point(12, 43);
             this.SeismicActivityChart.Name = "SeismicActivityChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "mag_x";
-            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "mag_y";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "mag_z";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.SeismicActivityChart.Series.Add(series4);
-            this.SeismicActivityChart.Series.Add(series5);
-            this.SeismicActivityChart.Series.Add(series6);
-            this.SeismicActivityChart.Size = new System.Drawing.Size(790, 251);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series7.Legend = "Legend1";
+            series7.Name = "mag_x";
+            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "mag_y";
+            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            series8.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "mag_z";
+            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
+            series9.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.SeismicActivityChart.Series.Add(series7);
+            this.SeismicActivityChart.Series.Add(series8);
+            this.SeismicActivityChart.Series.Add(series9);
+            this.SeismicActivityChart.Size = new System.Drawing.Size(880, 251);
             this.SeismicActivityChart.TabIndex = 5;
             this.SeismicActivityChart.Text = "Light Tunnel Chart";
-            title2.Name = "IR Intesity vs Distance";
-            this.SeismicActivityChart.Titles.Add(title2);
+            title3.Name = "IR Intesity vs Distance";
+            this.SeismicActivityChart.Titles.Add(title3);
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(535, 11);
+            this.clearButton.Location = new System.Drawing.Point(655, 15);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 6;
@@ -126,7 +127,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(220, 14);
+            this.button1.Location = new System.Drawing.Point(340, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 23);
             this.button1.TabIndex = 7;
@@ -136,7 +137,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(309, 14);
+            this.button2.Location = new System.Drawing.Point(429, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 23);
             this.button2.TabIndex = 8;
@@ -146,7 +147,7 @@
             // 
             // singleValueButton
             // 
-            this.singleValueButton.Location = new System.Drawing.Point(616, 11);
+            this.singleValueButton.Location = new System.Drawing.Point(736, 15);
             this.singleValueButton.Name = "singleValueButton";
             this.singleValueButton.Size = new System.Drawing.Size(75, 23);
             this.singleValueButton.TabIndex = 9;
@@ -160,7 +161,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(697, 11);
+            this.saveButton.Location = new System.Drawing.Point(817, 15);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 10;
@@ -168,11 +169,22 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // streamButton
+            // 
+            this.streamButton.Location = new System.Drawing.Point(132, 14);
+            this.streamButton.Name = "streamButton";
+            this.streamButton.Size = new System.Drawing.Size(112, 23);
+            this.streamButton.TabIndex = 11;
+            this.streamButton.Text = "Continious Stream";
+            this.streamButton.UseVisualStyleBackColor = true;
+            this.streamButton.Click += new System.EventHandler(this.streamButton_Click);
+            // 
             // VortexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 318);
+            this.ClientSize = new System.Drawing.Size(905, 318);
+            this.Controls.Add(this.streamButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.singleValueButton);
             this.Controls.Add(this.button2);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.Button singleValueButton;
         private System.Windows.Forms.Timer dataTimer;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button streamButton;
     }
 }

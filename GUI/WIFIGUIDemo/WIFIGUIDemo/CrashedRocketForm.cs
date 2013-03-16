@@ -27,8 +27,8 @@ namespace WIFIGUIDemo
         private void sendEmailButton_Click(object sender, EventArgs e)
         {
             System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
-            message.To.Add("kp015255@reading.ac.uk");
-            message.Subject = "Crashed Rocket Message!";
+            message.To.Add("kp015255@reading.ac.uk"); // s.gould@reading.ac.uk
+            message.Subject = "Decoded Message from Crashed Rocket - Team CYB01";
             message.From = new System.Net.Mail.MailAddress("kp015255@reading.ac.uk");
             message.Body = "Hello Stephen Gould, \n\t We are happy to announce that we have reached the crashed rocket! " +
                 "We recevied and decoded the following message: \n\n \t\t \"" + decodedMessage.Text + "\""+

@@ -19,6 +19,8 @@ namespace WIFIGUIDemo
         const int packets_count = 16;
         const int packet_size = 60;
 
+        int[] mag_packet = new int[packets_count];
+
         public VortexForm(Main mForm, TCPClient theClient)
         {
             mainForm = mForm;
@@ -53,15 +55,24 @@ namespace WIFIGUIDemo
                         this.BeginInvoke(new EventHandler(delegate
                         {
                             int id = Convert.ToUInt16(NewData[4]);
-
                             for (int i = 0; i < packet_size * 2; i += 2)
                             {
-                                double mag = mainForm.to16BitConversion(
-                                    (NewData[(5 + i)]) + ((NewData[(6 + i)] << 8)));
+                                double mag = mainForm.to12BitConversion((NewData[(5 + i)] << 8) + ((NewData[(6 + i)])));
 
                                 SeismicActivityChart.Series["mag_x"].Points.AddXY(id * packet_size + i / 2, mag);
  
                             }
+
+                            for (byte i = 0; i < packet_size; i++)
+                            {
+                                if (mag_packet[i] == 1)
+                                {
+                                    rover.SendData(CommandID.MagDATABufferPacketX, new byte[] { i });
+                                    mag_packet[i] = 0;
+                                    break;
+                                }
+                            }
+ 
                         }));
                         break;
 
@@ -73,11 +84,16 @@ namespace WIFIGUIDemo
 
                             for (int i = 0; i < packet_size * 2; i += 2)
                             {
-                                double mag = mainForm.to16BitConversion(
-                                    (NewData[(5 + i)]) + ((NewData[(6 + i)] << 8)));
+                                double mag = mainForm.to12BitConversion(
+                                    (NewData[(5 + i)] << 8) + ((NewData[(6 + i)])));
 
                                 SeismicActivityChart.Series["mag_y"].Points.AddXY(id * packet_size + i / 2, mag);
 
+                            }
+
+                            if (id < packets_count)
+                            {
+                                rover.SendData(CommandID.MagDATABufferPacketY, new byte[] { (byte)(id + 1) });
                             }
                         }));
                         break;
@@ -90,11 +106,16 @@ namespace WIFIGUIDemo
 
                             for (int i = 0; i < packet_size * 2; i += 2)
                             {
-                                double mag = mainForm.to16BitConversion(
-                                    (NewData[(5 + i)]) + ((NewData[(6 + i)] << 8)));
+                                double mag = mainForm.to12BitConversion(
+                                    (NewData[(5 + i)] << 8) + ((NewData[(6 + i)])));
 
                                 SeismicActivityChart.Series["mag_z"].Points.AddXY(id * packet_size + i / 2, mag);
 
+                            }
+
+                            if (id < packets_count)
+                            {
+                                rover.SendData(CommandID.MagDATABufferPacketZ, new byte[] { (byte)(id + 1) });
                             }
                         }));
                         break;
@@ -127,8 +148,8 @@ namespace WIFIGUIDemo
         private void getMagButton_Click(object sender, EventArgs e)
         {
             //rover.SendData(CommandID.MagDATABuffer, new byte[] { });
-            magDataLabel.Text = "Waiting for data.";
-            dataTimer.Enabled = !dataTimer.Enabled;
+            //magDataLabel.Text = "Waiting for data.";
+            magDataLabel.Text = "Button disabled.";
         }
 
         private void receiveButton_Click(object sender, EventArgs e)
@@ -136,26 +157,28 @@ namespace WIFIGUIDemo
             //X axis
             for (int p = 0; p < packets_count; p++)
             {
-                rover.SendData(CommandID.MagDATABufferPacketX, new byte[] { (byte)p});
+                mag_packet[p] = 1;
             }
+            mag_packet[0] = 0;
+            rover.SendData(CommandID.MagDATABufferPacketX, new byte[] { 0 });
            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //Y axis
-            for (int p = 0; p < packets_count; p++)
+            //for (int p = 0; p < packets_count; p++)
             {
-                rover.SendData(CommandID.MagDATABufferPacketY, new byte[] { (byte)p });
+                rover.SendData(CommandID.MagDATABufferPacketY, new byte[] { (byte)0 });
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //Z axis
-            for (int p = 0; p < packets_count; p++)
+            //for (int p = 0; p < packets_count; p++)
             {
-                rover.SendData(CommandID.MagDATABufferPacketZ, new byte[] { (byte)p});
+                rover.SendData(CommandID.MagDATABufferPacketZ, new byte[] { (byte)0 });
             }
         }
 
@@ -201,6 +224,11 @@ namespace WIFIGUIDemo
                 mag_z.WriteLine(left.YValues[0].ToString());
             }
             mag_z.Close();
+        }
+
+        private void streamButton_Click(object sender, EventArgs e)
+        {
+            dataTimer.Enabled = !dataTimer.Enabled;
         }
 
     }

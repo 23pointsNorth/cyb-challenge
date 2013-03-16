@@ -93,6 +93,12 @@
     <Compile Include="SeismicActivityForm.designer.cs">
       <DependentUpon>SeismicActivityForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VolcanoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolcanoForm.Designer.cs">
+      <DependentUpon>VolcanoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VortexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeismicActivityForm.resx">
       <DependentUpon>SeismicActivityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolcanoForm.resx">
+      <DependentUpon>VolcanoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VortexForm.resx">
       <DependentUpon>VortexForm.cs</DependentUpon>
