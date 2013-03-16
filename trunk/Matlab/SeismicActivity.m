@@ -40,6 +40,13 @@ api2.setColor('g');
 
 %% Fourier 
 
+% windowing
+% M = length(time); 
+% w = hanning(M); 
+% accw = acc'.*y;
+% for windowing use accw later on
+
+
 NFFT = 2^nextpow2(L); % Next power of 2 from length of y
 Y = fft(acc, NFFT)/L;
 f = Fs/2*linspace(0,1,NFFT/2+1);
