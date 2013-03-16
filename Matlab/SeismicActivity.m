@@ -41,8 +41,14 @@ api2.setColor('g');
 %% Fourier 
 
 % Windowing
-%w = hanning(length(acc)); 
-%accw = w'*acc;
+w = hanning(length(acc)); 
+w = w';
+figure;
+plot(time, w);
+accw = w*acc;
+
+figure;
+plot(time, accw);
 % for windowing use accw later on, otherwise accw = acc
 accw= acc;
 
@@ -55,6 +61,6 @@ figure;
 plot(f,2*abs(Y(1:NFFT/2+1))) 
 title('Frequency Spectrum of received acceleromter data')
 xlabel('Frequency (Hz)')
-ylabel('|Acc|')
+ylabel('Amplitude')
 
 end
