@@ -841,7 +841,7 @@ namespace WIFIGUIDemo
             }
         }
 
-        private void stop()
+        public void stop()
         {
             if (theClient.isConnected)
             {

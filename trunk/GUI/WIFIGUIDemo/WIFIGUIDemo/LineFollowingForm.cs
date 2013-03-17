@@ -12,15 +12,31 @@ namespace WIFIGUIDemo
 {
     public partial class LineFollowingForm : Form
     {
-        int max = 0, min = 500;
-        int angle = 5;
+        int max = int.MinValue;
+        int min = int.MaxValue;
+
+        double RANGE_COEF = 0.3;
+        
+        int ABS_ANGLE_VALUE = 3;
+        int STEPS = 3;
+
+        int angle;
         int angle_turned = 0;
         bool calibrate = false;
         bool turn_left = false;
-        public bool lineFollowing = false;
-        int maxspeed = 127, minspeed = 50;
+        bool turn_back = false;
 
-        
+        public bool lineFollowing = false;
+        int MAXSPEED = 100;
+        int MINSPEED = 75;
+        double LINE_FOLLOWING_COEF = 1; // 0..1
+        double FORWARD_COEF = 0.4;
+
+        public int range()
+        {
+            return (int)((max - min) * RANGE_COEF);
+        }
+
         Main mainForm;
         TCPClient rover;
 
@@ -31,6 +47,7 @@ namespace WIFIGUIDemo
             InitializeComponent();
 
             rover.OnMessageReceived += new ClientBase.ClientMessageReceivedEvent(DataReceivedLine_Handler);
+            angle = ABS_ANGLE_VALUE;
         }
 
 
@@ -56,18 +73,32 @@ namespace WIFIGUIDemo
                             leftValueLabel.Text = left_value.ToString();
                             rightValueLabel.Text = right_value.ToString();
 
-                            float ls = 0;
-                            float rs = 0;
 
                             if (lineFollowing)
                             {
-                                ls = minspeed + ((maxspeed - minspeed) * (left_value / max));
-                                rs = minspeed + ((maxspeed - minspeed) * (right_value / max));
+                                bool l_black = left_value - min < range();
+                                bool r_black = right_value - min < range();
+                                onLineStatusLabel.Text =
+                                    "[" + ((l_black) ? "B" : "W") + "] " +
+                                    "[" + ((r_black) ? "B" : "W") + "] ";
+                                float ls = 0;
+                                float rs = 0;
 
-                                rover.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)ls, (byte)(rs) });
+                                ls = calculate_line_follow_speed(left_value);
+                                rs = calculate_line_follow_speed(right_value);
+                                //ls = MINSPEED + ((MAXSPEED - MINSPEED) * (left_value / max));
+                                //rs = MINSPEED + ((MAXSPEED - MINSPEED) * (right_value / max));
+
+                                //if (!r_black && !l_black)
+                                //{
+                                //    mainForm.stop();
+                                //}
+                                //else
+                                {
+                                    rover.SendData(CommandID.SetMotorsSpeed, new byte[] { (byte)ls, (byte)(rs) });
+                                }
                                 rover.SendData(CommandID.IRDistanceData, new byte[] { });
                             }
-
                             if (calibrate)
                             {
                                 if (left_value > max)
@@ -78,30 +109,35 @@ namespace WIFIGUIDemo
                                     min = left_value;
                                 if (right_value < min)
                                     min = right_value;
-                                max_Label.Text = max.ToString();
-                                min_Label.Text = min.ToString();
+                                maxCalibTextBox.Text = max.ToString();
+                                minCalibTextBox.Text = min.ToString();
 
-                                if ((angle_turned < 45) && (turn_left==false))
+                                if ((angle_turned < Math.Abs(ABS_ANGLE_VALUE * STEPS)) && (turn_left == false))
                                 {
-                                    angle_turned = angle_turned + 5;
+                                    angle_turned += angle;
                                     turn_Calibrate(angle);
-                                    if (angle_turned == 0)
+
+                                    if ((angle_turned >= 0) && turn_back)
+                                    {
                                         calibrate = false;
+                                        calibrationStatusLabel.Text = "Calibrated!";
+                                    }
                                 }
                                 else
                                 {
                                     turn_left = true;
-                                    angle = -5;
+                                    turn_back = true;
+                                    angle = -ABS_ANGLE_VALUE;
                                 }
 
-                                if ((turn_left == true) && (angle_turned > -45))
+                                if ((turn_left == true) && (angle_turned > -Math.Abs(ABS_ANGLE_VALUE * STEPS)))
                                 {
-                                    angle_turned = angle_turned - 5;
+                                    angle_turned += angle;
                                     turn_Calibrate(angle);
                                 }
                                 else
                                 {
-                                    angle = +5;
+                                    angle = ABS_ANGLE_VALUE;
                                     turn_left = false;
                                 }
 
@@ -112,14 +148,31 @@ namespace WIFIGUIDemo
             }
         }
 
+        private byte calculate_line_follow_speed(int value)
+        {
+            byte speed;
+
+            if (value > (max - min) * FORWARD_COEF)
+            {
+                speed = (byte)(MINSPEED + (MAXSPEED - MINSPEED) * ((double)(value - min) / (max - min) * LINE_FOLLOWING_COEF));
+            }
+            else
+            {
+                speed = (byte)(-MINSPEED - (MAXSPEED - MINSPEED) * ((double)(value - min) / (max - min) * LINE_FOLLOWING_COEF));
+            }
+            return speed;
+        }
+
         private void calibrateButton_Click(object sender, EventArgs e)
         {
-            max = 0;
-            min = 500;
+            max = int.Parse(maxCalibTextBox.Text);
+            min = int.Parse(minCalibTextBox.Text);
             calibrate = true;
             turn_left = false;
+            turn_back = false; 
             angle_turned = 5;
-            turn_Calibrate(angle);
+            turn_Calibrate(ABS_ANGLE_VALUE);
+            calibrationStatusLabel.Text = "Calibrating ...";
 /*           for (int i = 0; i < 9; i++)
             {
                 finished = false;
@@ -168,7 +221,7 @@ namespace WIFIGUIDemo
 
         private void turnTimer_Tick(object sender, EventArgs e)
         {
-            rover.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            mainForm.stop();
             turnTimer.Enabled = false;
         }
 
@@ -180,7 +233,31 @@ namespace WIFIGUIDemo
         private void followLineButton_Click(object sender, EventArgs e)
         {
             lineFollowing = !lineFollowing;
-            rover.SendData(CommandID.IRDistanceData, new byte[] { });
+            if (lineFollowing)
+            {
+                max = int.Parse(maxCalibTextBox.Text);
+                min = int.Parse(minCalibTextBox.Text);
+                followLineButton.Text = "Stop Line Following";
+                rover.SendData(CommandID.IRDistanceData, new byte[] { });
+                calibrateButton.Enabled = false;
+            }
+            else
+            {
+                followLineButton.Text = "Follow Line";
+                mainForm.stop();
+                calibrateButton.Enabled = true;
+            }
+            
+        }
+
+        private void minCalibTextBox_TextChanged(object sender, EventArgs e)
+        {
+            min = int.Parse(minCalibTextBox.Text);
+        }
+
+        private void maxCalibTextBox_TextChanged(object sender, EventArgs e)
+        {
+            max = int.Parse(maxCalibTextBox.Text);
         }
     }
 }
