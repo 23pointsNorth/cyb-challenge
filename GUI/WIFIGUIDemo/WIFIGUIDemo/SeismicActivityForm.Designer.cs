@@ -111,7 +111,8 @@
             this.SeismicActivityChart.Size = new System.Drawing.Size(790, 251);
             this.SeismicActivityChart.TabIndex = 4;
             this.SeismicActivityChart.Text = "Light Tunnel Chart";
-            title1.Name = "IR Intesity vs Distance";
+            title1.Name = "title";
+            title1.Text = "Acceleration values in x,y,z-directions";
             this.SeismicActivityChart.Titles.Add(title1);
             // 
             // AccelDataLabel
