@@ -91,14 +91,13 @@
             this.MagValueChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
             this.MagValueChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
             legend1.Name = "Legend1";
             this.MagValueChart.Legends.Add(legend1);
             this.MagValueChart.Location = new System.Drawing.Point(12, 70);
             this.MagValueChart.Name = "MagValueChart";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "mag_x";
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
@@ -196,7 +195,6 @@
             this.absVectorChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea2.Name = "ChartArea1";
             this.absVectorChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
             legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
             legend2.Name = "Legend1";
             this.absVectorChart.Legends.Add(legend2);

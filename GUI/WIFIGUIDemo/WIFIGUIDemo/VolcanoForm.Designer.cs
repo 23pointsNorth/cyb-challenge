@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.getTempButton = new System.Windows.Forms.Button();
             this.volcanoTempChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataTimer = new System.Windows.Forms.Timer(this.components);
             this.statusLabel = new System.Windows.Forms.Label();
             this.saveDataButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.lastTempLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.volcanoTempChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,27 +56,27 @@
             // volcanoTempChart
             // 
             this.volcanoTempChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "ChartArea1";
-            this.volcanoTempChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend1.Name = "Legend1";
-            this.volcanoTempChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.volcanoTempChart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend2.Name = "Legend1";
+            this.volcanoTempChart.Legends.Add(legend2);
             this.volcanoTempChart.Location = new System.Drawing.Point(12, 54);
             this.volcanoTempChart.Name = "volcanoTempChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Temperature";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.volcanoTempChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Temperature";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.volcanoTempChart.Series.Add(series2);
             this.volcanoTempChart.Size = new System.Drawing.Size(636, 251);
             this.volcanoTempChart.TabIndex = 5;
             this.volcanoTempChart.Text = "Volcano Temperature";
-            title1.Name = "title";
-            title1.Text = "Temperature (\'C)";
-            this.volcanoTempChart.Titles.Add(title1);
+            title2.Name = "title";
+            title2.Text = "Temperature (\'C)";
+            this.volcanoTempChart.Titles.Add(title2);
             // 
             // dataTimer
             // 
@@ -85,11 +86,11 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(121, 23);
+            this.statusLabel.Location = new System.Drawing.Point(121, 14);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(68, 13);
+            this.statusLabel.Size = new System.Drawing.Size(125, 13);
             this.statusLabel.TabIndex = 6;
-            this.statusLabel.Text = "Status: False";
+            this.statusLabel.Text = "Data Collection Stopped.";
             // 
             // saveDataButton
             // 
@@ -111,11 +112,21 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // lastTempLabel
+            // 
+            this.lastTempLabel.AutoSize = true;
+            this.lastTempLabel.Location = new System.Drawing.Point(121, 35);
+            this.lastTempLabel.Name = "lastTempLabel";
+            this.lastTempLabel.Size = new System.Drawing.Size(57, 13);
+            this.lastTempLabel.TabIndex = 9;
+            this.lastTempLabel.Text = "Last Temp";
+            // 
             // VolcanoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 313);
+            this.Controls.Add(this.lastTempLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.saveDataButton);
             this.Controls.Add(this.statusLabel);
@@ -138,5 +149,6 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Button saveDataButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label lastTempLabel;
     }
 }

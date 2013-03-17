@@ -41,14 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.angle_Val = new System.Windows.Forms.TextBox();
             this.start_rotate = new System.Windows.Forms.Button();
-            this.taskGroupBox = new System.Windows.Forms.GroupBox();
-            this.volcanoButton = new System.Windows.Forms.Button();
-            this.lineButton = new System.Windows.Forms.Button();
-            this.vortexButton = new System.Windows.Forms.Button();
-            this.lightTunnelButton = new System.Windows.Forms.Button();
-            this.riverBedButton = new System.Windows.Forms.Button();
-            this.Seismic_Activity = new System.Windows.Forms.Button();
-            this.crashedRocketButton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.angleLabel = new System.Windows.Forms.Label();
             this.GLabel = new System.Windows.Forms.Label();
@@ -97,6 +89,15 @@
             this.rightMotorSpeed = new System.Windows.Forms.TextBox();
             this.leftMotorSpeed = new System.Windows.Forms.TextBox();
             this.setSpeed = new System.Windows.Forms.Button();
+            this.taskGroupBox = new System.Windows.Forms.GroupBox();
+            this.MatlabButton = new System.Windows.Forms.Button();
+            this.volcanoButton = new System.Windows.Forms.Button();
+            this.lineButton = new System.Windows.Forms.Button();
+            this.vortexButton = new System.Windows.Forms.Button();
+            this.lightTunnelButton = new System.Windows.Forms.Button();
+            this.riverBedButton = new System.Windows.Forms.Button();
+            this.Seismic_Activity = new System.Windows.Forms.Button();
+            this.crashedRocketButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
@@ -107,10 +108,11 @@
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
-            this.MatlabButton = new System.Windows.Forms.Button();
+            this.roverOrientationGroupBox = new System.Windows.Forms.GroupBox();
+            this.horizonPictureBox = new System.Windows.Forms.PictureBox();
+            this.verticalPictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.taskGroupBox.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).BeginInit();
@@ -118,7 +120,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).BeginInit();
+            this.taskGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.roverOrientationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verticalPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -193,6 +199,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.roverOrientationGroupBox);
             this.groupBox2.Controls.Add(this.DrivetextBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.angle_Val);
@@ -260,93 +267,6 @@
             this.start_rotate.Text = "Rotate";
             this.start_rotate.UseVisualStyleBackColor = true;
             this.start_rotate.Click += new System.EventHandler(this.start_rotate_Click);
-            // 
-            // taskGroupBox
-            // 
-            this.taskGroupBox.Controls.Add(this.MatlabButton);
-            this.taskGroupBox.Controls.Add(this.volcanoButton);
-            this.taskGroupBox.Controls.Add(this.lineButton);
-            this.taskGroupBox.Controls.Add(this.vortexButton);
-            this.taskGroupBox.Controls.Add(this.lightTunnelButton);
-            this.taskGroupBox.Controls.Add(this.riverBedButton);
-            this.taskGroupBox.Controls.Add(this.Seismic_Activity);
-            this.taskGroupBox.Controls.Add(this.crashedRocketButton);
-            this.taskGroupBox.Location = new System.Drawing.Point(821, 134);
-            this.taskGroupBox.Name = "taskGroupBox";
-            this.taskGroupBox.Size = new System.Drawing.Size(231, 194);
-            this.taskGroupBox.TabIndex = 44;
-            this.taskGroupBox.TabStop = false;
-            this.taskGroupBox.Text = "Tasks";
-            // 
-            // volcanoButton
-            // 
-            this.volcanoButton.Location = new System.Drawing.Point(123, 148);
-            this.volcanoButton.Name = "volcanoButton";
-            this.volcanoButton.Size = new System.Drawing.Size(100, 39);
-            this.volcanoButton.TabIndex = 44;
-            this.volcanoButton.Text = "Volcano";
-            this.volcanoButton.UseVisualStyleBackColor = true;
-            this.volcanoButton.Click += new System.EventHandler(this.volcanoButton_Click);
-            // 
-            // lineButton
-            // 
-            this.lineButton.Location = new System.Drawing.Point(123, 103);
-            this.lineButton.Name = "lineButton";
-            this.lineButton.Size = new System.Drawing.Size(100, 39);
-            this.lineButton.TabIndex = 43;
-            this.lineButton.Text = "Line Following";
-            this.lineButton.UseVisualStyleBackColor = true;
-            this.lineButton.Click += new System.EventHandler(this.lineButton_Click);
-            // 
-            // vortexButton
-            // 
-            this.vortexButton.Location = new System.Drawing.Point(6, 103);
-            this.vortexButton.Name = "vortexButton";
-            this.vortexButton.Size = new System.Drawing.Size(100, 39);
-            this.vortexButton.TabIndex = 42;
-            this.vortexButton.Text = "Vortex  /    Magnetic Rock";
-            this.vortexButton.UseVisualStyleBackColor = true;
-            this.vortexButton.Click += new System.EventHandler(this.vortexButton_Click);
-            // 
-            // lightTunnelButton
-            // 
-            this.lightTunnelButton.Location = new System.Drawing.Point(6, 19);
-            this.lightTunnelButton.Name = "lightTunnelButton";
-            this.lightTunnelButton.Size = new System.Drawing.Size(100, 39);
-            this.lightTunnelButton.TabIndex = 35;
-            this.lightTunnelButton.Text = "Light Tunnel";
-            this.lightTunnelButton.UseVisualStyleBackColor = true;
-            this.lightTunnelButton.Click += new System.EventHandler(this.lightTunnelButton_Click);
-            // 
-            // riverBedButton
-            // 
-            this.riverBedButton.Location = new System.Drawing.Point(6, 61);
-            this.riverBedButton.Name = "riverBedButton";
-            this.riverBedButton.Size = new System.Drawing.Size(100, 39);
-            this.riverBedButton.TabIndex = 36;
-            this.riverBedButton.Text = "River Bed";
-            this.riverBedButton.UseVisualStyleBackColor = true;
-            this.riverBedButton.Click += new System.EventHandler(this.riverBedButton_Click);
-            // 
-            // Seismic_Activity
-            // 
-            this.Seismic_Activity.Location = new System.Drawing.Point(123, 61);
-            this.Seismic_Activity.Name = "Seismic_Activity";
-            this.Seismic_Activity.Size = new System.Drawing.Size(100, 39);
-            this.Seismic_Activity.TabIndex = 40;
-            this.Seismic_Activity.Text = "Seismic Activity";
-            this.Seismic_Activity.UseVisualStyleBackColor = true;
-            this.Seismic_Activity.Click += new System.EventHandler(this.Seismic_Activity_Click);
-            // 
-            // crashedRocketButton
-            // 
-            this.crashedRocketButton.Location = new System.Drawing.Point(123, 18);
-            this.crashedRocketButton.Name = "crashedRocketButton";
-            this.crashedRocketButton.Size = new System.Drawing.Size(100, 39);
-            this.crashedRocketButton.TabIndex = 41;
-            this.crashedRocketButton.Text = "Crashed Rocket";
-            this.crashedRocketButton.UseVisualStyleBackColor = true;
-            this.crashedRocketButton.Click += new System.EventHandler(this.crashedRocketButton_Click);
             // 
             // groupBox5
             // 
@@ -831,6 +751,103 @@
             this.setSpeed.UseVisualStyleBackColor = true;
             this.setSpeed.Click += new System.EventHandler(this.setSpeed_Click);
             // 
+            // taskGroupBox
+            // 
+            this.taskGroupBox.Controls.Add(this.MatlabButton);
+            this.taskGroupBox.Controls.Add(this.volcanoButton);
+            this.taskGroupBox.Controls.Add(this.lineButton);
+            this.taskGroupBox.Controls.Add(this.vortexButton);
+            this.taskGroupBox.Controls.Add(this.lightTunnelButton);
+            this.taskGroupBox.Controls.Add(this.riverBedButton);
+            this.taskGroupBox.Controls.Add(this.Seismic_Activity);
+            this.taskGroupBox.Controls.Add(this.crashedRocketButton);
+            this.taskGroupBox.Location = new System.Drawing.Point(821, 134);
+            this.taskGroupBox.Name = "taskGroupBox";
+            this.taskGroupBox.Size = new System.Drawing.Size(231, 194);
+            this.taskGroupBox.TabIndex = 44;
+            this.taskGroupBox.TabStop = false;
+            this.taskGroupBox.Text = "Tasks";
+            // 
+            // MatlabButton
+            // 
+            this.MatlabButton.Location = new System.Drawing.Point(6, 148);
+            this.MatlabButton.Name = "MatlabButton";
+            this.MatlabButton.Size = new System.Drawing.Size(100, 39);
+            this.MatlabButton.TabIndex = 45;
+            this.MatlabButton.Text = "Start MATLAB";
+            this.MatlabButton.UseVisualStyleBackColor = true;
+            this.MatlabButton.Click += new System.EventHandler(this.MatlabButton_Click);
+            // 
+            // volcanoButton
+            // 
+            this.volcanoButton.Location = new System.Drawing.Point(123, 148);
+            this.volcanoButton.Name = "volcanoButton";
+            this.volcanoButton.Size = new System.Drawing.Size(100, 39);
+            this.volcanoButton.TabIndex = 44;
+            this.volcanoButton.Text = "Volcano";
+            this.volcanoButton.UseVisualStyleBackColor = true;
+            this.volcanoButton.Click += new System.EventHandler(this.volcanoButton_Click);
+            // 
+            // lineButton
+            // 
+            this.lineButton.Location = new System.Drawing.Point(123, 103);
+            this.lineButton.Name = "lineButton";
+            this.lineButton.Size = new System.Drawing.Size(100, 39);
+            this.lineButton.TabIndex = 43;
+            this.lineButton.Text = "Line Following";
+            this.lineButton.UseVisualStyleBackColor = true;
+            this.lineButton.Click += new System.EventHandler(this.lineButton_Click);
+            // 
+            // vortexButton
+            // 
+            this.vortexButton.Location = new System.Drawing.Point(6, 103);
+            this.vortexButton.Name = "vortexButton";
+            this.vortexButton.Size = new System.Drawing.Size(100, 39);
+            this.vortexButton.TabIndex = 42;
+            this.vortexButton.Text = "Vortex  /    Magnetic Rock";
+            this.vortexButton.UseVisualStyleBackColor = true;
+            this.vortexButton.Click += new System.EventHandler(this.vortexButton_Click);
+            // 
+            // lightTunnelButton
+            // 
+            this.lightTunnelButton.Location = new System.Drawing.Point(6, 19);
+            this.lightTunnelButton.Name = "lightTunnelButton";
+            this.lightTunnelButton.Size = new System.Drawing.Size(100, 39);
+            this.lightTunnelButton.TabIndex = 35;
+            this.lightTunnelButton.Text = "Light Tunnel";
+            this.lightTunnelButton.UseVisualStyleBackColor = true;
+            this.lightTunnelButton.Click += new System.EventHandler(this.lightTunnelButton_Click);
+            // 
+            // riverBedButton
+            // 
+            this.riverBedButton.Location = new System.Drawing.Point(6, 61);
+            this.riverBedButton.Name = "riverBedButton";
+            this.riverBedButton.Size = new System.Drawing.Size(100, 39);
+            this.riverBedButton.TabIndex = 36;
+            this.riverBedButton.Text = "River Bed";
+            this.riverBedButton.UseVisualStyleBackColor = true;
+            this.riverBedButton.Click += new System.EventHandler(this.riverBedButton_Click);
+            // 
+            // Seismic_Activity
+            // 
+            this.Seismic_Activity.Location = new System.Drawing.Point(123, 61);
+            this.Seismic_Activity.Name = "Seismic_Activity";
+            this.Seismic_Activity.Size = new System.Drawing.Size(100, 39);
+            this.Seismic_Activity.TabIndex = 40;
+            this.Seismic_Activity.Text = "Seismic Activity";
+            this.Seismic_Activity.UseVisualStyleBackColor = true;
+            this.Seismic_Activity.Click += new System.EventHandler(this.Seismic_Activity_Click);
+            // 
+            // crashedRocketButton
+            // 
+            this.crashedRocketButton.Location = new System.Drawing.Point(123, 18);
+            this.crashedRocketButton.Name = "crashedRocketButton";
+            this.crashedRocketButton.Size = new System.Drawing.Size(100, 39);
+            this.crashedRocketButton.TabIndex = 41;
+            this.crashedRocketButton.Text = "Crashed Rocket";
+            this.crashedRocketButton.UseVisualStyleBackColor = true;
+            this.crashedRocketButton.Click += new System.EventHandler(this.crashedRocketButton_Click);
+            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
@@ -902,15 +919,34 @@
             this.sessionTimer.Interval = 1000;
             this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
             // 
-            // MatlabButton
+            // roverOrientationGroupBox
             // 
-            this.MatlabButton.Location = new System.Drawing.Point(6, 148);
-            this.MatlabButton.Name = "MatlabButton";
-            this.MatlabButton.Size = new System.Drawing.Size(100, 39);
-            this.MatlabButton.TabIndex = 45;
-            this.MatlabButton.Text = "Start MATLAB";
-            this.MatlabButton.UseVisualStyleBackColor = true;
-            this.MatlabButton.Click += new System.EventHandler(this.MatlabButton_Click);
+            this.roverOrientationGroupBox.Controls.Add(this.verticalPictureBox);
+            this.roverOrientationGroupBox.Controls.Add(this.horizonPictureBox);
+            this.roverOrientationGroupBox.Location = new System.Drawing.Point(551, 270);
+            this.roverOrientationGroupBox.Name = "roverOrientationGroupBox";
+            this.roverOrientationGroupBox.Size = new System.Drawing.Size(237, 222);
+            this.roverOrientationGroupBox.TabIndex = 49;
+            this.roverOrientationGroupBox.TabStop = false;
+            this.roverOrientationGroupBox.Text = "Rover Orientation";
+            // 
+            // horizonPictureBox
+            // 
+            this.horizonPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.horizonPictureBox.Location = new System.Drawing.Point(6, 19);
+            this.horizonPictureBox.Name = "horizonPictureBox";
+            this.horizonPictureBox.Size = new System.Drawing.Size(225, 100);
+            this.horizonPictureBox.TabIndex = 0;
+            this.horizonPictureBox.TabStop = false;
+            // 
+            // verticalPictureBox
+            // 
+            this.verticalPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.verticalPictureBox.Location = new System.Drawing.Point(6, 122);
+            this.verticalPictureBox.Name = "verticalPictureBox";
+            this.verticalPictureBox.Size = new System.Drawing.Size(225, 100);
+            this.verticalPictureBox.TabIndex = 1;
+            this.verticalPictureBox.TabStop = false;
             // 
             // Main
             // 
@@ -932,7 +968,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.taskGroupBox.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.servoGroupBox.ResumeLayout(false);
@@ -942,8 +977,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).EndInit();
+            this.taskGroupBox.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.roverOrientationGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verticalPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1032,6 +1071,9 @@
         private System.Windows.Forms.Label sessionTimerLabel;
         private System.Windows.Forms.Button resetTimer;
         private System.Windows.Forms.Button MatlabButton;
+        private System.Windows.Forms.GroupBox roverOrientationGroupBox;
+        private System.Windows.Forms.PictureBox verticalPictureBox;
+        private System.Windows.Forms.PictureBox horizonPictureBox;
     }
 }
 

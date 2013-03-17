@@ -159,8 +159,8 @@ namespace WIFIGUIDemo
         private void saveDataButton_Click(object sender, EventArgs e)
         {
             // Write the string to a file.
-            System.IO.StreamWriter file_left = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataLeft.txt");
-            System.IO.StreamWriter dist = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\DistData.txt");
+            System.IO.StreamWriter file_left = new System.IO.StreamWriter(mainForm.SAVE_DIR + "RiverDataLeft.txt");
+            System.IO.StreamWriter dist = new System.IO.StreamWriter(mainForm.SAVE_DIR + "DistData.txt");
 
             IRIntensityDistanceChart.Series["IRDataLeft"].Points.OrderBy(p => p.XValue).ThenBy(p => p.YValues);
 
@@ -174,7 +174,7 @@ namespace WIFIGUIDemo
 
             IRIntensityDistanceChart.Series["IRDataRight"].Points.OrderBy(p => p.XValue).ThenBy(p => p.YValues);
 
-            System.IO.StreamWriter file_right = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\RiverDataRight.txt");
+            System.IO.StreamWriter file_right = new System.IO.StreamWriter(mainForm.SAVE_DIR + "RiverDataRight.txt");
             foreach (DataPoint right in IRIntensityDistanceChart.Series["IRDataRight"].Points)
             {
                 file_right.WriteLine(right.YValues[0].ToString());

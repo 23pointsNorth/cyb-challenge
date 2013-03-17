@@ -1,8 +1,8 @@
-function VolcanoPlot()
+function VolcanoPlot(path)
 
 period = 0.2;
 
-temp = load('N:\..University\Year2\Cybs Challenge\Data\\TempData.txt');
+temp = load(strcat(path, 'TempData.txt'));
 
 time = (0:1:(size(temp) - 1)) * period;  
 

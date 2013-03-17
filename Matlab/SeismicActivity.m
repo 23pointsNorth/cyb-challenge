@@ -1,11 +1,11 @@
-function MapRiverBed()
+function MapRiverBed(path)
 
 %% Load data
 Fs = 400;                     % Sampling frequency 1037/10
 T = 1/Fs;                     % Sample time
 L = 16*60;                     % Length of signal
 
-acc = load('N:\..University\Year2\Cybs Challenge\Data\SeismicData.txt');
+acc = load(strcpy(path,'SeismicData.txt'));
 
 time = (0:T:T*(size(acc) - 1));             % Time vector
 time = time';
