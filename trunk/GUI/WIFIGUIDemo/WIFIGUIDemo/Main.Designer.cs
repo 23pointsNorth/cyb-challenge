@@ -648,6 +648,7 @@
             // directionalSpeed
             // 
             this.directionalSpeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.directionalSpeed.InitialImage = null;
             this.directionalSpeed.Location = new System.Drawing.Point(145, 133);
             this.directionalSpeed.Name = "directionalSpeed";
             this.directionalSpeed.Size = new System.Drawing.Size(256, 256);

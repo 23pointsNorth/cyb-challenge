@@ -90,6 +90,7 @@ namespace WIFIGUIDemo
 
             DrawHorizontalRover(horizonPictureBox, HORIZONTAL_ROVER, 0);
             DrawHorizontalRover(frontlPictureBox, FRONT_ROVER, 0);
+            directionalSpeed.Image = DRIVE_TARGET;
         }
 
         public string SAVE_DIR = "C:\\TEST\\DATA\\";
@@ -99,6 +100,7 @@ namespace WIFIGUIDemo
 
         Bitmap HORIZONTAL_ROVER = new Bitmap("horizontal_rover.png");
         Bitmap FRONT_ROVER = new Bitmap("front_rover.png");
+        Bitmap DRIVE_TARGET = new Bitmap("drive_target.png");
 
         int ENCODER_SPEED = -100;
         double LEFT_PARAM = 1.25f;
@@ -721,7 +723,7 @@ namespace WIFIGUIDemo
             }
 
             //Draw line
-            Bitmap img = new Bitmap(256, 256);
+            Bitmap img = new Bitmap(DRIVE_TARGET);
             using (System.Drawing.Graphics g = Graphics.FromImage(img))
             {
                 Pen p = new Pen(System.Drawing.Color.Red, 2);
@@ -754,7 +756,7 @@ namespace WIFIGUIDemo
         {
             dirSpeedMouseDown = false;
             theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
-            Bitmap img = new Bitmap(256, 256);
+            Bitmap img = new Bitmap(DRIVE_TARGET);
             directionalSpeed.Image = (Image)img;
         }
 
