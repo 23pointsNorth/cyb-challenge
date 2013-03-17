@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DrivetextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.angle_Val = new System.Windows.Forms.TextBox();
             this.start_rotate = new System.Windows.Forms.Button();
@@ -49,6 +50,8 @@
             this.Seismic_Activity = new System.Windows.Forms.Button();
             this.crashedRocketButton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.angleLabel = new System.Windows.Forms.Label();
+            this.GLabel = new System.Windows.Forms.Label();
             this.XLabel = new System.Windows.Forms.Label();
             this.YLabel = new System.Windows.Forms.Label();
             this.ZLabel = new System.Windows.Forms.Label();
@@ -71,6 +74,9 @@
             this.getAccelerometer = new System.Windows.Forms.Button();
             this.smlabel = new System.Windows.Forms.Label();
             this.servoGroupBox = new System.Windows.Forms.GroupBox();
+            this.absZeroButton = new System.Windows.Forms.Button();
+            this.releaseButton = new System.Windows.Forms.Button();
+            this.holdButton = new System.Windows.Forms.Button();
             this.additionalTrackBar = new System.Windows.Forms.TrackBar();
             this.servoTrackBar = new System.Windows.Forms.TrackBar();
             this.driveButton = new System.Windows.Forms.Button();
@@ -91,29 +97,16 @@
             this.rightMotorSpeed = new System.Windows.Forms.TextBox();
             this.leftMotorSpeed = new System.Windows.Forms.TextBox();
             this.setSpeed = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chkSwitch2Stat = new System.Windows.Forms.CheckBox();
-            this.chkSwitch1Stat = new System.Windows.Forms.CheckBox();
-            this.chkGreenStat = new System.Windows.Forms.CheckBox();
-            this.chkRedStat = new System.Windows.Forms.CheckBox();
-            this.txtCounter = new System.Windows.Forms.TextBox();
-            this.chkRed = new System.Windows.Forms.CheckBox();
-            this.chkGreen = new System.Windows.Forms.CheckBox();
-            this.cmdSwitchLedStatus = new System.Windows.Forms.Button();
-            this.cmdGetCount = new System.Windows.Forms.Button();
-            this.cmdSetLEDs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.reqInfo = new System.Windows.Forms.Timer(this.components);
             this.motoPositionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.resetTimer = new System.Windows.Forms.Button();
+            this.sessionTimerLabel = new System.Windows.Forms.Label();
+            this.sessionTimerButton = new System.Windows.Forms.Button();
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            this.GLabel = new System.Windows.Forms.Label();
-            this.angleLabel = new System.Windows.Forms.Label();
-            this.holdButton = new System.Windows.Forms.Button();
-            this.releaseButton = new System.Windows.Forms.Button();
-            this.absZeroButton = new System.Windows.Forms.Button();
-            this.DrivetextBox = new System.Windows.Forms.TextBox();
+            this.sessionTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.taskGroupBox.SuspendLayout();
@@ -124,7 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -231,6 +224,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " ";
+            // 
+            // DrivetextBox
+            // 
+            this.DrivetextBox.Location = new System.Drawing.Point(235, 80);
+            this.DrivetextBox.Name = "DrivetextBox";
+            this.DrivetextBox.Size = new System.Drawing.Size(34, 20);
+            this.DrivetextBox.TabIndex = 48;
+            this.DrivetextBox.Text = "Drive";
+            this.DrivetextBox.Visible = false;
             // 
             // label1
             // 
@@ -375,6 +377,24 @@
             this.groupBox5.TabIndex = 43;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Utility";
+            // 
+            // angleLabel
+            // 
+            this.angleLabel.AutoSize = true;
+            this.angleLabel.Location = new System.Drawing.Point(5, 188);
+            this.angleLabel.Name = "angleLabel";
+            this.angleLabel.Size = new System.Drawing.Size(34, 13);
+            this.angleLabel.TabIndex = 46;
+            this.angleLabel.Text = "Angle";
+            // 
+            // GLabel
+            // 
+            this.GLabel.AutoSize = true;
+            this.GLabel.Location = new System.Drawing.Point(24, 170);
+            this.GLabel.Name = "GLabel";
+            this.GLabel.Size = new System.Drawing.Size(15, 13);
+            this.GLabel.TabIndex = 45;
+            this.GLabel.Text = "G";
             // 
             // XLabel
             // 
@@ -583,6 +603,36 @@
             this.servoGroupBox.TabStop = false;
             this.servoGroupBox.Text = "Servo Control";
             // 
+            // absZeroButton
+            // 
+            this.absZeroButton.Location = new System.Drawing.Point(6, 195);
+            this.absZeroButton.Name = "absZeroButton";
+            this.absZeroButton.Size = new System.Drawing.Size(126, 20);
+            this.absZeroButton.TabIndex = 4;
+            this.absZeroButton.Text = "Absolute Zero";
+            this.absZeroButton.UseVisualStyleBackColor = true;
+            this.absZeroButton.Click += new System.EventHandler(this.absZeroButton_Click);
+            // 
+            // releaseButton
+            // 
+            this.releaseButton.Location = new System.Drawing.Point(6, 162);
+            this.releaseButton.Name = "releaseButton";
+            this.releaseButton.Size = new System.Drawing.Size(126, 27);
+            this.releaseButton.TabIndex = 3;
+            this.releaseButton.Text = "Release Claim";
+            this.releaseButton.UseVisualStyleBackColor = true;
+            this.releaseButton.Click += new System.EventHandler(this.releaseButton_Click);
+            // 
+            // holdButton
+            // 
+            this.holdButton.Location = new System.Drawing.Point(6, 129);
+            this.holdButton.Name = "holdButton";
+            this.holdButton.Size = new System.Drawing.Size(126, 27);
+            this.holdButton.TabIndex = 2;
+            this.holdButton.Text = "Hold Claim";
+            this.holdButton.UseVisualStyleBackColor = true;
+            this.holdButton.Click += new System.EventHandler(this.holdButton_Click);
+            // 
             // additionalTrackBar
             // 
             this.additionalTrackBar.Location = new System.Drawing.Point(87, 25);
@@ -780,127 +830,6 @@
             this.setSpeed.UseVisualStyleBackColor = true;
             this.setSpeed.Click += new System.EventHandler(this.setSpeed_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.chkSwitch2Stat);
-            this.groupBox3.Controls.Add(this.chkSwitch1Stat);
-            this.groupBox3.Controls.Add(this.chkGreenStat);
-            this.groupBox3.Controls.Add(this.chkRedStat);
-            this.groupBox3.Controls.Add(this.txtCounter);
-            this.groupBox3.Controls.Add(this.chkRed);
-            this.groupBox3.Controls.Add(this.chkGreen);
-            this.groupBox3.Controls.Add(this.cmdSwitchLedStatus);
-            this.groupBox3.Controls.Add(this.cmdGetCount);
-            this.groupBox3.Controls.Add(this.cmdSetLEDs);
-            this.groupBox3.Location = new System.Drawing.Point(821, 136);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 230);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Commands";
-            // 
-            // chkSwitch2Stat
-            // 
-            this.chkSwitch2Stat.AutoSize = true;
-            this.chkSwitch2Stat.Enabled = false;
-            this.chkSwitch2Stat.Location = new System.Drawing.Point(133, 174);
-            this.chkSwitch2Stat.Name = "chkSwitch2Stat";
-            this.chkSwitch2Stat.Size = new System.Drawing.Size(67, 17);
-            this.chkSwitch2Stat.TabIndex = 11;
-            this.chkSwitch2Stat.Text = "Switch 2";
-            this.chkSwitch2Stat.UseVisualStyleBackColor = true;
-            // 
-            // chkSwitch1Stat
-            // 
-            this.chkSwitch1Stat.AutoSize = true;
-            this.chkSwitch1Stat.Enabled = false;
-            this.chkSwitch1Stat.Location = new System.Drawing.Point(25, 176);
-            this.chkSwitch1Stat.Name = "chkSwitch1Stat";
-            this.chkSwitch1Stat.Size = new System.Drawing.Size(67, 17);
-            this.chkSwitch1Stat.TabIndex = 10;
-            this.chkSwitch1Stat.Text = "Switch 1";
-            this.chkSwitch1Stat.UseVisualStyleBackColor = true;
-            // 
-            // chkGreenStat
-            // 
-            this.chkGreenStat.AutoSize = true;
-            this.chkGreenStat.Enabled = false;
-            this.chkGreenStat.Location = new System.Drawing.Point(133, 149);
-            this.chkGreenStat.Name = "chkGreenStat";
-            this.chkGreenStat.Size = new System.Drawing.Size(79, 17);
-            this.chkGreenStat.TabIndex = 9;
-            this.chkGreenStat.Text = "Green LED";
-            this.chkGreenStat.UseVisualStyleBackColor = true;
-            // 
-            // chkRedStat
-            // 
-            this.chkRedStat.AutoSize = true;
-            this.chkRedStat.Enabled = false;
-            this.chkRedStat.Location = new System.Drawing.Point(25, 149);
-            this.chkRedStat.Name = "chkRedStat";
-            this.chkRedStat.Size = new System.Drawing.Size(70, 17);
-            this.chkRedStat.TabIndex = 8;
-            this.chkRedStat.Text = "Red LED";
-            this.chkRedStat.UseVisualStyleBackColor = true;
-            // 
-            // txtCounter
-            // 
-            this.txtCounter.Location = new System.Drawing.Point(15, 99);
-            this.txtCounter.Name = "txtCounter";
-            this.txtCounter.Size = new System.Drawing.Size(89, 20);
-            this.txtCounter.TabIndex = 7;
-            this.txtCounter.Text = "0";
-            // 
-            // chkRed
-            // 
-            this.chkRed.AutoSize = true;
-            this.chkRed.Location = new System.Drawing.Point(133, 24);
-            this.chkRed.Name = "chkRed";
-            this.chkRed.Size = new System.Drawing.Size(70, 17);
-            this.chkRed.TabIndex = 5;
-            this.chkRed.Text = "Red LED";
-            this.chkRed.UseVisualStyleBackColor = true;
-            // 
-            // chkGreen
-            // 
-            this.chkGreen.AutoSize = true;
-            this.chkGreen.Location = new System.Drawing.Point(15, 24);
-            this.chkGreen.Name = "chkGreen";
-            this.chkGreen.Size = new System.Drawing.Size(79, 17);
-            this.chkGreen.TabIndex = 4;
-            this.chkGreen.Text = "Green LED";
-            this.chkGreen.UseVisualStyleBackColor = true;
-            // 
-            // cmdSwitchLedStatus
-            // 
-            this.cmdSwitchLedStatus.Location = new System.Drawing.Point(63, 201);
-            this.cmdSwitchLedStatus.Name = "cmdSwitchLedStatus";
-            this.cmdSwitchLedStatus.Size = new System.Drawing.Size(100, 21);
-            this.cmdSwitchLedStatus.TabIndex = 3;
-            this.cmdSwitchLedStatus.Text = "Get Status";
-            this.cmdSwitchLedStatus.UseVisualStyleBackColor = true;
-            this.cmdSwitchLedStatus.Click += new System.EventHandler(this.cmdSwitchLedStatus_Click);
-            // 
-            // cmdGetCount
-            // 
-            this.cmdGetCount.Location = new System.Drawing.Point(113, 99);
-            this.cmdGetCount.Name = "cmdGetCount";
-            this.cmdGetCount.Size = new System.Drawing.Size(100, 21);
-            this.cmdGetCount.TabIndex = 1;
-            this.cmdGetCount.Text = "Counter";
-            this.cmdGetCount.UseVisualStyleBackColor = true;
-            this.cmdGetCount.Click += new System.EventHandler(this.cmdGetCount_Click);
-            // 
-            // cmdSetLEDs
-            // 
-            this.cmdSetLEDs.Location = new System.Drawing.Point(15, 47);
-            this.cmdSetLEDs.Name = "cmdSetLEDs";
-            this.cmdSetLEDs.Size = new System.Drawing.Size(198, 23);
-            this.cmdSetLEDs.TabIndex = 0;
-            this.cmdSetLEDs.Text = "Set LEDs";
-            this.cmdSetLEDs.UseVisualStyleBackColor = true;
-            this.cmdSetLEDs.Click += new System.EventHandler(this.cmdSetLEDs_Click);
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
@@ -917,12 +846,45 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(825, 371);
+            this.groupBox4.Controls.Add(this.resetTimer);
+            this.groupBox4.Controls.Add(this.sessionTimerLabel);
+            this.groupBox4.Controls.Add(this.sessionTimerButton);
+            this.groupBox4.Location = new System.Drawing.Point(825, 336);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(220, 139);
+            this.groupBox4.Size = new System.Drawing.Size(220, 174);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "Session Timer";
+            // 
+            // resetTimer
+            // 
+            this.resetTimer.Location = new System.Drawing.Point(6, 143);
+            this.resetTimer.Name = "resetTimer";
+            this.resetTimer.Size = new System.Drawing.Size(208, 27);
+            this.resetTimer.TabIndex = 2;
+            this.resetTimer.Text = "Reset Timer";
+            this.resetTimer.UseVisualStyleBackColor = true;
+            this.resetTimer.Click += new System.EventHandler(this.resetTimer_Click);
+            // 
+            // sessionTimerLabel
+            // 
+            this.sessionTimerLabel.AutoSize = true;
+            this.sessionTimerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sessionTimerLabel.Location = new System.Drawing.Point(9, 24);
+            this.sessionTimerLabel.Name = "sessionTimerLabel";
+            this.sessionTimerLabel.Size = new System.Drawing.Size(200, 76);
+            this.sessionTimerLabel.TabIndex = 1;
+            this.sessionTimerLabel.Text = "10:00";
+            // 
+            // sessionTimerButton
+            // 
+            this.sessionTimerButton.Location = new System.Drawing.Point(6, 110);
+            this.sessionTimerButton.Name = "sessionTimerButton";
+            this.sessionTimerButton.Size = new System.Drawing.Size(208, 27);
+            this.sessionTimerButton.TabIndex = 0;
+            this.sessionTimerButton.Text = "Start Session Timer";
+            this.sessionTimerButton.UseVisualStyleBackColor = true;
+            this.sessionTimerButton.Click += new System.EventHandler(this.sessionTimerButton_Click);
             // 
             // accelTimer
             // 
@@ -934,62 +896,10 @@
             this.turnTimer.Interval = 1000;
             this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
             // 
-            // GLabel
+            // sessionTimer
             // 
-            this.GLabel.AutoSize = true;
-            this.GLabel.Location = new System.Drawing.Point(24, 170);
-            this.GLabel.Name = "GLabel";
-            this.GLabel.Size = new System.Drawing.Size(15, 13);
-            this.GLabel.TabIndex = 45;
-            this.GLabel.Text = "G";
-            // 
-            // angleLabel
-            // 
-            this.angleLabel.AutoSize = true;
-            this.angleLabel.Location = new System.Drawing.Point(5, 188);
-            this.angleLabel.Name = "angleLabel";
-            this.angleLabel.Size = new System.Drawing.Size(34, 13);
-            this.angleLabel.TabIndex = 46;
-            this.angleLabel.Text = "Angle";
-            // 
-            // holdButton
-            // 
-            this.holdButton.Location = new System.Drawing.Point(6, 129);
-            this.holdButton.Name = "holdButton";
-            this.holdButton.Size = new System.Drawing.Size(126, 27);
-            this.holdButton.TabIndex = 2;
-            this.holdButton.Text = "Hold Claim";
-            this.holdButton.UseVisualStyleBackColor = true;
-            this.holdButton.Click += new System.EventHandler(this.holdButton_Click);
-            // 
-            // releaseButton
-            // 
-            this.releaseButton.Location = new System.Drawing.Point(6, 162);
-            this.releaseButton.Name = "releaseButton";
-            this.releaseButton.Size = new System.Drawing.Size(126, 27);
-            this.releaseButton.TabIndex = 3;
-            this.releaseButton.Text = "Release Claim";
-            this.releaseButton.UseVisualStyleBackColor = true;
-            this.releaseButton.Click += new System.EventHandler(this.releaseButton_Click);
-            // 
-            // absZeroButton
-            // 
-            this.absZeroButton.Location = new System.Drawing.Point(6, 195);
-            this.absZeroButton.Name = "absZeroButton";
-            this.absZeroButton.Size = new System.Drawing.Size(126, 20);
-            this.absZeroButton.TabIndex = 4;
-            this.absZeroButton.Text = "Absolute Zero";
-            this.absZeroButton.UseVisualStyleBackColor = true;
-            this.absZeroButton.Click += new System.EventHandler(this.absZeroButton_Click);
-            // 
-            // DrivetextBox
-            // 
-            this.DrivetextBox.Location = new System.Drawing.Point(235, 80);
-            this.DrivetextBox.Name = "DrivetextBox";
-            this.DrivetextBox.Size = new System.Drawing.Size(34, 20);
-            this.DrivetextBox.TabIndex = 48;
-            this.DrivetextBox.Text = "Drive";
-            this.DrivetextBox.Visible = false;
+            this.sessionTimer.Interval = 1000;
+            this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
             // 
             // Main
             // 
@@ -997,7 +907,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 522);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Main";
@@ -1021,8 +930,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.directionalSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1037,17 +946,6 @@
         private System.Windows.Forms.Label lblIPAddress;
         private System.Windows.Forms.Button cmdDisconnect;
         private System.Windows.Forms.Button cmdConnect;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button cmdSwitchLedStatus;
-        private System.Windows.Forms.Button cmdGetCount;
-        private System.Windows.Forms.Button cmdSetLEDs;
-        private System.Windows.Forms.CheckBox chkRed;
-        private System.Windows.Forms.CheckBox chkGreen;
-        private System.Windows.Forms.TextBox txtCounter;
-        private System.Windows.Forms.CheckBox chkSwitch2Stat;
-        private System.Windows.Forms.CheckBox chkSwitch1Stat;
-        private System.Windows.Forms.CheckBox chkGreenStat;
-        private System.Windows.Forms.CheckBox chkRedStat;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer reqInfo;
         private System.Windows.Forms.TextBox rightMotorSpeed;
@@ -1117,6 +1015,10 @@
         private System.Windows.Forms.Button holdButton;
         private System.Windows.Forms.Button absZeroButton;
         private System.Windows.Forms.TextBox DrivetextBox;
+        private System.Windows.Forms.Button sessionTimerButton;
+        private System.Windows.Forms.Timer sessionTimer;
+        private System.Windows.Forms.Label sessionTimerLabel;
+        private System.Windows.Forms.Button resetTimer;
     }
 }
 
