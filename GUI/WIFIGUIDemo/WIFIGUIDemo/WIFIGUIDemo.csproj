@@ -158,6 +158,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="drive_target.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="front_rover.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
