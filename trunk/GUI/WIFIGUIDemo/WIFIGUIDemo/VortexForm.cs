@@ -59,7 +59,7 @@ namespace WIFIGUIDemo
                             {
                                 double mag = mainForm.to12BitConversion((NewData[(5 + i)] << 8) + ((NewData[(6 + i)])));
 
-                                SeismicActivityChart.Series["mag_x"].Points.AddXY(id * packet_size + i / 2, mag);
+                                MagValueChart.Series["mag_x"].Points.AddXY(id * packet_size + i / 2, mag);
  
                             }
 
@@ -87,7 +87,7 @@ namespace WIFIGUIDemo
                                 double mag = mainForm.to12BitConversion(
                                     (NewData[(5 + i)] << 8) + ((NewData[(6 + i)])));
 
-                                SeismicActivityChart.Series["mag_y"].Points.AddXY(id * packet_size + i / 2, mag);
+                                MagValueChart.Series["mag_y"].Points.AddXY(id * packet_size + i / 2, mag);
 
                             }
 
@@ -109,7 +109,7 @@ namespace WIFIGUIDemo
                                 double mag = mainForm.to12BitConversion(
                                     (NewData[(5 + i)] << 8) + ((NewData[(6 + i)])));
 
-                                SeismicActivityChart.Series["mag_z"].Points.AddXY(id * packet_size + i / 2, mag);
+                                MagValueChart.Series["mag_z"].Points.AddXY(id * packet_size + i / 2, mag);
 
                             }
 
@@ -125,14 +125,15 @@ namespace WIFIGUIDemo
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
-
                                 int x = mainForm.to16BitConversion(Convert.ToUInt16(NewData[5]) + Convert.ToUInt16(NewData[4] << 8));
                                 int y = mainForm.to16BitConversion(Convert.ToUInt16(NewData[9]) + Convert.ToUInt16(NewData[8] << 8));
                                 int z = mainForm.to16BitConversion(Convert.ToUInt16(NewData[7]) + Convert.ToUInt16(NewData[6] << 8));
-                                SeismicActivityChart.Series["mag_x"].Points.AddY(x);
-                                SeismicActivityChart.Series["mag_y"].Points.AddY(y);
-                                SeismicActivityChart.Series["mag_z"].Points.AddY(z);
+                                MagValueChart.Series["mag_x"].Points.AddY(x);
+                                MagValueChart.Series["mag_y"].Points.AddY(y);
+                                MagValueChart.Series["mag_z"].Points.AddY(z);
 
+                                double norm = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+                                absVectorChart.Series["absValue"].Points.AddY(norm);
                             }));
                             break;
                         }
@@ -184,9 +185,9 @@ namespace WIFIGUIDemo
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            SeismicActivityChart.Series["mag_x"].Points.Clear();
-            SeismicActivityChart.Series["mag_y"].Points.Clear();
-            SeismicActivityChart.Series["mag_z"].Points.Clear();
+            MagValueChart.Series["mag_x"].Points.Clear();
+            MagValueChart.Series["mag_y"].Points.Clear();
+            MagValueChart.Series["mag_z"].Points.Clear();
         }
 
         private void singleValueButton_Click(object sender, EventArgs e)
@@ -203,7 +204,7 @@ namespace WIFIGUIDemo
         {
             System.IO.StreamWriter mag_x = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\MagDataX.txt");
 
-            foreach (DataPoint left in SeismicActivityChart.Series["mag_x"].Points)
+            foreach (DataPoint left in MagValueChart.Series["mag_x"].Points)
             {
                 mag_x.WriteLine(left.YValues[0].ToString());
             }
@@ -211,7 +212,7 @@ namespace WIFIGUIDemo
 
             System.IO.StreamWriter mag_y = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\MagDataY.txt");
 
-            foreach (DataPoint left in SeismicActivityChart.Series["mag_y"].Points)
+            foreach (DataPoint left in MagValueChart.Series["mag_y"].Points)
             {
                 mag_y.WriteLine(left.YValues[0].ToString());
             }
@@ -219,7 +220,7 @@ namespace WIFIGUIDemo
 
             System.IO.StreamWriter mag_z = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\MagDataZ.txt");
 
-            foreach (DataPoint left in SeismicActivityChart.Series["mag_z"].Points)
+            foreach (DataPoint left in MagValueChart.Series["mag_z"].Points)
             {
                 mag_z.WriteLine(left.YValues[0].ToString());
             }

@@ -1058,6 +1058,15 @@ namespace WIFIGUIDemo
                 ((min < 10) ? "0" + min.ToString() : min.ToString()) + ":" +
                 ((sec < 10) ? "0" + sec.ToString() : sec.ToString());
         }
+
+        private void MatlabButton_Click(object sender, EventArgs e)
+        {
+            Process proc = new Process();
+            proc.StartInfo.FileName = "matlab";
+            proc.StartInfo.Arguments = @"/C ""N:\\..University\\Year2\\Cybs Challenge\\Code Rep\\Matlab\\matlab ";
+            proc.Start();
+            //System.Diagnostics.Process.Start("N:\\..University\\Year2\\Cybs Challenge\\Code Rep\\Matlab\\VolcanoPlot.m");
+        }
     }
 }
 
