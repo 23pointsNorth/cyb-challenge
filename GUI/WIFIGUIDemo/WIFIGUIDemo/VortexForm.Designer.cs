@@ -42,7 +42,7 @@
             this.getMagButton = new System.Windows.Forms.Button();
             this.magDataLabel = new System.Windows.Forms.Label();
             this.receiveButton = new System.Windows.Forms.Button();
-            this.SeismicActivityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.MagValueChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.clearButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.streamButton = new System.Windows.Forms.Button();
             this.absVectorChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.SeismicActivityChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MagValueChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absVectorChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,17 +86,17 @@
             this.receiveButton.UseVisualStyleBackColor = true;
             this.receiveButton.Click += new System.EventHandler(this.receiveButton_Click);
             // 
-            // SeismicActivityChart
+            // MagValueChart
             // 
-            this.SeismicActivityChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            this.MagValueChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
-            this.SeismicActivityChart.ChartAreas.Add(chartArea1);
+            this.MagValueChart.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
             legend1.Name = "Legend1";
-            this.SeismicActivityChart.Legends.Add(legend1);
-            this.SeismicActivityChart.Location = new System.Drawing.Point(12, 70);
-            this.SeismicActivityChart.Name = "SeismicActivityChart";
+            this.MagValueChart.Legends.Add(legend1);
+            this.MagValueChart.Location = new System.Drawing.Point(12, 70);
+            this.MagValueChart.Name = "MagValueChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series1.Legend = "Legend1";
@@ -115,15 +115,15 @@
             series3.Name = "mag_z";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.UInt32;
             series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.SeismicActivityChart.Series.Add(series1);
-            this.SeismicActivityChart.Series.Add(series2);
-            this.SeismicActivityChart.Series.Add(series3);
-            this.SeismicActivityChart.Size = new System.Drawing.Size(880, 251);
-            this.SeismicActivityChart.TabIndex = 5;
-            this.SeismicActivityChart.Text = "Mag Values Chart";
+            this.MagValueChart.Series.Add(series1);
+            this.MagValueChart.Series.Add(series2);
+            this.MagValueChart.Series.Add(series3);
+            this.MagValueChart.Size = new System.Drawing.Size(880, 251);
+            this.MagValueChart.TabIndex = 5;
+            this.MagValueChart.Text = "Mag Values Chart";
             title1.Name = "title";
             title1.Text = "Magnetic Values (x,y,z)";
-            this.SeismicActivityChart.Titles.Add(title1);
+            this.MagValueChart.Titles.Add(title1);
             // 
             // clearButton
             // 
@@ -228,14 +228,14 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.SeismicActivityChart);
+            this.Controls.Add(this.MagValueChart);
             this.Controls.Add(this.receiveButton);
             this.Controls.Add(this.magDataLabel);
             this.Controls.Add(this.getMagButton);
             this.Name = "VortexForm";
             this.Text = "VortexForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VortexForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.SeismicActivityChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MagValueChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.absVectorChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,7 +247,7 @@
         private System.Windows.Forms.Button getMagButton;
         private System.Windows.Forms.Label magDataLabel;
         private System.Windows.Forms.Button receiveButton;
-        public System.Windows.Forms.DataVisualization.Charting.Chart SeismicActivityChart;
+        public System.Windows.Forms.DataVisualization.Charting.Chart MagValueChart;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
