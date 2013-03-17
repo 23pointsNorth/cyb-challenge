@@ -77,8 +77,8 @@ namespace WIFIGUIDemo
         {
             //lightIntensityChart.Series["lightPathPoint"].Points.OrderBy(p => p.XValue).ThenBy(p => p.YValues);
 
-            System.IO.StreamWriter file_light = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\LightTunnelData.txt");
-            System.IO.StreamWriter dist = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\LightDistData.txt");
+            System.IO.StreamWriter file_light = new System.IO.StreamWriter(mainForm.SAVE_DIR + "LightTunnelData.txt");
+            System.IO.StreamWriter dist = new System.IO.StreamWriter(mainForm.SAVE_DIR + "LightDistData.txt");
 
             foreach (DataPoint light in lightIntensityChart.Series["lightPathPoint"].Points)
             {

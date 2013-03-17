@@ -188,6 +188,7 @@ namespace WIFIGUIDemo
             MagValueChart.Series["mag_x"].Points.Clear();
             MagValueChart.Series["mag_y"].Points.Clear();
             MagValueChart.Series["mag_z"].Points.Clear();
+            absVectorChart.Series["absValue"].Points.Clear();
         }
 
         private void singleValueButton_Click(object sender, EventArgs e)
@@ -202,7 +203,7 @@ namespace WIFIGUIDemo
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            System.IO.StreamWriter mag_x = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\MagDataX.txt");
+            System.IO.StreamWriter mag_x = new System.IO.StreamWriter(mainForm.SAVE_DIR + "MagDataX.txt");
 
             foreach (DataPoint left in MagValueChart.Series["mag_x"].Points)
             {
@@ -210,7 +211,7 @@ namespace WIFIGUIDemo
             }
             mag_x.Close();
 
-            System.IO.StreamWriter mag_y = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\MagDataY.txt");
+            System.IO.StreamWriter mag_y = new System.IO.StreamWriter(mainForm.SAVE_DIR + "MagDataY.txt");
 
             foreach (DataPoint left in MagValueChart.Series["mag_y"].Points)
             {
@@ -218,13 +219,21 @@ namespace WIFIGUIDemo
             }
             mag_y.Close();
 
-            System.IO.StreamWriter mag_z = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\MagDataZ.txt");
+            System.IO.StreamWriter mag_z = new System.IO.StreamWriter(mainForm.SAVE_DIR + "MagDataZ.txt");
 
             foreach (DataPoint left in MagValueChart.Series["mag_z"].Points)
             {
                 mag_z.WriteLine(left.YValues[0].ToString());
             }
             mag_z.Close();
+
+            System.IO.StreamWriter absValue = new System.IO.StreamWriter(mainForm.SAVE_DIR + "MagAbsValue.txt");
+
+            foreach (DataPoint left in absVectorChart.Series["absValue"].Points)
+            {
+                absValue.WriteLine(left.YValues[0].ToString());
+            }
+            absValue.Close();
         }
 
         private void streamButton_Click(object sender, EventArgs e)

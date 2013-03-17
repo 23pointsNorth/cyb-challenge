@@ -56,7 +56,7 @@ namespace WIFIGUIDemo
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-					//theClient.ConnectToServer(IPinput, 9760);
+					theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
@@ -87,6 +87,8 @@ namespace WIFIGUIDemo
                 txtPort.Enabled = true;
             }
         }
+
+        public string SAVE_DIR = "C:\\TEST\\DATA\\";
 
         public const int MAX_SPEED = 127;
         public const int MIN_SPEED = 50;
@@ -1040,13 +1042,15 @@ namespace WIFIGUIDemo
         {
             sec--;
             if (sec < 0) { min--; sec = 59; }
-            if (min < 0) { sessionTimer.Enabled = false; }
-            if (min <= 2) { sessionTimerLabel.ForeColor = Color.Red; }
-            else { sessionTimerLabel.ForeColor = Color.Black;}
-            sessionTimerLabel.Text =
-                ((min < 10)?"0" + min.ToString():min.ToString()) + ":" +
-                ((sec < 10) ? "0" + sec.ToString() : sec.ToString());
-                 
+            if (min < 0) { sessionTimer.Enabled = false; sessionTimerLabel.Text = "00:00"; }
+            else
+            {
+                if (min <= 2) { sessionTimerLabel.ForeColor = Color.Red; }
+                else { sessionTimerLabel.ForeColor = Color.Black; }
+                sessionTimerLabel.Text =
+                    ((min < 10) ? "0" + min.ToString() : min.ToString()) + ":" +
+                    ((sec < 10) ? "0" + sec.ToString() : sec.ToString());
+            }
         }
 
         private void resetTimer_Click(object sender, EventArgs e)

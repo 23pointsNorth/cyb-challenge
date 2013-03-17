@@ -44,6 +44,7 @@ namespace WIFIGUIDemo
                                 double temp_celsius = mainForm.ConvertToTemperature(temp);
                                 volcanoTempChart.Series["Temperature"].Points.AddXY(
                                     (temp_id * dataTimer.Interval)/1000.0 ,temp_celsius);
+                                lastTempLabel.Text = "Last Temp: " + temp_celsius.ToString("00.0") + "'C";
                             }));
                             break;
                         }
@@ -59,7 +60,11 @@ namespace WIFIGUIDemo
         private void getTempButton_Click(object sender, EventArgs e)
         {
             dataTimer.Enabled = !dataTimer.Enabled;
-            statusLabel.Text = "Status: " + dataTimer.Enabled.ToString();
+            if (dataTimer.Enabled)
+            {
+                statusLabel.Text = "Collecting data!";
+            }
+            else statusLabel.Text = "Data Collection Stopped.";
         }
 
         private void dataTimer_Tick(object sender, EventArgs e)
@@ -74,7 +79,7 @@ namespace WIFIGUIDemo
 
         private void saveDataButton_Click(object sender, EventArgs e)
         {
-            System.IO.StreamWriter temp_data = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\TempData.txt");
+            System.IO.StreamWriter temp_data = new System.IO.StreamWriter(mainForm.SAVE_DIR + "TempData.txt");
 
             foreach (DataPoint left in volcanoTempChart.Series["Temperature"].Points)
             {

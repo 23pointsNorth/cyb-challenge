@@ -215,7 +215,7 @@ namespace WIFIGUIDemo
         {
 
             // Write the string to a file.
-            System.IO.StreamWriter acc_z = new System.IO.StreamWriter("N:\\..University\\Year2\\Cybs Challenge\\Data\\SeismicData.txt");
+            System.IO.StreamWriter acc_z = new System.IO.StreamWriter(mainForm.SAVE_DIR + "SeismicData.txt");
 
             foreach (DataPoint left in SeismicActivityChart.Series["Accelz"].Points)
             {
