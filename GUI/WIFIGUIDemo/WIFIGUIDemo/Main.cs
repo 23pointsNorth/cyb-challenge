@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using ServerLib;
+using System.Drawing.Drawing2D;
 
 
 namespace WIFIGUIDemo
@@ -86,6 +87,9 @@ namespace WIFIGUIDemo
                 txtIPAddress.Enabled = true;
                 txtPort.Enabled = true;
             }
+
+            DrawHorizontalRover(horizonPictureBox, HORIZONTAL_ROVER, 0);
+            DrawHorizontalRover(frontlPictureBox, FRONT_ROVER, 0);
         }
 
         public string SAVE_DIR = "C:\\TEST\\DATA\\";
@@ -93,6 +97,8 @@ namespace WIFIGUIDemo
         public const int MAX_SPEED = 127;
         public const int MIN_SPEED = 50;
 
+        Bitmap HORIZONTAL_ROVER = new Bitmap("horizontal_rover.png");
+        Bitmap FRONT_ROVER = new Bitmap("front_rover.png");
 
         int ENCODER_SPEED = -100;
         double LEFT_PARAM = 1.25f;
@@ -317,6 +323,9 @@ namespace WIFIGUIDemo
                                     x_angle.Text = Ax.ToString("0.00");
                                     y_angle.Text = Ay.ToString("0.00");
                                     z_angle.Text = Az.ToString("0.00");
+
+                                    DrawHorizontalRover(horizonPictureBox, HORIZONTAL_ROVER, (float)Ay);
+                                    DrawHorizontalRover(frontlPictureBox, FRONT_ROVER, (float)Ax);
 
                                     accelXlabel.Text = Accelx.ToString("0.00");
                                     accelYlabel.Text = Accely.ToString("0.00");
@@ -871,16 +880,7 @@ namespace WIFIGUIDemo
             if (theClient.isConnected)      //Starts the timer when clicked to refresh accel data
             {                               //Or stops it if it is running.
                 theClient.SendData(CommandID.GetAccelValue, new byte[] { });
-                if (accel_start == false)
-                {
-                    accel_start = true;
-                    accelTimer.Start();
-                }
-                else
-                {
-                    accel_start = false;
-                    accelTimer.Stop();
-                }
+                accelTimer.Enabled = !accelTimer.Enabled;
             }
         }
 
@@ -1070,6 +1070,33 @@ namespace WIFIGUIDemo
             proc.StartInfo.Arguments = @"/C ""N:\\..University\\Year2\\Cybs Challenge\\Code Rep\\Matlab\\matlab ";
             proc.Start();
             //System.Diagnostics.Process.Start("N:\\..University\\Year2\\Cybs Challenge\\Code Rep\\Matlab\\VolcanoPlot.m");
+        }
+
+
+        public void DrawHorizontalRover(PictureBox picbox, Bitmap img, float angle)
+        {
+            //Bitmap img = new Bitmap("horizontal_rover.png");
+            Bitmap real_size = new Bitmap(horizonPictureBox.Width, horizonPictureBox.Height);
+            using (Graphics gfx = Graphics.FromImage(real_size))
+            using (SolidBrush brush = new SolidBrush(Color.White))
+            {
+                gfx.FillRectangle(brush, 0, 0, real_size.Width, real_size.Height);
+            }
+
+            using (System.Drawing.Graphics g = Graphics.FromImage(real_size))
+            {
+                //now we set the rotation point to the center of our image
+                g.TranslateTransform((float)real_size.Width / 2, (float)real_size.Height / 2);
+                //now rotate the image
+                g.RotateTransform(angle);
+                g.TranslateTransform(-(float)real_size.Width / 2, -(float)real_size.Height / 2);
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                //now draw our new image onto the graphics object
+                g.DrawImage(img, new Point(
+                    (real_size.Width - img.Width)/2, (real_size.Height - img.Height)/2));
+            }
+            picbox.Image = (Image)real_size;
         }
     }
 }

@@ -110,7 +110,7 @@
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
             this.roverOrientationGroupBox = new System.Windows.Forms.GroupBox();
             this.horizonPictureBox = new System.Windows.Forms.PictureBox();
-            this.verticalPictureBox = new System.Windows.Forms.PictureBox();
+            this.frontlPictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -124,7 +124,7 @@
             this.groupBox4.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frontlPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -906,7 +906,7 @@
             // 
             // accelTimer
             // 
-            this.accelTimer.Interval = 1000;
+            this.accelTimer.Interval = 500;
             this.accelTimer.Tick += new System.EventHandler(this.accelTimer_Tick);
             // 
             // turnTimer
@@ -921,11 +921,11 @@
             // 
             // roverOrientationGroupBox
             // 
-            this.roverOrientationGroupBox.Controls.Add(this.verticalPictureBox);
+            this.roverOrientationGroupBox.Controls.Add(this.frontlPictureBox);
             this.roverOrientationGroupBox.Controls.Add(this.horizonPictureBox);
-            this.roverOrientationGroupBox.Location = new System.Drawing.Point(551, 270);
+            this.roverOrientationGroupBox.Location = new System.Drawing.Point(635, 274);
             this.roverOrientationGroupBox.Name = "roverOrientationGroupBox";
-            this.roverOrientationGroupBox.Size = new System.Drawing.Size(237, 222);
+            this.roverOrientationGroupBox.Size = new System.Drawing.Size(162, 222);
             this.roverOrientationGroupBox.TabIndex = 49;
             this.roverOrientationGroupBox.TabStop = false;
             this.roverOrientationGroupBox.Text = "Rover Orientation";
@@ -935,18 +935,18 @@
             this.horizonPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.horizonPictureBox.Location = new System.Drawing.Point(6, 19);
             this.horizonPictureBox.Name = "horizonPictureBox";
-            this.horizonPictureBox.Size = new System.Drawing.Size(225, 100);
+            this.horizonPictureBox.Size = new System.Drawing.Size(150, 100);
             this.horizonPictureBox.TabIndex = 0;
             this.horizonPictureBox.TabStop = false;
             // 
-            // verticalPictureBox
+            // frontlPictureBox
             // 
-            this.verticalPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.verticalPictureBox.Location = new System.Drawing.Point(6, 122);
-            this.verticalPictureBox.Name = "verticalPictureBox";
-            this.verticalPictureBox.Size = new System.Drawing.Size(225, 100);
-            this.verticalPictureBox.TabIndex = 1;
-            this.verticalPictureBox.TabStop = false;
+            this.frontlPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.frontlPictureBox.Location = new System.Drawing.Point(6, 122);
+            this.frontlPictureBox.Name = "frontlPictureBox";
+            this.frontlPictureBox.Size = new System.Drawing.Size(150, 100);
+            this.frontlPictureBox.TabIndex = 1;
+            this.frontlPictureBox.TabStop = false;
             // 
             // Main
             // 
@@ -982,7 +982,7 @@
             this.groupBox4.PerformLayout();
             this.roverOrientationGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frontlPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1072,7 +1072,7 @@
         private System.Windows.Forms.Button resetTimer;
         private System.Windows.Forms.Button MatlabButton;
         private System.Windows.Forms.GroupBox roverOrientationGroupBox;
-        private System.Windows.Forms.PictureBox verticalPictureBox;
+        private System.Windows.Forms.PictureBox frontlPictureBox;
         private System.Windows.Forms.PictureBox horizonPictureBox;
     }
 }

@@ -1,4 +1,4 @@
-function MapRiverBed(path)
+function SeismicActivity(path)
 
 %% Load data
 Fs = 400;                     % Sampling frequency 1037/10
