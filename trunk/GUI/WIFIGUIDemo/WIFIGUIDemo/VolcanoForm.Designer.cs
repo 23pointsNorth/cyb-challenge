@@ -44,7 +44,7 @@
             // 
             // getTempButton
             // 
-            this.getTempButton.Location = new System.Drawing.Point(18, 14);
+            this.getTempButton.Location = new System.Drawing.Point(12, 12);
             this.getTempButton.Name = "getTempButton";
             this.getTempButton.Size = new System.Drawing.Size(103, 34);
             this.getTempButton.TabIndex = 0;
@@ -54,13 +54,14 @@
             // 
             // volcanoTempChart
             // 
+            this.volcanoTempChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
             this.volcanoTempChart.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
             legend1.Name = "Legend1";
             this.volcanoTempChart.Legends.Add(legend1);
-            this.volcanoTempChart.Location = new System.Drawing.Point(18, 54);
+            this.volcanoTempChart.Location = new System.Drawing.Point(12, 54);
             this.volcanoTempChart.Name = "volcanoTempChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -69,10 +70,11 @@
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.volcanoTempChart.Series.Add(series1);
-            this.volcanoTempChart.Size = new System.Drawing.Size(553, 251);
+            this.volcanoTempChart.Size = new System.Drawing.Size(636, 251);
             this.volcanoTempChart.TabIndex = 5;
             this.volcanoTempChart.Text = "Volcano Temperature";
-            title1.Name = "IR Intesity vs Distance";
+            title1.Name = "title";
+            title1.Text = "Temperature (\'C)";
             this.volcanoTempChart.Titles.Add(title1);
             // 
             // dataTimer
@@ -83,7 +85,7 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(136, 23);
+            this.statusLabel.Location = new System.Drawing.Point(121, 23);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(68, 13);
             this.statusLabel.TabIndex = 6;
@@ -91,7 +93,7 @@
             // 
             // saveDataButton
             // 
-            this.saveDataButton.Location = new System.Drawing.Point(326, 12);
+            this.saveDataButton.Location = new System.Drawing.Point(436, 14);
             this.saveDataButton.Name = "saveDataButton";
             this.saveDataButton.Size = new System.Drawing.Size(103, 34);
             this.saveDataButton.TabIndex = 7;
@@ -101,7 +103,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(435, 12);
+            this.clearButton.Location = new System.Drawing.Point(545, 14);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(103, 34);
             this.clearButton.TabIndex = 8;
@@ -113,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 355);
+            this.ClientSize = new System.Drawing.Size(654, 313);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.saveDataButton);
             this.Controls.Add(this.statusLabel);
