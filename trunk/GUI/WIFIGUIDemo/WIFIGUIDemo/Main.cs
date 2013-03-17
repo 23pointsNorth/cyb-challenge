@@ -56,7 +56,7 @@ namespace WIFIGUIDemo
 
                     //Connect the Client to the server based on passed data
                     //Commented lines for debugging
-					theClient.ConnectToServer(IPinput, 9760);
+					//theClient.ConnectToServer(IPinput, 9760);
 
                     //Set the appropriate form elements
                     txtIPAddress.Text = IPinput;
@@ -179,7 +179,7 @@ namespace WIFIGUIDemo
                         //Invokation to allow cross thread manipulation
                         this.BeginInvoke(new EventHandler(delegate
                         {
-                            txtCounter.Text = (NewData[4] + (NewData[5] << 8)).ToString();
+                            //txtCounter.Text = (NewData[4] + (NewData[5] << 8)).ToString();
                         }));
                         break;
                     //Command ID byte to show the switch and LED current status
@@ -187,10 +187,10 @@ namespace WIFIGUIDemo
                         //Invokation to allow cross thread manipulation
                         this.BeginInvoke(new EventHandler(delegate
                         {
-                            chkSwitch1Stat.Checked = ((NewData[4] & 0x01) == 0x01) ? true : false;
-                            chkSwitch2Stat.Checked = ((NewData[4] & 0x02) == 0x02) ? true : false;
-                            chkGreenStat.Checked = ((NewData[4] & 0x10) != 0x10) ? true : false;
-                            chkRedStat.Checked = ((NewData[4] & 0x20) != 0x20) ? true : false;
+                            //chkSwitch1Stat.Checked = ((NewData[4] & 0x01) == 0x01) ? true : false;
+                            //chkSwitch2Stat.Checked = ((NewData[4] & 0x02) == 0x02) ? true : false;
+                            //chkGreenStat.Checked = ((NewData[4] & 0x10) != 0x10) ? true : false;
+                            //chkRedStat.Checked = ((NewData[4] & 0x20) != 0x20) ? true : false;
                         }));
                         break;
                     case (byte)CommandID.MotorPosition:
@@ -494,10 +494,10 @@ namespace WIFIGUIDemo
             //If statement to check if the client is connected to a rover
             if (theClient.isConnected)
             {
-                if (chkGreen.Checked) { LEDs |= 0x01; }
-                if (chkRed.Checked) { LEDs |= 0x02; }
+                //if (chkGreen.Checked) { LEDs |= 0x01; }
+                //if (chkRed.Checked) { LEDs |= 0x02; }
 
-                theClient.SendData(CommandID.SetLEDs, new byte[] { LEDs });
+                //theClient.SendData(CommandID.SetLEDs, new byte[] { LEDs });
             }
         }
 
@@ -1018,6 +1018,45 @@ namespace WIFIGUIDemo
         private void driveButton_Click(object sender, EventArgs e)
         {
             DrivetextBox.Focus();
+        }
+
+        int min = 10;
+        int sec = 0;
+
+        private void sessionTimerButton_Click(object sender, EventArgs e)
+        {
+            sessionTimer.Enabled = !sessionTimer.Enabled;
+            if (sessionTimer.Enabled)
+            {
+                sessionTimerButton.Text = "Stop Session Timer";
+            }
+            else
+            {
+                sessionTimerButton.Text = "Start Session Timer";
+            }
+        }
+
+        private void sessionTimer_Tick(object sender, EventArgs e)
+        {
+            sec--;
+            if (sec < 0) { min--; sec = 59; }
+            if (min < 0) { sessionTimer.Enabled = false; }
+            if (min <= 2) { sessionTimerLabel.ForeColor = Color.Red; }
+            else { sessionTimerLabel.ForeColor = Color.Black;}
+            sessionTimerLabel.Text =
+                ((min < 10)?"0" + min.ToString():min.ToString()) + ":" +
+                ((sec < 10) ? "0" + sec.ToString() : sec.ToString());
+                 
+        }
+
+        private void resetTimer_Click(object sender, EventArgs e)
+        {
+            min = 10;
+            sec = 0;
+            if (sessionTimer.Enabled) sessionTimerButton_Click(null, null);
+            sessionTimerLabel.Text =
+                ((min < 10) ? "0" + min.ToString() : min.ToString()) + ":" +
+                ((sec < 10) ? "0" + sec.ToString() : sec.ToString());
         }
     }
 }
