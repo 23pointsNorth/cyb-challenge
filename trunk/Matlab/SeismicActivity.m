@@ -5,7 +5,7 @@ Fs = 400;                     % Sampling frequency 1037/10
 T = 1/Fs;                     % Sample time
 L = 16*60;                     % Length of signal
 
-acc = load(strcpy(path,'SeismicData.txt'));
+acc = load(strcat(path,'SeismicData.txt'));
 
 time = (0:T:T*(size(acc) - 1));             % Time vector
 time = time';
@@ -45,12 +45,18 @@ w = hanning(length(acc));
 w = w';
 figure;
 plot(time, w);
+title('Windowing function')
+
 accw = w*acc;
+for i=1:length(acc)
+    accw(i) = acc(i)*w(i);
+end
 
 figure;
 plot(time, accw);
+title('Windowed result')
 % for windowing use accw later on, otherwise accw = acc
-accw= acc;
+%accw= acc;
 
 NFFT = 2^nextpow2(L); % Next power of 2 from length of y
 Y = fft(accw, NFFT)/L;
