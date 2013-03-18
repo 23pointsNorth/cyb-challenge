@@ -21,7 +21,7 @@ namespace ServerLib
         LineFollowingData = 0x08,
         SetLineThresholds = 0x09,
         GetLightAuxValue = 0x11,
-        SetServoPosition = 0x17,
+        SetServoPosition = 0x16,
         GetTermData = 0x1B,
         GetCrashedRoverData = 0x1C,
         GetMagnetValue= 0x2D,
