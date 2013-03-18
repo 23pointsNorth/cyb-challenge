@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lightIntensityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tunnelMapButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
@@ -45,25 +45,25 @@
             // lightIntensityChart
             // 
             this.lightIntensityChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "ChartArea1";
-            this.lightIntensityChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend1.Name = "Legend1";
-            this.lightIntensityChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.lightIntensityChart.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend3.Name = "Legend1";
+            this.lightIntensityChart.Legends.Add(legend3);
             this.lightIntensityChart.Location = new System.Drawing.Point(12, 41);
             this.lightIntensityChart.Name = "lightIntensityChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "lightPathPoint";
-            this.lightIntensityChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "lightPathPoint";
+            this.lightIntensityChart.Series.Add(series3);
             this.lightIntensityChart.Size = new System.Drawing.Size(645, 251);
             this.lightIntensityChart.TabIndex = 0;
             this.lightIntensityChart.Text = "Light Tunnel Chart";
-            title1.Name = "Title1";
-            title1.Text = "Light Intensity vs Distance Graph";
-            this.lightIntensityChart.Titles.Add(title1);
+            title3.Name = "Title1";
+            title3.Text = "Light Intensity vs Distance Graph";
+            this.lightIntensityChart.Titles.Add(title3);
             // 
             // tunnelMapButton
             // 
@@ -97,7 +97,7 @@
             // 
             // lightPosTimer
             // 
-            this.lightPosTimer.Interval = 200;
+            this.lightPosTimer.Interval = 20;
             this.lightPosTimer.Tick += new System.EventHandler(this.lightPosTimer_Tick);
             // 
             // saveButton

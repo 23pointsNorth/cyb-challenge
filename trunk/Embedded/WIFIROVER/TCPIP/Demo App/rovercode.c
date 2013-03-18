@@ -128,6 +128,7 @@ unsigned long ticker4 = 0;
 
 #define MAX_SPEED			127 //encoder steps/second
 int DRIVE_MAX_SPEED	= 100;
+int DIRECTION = 1;
 
 #define LEFT_DRIVE_COEF		(float)(1)
 #define RIGHT_DRIVE_COEF	(float)(1.091)
@@ -245,22 +246,22 @@ void __attribute((interrupt(ipl2), vector(_TIMER_4_VECTOR), nomips16)) _T4Interr
 				//Left
 				if (abs(encoder_l_old + wanted_encoder_steps - pos1) > MAX_SPEED_ENCODER_STEPS)   
 				{
-					wanted_speed_left = DRIVE_MAX_SPEED;
+					wanted_speed_left = DRIVE_MAX_SPEED * DIRECTION;
 				}
 				else
 				{
-					wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE, MIN_SPEED), DRIVE_MAX_SPEED);
+					wanted_speed_left = min(max((pos1 - encoder_l_old) * SLOPE  * DIRECTION, MIN_SPEED  * DIRECTION), DRIVE_MAX_SPEED * DIRECTION);
 					//wanted_speed_left = MIN_SPEED;
 				}   
  
 				//Right
 				if (abs(encoder_r_old + wanted_encoder_steps - pos2) > MAX_SPEED_ENCODER_STEPS)   
 				{
-					wanted_speed_right = DRIVE_MAX_SPEED;
+					wanted_speed_right = DRIVE_MAX_SPEED * DIRECTION;
 				}
 				else
 				{
-					wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE, MIN_SPEED), DRIVE_MAX_SPEED);
+					wanted_speed_right = min(max((pos2 - encoder_r_old) * SLOPE * DIRECTION, MIN_SPEED * DIRECTION), DRIVE_MAX_SPEED * DIRECTION);
 					//wanted_speed_right = MIN_SPEED;
 				}
 
@@ -951,10 +952,11 @@ void processcommand(void)		// the main routine which processes commands
 			break;
 
 	case 128:  //Drive amount of encoder steps
-			 if (commandlen==2)	// move amount of encoder steps
+			 if (commandlen==3)	// move amount of encoder steps
 			 {
 			    drive_by_steps = 1; // activated
 				wanted_encoder_steps = nextcommand[1] + (nextcommand[2] << 8);
+				DIRECTION = (nextcommand[3] == 1)?1:-1;
 				pos1 = 0x3FFF; //x7FFF;
 				pos2 = 0x3FFF; //x7FFF;// for middle
 				encoder_l_old = pos1;

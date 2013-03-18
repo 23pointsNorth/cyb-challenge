@@ -41,7 +41,8 @@ namespace WIFIGUIDemo
         {
             if (rover.isConnected)
             {
-                rover.SendData(CommandID.DriveSteps, new byte[] { 255, 6 });
+                int dir = -1;
+                rover.SendData(CommandID.DriveSteps, new byte[] { 255, 6,  (byte)dir});
                 lightPosTimer.Enabled = true;
             }
         }
@@ -58,7 +59,7 @@ namespace WIFIGUIDemo
         {
             if (rover.isConnected)
             {
-                rover.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+                mainForm.stop();
                 lightPosTimer.Enabled = false;
             }
         }
