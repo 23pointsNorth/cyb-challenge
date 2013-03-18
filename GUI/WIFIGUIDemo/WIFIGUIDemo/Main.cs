@@ -340,6 +340,7 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
+                        /*
                     case (byte)CommandID.LineFollowingData:
                         {
                             //Invokation to allow cross thread manipulation
@@ -379,9 +380,6 @@ namespace WIFIGUIDemo
                                         ls = 1;
                                         rs = (rightval / leftval);
                                     }
-
-                                    //rs = rightval / 8;
-                                    //ls = leftval / 8;
                                     
 
                                     if (linestatus == 0)
@@ -414,12 +412,14 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
+                         * */
                     case (byte)CommandID.DriveSteps:
                         {
                             //Invokation to allow cross thread manipulation
                             this.BeginInvoke(new EventHandler(delegate
                             {
                                 //MessageBox.Show("Moved!");
+                                drivingLabel.Text = "Done!";
                             }));
                             break;
                         }
@@ -440,19 +440,7 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
-                   /* case (byte)CommandID.GetCrashedRoverData:
-                        {
-                            //Invokation to allow cross thread manipulation
-                            this.BeginInvoke(new EventHandler(delegate
-                            {
-                                MessageBox.Show(NewData.Count.ToString());
-                                for (int i = 4; i < NewData.Count; i++)
-                                {
-                                    //CrashedMessageBox.Text += NewData[i] + " ";
-                                }
-                            }));
-                            break;
-                        }   */
+
                 }
             }
         }
@@ -592,8 +580,8 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                leftMotorSpeed.Text = "0";
-                rightMotorSpeed.Text = "0";
+                //leftMotorSpeed.Text = "0";
+                //rightMotorSpeed.Text = "0";
                 stop();
             }
         }
@@ -606,6 +594,7 @@ namespace WIFIGUIDemo
                 //initial_value = false;
                 int distance = (int)(int.Parse(PositionStatusBox.Text) * DIST_PARAM);
                 theClient.SendData(CommandID.DriveSteps, new byte[] { (byte)(distance), (byte)(distance >> 8) });
+                drivingLabel.Text = "Driving...";
             }
         }
 
@@ -755,7 +744,7 @@ namespace WIFIGUIDemo
         private void directionalSpeed_MouseUp(object sender, MouseEventArgs e)
         {
             dirSpeedMouseDown = false;
-            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            stop();
             Bitmap img = new Bitmap(DRIVE_TARGET);
             directionalSpeed.Image = (Image)img;
         }
@@ -960,7 +949,7 @@ namespace WIFIGUIDemo
 
         private void turnTimer_Tick(object sender, EventArgs e)
         {
-            theClient.SendData(CommandID.SetMotorsSpeed, new byte[] { 0, 0 });
+            stop();
             turnTimer.Enabled = false;
         }
 
@@ -1100,6 +1089,7 @@ namespace WIFIGUIDemo
             }
             picbox.Image = (Image)real_size;
         }
+
     }
 }
 
