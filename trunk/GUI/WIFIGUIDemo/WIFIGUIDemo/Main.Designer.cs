@@ -879,7 +879,7 @@
             // 
             // motoPositionTimer
             // 
-            this.motoPositionTimer.Interval = 200;
+            this.motoPositionTimer.Interval = 400;
             this.motoPositionTimer.Tick += new System.EventHandler(this.motoPositionTimer_Tick);
             // 
             // groupBox4

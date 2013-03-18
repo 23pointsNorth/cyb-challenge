@@ -582,6 +582,9 @@ namespace WIFIGUIDemo
             {
                 //leftMotorSpeed.Text = "0";
                 //rightMotorSpeed.Text = "0";
+                rightSpeed.Value = 0;
+                leftSpeed.Value = 0;
+                drivingLabel.Text = "Stopped!";
                 stop();
             }
         }
