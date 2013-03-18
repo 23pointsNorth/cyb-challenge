@@ -37,8 +37,11 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.roverOrientationGroupBox = new System.Windows.Forms.GroupBox();
+            this.frontlPictureBox = new System.Windows.Forms.PictureBox();
+            this.horizonPictureBox = new System.Windows.Forms.PictureBox();
             this.DrivetextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.degLabel = new System.Windows.Forms.Label();
             this.angle_Val = new System.Windows.Forms.TextBox();
             this.start_rotate = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -77,7 +80,6 @@
             this.rightIR = new System.Windows.Forms.Label();
             this.leftIR = new System.Windows.Forms.Label();
             this.lineData = new System.Windows.Forms.Button();
-            this.drive1secButton = new System.Windows.Forms.Button();
             this.directionalSpeed = new System.Windows.Forms.PictureBox();
             this.rightSpeed = new System.Windows.Forms.TrackBar();
             this.leftSpeed = new System.Windows.Forms.TrackBar();
@@ -108,11 +110,12 @@
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
-            this.roverOrientationGroupBox = new System.Windows.Forms.GroupBox();
-            this.horizonPictureBox = new System.Windows.Forms.PictureBox();
-            this.frontlPictureBox = new System.Windows.Forms.PictureBox();
+            this.drivingLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.roverOrientationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.frontlPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.servoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.additionalTrackBar)).BeginInit();
@@ -122,9 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.leftSpeed)).BeginInit();
             this.taskGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.roverOrientationGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frontlPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -199,9 +199,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.drivingLabel);
             this.groupBox2.Controls.Add(this.roverOrientationGroupBox);
             this.groupBox2.Controls.Add(this.DrivetextBox);
-            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.degLabel);
             this.groupBox2.Controls.Add(this.angle_Val);
             this.groupBox2.Controls.Add(this.start_rotate);
             this.groupBox2.Controls.Add(this.groupBox5);
@@ -213,7 +214,6 @@
             this.groupBox2.Controls.Add(this.rightIR);
             this.groupBox2.Controls.Add(this.leftIR);
             this.groupBox2.Controls.Add(this.lineData);
-            this.groupBox2.Controls.Add(this.drive1secButton);
             this.groupBox2.Controls.Add(this.directionalSpeed);
             this.groupBox2.Controls.Add(this.rightSpeed);
             this.groupBox2.Controls.Add(this.leftSpeed);
@@ -232,6 +232,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " ";
             // 
+            // roverOrientationGroupBox
+            // 
+            this.roverOrientationGroupBox.Controls.Add(this.frontlPictureBox);
+            this.roverOrientationGroupBox.Controls.Add(this.horizonPictureBox);
+            this.roverOrientationGroupBox.Location = new System.Drawing.Point(635, 274);
+            this.roverOrientationGroupBox.Name = "roverOrientationGroupBox";
+            this.roverOrientationGroupBox.Size = new System.Drawing.Size(162, 222);
+            this.roverOrientationGroupBox.TabIndex = 49;
+            this.roverOrientationGroupBox.TabStop = false;
+            this.roverOrientationGroupBox.Text = "Rover Orientation";
+            // 
+            // frontlPictureBox
+            // 
+            this.frontlPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.frontlPictureBox.Location = new System.Drawing.Point(6, 122);
+            this.frontlPictureBox.Name = "frontlPictureBox";
+            this.frontlPictureBox.Size = new System.Drawing.Size(150, 100);
+            this.frontlPictureBox.TabIndex = 1;
+            this.frontlPictureBox.TabStop = false;
+            // 
+            // horizonPictureBox
+            // 
+            this.horizonPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.horizonPictureBox.Location = new System.Drawing.Point(6, 19);
+            this.horizonPictureBox.Name = "horizonPictureBox";
+            this.horizonPictureBox.Size = new System.Drawing.Size(150, 100);
+            this.horizonPictureBox.TabIndex = 0;
+            this.horizonPictureBox.TabStop = false;
+            // 
             // DrivetextBox
             // 
             this.DrivetextBox.Location = new System.Drawing.Point(235, 80);
@@ -241,18 +270,18 @@
             this.DrivetextBox.Text = "Drive";
             this.DrivetextBox.Visible = false;
             // 
-            // label1
+            // degLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(11, 13);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "°";
+            this.degLabel.AutoSize = true;
+            this.degLabel.Location = new System.Drawing.Point(303, 24);
+            this.degLabel.Name = "degLabel";
+            this.degLabel.Size = new System.Drawing.Size(11, 13);
+            this.degLabel.TabIndex = 47;
+            this.degLabel.Text = "°";
             // 
             // angle_Val
             // 
-            this.angle_Val.Location = new System.Drawing.Point(248, 22);
+            this.angle_Val.Location = new System.Drawing.Point(263, 22);
             this.angle_Val.Name = "angle_Val";
             this.angle_Val.Size = new System.Drawing.Size(34, 20);
             this.angle_Val.TabIndex = 46;
@@ -260,9 +289,9 @@
             // 
             // start_rotate
             // 
-            this.start_rotate.Location = new System.Drawing.Point(236, 48);
+            this.start_rotate.Location = new System.Drawing.Point(251, 47);
             this.start_rotate.Name = "start_rotate";
-            this.start_rotate.Size = new System.Drawing.Size(72, 21);
+            this.start_rotate.Size = new System.Drawing.Size(72, 23);
             this.start_rotate.TabIndex = 45;
             this.start_rotate.Text = "Rotate";
             this.start_rotate.UseVisualStyleBackColor = true;
@@ -590,7 +619,7 @@
             // 
             // motorPositionButton
             // 
-            this.motorPositionButton.Location = new System.Drawing.Point(339, 20);
+            this.motorPositionButton.Location = new System.Drawing.Point(339, 47);
             this.motorPositionButton.Name = "motorPositionButton";
             this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
             this.motorPositionButton.TabIndex = 32;
@@ -635,16 +664,6 @@
             this.lineData.UseVisualStyleBackColor = true;
             this.lineData.Click += new System.EventHandler(this.lineData_Click);
             // 
-            // drive1secButton
-            // 
-            this.drive1secButton.Location = new System.Drawing.Point(339, 49);
-            this.drive1secButton.Name = "drive1secButton";
-            this.drive1secButton.Size = new System.Drawing.Size(107, 30);
-            this.drive1secButton.TabIndex = 16;
-            this.drive1secButton.Text = "Drive for 1 sec";
-            this.drive1secButton.UseVisualStyleBackColor = true;
-            this.drive1secButton.Click += new System.EventHandler(this.drive1secButton_Click);
-            // 
             // directionalSpeed
             // 
             this.directionalSpeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -683,7 +702,7 @@
             // rightEncoderLabel
             // 
             this.rightEncoderLabel.AutoSize = true;
-            this.rightEncoderLabel.Location = new System.Drawing.Point(142, 105);
+            this.rightEncoderLabel.Location = new System.Drawing.Point(377, 82);
             this.rightEncoderLabel.Name = "rightEncoderLabel";
             this.rightEncoderLabel.Size = new System.Drawing.Size(75, 13);
             this.rightEncoderLabel.TabIndex = 7;
@@ -692,7 +711,7 @@
             // leftEncoderLabel
             // 
             this.leftEncoderLabel.AutoSize = true;
-            this.leftEncoderLabel.Location = new System.Drawing.Point(4, 105);
+            this.leftEncoderLabel.Location = new System.Drawing.Point(303, 83);
             this.leftEncoderLabel.Name = "leftEncoderLabel";
             this.leftEncoderLabel.Size = new System.Drawing.Size(68, 13);
             this.leftEncoderLabel.TabIndex = 6;
@@ -702,9 +721,9 @@
             // 
             this.driveSteps.Location = new System.Drawing.Point(145, 47);
             this.driveSteps.Name = "driveSteps";
-            this.driveSteps.Size = new System.Drawing.Size(84, 23);
+            this.driveSteps.Size = new System.Drawing.Size(100, 23);
             this.driveSteps.TabIndex = 5;
-            this.driveSteps.Text = "Drive Steps";
+            this.driveSteps.Text = "Drive Distance";
             this.driveSteps.UseVisualStyleBackColor = true;
             this.driveSteps.Click += new System.EventHandler(this.encoderValueButton_Click);
             // 
@@ -920,34 +939,14 @@
             this.sessionTimer.Interval = 1000;
             this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
             // 
-            // roverOrientationGroupBox
+            // drivingLabel
             // 
-            this.roverOrientationGroupBox.Controls.Add(this.frontlPictureBox);
-            this.roverOrientationGroupBox.Controls.Add(this.horizonPictureBox);
-            this.roverOrientationGroupBox.Location = new System.Drawing.Point(635, 274);
-            this.roverOrientationGroupBox.Name = "roverOrientationGroupBox";
-            this.roverOrientationGroupBox.Size = new System.Drawing.Size(162, 222);
-            this.roverOrientationGroupBox.TabIndex = 49;
-            this.roverOrientationGroupBox.TabStop = false;
-            this.roverOrientationGroupBox.Text = "Rover Orientation";
-            // 
-            // horizonPictureBox
-            // 
-            this.horizonPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.horizonPictureBox.Location = new System.Drawing.Point(6, 19);
-            this.horizonPictureBox.Name = "horizonPictureBox";
-            this.horizonPictureBox.Size = new System.Drawing.Size(150, 100);
-            this.horizonPictureBox.TabIndex = 0;
-            this.horizonPictureBox.TabStop = false;
-            // 
-            // frontlPictureBox
-            // 
-            this.frontlPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.frontlPictureBox.Location = new System.Drawing.Point(6, 122);
-            this.frontlPictureBox.Name = "frontlPictureBox";
-            this.frontlPictureBox.Size = new System.Drawing.Size(150, 100);
-            this.frontlPictureBox.TabIndex = 1;
-            this.frontlPictureBox.TabStop = false;
+            this.drivingLabel.AutoSize = true;
+            this.drivingLabel.Location = new System.Drawing.Point(208, 25);
+            this.drivingLabel.Name = "drivingLabel";
+            this.drivingLabel.Size = new System.Drawing.Size(37, 13);
+            this.drivingLabel.TabIndex = 50;
+            this.drivingLabel.Text = "Status";
             // 
             // Main
             // 
@@ -969,6 +968,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.roverOrientationGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.frontlPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.servoGroupBox.ResumeLayout(false);
@@ -981,9 +983,6 @@
             this.taskGroupBox.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.roverOrientationGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.horizonPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frontlPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1016,7 +1015,6 @@
         private System.Windows.Forms.Label auxLabel;
         private System.Windows.Forms.Label LightLabel;
         private System.Windows.Forms.Button lightLuxButton;
-        private System.Windows.Forms.Button drive1secButton;
         private System.Windows.Forms.Label getXlabel;
         private System.Windows.Forms.Button getMagnet;
         private System.Windows.Forms.Button getAccelerometer;
@@ -1050,7 +1048,7 @@
         private System.Windows.Forms.Label smlabel;
         private System.Windows.Forms.GroupBox taskGroupBox;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label degLabel;
         private System.Windows.Forms.TextBox angle_Val;
         private System.Windows.Forms.Button start_rotate;
         private System.Windows.Forms.Timer turnTimer;
@@ -1075,6 +1073,7 @@
         private System.Windows.Forms.GroupBox roverOrientationGroupBox;
         private System.Windows.Forms.PictureBox frontlPictureBox;
         private System.Windows.Forms.PictureBox horizonPictureBox;
+        private System.Windows.Forms.Label drivingLabel;
     }
 }
 
