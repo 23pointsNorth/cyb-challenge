@@ -423,6 +423,16 @@ namespace WIFIGUIDemo
                             }));
                             break;
                         }
+                    case (byte)CommandID.DRIVE_MAX_SPEED:
+                        {
+                            //Invokation to allow cross thread manipulation
+                            this.BeginInvoke(new EventHandler(delegate
+                            {
+                                //MessageBox.Show("Speed Set!");
+                                maxDriveSpeedLabel.Text = "Drive Speed: " + NewData[4].ToString();
+                            }));
+                            break;
+                        }
                     case (byte)CommandID.LightPositionData:
                         {
                             //Invokation to allow cross thread manipulation
@@ -1096,6 +1106,14 @@ namespace WIFIGUIDemo
                     (real_size.Width - img.Width)/2, (real_size.Height - img.Height)/2));
             }
             picbox.Image = (Image)real_size;
+        }
+
+        private void maxSpeedButton_Click(object sender, EventArgs e)
+        {
+            if (theClient.isConnected)
+            {
+                theClient.SendData(CommandID.DRIVE_MAX_SPEED, new byte[] { byte.Parse(maxSpeedTextBox.Text) });
+            }
         }
 
     }

@@ -37,6 +37,7 @@ namespace ServerLib
         MagDATABuffer = 0x88,
         MagDATABufferPacketX = 0x89,
         MagDATABufferPacketY = 0x8A,
-        MagDATABufferPacketZ = 0x8B
+        MagDATABufferPacketZ = 0x8B,
+        DRIVE_MAX_SPEED = 0xC8
     };
 }
