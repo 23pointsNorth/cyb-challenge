@@ -127,7 +127,7 @@ unsigned long ticker4 = 0;
 #define SLOPE					5
 
 #define MAX_SPEED			127 //encoder steps/second
-#define DRIVE_MAX_SPEED		110
+int DRIVE_MAX_SPEED	= 100;
 
 #define LEFT_DRIVE_COEF		(float)(1)
 #define RIGHT_DRIVE_COEF	(float)(1.091)
@@ -1095,6 +1095,15 @@ void processcommand(void)		// the main routine which processes commands
 				POSTTCPchar(mag_data_z[i] >> 8);
 				POSTTCPchar(mag_data_z[i]);
 			}
+		}
+		break;
+	case 200:
+		// DRIVE_MAX_SPEED
+		if (commandlen == 1)
+		{
+			DRIVE_MAX_SPEED = nextcommand[1];
+			POSTTCPhead(1, 200);
+			POSTTCPchar(DRIVE_MAX_SPEED);
 		}
 		break;
   }

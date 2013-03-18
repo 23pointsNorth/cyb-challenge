@@ -111,6 +111,9 @@
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
             this.drivingLabel = new System.Windows.Forms.Label();
+            this.maxSpeedButton = new System.Windows.Forms.Button();
+            this.maxSpeedTextBox = new System.Windows.Forms.TextBox();
+            this.maxDriveSpeedLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
@@ -199,6 +202,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.maxDriveSpeedLabel);
+            this.groupBox2.Controls.Add(this.maxSpeedButton);
+            this.groupBox2.Controls.Add(this.maxSpeedTextBox);
             this.groupBox2.Controls.Add(this.drivingLabel);
             this.groupBox2.Controls.Add(this.roverOrientationGroupBox);
             this.groupBox2.Controls.Add(this.DrivetextBox);
@@ -948,6 +954,33 @@
             this.drivingLabel.TabIndex = 50;
             this.drivingLabel.Text = "Status";
             // 
+            // maxSpeedButton
+            // 
+            this.maxSpeedButton.Location = new System.Drawing.Point(190, 104);
+            this.maxSpeedButton.Name = "maxSpeedButton";
+            this.maxSpeedButton.Size = new System.Drawing.Size(100, 23);
+            this.maxSpeedButton.TabIndex = 52;
+            this.maxSpeedButton.Text = "Set Max Speed";
+            this.maxSpeedButton.UseVisualStyleBackColor = true;
+            this.maxSpeedButton.Click += new System.EventHandler(this.maxSpeedButton_Click);
+            // 
+            // maxSpeedTextBox
+            // 
+            this.maxSpeedTextBox.Location = new System.Drawing.Point(145, 106);
+            this.maxSpeedTextBox.Name = "maxSpeedTextBox";
+            this.maxSpeedTextBox.Size = new System.Drawing.Size(39, 20);
+            this.maxSpeedTextBox.TabIndex = 51;
+            this.maxSpeedTextBox.Text = "100";
+            // 
+            // maxDriveSpeedLabel
+            // 
+            this.maxDriveSpeedLabel.AutoSize = true;
+            this.maxDriveSpeedLabel.Location = new System.Drawing.Point(303, 109);
+            this.maxDriveSpeedLabel.Name = "maxDriveSpeedLabel";
+            this.maxDriveSpeedLabel.Size = new System.Drawing.Size(90, 13);
+            this.maxDriveSpeedLabel.TabIndex = 53;
+            this.maxDriveSpeedLabel.Text = "Drive Speed: 100";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1074,6 +1107,9 @@
         private System.Windows.Forms.PictureBox frontlPictureBox;
         private System.Windows.Forms.PictureBox horizonPictureBox;
         private System.Windows.Forms.Label drivingLabel;
+        private System.Windows.Forms.Button maxSpeedButton;
+        private System.Windows.Forms.TextBox maxSpeedTextBox;
+        private System.Windows.Forms.Label maxDriveSpeedLabel;
     }
 }
 

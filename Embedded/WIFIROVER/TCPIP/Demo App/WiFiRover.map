@@ -89,30 +89,30 @@ Microchip PIC32 Memory-Usage Report
 kseg0 Program-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-.text                   0x9d000008        0x1aff4      110580  App's exec code 
-.dinit                  0x9d01affc          0x248         584   
-.text                   0x9d01b244          0xca0        3232  App's exec code 
-.text.general_exception 0x9d01bee4           0xd0         208   
-.text                   0x9d01bfb4          0x140         320  App's exec code 
-.text.I2CSetFrequency   0x9d01c0f4           0x48          72   
-.rodata                 0x9d01c13c           0x40          64  Read-only const 
-.text.INTEnableSystemMu 0x9d01c17c           0x34          52   
-.text.I2CEnable         0x9d01c1b0           0x28          40   
-.rodata                 0x9d01c1d8           0x40          64  Read-only const 
-.text.INTRestoreInterru 0x9d01c218           0x1c          28   
-.text                   0x9d01c234           0x18          24  App's exec code 
-.text.CheKseg0CacheOff  0x9d01c24c           0x18          24   
-.text.CheKseg0CacheOn   0x9d01c264           0x18          24   
-.rodata                 0x9d01c27c           0x14          20  Read-only const 
-.text                   0x9d01c290           0x10          16  App's exec code 
-.text._bootstrap_except 0x9d01c2a0            0xc          12   
-.rodata                 0x9d01c2ac            0x8           8  Read-only const 
-.text._on_reset         0x9d01c2b4            0x8           8   
-.text._on_bootstrap     0x9d01c2bc            0x8           8   
-.text.INTDisableInterru 0x9d01c2c4            0x8           8   
-.text.INTEnableInterrup 0x9d01c2cc            0x8           8   
-.rodata                 0x9d01c2d4           0x10          16  Read-only const 
-      Total kseg0_program_mem used  :     0x1c2dc      115420  44.0% of 0x40000
+.text                   0x9d000008        0x1b0f8      110840  App's exec code 
+.dinit                  0x9d01b100          0x24c         588   
+.text                   0x9d01b34c          0xca0        3232  App's exec code 
+.text.general_exception 0x9d01bfec           0xd0         208   
+.text                   0x9d01c0bc          0x140         320  App's exec code 
+.text.I2CSetFrequency   0x9d01c1fc           0x48          72   
+.rodata                 0x9d01c244           0x40          64  Read-only const 
+.text.INTEnableSystemMu 0x9d01c284           0x34          52   
+.text.I2CEnable         0x9d01c2b8           0x28          40   
+.rodata                 0x9d01c2e0           0x40          64  Read-only const 
+.text.INTRestoreInterru 0x9d01c320           0x1c          28   
+.text                   0x9d01c33c           0x18          24  App's exec code 
+.text.CheKseg0CacheOff  0x9d01c354           0x18          24   
+.text.CheKseg0CacheOn   0x9d01c36c           0x18          24   
+.rodata                 0x9d01c384           0x14          20  Read-only const 
+.text                   0x9d01c398           0x10          16  App's exec code 
+.text._bootstrap_except 0x9d01c3a8            0xc          12   
+.rodata                 0x9d01c3b4            0x8           8  Read-only const 
+.text._on_reset         0x9d01c3bc            0x8           8   
+.text._on_bootstrap     0x9d01c3c4            0x8           8   
+.text.INTDisableInterru 0x9d01c3cc            0x8           8   
+.text.INTEnableInterrup 0x9d01c3d4            0x8           8   
+.rodata                 0x9d01c3dc           0x10          16  Read-only const 
+      Total kseg0_program_mem used  :     0x1c3e4      115684  44.1% of 0x40000
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -138,7 +138,7 @@ section                    address  length [bytes]      (dec)  Description
 .bev_excpt              0xbfc00380           0x10          16  BEV-Exception 
          Total kseg1_boot_mem used  :       0x204         516  44.2% of 0x490
         --------------------------------------------------------------------------
-         Total Program Memory used  :     0x1c520      116000  43.0% of 0x41e00
+         Total Program Memory used  :     0x1c628      116264  43.1% of 0x41e00
         --------------------------------------------------------------------------
 
 
@@ -146,21 +146,21 @@ kseg1 Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .eh_frame               0xa0000000           0x28          40   
-.sdata                  0xa0000028           0x30          48  Small init data 
-.sbss                   0xa0000058          0x188         392  Small uninit data 
-.bss                    0xa00001e0         0x4f10       20240  Uninitialized data 
-.bss                    0xa00050f0          0x21c         540  Uninitialized data 
-         Total kseg1_data_mem used  :      0x530c       21260  64.9% of 0x8000
+.sdata                  0xa0000028           0x34          52  Small init data 
+.sbss                   0xa000005c          0x188         392  Small uninit data 
+.bss                    0xa00001e4         0x4f10       20240  Uninitialized data 
+.bss                    0xa00050f4          0x21c         540  Uninitialized data 
+         Total kseg1_data_mem used  :      0x5310       21264  64.9% of 0x8000
         --------------------------------------------------------------------------
-            Total Data Memory used  :      0x530c       21260  64.9% of 0x8000
+            Total Data Memory used  :      0x5310       21264  64.9% of 0x8000
         --------------------------------------------------------------------------
 
 
 Dynamic Data-Memory Reservation
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-heap                    0xa0005310              0           0  Reserved for heap 
-stack                   0xa0005328         0x2cc8       11464  Reserved for stack 
+heap                    0xa0005318              0           0  Reserved for heap 
+stack                   0xa0005330         0x2cc8       11464  Reserved for stack 
 
         --------------------------------------------------------------------------
 
@@ -833,7 +833,7 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  *(.got.plt)
  *(.got)
 
-.sdata          0xa0000028       0x30
+.sdata          0xa0000028       0x34
                 0xa0000028                _sdata_begin = .
  *(.sdata .sdata.* .gnu.linkonce.s.*)
  .sdata         0xa0000028        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
@@ -844,148 +844,149 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  .sdata         0xa0000039        0x1 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionAlgorithm.o
  .sdata         0xa000003a        0x1 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
  *fill*         0xa000003b        0x1 00
- .sdata         0xa000003c       0x1c Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+ .sdata         0xa000003c       0x20 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
                 0xa000003c                LINETa
                 0xa0000040                LINETb
                 0xa0000044                speed1
                 0xa0000048                speed2
                 0xa000004c                status
-                0xa0000050                globalRSSI
-                0xa0000054                commandstate
-                0xa0000058                _sdata_end = .
+                0xa0000050                DRIVE_MAX_SPEED
+                0xa0000054                globalRSSI
+                0xa0000058                commandstate
+                0xa000005c                _sdata_end = .
 
 .lit8
  *(.lit8)
 
 .lit4
  *(.lit4)
-                0xa0000058                . = ALIGN (0x4)
-                0xa0000058                _data_end = .
-                0xa0000058                _bss_begin = .
+                0xa000005c                . = ALIGN (0x4)
+                0xa000005c                _data_end = .
+                0xa000005c                _bss_begin = .
 
-.sbss           0xa0000058      0x188
-                0xa0000058                _sbss_begin = .
+.sbss           0xa000005c      0x188
+                0xa000005c                _sbss_begin = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0xa0000058        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
- .sbss          0xa0000060        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
- .sbss          0xa0000064        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
-                0xa0000064                DHCPClientInitializedOnce
- .sbss          0xa0000068       0x18 Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
- .sbss          0xa0000080        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
- .sbss          0xa0000084       0x10 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
- .sbss          0xa0000094        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
- .sbss          0xa000009c        0x2 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
- *fill*         0xa000009e        0x2 00
- .sbss          0xa00000a0        0xc Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
- .sbss          0xa00000ac        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
- .sbss          0xa00000b4        0x1 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
- *fill*         0xa00000b5        0x3 00
- .sbss          0xa00000b8        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
- .sbss          0xa00000bc       0x14 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
- .sbss          0xa00000d0        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
-                0xa00000d0                g_HostRAWDataPacketReceived
- .sbss          0xa00000d4       0x1c Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
- .sbss          0xa00000f0       0x10 Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
-                0xa00000fc                g_MgmtResponseInProgress
- .sbss          0xa0000100        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
- .sbss          0xa0000104        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
- .sbss          0xa000010c        0xc Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
-                0xa000010c                tcptxbufferpoint
- .sbss          0xa0000118        0x1 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
-                0xa0000118                i2cerror
- *fill*         0xa0000119        0x3 00
- .sbss          0xa000011c       0x5c Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
-                0xa000011c                pos1
-                0xa0000120                pos2
-                0xa0000124                ir_timer
-                0xa0000128                mag_acquire_data
-                0xa0000129                should_send_mag
-                0xa000012c                mag_data_pos
-                0xa0000130                mag_ticker
-                0xa0000134                acc_cur_pos
-                0xa0000138                acc_data_aquire
-                0xa0000139                should_send_acc
-                0xa000013c                acc_data_ticker
-                0xa0000140                send_IR_update
-                0xa0000144                ti
-                0xa0000148                current_pos
-                0xa000014c                avrg_pos
-                0xa0000150                wanted_encoder_steps
-                0xa0000154                encoder_l_old
-                0xa0000158                encoder_r_old
-                0xa000015c                drive_by_steps
-                0xa0000160                ticker4
-                0xa0000164                comsdatahead
-                0xa0000168                comsdatatail
-                0xa000016c                REQCOUNT
-                0xa0000170                waveid
-                0xa0000174                bptag
+ .sbss          0xa000005c        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
+ .sbss          0xa0000064        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
+ .sbss          0xa0000068        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
+                0xa0000068                DHCPClientInitializedOnce
+ .sbss          0xa000006c       0x18 Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
+ .sbss          0xa0000084        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
+ .sbss          0xa0000088       0x10 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
+ .sbss          0xa0000098        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
+ .sbss          0xa00000a0        0x2 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
+ *fill*         0xa00000a2        0x2 00
+ .sbss          0xa00000a4        0xc Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
+ .sbss          0xa00000b0        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
+ .sbss          0xa00000b8        0x1 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
+ *fill*         0xa00000b9        0x3 00
+ .sbss          0xa00000bc        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
+ .sbss          0xa00000c0       0x14 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
+ .sbss          0xa00000d4        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
+                0xa00000d4                g_HostRAWDataPacketReceived
+ .sbss          0xa00000d8       0x1c Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
+ .sbss          0xa00000f4       0x10 Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
+                0xa0000100                g_MgmtResponseInProgress
+ .sbss          0xa0000104        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
+ .sbss          0xa0000108        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
+ .sbss          0xa0000110        0xc Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
+                0xa0000110                tcptxbufferpoint
+ .sbss          0xa000011c        0x1 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
+                0xa000011c                i2cerror
+ *fill*         0xa000011d        0x3 00
+ .sbss          0xa0000120       0x5c Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+                0xa0000120                pos1
+                0xa0000124                pos2
+                0xa0000128                ir_timer
+                0xa000012c                mag_acquire_data
+                0xa000012d                should_send_mag
+                0xa0000130                mag_data_pos
+                0xa0000134                mag_ticker
+                0xa0000138                acc_cur_pos
+                0xa000013c                acc_data_aquire
+                0xa000013d                should_send_acc
+                0xa0000140                acc_data_ticker
+                0xa0000144                send_IR_update
+                0xa0000148                ti
+                0xa000014c                current_pos
+                0xa0000150                avrg_pos
+                0xa0000154                wanted_encoder_steps
+                0xa0000158                encoder_l_old
+                0xa000015c                encoder_r_old
+                0xa0000160                drive_by_steps
+                0xa0000164                ticker4
+                0xa0000168                comsdatahead
+                0xa000016c                comsdatatail
+                0xa0000170                REQCOUNT
+                0xa0000174                waveid
+                0xa0000178                bptag
  *(.scommon)
- .scommon       0xa0000178        0x6 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
-                0xa0000178                UDPTxCount
-                0xa000017a                activeUDPSocket
-                0xa000017c                UDPRxCount
- *fill*         0xa000017e        0x2 00
- .scommon       0xa0000180        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
-                0xa0000180                RawMoveState
- .scommon       0xa0000188        0xc Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
-                0xa0000188                RawWindowState
-                0xa000018c                RawWindowReady
- .scommon       0xa0000194        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
-                0xa0000194                g_rxIndexSetBeyondBuffer
- .scommon       0xa0000198        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
-                0xa0000198                AN0String
- .scommon       0xa00001a0       0x40 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
-                0xa00001a0                lastIR
-                0xa00001a4                commandlen
-                0xa00001a8                le_old
-                0xa00001ac                bitdelcount
-                0xa00001b0                IRstreamTail
-                0xa00001b4                wanted_speed_right
-                0xa00001b8                LINEBON
-                0xa00001bc                LINEBOFF
-                0xa00001c0                LINEB
-                0xa00001c4                re_old
-                0xa00001c8                IRstreamHead
-                0xa00001cc                IRstreamLen
-                0xa00001d0                LINEAON
-                0xa00001d4                LINEA
-                0xa00001d8                LINEAOFF
-                0xa00001dc                wanted_speed_left
-                0xa00001e0                _sbss_end = .
+ .scommon       0xa000017c        0x6 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
+                0xa000017c                UDPTxCount
+                0xa000017e                activeUDPSocket
+                0xa0000180                UDPRxCount
+ *fill*         0xa0000182        0x2 00
+ .scommon       0xa0000184        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
+                0xa0000184                RawMoveState
+ .scommon       0xa000018c        0xc Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
+                0xa000018c                RawWindowState
+                0xa0000190                RawWindowReady
+ .scommon       0xa0000198        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
+                0xa0000198                g_rxIndexSetBeyondBuffer
+ .scommon       0xa000019c        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
+                0xa000019c                AN0String
+ .scommon       0xa00001a4       0x40 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+                0xa00001a4                lastIR
+                0xa00001a8                commandlen
+                0xa00001ac                le_old
+                0xa00001b0                bitdelcount
+                0xa00001b4                IRstreamTail
+                0xa00001b8                wanted_speed_right
+                0xa00001bc                LINEBON
+                0xa00001c0                LINEBOFF
+                0xa00001c4                LINEB
+                0xa00001c8                re_old
+                0xa00001cc                IRstreamHead
+                0xa00001d0                IRstreamLen
+                0xa00001d4                LINEAON
+                0xa00001d8                LINEA
+                0xa00001dc                LINEAOFF
+                0xa00001e0                wanted_speed_left
+                0xa00001e4                _sbss_end = .
 
-.bss            0xa00001e0     0x4f10
+.bss            0xa00001e4     0x4f10
  *(.dynbss)
  *(COMMON)
- COMMON         0xa00001e0        0xa Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
-                0xa00001e0                remoteNode
- *fill*         0xa00001ea        0x2 00
- COMMON         0xa00001ec       0xe0 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
-                0xa00001ec                UDPSocketInfo
- COMMON         0xa00002cc       0x97 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
-                0xa00002cc                AppConfig
- *fill*         0xa0000363        0x1 00
- COMMON         0xa0000364      0x7e9 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
-                0xa0000364                tcptxbuffer
- *fill*         0xa0000b4d        0x3 00
- COMMON         0xa0000b50     0x45a0 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
-                0xa0000b50                IRres2
-                0xa0000d50                IR_data_r
-                0xa0000d78                acc_data_z
-                0xa0001c78                IRres
-                0xa0001e78                IR_pos_r
-                0xa0001ea0                mag_data_x
-                0xa0002da0                IR_pos_l
-                0xa0002dc8                comsdata
-                0xa00031c8                nextcommand
-                0xa00032c8                IR_data_l
-                0xa00032f0                mag_data_y
-                0xa00041f0                mag_data_z
-                0xa00050f0                . = ALIGN (0x4)
-                0xa00050f0                . = ALIGN (0x4)
-                0xa00050f0                _end = .
-                0xa00050f0                _bss_end = .
+ COMMON         0xa00001e4        0xa Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
+                0xa00001e4                remoteNode
+ *fill*         0xa00001ee        0x2 00
+ COMMON         0xa00001f0       0xe0 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
+                0xa00001f0                UDPSocketInfo
+ COMMON         0xa00002d0       0x97 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
+                0xa00002d0                AppConfig
+ *fill*         0xa0000367        0x1 00
+ COMMON         0xa0000368      0x7e9 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
+                0xa0000368                tcptxbuffer
+ *fill*         0xa0000b51        0x3 00
+ COMMON         0xa0000b54     0x45a0 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+                0xa0000b54                IRres2
+                0xa0000d54                IR_data_r
+                0xa0000d7c                acc_data_z
+                0xa0001c7c                IRres
+                0xa0001e7c                IR_pos_r
+                0xa0001ea4                mag_data_x
+                0xa0002da4                IR_pos_l
+                0xa0002dcc                comsdata
+                0xa00031cc                nextcommand
+                0xa00032cc                IR_data_l
+                0xa00032f4                mag_data_y
+                0xa00041f4                mag_data_z
+                0xa00050f4                . = ALIGN (0x4)
+                0xa00050f4                . = ALIGN (0x4)
+                0xa00050f4                _end = .
+                0xa00050f4                _bss_end = .
                 0x00008000                _bmxdudba_address = 0x8000
                 0x00008000                _bmxdupba_address = 0x8000
 
@@ -1220,7 +1221,7 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
                 0x00000588       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
 
 .debug_pubnames
-                0x00000000     0x1e7a
+                0x00000000     0x1e8e
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x33 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
@@ -1289,118 +1290,118 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  .debug_pubnames
                 0x000017fb       0x4d Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
  .debug_pubnames
-                0x00001848      0x464 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+                0x00001848      0x478 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
  .debug_pubnames
-                0x00001cac       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
+                0x00001cc0       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
  .debug_pubnames
-                0x00001ccc       0x33 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
+                0x00001ce0       0x33 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
  .debug_pubnames
-                0x00001cff       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
+                0x00001d13       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
  .debug_pubnames
-                0x00001d1f       0x24 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
+                0x00001d33       0x24 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
  .debug_pubnames
-                0x00001d43       0x3b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
+                0x00001d57       0x3b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
  .debug_pubnames
-                0x00001d7e       0x2b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
+                0x00001d92       0x2b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
  .debug_pubnames
-                0x00001da9       0x2b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
+                0x00001dbd       0x2b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
  .debug_pubnames
-                0x00001dd4       0x36 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
+                0x00001de8       0x36 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
  .debug_pubnames
-                0x00001e0a       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
+                0x00001e1e       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
  .debug_pubnames
-                0x00001e2a       0x26 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
+                0x00001e3e       0x26 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
  .debug_pubnames
-                0x00001e50       0x2a c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
+                0x00001e64       0x2a c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
 
-.debug_info     0x00000000    0x61eb0
+.debug_info     0x00000000    0x62291
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x1b24 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
- .debug_info    0x00001b24      0xf7b Obj-C32-PIC32_GP_SK_MRF24WB\ARCFOUR.o
- .debug_info    0x00002a9f     0x19d7 Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
- .debug_info    0x00004476     0x1d19 Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
- .debug_info    0x0000618f      0xf7f Obj-C32-PIC32_GP_SK_MRF24WB\BerkeleyAPI.o
- .debug_info    0x0000710e      0xf7a Obj-C32-PIC32_GP_SK_MRF24WB\BigInt.o
- .debug_info    0x00008088     0x100e Obj-C32-PIC32_GP_SK_MRF24WB\Delay.o
- .debug_info    0x00009096     0x1fc5 Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
- .debug_info    0x0000b05b      0xf79 Obj-C32-PIC32_GP_SK_MRF24WB\DHCPs.o
- .debug_info    0x0000bfd4     0x1c5c Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
- .debug_info    0x0000dc30      0xf78 Obj-C32-PIC32_GP_SK_MRF24WB\DNSs.o
- .debug_info    0x0000eba8      0xf7a Obj-C32-PIC32_GP_SK_MRF24WB\DynDNS.o
- .debug_info    0x0000fb22      0xf7c Obj-C32-PIC32_GP_SK_MRF24WB\ENC28J60.o
- .debug_info    0x00010a9e      0xf7e Obj-C32-PIC32_GP_SK_MRF24WB\ENCX24J600.o
- .debug_info    0x00011a1c      0xf7e Obj-C32-PIC32_GP_SK_MRF24WB\FileSystem.o
- .debug_info    0x0001299a      0xf77 Obj-C32-PIC32_GP_SK_MRF24WB\FTP.o
- .debug_info    0x00013911      0xf7a Obj-C32-PIC32_GP_SK_MRF24WB\Hashes.o
- .debug_info    0x0001488b     0x1e8e Obj-C32-PIC32_GP_SK_MRF24WB\Helpers.o
- .debug_info    0x00016719     0x156e Obj-C32-PIC32_GP_SK_MRF24WB\ICMP.o
- .debug_info    0x00017c87     0x1a57 Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
- .debug_info    0x000196de      0xf7f Obj-C32-PIC32_GP_SK_MRF24WB\LCDBlocking.o
- .debug_info    0x0001a65d      0xf79 Obj-C32-PIC32_GP_SK_MRF24WB\MPFS2.o
- .debug_info    0x0001b5d6      0xf78 Obj-C32-PIC32_GP_SK_MRF24WB\NBNS.o
- .debug_info    0x0001c54e      0xf7a Obj-C32-PIC32_GP_SK_MRF24WB\Reboot.o
- .debug_info    0x0001d4c8      0xf77 Obj-C32-PIC32_GP_SK_MRF24WB\RSA.o
- .debug_info    0x0001e43f      0xf78 Obj-C32-PIC32_GP_SK_MRF24WB\SMTP.o
- .debug_info    0x0001f3b7      0xf78 Obj-C32-PIC32_GP_SK_MRF24WB\SNMP.o
- .debug_info    0x0002032f      0xf7a Obj-C32-PIC32_GP_SK_MRF24WB\SNMPv3.o
- .debug_info    0x000212a9      0xf7d Obj-C32-PIC32_GP_SK_MRF24WB\SNMPv3USM.o
- .debug_info    0x00022226     0x12fa Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
- .debug_info    0x00023520      0xf7d Obj-C32-PIC32_GP_SK_MRF24WB\SPIEEPROM.o
- .debug_info    0x0002449d      0xf7c Obj-C32-PIC32_GP_SK_MRF24WB\SPIFlash.o
- .debug_info    0x00025419      0xf7a Obj-C32-PIC32_GP_SK_MRF24WB\SPIRAM.o
- .debug_info    0x00026393      0xf77 Obj-C32-PIC32_GP_SK_MRF24WB\SSL.o
- .debug_info    0x0002730a     0x18e3 Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
- .debug_info    0x00028bed     0x3067 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
- .debug_info    0x0002bc54      0xf79 Obj-C32-PIC32_GP_SK_MRF24WB\TFTPc.o
- .debug_info    0x0002cbcd     0x1708 Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
- .debug_info    0x0002e2d5      0xf78 Obj-C32-PIC32_GP_SK_MRF24WB\UART.o
- .debug_info    0x0002f24d     0x206d Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
- .debug_info    0x000312ba      0xf82 Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfHelper.o
- .debug_info    0x0003223c      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfLinkLocal.o
- .debug_info    0x000331c1      0xf88 Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfMulticastDNS.o
- .debug_info    0x00034149     0x178f Obj-C32-PIC32_GP_SK_MRF24WB\WF_Eint.o
- .debug_info    0x000358d8     0x18cc Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
- .debug_info    0x000371a4     0x234b Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionAlgorithm.o
- .debug_info    0x000394ef     0x15c9 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
- .debug_info    0x0003aab8     0x1f98 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionProfile.o
- .debug_info    0x0003ca50      0xf82 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsole.o
- .debug_info    0x0003d9d2      0xf8a Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIfconfig.o
- .debug_info    0x0003e95c      0xf8a Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIwconfig.o
- .debug_info    0x0003f8e6      0xf88 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIwpriv.o
- .debug_info    0x0004086e      0xf8c Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleMsgHandler.o
- .debug_info    0x000417fa      0xf86 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleMsgs.o
- .debug_info    0x00042780      0xf83 Obj-C32-PIC32_GP_SK_MRF24WB\WFDataTxRx.o
- .debug_info    0x00043703     0x1bcd Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
- .debug_info    0x000452d0     0x1a4e Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
- .debug_info    0x00046d1e      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\WFEasyConfig.o
- .debug_info    0x00047ca3     0x1527 Obj-C32-PIC32_GP_SK_MRF24WB\WFEventHandler.o
- .debug_info    0x000491ca     0x1a0a Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
- .debug_info    0x0004abd4     0x1ec9 Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
- .debug_info    0x0004ca9d     0x15f7 Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
- .debug_info    0x0004e094     0x20a9 Obj-C32-PIC32_GP_SK_MRF24WB\WFParamMsg.o
- .debug_info    0x0005013d     0x1925 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
- .debug_info    0x00051a62     0x153b Obj-C32-PIC32_GP_SK_MRF24WB\WFScan.o
- .debug_info    0x00052f9d     0x1693 Obj-C32-PIC32_GP_SK_MRF24WB\WFTxPower.o
- .debug_info    0x00054630      0xf65 Obj-C32-PIC32_GP_SK_MRF24WB\CustomSSLCert.o
- .debug_info    0x00055595     0x1cae Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
- .debug_info    0x00057243      0xf68 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPClient.o
- .debug_info    0x000581ab     0x1136 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
- .debug_info    0x000592e1      0xf60 Obj-C32-PIC32_GP_SK_MRF24WB\MPFSImg2.o
- .debug_info    0x0005a241     0x1418 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
- .debug_info    0x0005b659     0x1742 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
- .debug_info    0x0005cd9b     0x414e Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
- .debug_info    0x00060ee9      0x78b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
- .debug_info    0x00061674      0x106 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
- .debug_info    0x0006177a       0xe0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
- .debug_info    0x0006185a       0xe8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
- .debug_info    0x00061942       0xd4 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
- .debug_info    0x00061a16       0xcb c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
- .debug_info    0x00061ae1       0xcb c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
- .debug_info    0x00061bac       0xd1 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
- .debug_info    0x00061c7d       0xaf c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
- .debug_info    0x00061d2c       0xbb c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
- .debug_info    0x00061de7       0xc9 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
- .debug_info    0x00061eb0        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
+ .debug_info    0x00000000     0x1b31 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
+ .debug_info    0x00001b31      0xf88 Obj-C32-PIC32_GP_SK_MRF24WB\ARCFOUR.o
+ .debug_info    0x00002ab9     0x19e4 Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
+ .debug_info    0x0000449d     0x1d26 Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
+ .debug_info    0x000061c3      0xf8c Obj-C32-PIC32_GP_SK_MRF24WB\BerkeleyAPI.o
+ .debug_info    0x0000714f      0xf87 Obj-C32-PIC32_GP_SK_MRF24WB\BigInt.o
+ .debug_info    0x000080d6     0x101b Obj-C32-PIC32_GP_SK_MRF24WB\Delay.o
+ .debug_info    0x000090f1     0x1fd2 Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
+ .debug_info    0x0000b0c3      0xf86 Obj-C32-PIC32_GP_SK_MRF24WB\DHCPs.o
+ .debug_info    0x0000c049     0x1c69 Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
+ .debug_info    0x0000dcb2      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\DNSs.o
+ .debug_info    0x0000ec37      0xf87 Obj-C32-PIC32_GP_SK_MRF24WB\DynDNS.o
+ .debug_info    0x0000fbbe      0xf89 Obj-C32-PIC32_GP_SK_MRF24WB\ENC28J60.o
+ .debug_info    0x00010b47      0xf8b Obj-C32-PIC32_GP_SK_MRF24WB\ENCX24J600.o
+ .debug_info    0x00011ad2      0xf8b Obj-C32-PIC32_GP_SK_MRF24WB\FileSystem.o
+ .debug_info    0x00012a5d      0xf84 Obj-C32-PIC32_GP_SK_MRF24WB\FTP.o
+ .debug_info    0x000139e1      0xf87 Obj-C32-PIC32_GP_SK_MRF24WB\Hashes.o
+ .debug_info    0x00014968     0x1e9b Obj-C32-PIC32_GP_SK_MRF24WB\Helpers.o
+ .debug_info    0x00016803     0x157b Obj-C32-PIC32_GP_SK_MRF24WB\ICMP.o
+ .debug_info    0x00017d7e     0x1a64 Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
+ .debug_info    0x000197e2      0xf8c Obj-C32-PIC32_GP_SK_MRF24WB\LCDBlocking.o
+ .debug_info    0x0001a76e      0xf86 Obj-C32-PIC32_GP_SK_MRF24WB\MPFS2.o
+ .debug_info    0x0001b6f4      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\NBNS.o
+ .debug_info    0x0001c679      0xf87 Obj-C32-PIC32_GP_SK_MRF24WB\Reboot.o
+ .debug_info    0x0001d600      0xf84 Obj-C32-PIC32_GP_SK_MRF24WB\RSA.o
+ .debug_info    0x0001e584      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\SMTP.o
+ .debug_info    0x0001f509      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\SNMP.o
+ .debug_info    0x0002048e      0xf87 Obj-C32-PIC32_GP_SK_MRF24WB\SNMPv3.o
+ .debug_info    0x00021415      0xf8a Obj-C32-PIC32_GP_SK_MRF24WB\SNMPv3USM.o
+ .debug_info    0x0002239f     0x1307 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
+ .debug_info    0x000236a6      0xf8a Obj-C32-PIC32_GP_SK_MRF24WB\SPIEEPROM.o
+ .debug_info    0x00024630      0xf89 Obj-C32-PIC32_GP_SK_MRF24WB\SPIFlash.o
+ .debug_info    0x000255b9      0xf87 Obj-C32-PIC32_GP_SK_MRF24WB\SPIRAM.o
+ .debug_info    0x00026540      0xf84 Obj-C32-PIC32_GP_SK_MRF24WB\SSL.o
+ .debug_info    0x000274c4     0x18f0 Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
+ .debug_info    0x00028db4     0x3074 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
+ .debug_info    0x0002be28      0xf86 Obj-C32-PIC32_GP_SK_MRF24WB\TFTPc.o
+ .debug_info    0x0002cdae     0x1715 Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
+ .debug_info    0x0002e4c3      0xf85 Obj-C32-PIC32_GP_SK_MRF24WB\UART.o
+ .debug_info    0x0002f448     0x207a Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
+ .debug_info    0x000314c2      0xf8f Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfHelper.o
+ .debug_info    0x00032451      0xf92 Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfLinkLocal.o
+ .debug_info    0x000333e3      0xf95 Obj-C32-PIC32_GP_SK_MRF24WB\ZeroconfMulticastDNS.o
+ .debug_info    0x00034378     0x179c Obj-C32-PIC32_GP_SK_MRF24WB\WF_Eint.o
+ .debug_info    0x00035b14     0x18d9 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
+ .debug_info    0x000373ed     0x2358 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionAlgorithm.o
+ .debug_info    0x00039745     0x15d6 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
+ .debug_info    0x0003ad1b     0x1fa5 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionProfile.o
+ .debug_info    0x0003ccc0      0xf8f Obj-C32-PIC32_GP_SK_MRF24WB\WFConsole.o
+ .debug_info    0x0003dc4f      0xf97 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIfconfig.o
+ .debug_info    0x0003ebe6      0xf97 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIwconfig.o
+ .debug_info    0x0003fb7d      0xf95 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleIwpriv.o
+ .debug_info    0x00040b12      0xf99 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleMsgHandler.o
+ .debug_info    0x00041aab      0xf93 Obj-C32-PIC32_GP_SK_MRF24WB\WFConsoleMsgs.o
+ .debug_info    0x00042a3e      0xf90 Obj-C32-PIC32_GP_SK_MRF24WB\WFDataTxRx.o
+ .debug_info    0x000439ce     0x1bda Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
+ .debug_info    0x000455a8     0x1a5b Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
+ .debug_info    0x00047003      0xf92 Obj-C32-PIC32_GP_SK_MRF24WB\WFEasyConfig.o
+ .debug_info    0x00047f95     0x1534 Obj-C32-PIC32_GP_SK_MRF24WB\WFEventHandler.o
+ .debug_info    0x000494c9     0x1a17 Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
+ .debug_info    0x0004aee0     0x1ed6 Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
+ .debug_info    0x0004cdb6     0x1604 Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
+ .debug_info    0x0004e3ba     0x20b6 Obj-C32-PIC32_GP_SK_MRF24WB\WFParamMsg.o
+ .debug_info    0x00050470     0x1932 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
+ .debug_info    0x00051da2     0x1548 Obj-C32-PIC32_GP_SK_MRF24WB\WFScan.o
+ .debug_info    0x000532ea     0x16a0 Obj-C32-PIC32_GP_SK_MRF24WB\WFTxPower.o
+ .debug_info    0x0005498a      0xf72 Obj-C32-PIC32_GP_SK_MRF24WB\CustomSSLCert.o
+ .debug_info    0x000558fc     0x1cbb Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
+ .debug_info    0x000575b7      0xf75 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPClient.o
+ .debug_info    0x0005852c     0x1143 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
+ .debug_info    0x0005966f      0xf6d Obj-C32-PIC32_GP_SK_MRF24WB\MPFSImg2.o
+ .debug_info    0x0005a5dc     0x1425 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
+ .debug_info    0x0005ba01     0x174f Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
+ .debug_info    0x0005d150     0x417a Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+ .debug_info    0x000612ca      0x78b c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
+ .debug_info    0x00061a55      0x106 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
+ .debug_info    0x00061b5b       0xe0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
+ .debug_info    0x00061c3b       0xe8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
+ .debug_info    0x00061d23       0xd4 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
+ .debug_info    0x00061df7       0xcb c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
+ .debug_info    0x00061ec2       0xcb c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
+ .debug_info    0x00061f8d       0xd1 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
+ .debug_info    0x0006205e       0xaf c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
+ .debug_info    0x0006210d       0xbb c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
+ .debug_info    0x000621c8       0xc9 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
+ .debug_info    0x00062291        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
 
 .debug_abbrev   0x00000000     0x8756
  *(.debug_abbrev)
@@ -1491,7 +1492,7 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  .debug_abbrev  0x00008730       0x25 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
  .debug_abbrev  0x00008755        0x1 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
 
-.debug_line     0x00000000     0x9526
+.debug_line     0x00000000     0x952f
  *(.debug_line)
  .debug_line    0x00000000      0x21e Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
  .debug_line    0x0000021e      0x13f Obj-C32-PIC32_GP_SK_MRF24WB\ARCFOUR.o
@@ -1566,19 +1567,19 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  .debug_line    0x00008462      0x13f Obj-C32-PIC32_GP_SK_MRF24WB\MPFSImg2.o
  .debug_line    0x000085a1      0x1a9 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
  .debug_line    0x0000874a      0x1a2 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
- .debug_line    0x000088ec      0x660 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
- .debug_line    0x00008f4c      0x118 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
- .debug_line    0x00009064       0xa6 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
- .debug_line    0x0000910a       0x93 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
- .debug_line    0x0000919d       0x97 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
- .debug_line    0x00009234       0x62 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
- .debug_line    0x00009296       0x73 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
- .debug_line    0x00009309       0x73 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
- .debug_line    0x0000937c       0x6e c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
- .debug_line    0x000093ea       0x62 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
- .debug_line    0x0000944c       0x68 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
- .debug_line    0x000094b4       0x72 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
- .debug_line    0x00009526        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
+ .debug_line    0x000088ec      0x669 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+ .debug_line    0x00008f55      0x118 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
+ .debug_line    0x0000906d       0xa6 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
+ .debug_line    0x00009113       0x93 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
+ .debug_line    0x000091a6       0x97 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
+ .debug_line    0x0000923d       0x62 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
+ .debug_line    0x0000929f       0x73 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
+ .debug_line    0x00009312       0x73 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
+ .debug_line    0x00009385       0x6e c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
+ .debug_line    0x000093f3       0x62 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
+ .debug_line    0x00009455       0x68 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
+ .debug_line    0x000094bd       0x72 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
+ .debug_line    0x0000952f        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
 
 .debug_frame    0x00000000     0x2620
  *(.debug_frame)
@@ -1627,7 +1628,7 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  .debug_frame   0x000025e0       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
  .debug_frame   0x00002600       0x20 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
 
-.debug_str      0x00000000     0x4b60
+.debug_str      0x00000000     0x4b70
  *(.debug_str)
  .debug_str     0x00000000      0x117 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
  .debug_str     0x00000117       0xe2 Obj-C32-PIC32_GP_SK_MRF24WB\ARCFOUR.o
@@ -1702,19 +1703,19 @@ LOAD c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../
  .debug_str     0x0000448c       0xe2 Obj-C32-PIC32_GP_SK_MRF24WB\MPFSImg2.o
  .debug_str     0x0000456e       0xe2 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
  .debug_str     0x00004650      0x120 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
- .debug_str     0x00004770      0x3f0 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
- .debug_str     0x00004b60        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
+ .debug_str     0x00004770      0x400 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
+ .debug_str     0x00004b70        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
 
 .debug_loc      0x00000000      0xa47
  *(.debug_loc)
@@ -2085,15 +2086,15 @@ OUTPUT(WiFiRover.elf elf32-tradlittlemips)
 LOAD stack
 LOAD data_init
 
-.stack          0xa0005328      0x400
- .stack         0xa0005328      0x400 stack
+.stack          0xa0005330      0x400
+ .stack         0xa0005330      0x400 stack
 
-.bss            0xa00050f0      0x21c
- .bss           0xa00050f0      0x194 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
- .bss           0xa0005284       0x34 Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
- .bss           0xa00052b8       0x30 Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
- .bss           0xa00052e8       0x18 Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
- .bss           0xa0005300        0xc Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
+.bss            0xa00050f4      0x21c
+ .bss           0xa00050f4      0x194 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
+ .bss           0xa0005288       0x34 Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
+ .bss           0xa00052bc       0x30 Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
+ .bss           0xa00052ec       0x18 Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
+ .bss           0xa0005304        0xc Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
 
 .bss%z1         0x00000000        0x0
  .bss           0x00000000        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/./proc/32MX340F256H\processor.o
@@ -3000,7 +3001,7 @@ LOAD data_init
 .data%z273      0x00000000        0x0
  .data          0x00000000        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size/crt0.o
 
-.text           0x9d000008    0x1aff4
+.text           0x9d000008    0x1b0f8
  .text          0x9d000008     0x8480 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
                 0x9d000134                TCPInit
                 0x9d000420                TCPOpen
@@ -3027,448 +3028,448 @@ LOAD data_init
                 0x9d002b10                TCPTick
                 0x9d003c00                TCPProcess
                 0x9d007bc8                TCPAdjustFIFOSize
- .text          0x9d008488     0x4330 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+ .text          0x9d008488     0x4434 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
                 0x9d008488                _T4Interrupt
-                0x9d009090                _ADCInterrupt
-                0x9d0094c0                _IC1Interrupt
-                0x9d009564                _IC3Interrupt
-                0x9d009608                putcomsdata
-                0x9d009688                yescomsdata
-                0x9d0096c8                getcomsdata
-                0x9d009740                peekcomsdata
-                0x9d0097b8                POSTTCPhead
-                0x9d00983c                initi2Cs
-                0x9d00990c                setspeed
-                0x9d009bbc                processcommand
-                0x9d00bd4c                ProcessIO
-                0x9d00bf1c                InitializeBoard
- .text          0x9d00c7b8     0x175c Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
-                0x9d00c7b8                DHCPInit
-                0x9d00c8ac                DHCPDisable
-                0x9d00c91c                DHCPEnable
-                0x9d00c97c                DHCPIsEnabled
-                0x9d00c9b4                DHCPIsBound
-                0x9d00c9f0                DHCPStateChanged
-                0x9d00ca54                DHCPIsServerDetected
-                0x9d00ca90                DHCPTask
- .text          0x9d00df14     0x1714 Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
-                0x9d00e304                MACProcess
-                0x9d00e390                MACInit
-                0x9d00e3c0                RawInit
-                0x9d00e450                MACIsLinked
-                0x9d00e480                MACIsTxReady
-                0x9d00e538                WFisTxMgmtReady
-                0x9d00e5c4                WFFreeMgmtTx
-                0x9d00e654                SendRAWManagementFrame
-                0x9d00e6a0                RawGetMgmtRxBuffer
-                0x9d00e73c                SetRawRxMgmtInProgress
-                0x9d00e778                isRawRxMgmtInProgress
-                0x9d00e79c                MACDiscardRx
-                0x9d00e7c4                MACGetFreeRxSize
-                0x9d00e8ec                MACGetHeader
-                0x9d00eadc                MACPutHeader
-                0x9d00ebb8                MACFlush
-                0x9d00ec98                MACSetReadPtrInRx
-                0x9d00ece4                MACSetWritePtr
-                0x9d00ed34                MACSetReadPtr
-                0x9d00ed84                MACCalcRxChecksum
-                0x9d00ee10                MACMemCopyAsync
-                0x9d00f36c                MACIsMemCopyDone
-                0x9d00f390                MACGet
-                0x9d00f404                MACGetArray
-                0x9d00f4e4                MACPut
-                0x9d00f564                MACPutArray
-                0x9d00f5e8                MACPowerDown
-                0x9d00f608                MACPowerUp
- .text          0x9d00f628     0x11f8 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
-                0x9d00f628                UDPInit
-                0x9d00f698                UDPOpenEx
-                0x9d00f8d8                UDPTask
-                0x9d00fe1c                UDPIsOpened
-                0x9d00fe6c                UDPClose
-                0x9d00ff14                UDPSetTxBuffer
-                0x9d00ff60                UDPSetRxBuffer
-                0x9d00ffb0                UDPIsPutReady
-                0x9d01003c                UDPPut
-                0x9d0100c8                UDPPutArray
-                0x9d010170                UDPPutString
-                0x9d0101c8                UDPFlush
-                0x9d0102b4                UDPIsGetReady
-                0x9d010344                UDPGet
-                0x9d0103c8                UDPGetArray
-                0x9d010488                UDPDiscard
-                0x9d0104e8                UDPProcess
- .text          0x9d010820     0x10c8 Obj-C32-PIC32_GP_SK_MRF24WB\Helpers.o
-                0x9d010820                LFSRSeedRand
-                0x9d0108a4                LFSRRand
-                0x9d01091c                GenerateRandomDWORD
-                0x9d010b78                StringToIPAddress
-                0x9d010f18                uitoa
-                0x9d011044                hexatob
-                0x9d011138                btohexa_high
-                0x9d01119c                btohexa_low
-                0x9d011200                stricmppgm2ram
-                0x9d01136c                swaps
-                0x9d0113b8                swapl
-                0x9d0114a0                CalcIPChecksum
-                0x9d011588                CalcIPBufferChecksum
-                0x9d0116d0                strupr
-                0x9d01176c                FormatNetBIOSName
-                0x9d011834                strnchr
- .text          0x9d0118e8      0xf34 Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
-                0x9d0118e8                DNSBeginUsage
-                0x9d01193c                DNSEndUsage
-                0x9d0119ac                DNSResolve
-                0x9d011a40                DNSIsResolved
- .text          0x9d01281c      0xeb4 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionAlgorithm.o
-                0x9d01281c                WF_CASetElements
-                0x9d012aa8                WF_CAGetElements
-                0x9d012bd0                WF_CASetScanType
-                0x9d012c14                WF_CAGetScanType
-                0x9d012c58                WF_CASetMinChannelTime
-                0x9d012ccc                WF_CAGetMinChannelTime
-                0x9d012d4c                WF_CASetMaxChannelTime
-                0x9d012dc0                WF_CAGetMaxChannelTime
-                0x9d012e40                WF_CASetProbeDelay
-                0x9d012eb4                WF_CAGetProbeDelay
-                0x9d012f34                WF_CASetScanCount
-                0x9d012f78                WF_CAGetScanCount
-                0x9d012fbc                WF_CASetRssi
-                0x9d013000                WF_CAGetRssi
-                0x9d013044                WF_CASetConnectionProfileList
-                0x9d013080                WF_CAGetConnectionProfileList
-                0x9d0130bc                WF_CASetListRetryCount
-                0x9d013100                WF_CAGetListRetryCount
-                0x9d013144                WF_CASetEventNotificationAction
-                0x9d013184                WF_CAGetEventNotificationAction
-                0x9d0131c4                WF_CASetBeaconTimeoutAction
-                0x9d013208                WF_CAGetBeaconTimeoutAction
-                0x9d01324c                WF_CASetDeauthAction
-                0x9d013290                WF_CAGetDeauthAction
-                0x9d0132d4                WF_CASetChannelList
-                0x9d013320                WF_CAGetChannelList
-                0x9d0133b8                WF_CASetListenInterval
-                0x9d01342c                WF_CAGetListenInterval
-                0x9d0134ac                WF_CASetBeaconTimeout
-                0x9d0134f0                WF_CAGetBeaconTimeout
-                0x9d013564                GetEventNotificationMask
- .text          0x9d0136d0      0xe5c Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
-                0x9d0136d0                AutoIPInit
-                0x9d013768                AutoIPIsConfigured
-                0x9d0137a0                AutoIPConfigIsInProgress
-                0x9d0137dc                AutoIPTasks
-                0x9d0141f0                AutoIPConflict
-                0x9d014368                AutoIPDisable
-                0x9d014408                AutoIPEnable
-                0x9d014450                AutoIPIsDisabled
-                0x9d014484                AutoIPRandSeed
-                0x9d0144c0                AutoIPRand
- .text          0x9d01452c      0xbb8 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
-                0x9d01452c                AllocateMgmtTxBuffer
-                0x9d0145e8                DeallocateMgmtRxBuffer
-                0x9d014634                AllocateDataTxBuffer
-                0x9d0146f0                DeallocateDataTxBuffer
-                0x9d014738                DeallocateDataRxBuffer
-                0x9d014778                RawSendTxBuffer
-                0x9d0147cc                RawMountRxBuffer
-                0x9d014824                RawToRawCopy
-                0x9d01487c                PushRawWindow
-                0x9d0148c8                PopRawWindow
-                0x9d01491c                ScratchMount
-                0x9d01499c                ScratchUnmount
-                0x9d014a04                RawRead
-                0x9d014a78                RawWrite
-                0x9d014c34                RawSetIndex
-                0x9d014d3c                RawGetIndex
-                0x9d014da4                RawGetByte
-                0x9d014e60                RawSetByte
-                0x9d01507c                SendRAWDataFrame
- .text          0x9d0150e4      0xaac Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
-                0x9d0150e4                WFProcess
-                0x9d0152e4                Read8BitWFRegister
-                0x9d015350                Write8BitWFRegister
-                0x9d0153c0                Read16BitWFRegister
-                0x9d015448                Write16BitWFRegister
-                0x9d0154d0                WriteWFArray
-                0x9d015558                ReadWFArray
-                0x9d015924                WFEintHandler
-                0x9d015a60                WFHardwareInit
- .text          0x9d015b90      0x954 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionProfile.o
-                0x9d015b90                WF_CPCreate
-                0x9d015c0c                WF_CPDelete
-                0x9d015c78                WF_CPGetIds
-                0x9d015ce8                WF_CPSetElements
-                0x9d015d60                WF_CPGetElements
-                0x9d015dbc                WF_CPSetSsid
-                0x9d015e38                WF_CPGetSsid
-                0x9d015ee0                WF_CPSetBssid
-                0x9d015f30                WF_CPGetBssid
-                0x9d015f88                WF_CPSetNetworkType
-                0x9d015fe0                WF_CPGetNetworkType
-                0x9d016038                WF_CPSetSecurity
-                0x9d016120                WF_CPGetSecurity
-                0x9d016220                WF_CPSetDefaultWepKeyIndex
-                0x9d016278                WF_CPGetDefaultWepKeyIndex
-                0x9d0162d0                WF_CPSetAdHocBehavior
-                0x9d016328                WF_CPGetAdHocBehavior
- .text          0x9d0164e4      0x8ec c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libm.a(fp32.o)
-                0x9d0164e4                fpsub
-                0x9d0164e4                __subsf3
-                0x9d0164ec                __addsf3
-                0x9d0164ec                fpadd
-                0x9d016758                __mulsf3
-                0x9d016758                fpmul
-                0x9d016910                fpdiv
-                0x9d016910                __divsf3
-                0x9d016b3c                sitofp
-                0x9d016b3c                litofp
-                0x9d016b3c                __floatsisf
-                0x9d016b98                ultofp
-                0x9d016b98                uitofp
-                0x9d016be4                fptosi
-                0x9d016be4                fptoli
-                0x9d016be4                __fixsfsi
-                0x9d016c5c                fptoui
-                0x9d016c5c                __fixunssfsi
-                0x9d016c5c                fptoul
-                0x9d016cd0                __nesf2
-                0x9d016cd0                fpcmp
-                0x9d016cd0                __eqsf2
-                0x9d016cd0                __gesf2
-                0x9d016cd0                __ltsf2
-                0x9d016cd0                __gtsf2
-                0x9d016cd0                __lesf2
-                0x9d016d64                fpfabs
-                0x9d016d64                fabsf
-                0x9d016d74                __negsf2
-                0x9d016d84                fpnan
-                0x9d016d84                nanf
- .text          0x9d016dd0      0x790 Obj-C32-PIC32_GP_SK_MRF24WB\WFParamMsg.o
-                0x9d016dd0                WFEnableMRF24WB0MMode
-                0x9d016e18                WFGetMRF24WB0MVersion
-                0x9d016e58                WF_GetDeviceInfo
-                0x9d016ec0                WF_SetMacAddress
-                0x9d016f00                WF_GetMacAddress
-                0x9d016f40                WF_SetMultiCastFilter
-                0x9d017058                WF_GetMultiCastFilter
-                0x9d017154                WF_SetTxDataConfirm
-                0x9d017198                WF_GetTxDataConfirm
-                0x9d0171d8                WF_SetRegionalDomain
-                0x9d01721c                WF_GetRegionalDomain
-                0x9d01725c                WF_SetRtsThreshold
-                0x9d0172f0                WF_GetRtsThreshold
-                0x9d01736c                WF_GetMacStats
-                0x9d017448                SendSetParamMsg
-                0x9d0174d0                SendGetParamMsg
- .text          0x9d017560      0x68c Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
-                0x9d017668                ARPInit
-                0x9d0176f0                ARPProcess
-                0x9d01799c                ARPResolve
-                0x9d017a80                ARPIsResolved
-                0x9d017b60                SwapARPPacket
- .text          0x9d017bec      0x48c Obj-C32-PIC32_GP_SK_MRF24WB\WFEventHandler.o
-                0x9d017bec                WFProcessMgmtIndicateMsg
- .text          0x9d018078      0x474 Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
-                0x9d018078                SendMgmtMsg
-                0x9d0181c4                SignalMgmtConfirmReceivedEvent
-                0x9d0181ec                IgnoreNextMgmtResult
-                0x9d018214                WaitForMgmtResponse
-                0x9d01835c                WaitForMgmtResponseAndReadData
-                0x9d01846c                WFSetFuncState
- .text          0x9d0184ec      0x448 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
-                0x9d0184ec                __udivdi3
- .text          0x9d018934      0x440 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
-                0x9d018934                _general_exception_handler
-                0x9d018960                main
- .text          0x9d018d74      0x41c Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
-                0x9d018d74                StackInit
-                0x9d018e2c                StackTask
-                0x9d019158                StackApplications
- .text          0x9d019190      0x3f8 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
-                0x9d019190                SNTPClient
-                0x9d0194f0                SNTPGetUTCSeconds
- .text          0x9d019588      0x3f0 Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
-                0x9d019588                IPGetHeader
-                0x9d019770                IPPutHeader
-                0x9d01989c                IPSetRxBuffer
- .text          0x9d019978      0x3d0 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
-                0x9d019978                AnnounceIP
-                0x9d019b04                DiscoveryTask
- .text          0x9d019d48      0x384 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
-                0x9d019d48                WFConfigureLowPowerMode
-                0x9d019df0                WF_PsPollEnable
-                0x9d019e7c                WF_PsPollDisable
-                0x9d019ee4                WF_GetPowerSaveState
-                0x9d019f14                WFisPsPollEnabled
-                0x9d019f64                WFIsPsPollActive
-                0x9d019f88                EnsureWFisAwake
-                0x9d019fec                WF_HibernateEnable
- .text          0x9d01a0cc      0x358 Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
-                0x9d01a0cc                TickInit
-                0x9d01a224                TickGet
-                0x9d01a25c                TickGetDiv256
-                0x9d01a2cc                TickGetDiv64K
-                0x9d01a33c                TickConvertToMilliseconds
-                0x9d01a3a4                _T1Interrupt
- .text          0x9d01a424      0x348 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
-                0x9d01a424                I2S
-                0x9d01a484                I2SR
-                0x9d01a4e4                I2send
-                0x9d01a5b0                I2GET
-                0x9d01a6d4                I2P
- .text          0x9d01a76c      0x308 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
-                0x9d01a76c                POSTTCPchar
-                0x9d01a7c4                GenericTCPServer
- .text          0x9d01aa74      0x2f0 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Eint.o
-                0x9d01aa74                WF_EintIsDisabled
-                0x9d01aaa4                WF_EintIsPending
-                0x9d01aafc                _WFInterrupt
-                0x9d01ac60                WF_EintEnable
-                0x9d01acac                WF_EintDisable
-                0x9d01acd8                WF_EintInit
- .text          0x9d01ad64      0x298 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
-                0x9d01ad64                WF_SpiInit
-                0x9d01ae10                WF_SpiEnableChipSelect
-                0x9d01ae40                WF_SpiDisableChipSelect
-                0x9d01ae80                WFSpiTxRx
+                0x9d009048                _ADCInterrupt
+                0x9d009478                _IC1Interrupt
+                0x9d00951c                _IC3Interrupt
+                0x9d0095c0                putcomsdata
+                0x9d009640                yescomsdata
+                0x9d009680                getcomsdata
+                0x9d0096f8                peekcomsdata
+                0x9d009770                POSTTCPhead
+                0x9d0097f4                initi2Cs
+                0x9d0098c4                setspeed
+                0x9d009b74                processcommand
+                0x9d00be50                ProcessIO
+                0x9d00c020                InitializeBoard
+ .text          0x9d00c8bc     0x175c Obj-C32-PIC32_GP_SK_MRF24WB\DHCP.o
+                0x9d00c8bc                DHCPInit
+                0x9d00c9b0                DHCPDisable
+                0x9d00ca20                DHCPEnable
+                0x9d00ca80                DHCPIsEnabled
+                0x9d00cab8                DHCPIsBound
+                0x9d00caf4                DHCPStateChanged
+                0x9d00cb58                DHCPIsServerDetected
+                0x9d00cb94                DHCPTask
+ .text          0x9d00e018     0x1714 Obj-C32-PIC32_GP_SK_MRF24WB\WFMac.o
+                0x9d00e408                MACProcess
+                0x9d00e494                MACInit
+                0x9d00e4c4                RawInit
+                0x9d00e554                MACIsLinked
+                0x9d00e584                MACIsTxReady
+                0x9d00e63c                WFisTxMgmtReady
+                0x9d00e6c8                WFFreeMgmtTx
+                0x9d00e758                SendRAWManagementFrame
+                0x9d00e7a4                RawGetMgmtRxBuffer
+                0x9d00e840                SetRawRxMgmtInProgress
+                0x9d00e87c                isRawRxMgmtInProgress
+                0x9d00e8a0                MACDiscardRx
+                0x9d00e8c8                MACGetFreeRxSize
+                0x9d00e9f0                MACGetHeader
+                0x9d00ebe0                MACPutHeader
+                0x9d00ecbc                MACFlush
+                0x9d00ed9c                MACSetReadPtrInRx
+                0x9d00ede8                MACSetWritePtr
+                0x9d00ee38                MACSetReadPtr
+                0x9d00ee88                MACCalcRxChecksum
+                0x9d00ef14                MACMemCopyAsync
+                0x9d00f470                MACIsMemCopyDone
+                0x9d00f494                MACGet
+                0x9d00f508                MACGetArray
+                0x9d00f5e8                MACPut
+                0x9d00f668                MACPutArray
+                0x9d00f6ec                MACPowerDown
+                0x9d00f70c                MACPowerUp
+ .text          0x9d00f72c     0x11f8 Obj-C32-PIC32_GP_SK_MRF24WB\UDP.o
+                0x9d00f72c                UDPInit
+                0x9d00f79c                UDPOpenEx
+                0x9d00f9dc                UDPTask
+                0x9d00ff20                UDPIsOpened
+                0x9d00ff70                UDPClose
+                0x9d010018                UDPSetTxBuffer
+                0x9d010064                UDPSetRxBuffer
+                0x9d0100b4                UDPIsPutReady
+                0x9d010140                UDPPut
+                0x9d0101cc                UDPPutArray
+                0x9d010274                UDPPutString
+                0x9d0102cc                UDPFlush
+                0x9d0103b8                UDPIsGetReady
+                0x9d010448                UDPGet
+                0x9d0104cc                UDPGetArray
+                0x9d01058c                UDPDiscard
+                0x9d0105ec                UDPProcess
+ .text          0x9d010924     0x10c8 Obj-C32-PIC32_GP_SK_MRF24WB\Helpers.o
+                0x9d010924                LFSRSeedRand
+                0x9d0109a8                LFSRRand
+                0x9d010a20                GenerateRandomDWORD
+                0x9d010c7c                StringToIPAddress
+                0x9d01101c                uitoa
+                0x9d011148                hexatob
+                0x9d01123c                btohexa_high
+                0x9d0112a0                btohexa_low
+                0x9d011304                stricmppgm2ram
+                0x9d011470                swaps
+                0x9d0114bc                swapl
+                0x9d0115a4                CalcIPChecksum
+                0x9d01168c                CalcIPBufferChecksum
+                0x9d0117d4                strupr
+                0x9d011870                FormatNetBIOSName
+                0x9d011938                strnchr
+ .text          0x9d0119ec      0xf34 Obj-C32-PIC32_GP_SK_MRF24WB\DNS.o
+                0x9d0119ec                DNSBeginUsage
+                0x9d011a40                DNSEndUsage
+                0x9d011ab0                DNSResolve
+                0x9d011b44                DNSIsResolved
+ .text          0x9d012920      0xeb4 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionAlgorithm.o
+                0x9d012920                WF_CASetElements
+                0x9d012bac                WF_CAGetElements
+                0x9d012cd4                WF_CASetScanType
+                0x9d012d18                WF_CAGetScanType
+                0x9d012d5c                WF_CASetMinChannelTime
+                0x9d012dd0                WF_CAGetMinChannelTime
+                0x9d012e50                WF_CASetMaxChannelTime
+                0x9d012ec4                WF_CAGetMaxChannelTime
+                0x9d012f44                WF_CASetProbeDelay
+                0x9d012fb8                WF_CAGetProbeDelay
+                0x9d013038                WF_CASetScanCount
+                0x9d01307c                WF_CAGetScanCount
+                0x9d0130c0                WF_CASetRssi
+                0x9d013104                WF_CAGetRssi
+                0x9d013148                WF_CASetConnectionProfileList
+                0x9d013184                WF_CAGetConnectionProfileList
+                0x9d0131c0                WF_CASetListRetryCount
+                0x9d013204                WF_CAGetListRetryCount
+                0x9d013248                WF_CASetEventNotificationAction
+                0x9d013288                WF_CAGetEventNotificationAction
+                0x9d0132c8                WF_CASetBeaconTimeoutAction
+                0x9d01330c                WF_CAGetBeaconTimeoutAction
+                0x9d013350                WF_CASetDeauthAction
+                0x9d013394                WF_CAGetDeauthAction
+                0x9d0133d8                WF_CASetChannelList
+                0x9d013424                WF_CAGetChannelList
+                0x9d0134bc                WF_CASetListenInterval
+                0x9d013530                WF_CAGetListenInterval
+                0x9d0135b0                WF_CASetBeaconTimeout
+                0x9d0135f4                WF_CAGetBeaconTimeout
+                0x9d013668                GetEventNotificationMask
+ .text          0x9d0137d4      0xe5c Obj-C32-PIC32_GP_SK_MRF24WB\AutoIP.o
+                0x9d0137d4                AutoIPInit
+                0x9d01386c                AutoIPIsConfigured
+                0x9d0138a4                AutoIPConfigIsInProgress
+                0x9d0138e0                AutoIPTasks
+                0x9d0142f4                AutoIPConflict
+                0x9d01446c                AutoIPDisable
+                0x9d01450c                AutoIPEnable
+                0x9d014554                AutoIPIsDisabled
+                0x9d014588                AutoIPRandSeed
+                0x9d0145c4                AutoIPRand
+ .text          0x9d014630      0xbb8 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
+                0x9d014630                AllocateMgmtTxBuffer
+                0x9d0146ec                DeallocateMgmtRxBuffer
+                0x9d014738                AllocateDataTxBuffer
+                0x9d0147f4                DeallocateDataTxBuffer
+                0x9d01483c                DeallocateDataRxBuffer
+                0x9d01487c                RawSendTxBuffer
+                0x9d0148d0                RawMountRxBuffer
+                0x9d014928                RawToRawCopy
+                0x9d014980                PushRawWindow
+                0x9d0149cc                PopRawWindow
+                0x9d014a20                ScratchMount
+                0x9d014aa0                ScratchUnmount
+                0x9d014b08                RawRead
+                0x9d014b7c                RawWrite
+                0x9d014d38                RawSetIndex
+                0x9d014e40                RawGetIndex
+                0x9d014ea8                RawGetByte
+                0x9d014f64                RawSetByte
+                0x9d015180                SendRAWDataFrame
+ .text          0x9d0151e8      0xaac Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverCom.o
+                0x9d0151e8                WFProcess
+                0x9d0153e8                Read8BitWFRegister
+                0x9d015454                Write8BitWFRegister
+                0x9d0154c4                Read16BitWFRegister
+                0x9d01554c                Write16BitWFRegister
+                0x9d0155d4                WriteWFArray
+                0x9d01565c                ReadWFArray
+                0x9d015a28                WFEintHandler
+                0x9d015b64                WFHardwareInit
+ .text          0x9d015c94      0x954 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionProfile.o
+                0x9d015c94                WF_CPCreate
+                0x9d015d10                WF_CPDelete
+                0x9d015d7c                WF_CPGetIds
+                0x9d015dec                WF_CPSetElements
+                0x9d015e64                WF_CPGetElements
+                0x9d015ec0                WF_CPSetSsid
+                0x9d015f3c                WF_CPGetSsid
+                0x9d015fe4                WF_CPSetBssid
+                0x9d016034                WF_CPGetBssid
+                0x9d01608c                WF_CPSetNetworkType
+                0x9d0160e4                WF_CPGetNetworkType
+                0x9d01613c                WF_CPSetSecurity
+                0x9d016224                WF_CPGetSecurity
+                0x9d016324                WF_CPSetDefaultWepKeyIndex
+                0x9d01637c                WF_CPGetDefaultWepKeyIndex
+                0x9d0163d4                WF_CPSetAdHocBehavior
+                0x9d01642c                WF_CPGetAdHocBehavior
+ .text          0x9d0165e8      0x8ec c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libm.a(fp32.o)
+                0x9d0165e8                fpsub
+                0x9d0165e8                __subsf3
+                0x9d0165f0                __addsf3
+                0x9d0165f0                fpadd
+                0x9d01685c                __mulsf3
+                0x9d01685c                fpmul
+                0x9d016a14                fpdiv
+                0x9d016a14                __divsf3
+                0x9d016c40                sitofp
+                0x9d016c40                litofp
+                0x9d016c40                __floatsisf
+                0x9d016c9c                ultofp
+                0x9d016c9c                uitofp
+                0x9d016ce8                fptosi
+                0x9d016ce8                fptoli
+                0x9d016ce8                __fixsfsi
+                0x9d016d60                fptoui
+                0x9d016d60                __fixunssfsi
+                0x9d016d60                fptoul
+                0x9d016dd4                __nesf2
+                0x9d016dd4                fpcmp
+                0x9d016dd4                __eqsf2
+                0x9d016dd4                __gesf2
+                0x9d016dd4                __ltsf2
+                0x9d016dd4                __gtsf2
+                0x9d016dd4                __lesf2
+                0x9d016e68                fpfabs
+                0x9d016e68                fabsf
+                0x9d016e78                __negsf2
+                0x9d016e88                fpnan
+                0x9d016e88                nanf
+ .text          0x9d016ed4      0x790 Obj-C32-PIC32_GP_SK_MRF24WB\WFParamMsg.o
+                0x9d016ed4                WFEnableMRF24WB0MMode
+                0x9d016f1c                WFGetMRF24WB0MVersion
+                0x9d016f5c                WF_GetDeviceInfo
+                0x9d016fc4                WF_SetMacAddress
+                0x9d017004                WF_GetMacAddress
+                0x9d017044                WF_SetMultiCastFilter
+                0x9d01715c                WF_GetMultiCastFilter
+                0x9d017258                WF_SetTxDataConfirm
+                0x9d01729c                WF_GetTxDataConfirm
+                0x9d0172dc                WF_SetRegionalDomain
+                0x9d017320                WF_GetRegionalDomain
+                0x9d017360                WF_SetRtsThreshold
+                0x9d0173f4                WF_GetRtsThreshold
+                0x9d017470                WF_GetMacStats
+                0x9d01754c                SendSetParamMsg
+                0x9d0175d4                SendGetParamMsg
+ .text          0x9d017664      0x68c Obj-C32-PIC32_GP_SK_MRF24WB\ARP.o
+                0x9d01776c                ARPInit
+                0x9d0177f4                ARPProcess
+                0x9d017aa0                ARPResolve
+                0x9d017b84                ARPIsResolved
+                0x9d017c64                SwapARPPacket
+ .text          0x9d017cf0      0x48c Obj-C32-PIC32_GP_SK_MRF24WB\WFEventHandler.o
+                0x9d017cf0                WFProcessMgmtIndicateMsg
+ .text          0x9d01817c      0x474 Obj-C32-PIC32_GP_SK_MRF24WB\WFMgmtMsg.o
+                0x9d01817c                SendMgmtMsg
+                0x9d0182c8                SignalMgmtConfirmReceivedEvent
+                0x9d0182f0                IgnoreNextMgmtResult
+                0x9d018318                WaitForMgmtResponse
+                0x9d018460                WaitForMgmtResponseAndReadData
+                0x9d018570                WFSetFuncState
+ .text          0x9d0185f0      0x448 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/size\libgcc.a(_udivdi3.o)
+                0x9d0185f0                __udivdi3
+ .text          0x9d018a38      0x440 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
+                0x9d018a38                _general_exception_handler
+                0x9d018a64                main
+ .text          0x9d018e78      0x41c Obj-C32-PIC32_GP_SK_MRF24WB\StackTsk.o
+                0x9d018e78                StackInit
+                0x9d018f30                StackTask
+                0x9d01925c                StackApplications
+ .text          0x9d019294      0x3f8 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
+                0x9d019294                SNTPClient
+                0x9d0195f4                SNTPGetUTCSeconds
+ .text          0x9d01968c      0x3f0 Obj-C32-PIC32_GP_SK_MRF24WB\IP.o
+                0x9d01968c                IPGetHeader
+                0x9d019874                IPPutHeader
+                0x9d0199a0                IPSetRxBuffer
+ .text          0x9d019a7c      0x3d0 Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
+                0x9d019a7c                AnnounceIP
+                0x9d019c08                DiscoveryTask
+ .text          0x9d019e4c      0x384 Obj-C32-PIC32_GP_SK_MRF24WB\WFPowerSave.o
+                0x9d019e4c                WFConfigureLowPowerMode
+                0x9d019ef4                WF_PsPollEnable
+                0x9d019f80                WF_PsPollDisable
+                0x9d019fe8                WF_GetPowerSaveState
+                0x9d01a018                WFisPsPollEnabled
+                0x9d01a068                WFIsPsPollActive
+                0x9d01a08c                EnsureWFisAwake
+                0x9d01a0f0                WF_HibernateEnable
+ .text          0x9d01a1d0      0x358 Obj-C32-PIC32_GP_SK_MRF24WB\Tick.o
+                0x9d01a1d0                TickInit
+                0x9d01a328                TickGet
+                0x9d01a360                TickGetDiv256
+                0x9d01a3d0                TickGetDiv64K
+                0x9d01a440                TickConvertToMilliseconds
+                0x9d01a4a8                _T1Interrupt
+ .text          0x9d01a528      0x348 Obj-C32-PIC32_GP_SK_MRF24WB\I2C.o
+                0x9d01a528                I2S
+                0x9d01a588                I2SR
+                0x9d01a5e8                I2send
+                0x9d01a6b4                I2GET
+                0x9d01a7d8                I2P
+ .text          0x9d01a870      0x308 Obj-C32-PIC32_GP_SK_MRF24WB\GenericTCPServer.o
+                0x9d01a870                POSTTCPchar
+                0x9d01a8c8                GenericTCPServer
+ .text          0x9d01ab78      0x2f0 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Eint.o
+                0x9d01ab78                WF_EintIsDisabled
+                0x9d01aba8                WF_EintIsPending
+                0x9d01ac00                _WFInterrupt
+                0x9d01ad64                WF_EintEnable
+                0x9d01adb0                WF_EintDisable
+                0x9d01addc                WF_EintInit
+ .text          0x9d01ae68      0x298 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Spi.o
+                0x9d01ae68                WF_SpiInit
+                0x9d01af14                WF_SpiEnableChipSelect
+                0x9d01af44                WF_SpiDisableChipSelect
+                0x9d01af84                WFSpiTxRx
 
-.dinit          0x9d01affc      0x248
- .dinit         0x9d01affc      0x248 data_init
+.dinit          0x9d01b100      0x24c
+ .dinit         0x9d01b100      0x24c data_init
 
-.text           0x9d01b244      0xca0
- .text          0x9d01b244      0x218 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
-                0x9d01b244                WF_CMConnect
-                0x9d01b2bc                WF_CMDisconnect
-                0x9d01b334                WF_CMGetConnectionState
-                0x9d01b40c                WFisConnected
-                0x9d01b430                SetLogicalConnectionState
- .text          0x9d01b45c      0x1f4 Obj-C32-PIC32_GP_SK_MRF24WB\WFTxPower.o
-                0x9d01b45c                WF_TxPowerSetMinMax
-                0x9d01b554                WF_TxPowerGetMinMax
-                0x9d01b5fc                WF_TxPowerGetFactoryMax
- .text          0x9d01b650      0x174 Obj-C32-PIC32_GP_SK_MRF24WB\WFScan.o
-                0x9d01b650                WF_Scan
-                0x9d01b6c8                WF_ScanGetResult
- .text          0x9d01b7c4      0x16c Obj-C32-PIC32_GP_SK_MRF24WB\ICMP.o
-                0x9d01b7c4                ICMPProcess
- .text          0x9d01b930      0x168 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(memcpy.o)
-                0x9d01b930                memcpy
- .text          0x9d01ba98      0x168 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(strlen.o)
-                0x9d01ba98                strlen
- .text          0x9d01bc00      0x100 Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
-                0x9d01bc00                WF_Init
- .text          0x9d01bd00       0xf4 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
-                0x9d01bd00                WF_ProcessEvent
-                0x9d01bdd0                WF_AssertionFailed
- .text          0x9d01bdf4       0xf0 Obj-C32-PIC32_GP_SK_MRF24WB\Delay.o
-                0x9d01bdf4                DelayMs
-                0x9d01be88                Delay10us
+.text           0x9d01b34c      0xca0
+ .text          0x9d01b34c      0x218 Obj-C32-PIC32_GP_SK_MRF24WB\WFConnectionManager.o
+                0x9d01b34c                WF_CMConnect
+                0x9d01b3c4                WF_CMDisconnect
+                0x9d01b43c                WF_CMGetConnectionState
+                0x9d01b514                WFisConnected
+                0x9d01b538                SetLogicalConnectionState
+ .text          0x9d01b564      0x1f4 Obj-C32-PIC32_GP_SK_MRF24WB\WFTxPower.o
+                0x9d01b564                WF_TxPowerSetMinMax
+                0x9d01b65c                WF_TxPowerGetMinMax
+                0x9d01b704                WF_TxPowerGetFactoryMax
+ .text          0x9d01b758      0x174 Obj-C32-PIC32_GP_SK_MRF24WB\WFScan.o
+                0x9d01b758                WF_Scan
+                0x9d01b7d0                WF_ScanGetResult
+ .text          0x9d01b8cc      0x16c Obj-C32-PIC32_GP_SK_MRF24WB\ICMP.o
+                0x9d01b8cc                ICMPProcess
+ .text          0x9d01ba38      0x168 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(memcpy.o)
+                0x9d01ba38                memcpy
+ .text          0x9d01bba0      0x168 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(strlen.o)
+                0x9d01bba0                strlen
+ .text          0x9d01bd08      0x100 Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
+                0x9d01bd08                WF_Init
+ .text          0x9d01be08       0xf4 Obj-C32-PIC32_GP_SK_MRF24WB\WF_Config.o
+                0x9d01be08                WF_ProcessEvent
+                0x9d01bed8                WF_AssertionFailed
+ .text          0x9d01befc       0xf0 Obj-C32-PIC32_GP_SK_MRF24WB\Delay.o
+                0x9d01befc                DelayMs
+                0x9d01bf90                Delay10us
 
 .text.general_exception
-                0x9d01bee4       0xd0
+                0x9d01bfec       0xd0
  .text.general_exception
-                0x9d01bee4       0xd0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(general-exception.o)
-                0x9d01bee4                _general_exception_context
+                0x9d01bfec       0xd0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(general-exception.o)
+                0x9d01bfec                _general_exception_context
 
-.text           0x9d01bfb4      0x140
- .text          0x9d01bfb4       0xa8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(memset.o)
-                0x9d01bfb4                memset
- .text          0x9d01c05c       0x98 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(memcmp.o)
-                0x9d01c05c                memcmp
+.text           0x9d01c0bc      0x140
+ .text          0x9d01c0bc       0xa8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(memset.o)
+                0x9d01c0bc                memset
+ .text          0x9d01c164       0x98 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(memcmp.o)
+                0x9d01c164                memcmp
 
 .text.I2CSetFrequency
-                0x9d01c0f4       0x48
+                0x9d01c1fc       0x48
  .text.I2CSetFrequency
-                0x9d01c0f4       0x48 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
-                0x9d01c0f4                I2CSetFrequency
+                0x9d01c1fc       0x48 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CSetFrequency.o)
+                0x9d01c1fc                I2CSetFrequency
 
-.rodata         0x9d01c13c       0x40
- .rodata        0x9d01c13c       0x40 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
+.rodata         0x9d01c244       0x40
+ .rodata        0x9d01c244       0x40 Obj-C32-PIC32_GP_SK_MRF24WB\MainDemo.o
 
 .text.INTEnableSystemMultiVectoredInt
-                0x9d01c17c       0x34
+                0x9d01c284       0x34
  .text.INTEnableSystemMultiVectoredInt
-                0x9d01c17c       0x34 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
-                0x9d01c17c                INTEnableSystemMultiVectoredInt
+                0x9d01c284       0x34 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_mv_int_lib.o)
+                0x9d01c284                INTEnableSystemMultiVectoredInt
 
 .text.I2CEnable
-                0x9d01c1b0       0x28
+                0x9d01c2b8       0x28
  .text.I2CEnable
-                0x9d01c1b0       0x28 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
-                0x9d01c1b0                I2CEnable
+                0x9d01c2b8       0x28 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CEnable.o)
+                0x9d01c2b8                I2CEnable
 
-.rodata         0x9d01c1d8       0x40
- .rodata        0x9d01c1d8       0x24 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
-                0x9d01c1d8                TCPSocketInitializer
- .rodata        0x9d01c1fc       0x1c Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
+.rodata         0x9d01c2e0       0x40
+ .rodata        0x9d01c2e0       0x24 Obj-C32-PIC32_GP_SK_MRF24WB\TCP.o
+                0x9d01c2e0                TCPSocketInitializer
+ .rodata        0x9d01c304       0x1c Obj-C32-PIC32_GP_SK_MRF24WB\Announce.o
 
 .text.INTRestoreInterrupts
-                0x9d01c218       0x1c
+                0x9d01c320       0x1c
  .text.INTRestoreInterrupts
-                0x9d01c218       0x1c c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
-                0x9d01c218                INTRestoreInterrupts
+                0x9d01c320       0x1c c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_restore_interrupts_lib.o)
+                0x9d01c320                INTRestoreInterrupts
 
-.text           0x9d01c234       0x18
- .text          0x9d01c234       0x18 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-nmi-handler.o)
-                0x9d01c234                _nmi_handler
+.text           0x9d01c33c       0x18
+ .text          0x9d01c33c       0x18 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-nmi-handler.o)
+                0x9d01c33c                _nmi_handler
 
 .text.CheKseg0CacheOff
-                0x9d01c24c       0x18
+                0x9d01c354       0x18
  .text.CheKseg0CacheOff
-                0x9d01c24c       0x18 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
-                0x9d01c24c                CheKseg0CacheOff
+                0x9d01c354       0x18 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
+                0x9d01c354                CheKseg0CacheOff
 
 .text.CheKseg0CacheOn
-                0x9d01c264       0x18
+                0x9d01c36c       0x18
  .text.CheKseg0CacheOn
-                0x9d01c264       0x18 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
-                0x9d01c264                CheKseg0CacheOn
+                0x9d01c36c       0x18 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(pcache.o)
+                0x9d01c36c                CheKseg0CacheOn
 
-.rodata         0x9d01c27c       0x14
- .rodata        0x9d01c27c       0x14 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
+.rodata         0x9d01c384       0x14
+ .rodata        0x9d01c384       0x14 Obj-C32-PIC32_GP_SK_MRF24WB\SNTP.o
 
-.text           0x9d01c290       0x10
- .text          0x9d01c290       0x10 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size/crt0.o
-                0x9d01c298                __crt0_exit
+.text           0x9d01c398       0x10
+ .text          0x9d01c398       0x10 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size/crt0.o
+                0x9d01c3a0                __crt0_exit
 
 .text._bootstrap_exception_handler
-                0x9d01c2a0        0xc
+                0x9d01c3a8        0xc
  .text._bootstrap_exception_handler
-                0x9d01c2a0        0xc c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
-                0x9d01c2a0                _bootstrap_exception_handler
+                0x9d01c3a8        0xc c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-bootstrap-exception-handler.o)
+                0x9d01c3a8                _bootstrap_exception_handler
 
-.rodata         0x9d01c2ac        0x8
- .rodata        0x9d01c2ac        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
+.rodata         0x9d01c3b4        0x8
+ .rodata        0x9d01c3b4        0x8 Obj-C32-PIC32_GP_SK_MRF24WB\WFInit.o
 
 .text._on_reset
-                0x9d01c2b4        0x8
+                0x9d01c3bc        0x8
  .text._on_reset
-                0x9d01c2b4        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
-                0x9d01c2b4                _on_reset
+                0x9d01c3bc        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-reset.o)
+                0x9d01c3bc                _on_reset
 
 .text._on_bootstrap
-                0x9d01c2bc        0x8
+                0x9d01c3c4        0x8
  .text._on_bootstrap
-                0x9d01c2bc        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
-                0x9d01c2bc                _on_bootstrap
+                0x9d01c3c4        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libc.a(default-on-bootstrap.o)
+                0x9d01c3c4                _on_bootstrap
 
 .text.INTDisableInterrupts
-                0x9d01c2c4        0x8
+                0x9d01c3cc        0x8
  .text.INTDisableInterrupts
-                0x9d01c2c4        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
-                0x9d01c2c4                INTDisableInterrupts
+                0x9d01c3cc        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_disable_interrupts_lib.o)
+                0x9d01c3cc                INTDisableInterrupts
 
 .text.INTEnableInterrupts
-                0x9d01c2cc        0x8
+                0x9d01c3d4        0x8
  .text.INTEnableInterrupts
-                0x9d01c2cc        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
-                0x9d01c2cc                INTEnableInterrupts
+                0x9d01c3d4        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(int_enable_interrupts_lib.o)
+                0x9d01c3d4                INTEnableInterrupts
 
-.rodata         0x9d01c2d4       0x10
- .rodata        0x9d01c2d4        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
-                0x9d01c2d4                i2cBase
- .rodata        0x9d01c2dc        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
- .rodata        0x9d01c2e0        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
+.rodata         0x9d01c3dc       0x10
+ .rodata        0x9d01c3dc        0x8 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/size\libmchp_peripheral_32MX340F256H.a(I2CPrivate.o)
+                0x9d01c3dc                i2cBase
+ .rodata        0x9d01c3e4        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\WFDriverRaw.o
+ .rodata        0x9d01c3e8        0x4 Obj-C32-PIC32_GP_SK_MRF24WB\rovercode.o
 
 .text%z274      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplab c32 suite/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/./proc/32MX340F256H\processor.o
