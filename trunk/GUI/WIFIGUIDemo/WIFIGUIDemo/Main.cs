@@ -853,7 +853,12 @@ namespace WIFIGUIDemo
 
         private void motorPositionButton_Click(object sender, EventArgs e)
         {
-            motoPositionTimer.Enabled = true;
+            motoPositionTimer.Enabled = !motoPositionTimer.Enabled;
+            if (!motoPositionTimer.Enabled)
+            {
+                leftEncoderLabel.Text = "Left Encoder";
+                rightEncoderLabel.Text = "Right Encoder";
+            }
         }
 
         public void Main_KeyUp(object sender, KeyEventArgs e)
