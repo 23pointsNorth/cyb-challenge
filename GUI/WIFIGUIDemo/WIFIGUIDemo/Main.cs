@@ -606,7 +606,9 @@ namespace WIFIGUIDemo
                 //reqInfo.Enabled = true;
                 //initial_value = false;
                 int distance = (int)(int.Parse(PositionStatusBox.Text) * DIST_PARAM);
-                theClient.SendData(CommandID.DriveSteps, new byte[] { (byte)(distance), (byte)(distance >> 8) });
+                int dir = Math.Sign(distance);
+                distance = Math.Abs(distance);
+                theClient.SendData(CommandID.DriveSteps, new byte[] { (byte)(distance), (byte)(distance >> 8), (byte)dir });
                 drivingLabel.Text = "Driving...";
             }
         }
@@ -1112,7 +1114,7 @@ namespace WIFIGUIDemo
         {
             if (theClient.isConnected)
             {
-                theClient.SendData(CommandID.DRIVE_MAX_SPEED, new byte[] { byte.Parse(maxSpeedTextBox.Text) });
+                theClient.SendData(CommandID.DRIVE_MAX_SPEED, new byte[] { (byte)int.Parse(maxSpeedTextBox.Text) });
             }
         }
 
