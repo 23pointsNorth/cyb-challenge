@@ -1,12 +1,12 @@
-function MapRiverBed()
+function LightTunnel(path)
 
 IR_SCALE_FACTOR = 1;
 DISTANCE_SCALE_FACTOR = 1;
 
 %file = strcat('N:\\Data\\', filename);
 
-light = load('N:\..University\Year2\Cybs Challenge\Data\\LightTunnelData.txt');
-dist = load('N:\..University\Year2\Cybs Challenge\Data\\LightDistData.txt');
+light = load(strcat(path, 'LightTunnelData.txt'));
+dist = load(strcat(path, 'LightDistData.txt'));
 
 light = light * IR_SCALE_FACTOR;
 dist = dist * DISTANCE_SCALE_FACTOR;
