@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.clearMsgButton = new System.Windows.Forms.Button();
+            this._2ndDecodeMsgTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CrashedMessageBox
@@ -101,11 +103,30 @@
             this.clearMsgButton.UseVisualStyleBackColor = true;
             this.clearMsgButton.Click += new System.EventHandler(this.clearMsgButton_Click);
             // 
+            // _2ndDecodeMsgTextBox
+            // 
+            this._2ndDecodeMsgTextBox.Location = new System.Drawing.Point(376, 83);
+            this._2ndDecodeMsgTextBox.Multiline = true;
+            this._2ndDecodeMsgTextBox.Name = "_2ndDecodeMsgTextBox";
+            this._2ndDecodeMsgTextBox.Size = new System.Drawing.Size(176, 171);
+            this._2ndDecodeMsgTextBox.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(373, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Decoded Message #2";
+            // 
             // CrashedRocketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 307);
+            this.ClientSize = new System.Drawing.Size(654, 307);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this._2ndDecodeMsgTextBox);
             this.Controls.Add(this.clearMsgButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -130,5 +151,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button clearMsgButton;
+        private System.Windows.Forms.TextBox _2ndDecodeMsgTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }
