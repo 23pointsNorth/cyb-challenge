@@ -68,6 +68,12 @@ namespace WIFIGUIDemo
                                     CrashedMessageBox.Text += NewData[i] + " ";
                                     if (i % 2 == 0) decodedMessage.Text += ((char)(NewData[i] / 2));
                                 }
+
+                                for (int i = 4; i < NewData.Count; i++)
+                                {
+                                    int letter = NewData[i]/2;
+                                    if (letter >= 32 && letter <= 127) { _2ndDecodeMsgTextBox.Text += (char)letter; }
+                                }
                             }));
                             break;
                         }   
@@ -85,6 +91,7 @@ namespace WIFIGUIDemo
         {
             CrashedMessageBox.Clear();
             decodedMessage.Clear();
+            _2ndDecodeMsgTextBox.Clear();
         }
 
     }

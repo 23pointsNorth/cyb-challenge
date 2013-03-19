@@ -37,11 +37,11 @@ namespace WIFIGUIDemo
             lightIntensityChart.Series["lightPathPoint"].Points.Clear();
         }
 
+        int dir = 1;
         private void tunnelMapButton_Click(object sender, EventArgs e)
         {
             if (rover.isConnected)
             {
-                int dir = -1;
                 rover.SendData(CommandID.DriveSteps, new byte[] { 255, 6,  (byte)dir});
                 lightPosTimer.Enabled = true;
             }
@@ -88,6 +88,18 @@ namespace WIFIGUIDemo
             }
             file_light.Close();
             dist.Close();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (forwardDirectionRadioButton.Checked) { dir = 1; }
+            else { dir = -1; }
+        }
+
+        private void backwardsDirectionRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (backwardsDirectionRadioButton.Checked) { dir = -1; }
+            else { dir = 1; }
         }
 
     }
