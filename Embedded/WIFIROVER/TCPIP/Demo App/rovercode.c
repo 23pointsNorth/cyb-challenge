@@ -72,7 +72,7 @@ unsigned int mag_ticker = 0;
 //ACCELEROMETER VAR
 
 #define ACC_BUFFER_PACKET_SIZE	60
-#define ACC_PACKETS				16
+#define ACC_PACKETS				17
 #define ACC_DATA_BUFFER			(ACC_BUFFER_PACKET_SIZE * ACC_PACKETS)	
 
 unsigned int acc_data_z[ACC_DATA_BUFFER];

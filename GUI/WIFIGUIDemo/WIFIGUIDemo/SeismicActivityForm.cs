@@ -33,10 +33,10 @@ namespace WIFIGUIDemo
         const int accel_data_buffer_size = 10;
         const int offset_dist = 16368;
 
-        const int acc_packet_size = 16;
+        const int acc_packet_size = 17;
         const int acc_packet_buffer_size = 60;
 
-        const int packets_count = 16;
+        const int packets_count = 17;
         const int packet_size = 60;
 
         bool done_packet_transfer = true;
