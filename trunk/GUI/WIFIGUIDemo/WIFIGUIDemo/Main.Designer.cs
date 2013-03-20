@@ -37,6 +37,9 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.saveDirTextBox = new System.Windows.Forms.TextBox();
+            this.saveDirLabel = new System.Windows.Forms.Label();
+            this.emergencyStop = new System.Windows.Forms.Button();
             this.maxDriveSpeedLabel = new System.Windows.Forms.Label();
             this.maxSpeedButton = new System.Windows.Forms.Button();
             this.maxSpeedTextBox = new System.Windows.Forms.TextBox();
@@ -92,6 +95,7 @@
             this.leftMotorSpeed = new System.Windows.Forms.TextBox();
             this.setSpeed = new System.Windows.Forms.Button();
             this.taskGroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.MatlabButton = new System.Windows.Forms.Button();
             this.volcanoButton = new System.Windows.Forms.Button();
             this.lineButton = new System.Windows.Forms.Button();
@@ -110,8 +114,6 @@
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.emergencyStop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
@@ -200,6 +202,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.saveDirTextBox);
+            this.groupBox2.Controls.Add(this.saveDirLabel);
             this.groupBox2.Controls.Add(this.emergencyStop);
             this.groupBox2.Controls.Add(this.maxDriveSpeedLabel);
             this.groupBox2.Controls.Add(this.maxSpeedButton);
@@ -232,6 +236,36 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Control";
+            // 
+            // saveDirTextBox
+            // 
+            this.saveDirTextBox.Location = new System.Drawing.Point(354, 271);
+            this.saveDirTextBox.Name = "saveDirTextBox";
+            this.saveDirTextBox.Size = new System.Drawing.Size(254, 20);
+            this.saveDirTextBox.TabIndex = 56;
+            this.saveDirTextBox.Text = "N:\\..University\\Year2\\Cybs Challenge\\Data\\";
+            // 
+            // saveDirLabel
+            // 
+            this.saveDirLabel.AutoSize = true;
+            this.saveDirLabel.Location = new System.Drawing.Point(268, 274);
+            this.saveDirLabel.Name = "saveDirLabel";
+            this.saveDirLabel.Size = new System.Drawing.Size(80, 13);
+            this.saveDirLabel.TabIndex = 55;
+            this.saveDirLabel.Text = "Save Directory:";
+            // 
+            // emergencyStop
+            // 
+            this.emergencyStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.emergencyStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emergencyStop.ForeColor = System.Drawing.Color.Maroon;
+            this.emergencyStop.Location = new System.Drawing.Point(7, 400);
+            this.emergencyStop.Name = "emergencyStop";
+            this.emergencyStop.Size = new System.Drawing.Size(164, 135);
+            this.emergencyStop.TabIndex = 54;
+            this.emergencyStop.Text = "Emergency Stop";
+            this.emergencyStop.UseVisualStyleBackColor = false;
+            this.emergencyStop.Click += new System.EventHandler(this.emergencyStop_Click);
             // 
             // maxDriveSpeedLabel
             // 
@@ -656,7 +690,7 @@
             // 
             // motorPositionButton
             // 
-            this.motorPositionButton.Location = new System.Drawing.Point(316, 197);
+            this.motorPositionButton.Location = new System.Drawing.Point(316, 210);
             this.motorPositionButton.Name = "motorPositionButton";
             this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
             this.motorPositionButton.TabIndex = 32;
@@ -684,7 +718,7 @@
             this.rightSpeed.Minimum = -127;
             this.rightSpeed.Name = "rightSpeed";
             this.rightSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rightSpeed.Size = new System.Drawing.Size(45, 172);
+            this.rightSpeed.Size = new System.Drawing.Size(45, 185);
             this.rightSpeed.TabIndex = 9;
             this.rightSpeed.ValueChanged += new System.EventHandler(this.rightSpeed_ValueChanged);
             // 
@@ -695,14 +729,14 @@
             this.leftSpeed.Minimum = -127;
             this.leftSpeed.Name = "leftSpeed";
             this.leftSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.leftSpeed.Size = new System.Drawing.Size(45, 172);
+            this.leftSpeed.Size = new System.Drawing.Size(45, 185);
             this.leftSpeed.TabIndex = 8;
             this.leftSpeed.ValueChanged += new System.EventHandler(this.leftSpeed_ValueChanged);
             // 
             // rightEncoderLabel
             // 
             this.rightEncoderLabel.AutoSize = true;
-            this.rightEncoderLabel.Location = new System.Drawing.Point(367, 229);
+            this.rightEncoderLabel.Location = new System.Drawing.Point(367, 242);
             this.rightEncoderLabel.Name = "rightEncoderLabel";
             this.rightEncoderLabel.Size = new System.Drawing.Size(75, 13);
             this.rightEncoderLabel.TabIndex = 7;
@@ -711,7 +745,7 @@
             // leftEncoderLabel
             // 
             this.leftEncoderLabel.AutoSize = true;
-            this.leftEncoderLabel.Location = new System.Drawing.Point(293, 228);
+            this.leftEncoderLabel.Location = new System.Drawing.Point(293, 242);
             this.leftEncoderLabel.Name = "leftEncoderLabel";
             this.leftEncoderLabel.Size = new System.Drawing.Size(68, 13);
             this.leftEncoderLabel.TabIndex = 6;
@@ -788,6 +822,16 @@
             this.taskGroupBox.TabIndex = 44;
             this.taskGroupBox.TabStop = false;
             this.taskGroupBox.Text = "Tasks";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 190);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 39);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Einsteinium Objects";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MatlabButton
             // 
@@ -940,29 +984,6 @@
             this.sessionTimer.Interval = 1000;
             this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 39);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Einsteinium Objects";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // emergencyStop
-            // 
-            this.emergencyStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.emergencyStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emergencyStop.ForeColor = System.Drawing.Color.Maroon;
-            this.emergencyStop.Location = new System.Drawing.Point(7, 400);
-            this.emergencyStop.Name = "emergencyStop";
-            this.emergencyStop.Size = new System.Drawing.Size(164, 135);
-            this.emergencyStop.TabIndex = 54;
-            this.emergencyStop.Text = "Emergency Stop";
-            this.emergencyStop.UseVisualStyleBackColor = false;
-            this.emergencyStop.Click += new System.EventHandler(this.emergencyStop_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1090,6 +1111,8 @@
         private System.Windows.Forms.Label maxDriveSpeedLabel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button emergencyStop;
+        private System.Windows.Forms.TextBox saveDirTextBox;
+        private System.Windows.Forms.Label saveDirLabel;
     }
 }
 
