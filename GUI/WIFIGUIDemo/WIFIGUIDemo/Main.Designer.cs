@@ -37,6 +37,10 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.maxDriveSpeedLabel = new System.Windows.Forms.Label();
+            this.maxSpeedButton = new System.Windows.Forms.Button();
+            this.maxSpeedTextBox = new System.Windows.Forms.TextBox();
+            this.drivingLabel = new System.Windows.Forms.Label();
             this.roverOrientationGroupBox = new System.Windows.Forms.GroupBox();
             this.frontlPictureBox = new System.Windows.Forms.PictureBox();
             this.horizonPictureBox = new System.Windows.Forms.PictureBox();
@@ -76,10 +80,6 @@
             this.servoTrackBar = new System.Windows.Forms.TrackBar();
             this.driveButton = new System.Windows.Forms.Button();
             this.motorPositionButton = new System.Windows.Forms.Button();
-            this.threshLabel = new System.Windows.Forms.Label();
-            this.rightIR = new System.Windows.Forms.Label();
-            this.leftIR = new System.Windows.Forms.Label();
-            this.lineData = new System.Windows.Forms.Button();
             this.directionalSpeed = new System.Windows.Forms.PictureBox();
             this.rightSpeed = new System.Windows.Forms.TrackBar();
             this.leftSpeed = new System.Windows.Forms.TrackBar();
@@ -110,10 +110,7 @@
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
-            this.drivingLabel = new System.Windows.Forms.Label();
-            this.maxSpeedButton = new System.Windows.Forms.Button();
-            this.maxSpeedTextBox = new System.Windows.Forms.TextBox();
-            this.maxDriveSpeedLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
@@ -216,10 +213,6 @@
             this.groupBox2.Controls.Add(this.servoGroupBox);
             this.groupBox2.Controls.Add(this.driveButton);
             this.groupBox2.Controls.Add(this.motorPositionButton);
-            this.groupBox2.Controls.Add(this.threshLabel);
-            this.groupBox2.Controls.Add(this.rightIR);
-            this.groupBox2.Controls.Add(this.leftIR);
-            this.groupBox2.Controls.Add(this.lineData);
             this.groupBox2.Controls.Add(this.directionalSpeed);
             this.groupBox2.Controls.Add(this.rightSpeed);
             this.groupBox2.Controls.Add(this.leftSpeed);
@@ -233,18 +226,54 @@
             this.groupBox2.Controls.Add(this.setSpeed);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(803, 498);
+            this.groupBox2.Size = new System.Drawing.Size(803, 541);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " ";
+            this.groupBox2.Text = " Control";
+            // 
+            // maxDriveSpeedLabel
+            // 
+            this.maxDriveSpeedLabel.AutoSize = true;
+            this.maxDriveSpeedLabel.Location = new System.Drawing.Point(190, 110);
+            this.maxDriveSpeedLabel.Name = "maxDriveSpeedLabel";
+            this.maxDriveSpeedLabel.Size = new System.Drawing.Size(90, 13);
+            this.maxDriveSpeedLabel.TabIndex = 53;
+            this.maxDriveSpeedLabel.Text = "Drive Speed: 100";
+            // 
+            // maxSpeedButton
+            // 
+            this.maxSpeedButton.Location = new System.Drawing.Point(6, 105);
+            this.maxSpeedButton.Name = "maxSpeedButton";
+            this.maxSpeedButton.Size = new System.Drawing.Size(117, 23);
+            this.maxSpeedButton.TabIndex = 52;
+            this.maxSpeedButton.Text = "Set Max Speed";
+            this.maxSpeedButton.UseVisualStyleBackColor = true;
+            this.maxSpeedButton.Click += new System.EventHandler(this.maxSpeedButton_Click);
+            // 
+            // maxSpeedTextBox
+            // 
+            this.maxSpeedTextBox.Location = new System.Drawing.Point(145, 107);
+            this.maxSpeedTextBox.Name = "maxSpeedTextBox";
+            this.maxSpeedTextBox.Size = new System.Drawing.Size(39, 20);
+            this.maxSpeedTextBox.TabIndex = 51;
+            this.maxSpeedTextBox.Text = "100";
+            // 
+            // drivingLabel
+            // 
+            this.drivingLabel.AutoSize = true;
+            this.drivingLabel.Location = new System.Drawing.Point(208, 25);
+            this.drivingLabel.Name = "drivingLabel";
+            this.drivingLabel.Size = new System.Drawing.Size(37, 13);
+            this.drivingLabel.TabIndex = 50;
+            this.drivingLabel.Text = "Status";
             // 
             // roverOrientationGroupBox
             // 
             this.roverOrientationGroupBox.Controls.Add(this.frontlPictureBox);
             this.roverOrientationGroupBox.Controls.Add(this.horizonPictureBox);
-            this.roverOrientationGroupBox.Location = new System.Drawing.Point(635, 274);
+            this.roverOrientationGroupBox.Location = new System.Drawing.Point(614, 263);
             this.roverOrientationGroupBox.Name = "roverOrientationGroupBox";
-            this.roverOrientationGroupBox.Size = new System.Drawing.Size(162, 222);
+            this.roverOrientationGroupBox.Size = new System.Drawing.Size(183, 269);
             this.roverOrientationGroupBox.TabIndex = 49;
             this.roverOrientationGroupBox.TabStop = false;
             this.roverOrientationGroupBox.Text = "Rover Orientation";
@@ -252,9 +281,9 @@
             // frontlPictureBox
             // 
             this.frontlPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.frontlPictureBox.Location = new System.Drawing.Point(6, 122);
+            this.frontlPictureBox.Location = new System.Drawing.Point(6, 144);
             this.frontlPictureBox.Name = "frontlPictureBox";
-            this.frontlPictureBox.Size = new System.Drawing.Size(150, 100);
+            this.frontlPictureBox.Size = new System.Drawing.Size(171, 119);
             this.frontlPictureBox.TabIndex = 1;
             this.frontlPictureBox.TabStop = false;
             // 
@@ -263,7 +292,7 @@
             this.horizonPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.horizonPictureBox.Location = new System.Drawing.Point(6, 19);
             this.horizonPictureBox.Name = "horizonPictureBox";
-            this.horizonPictureBox.Size = new System.Drawing.Size(150, 100);
+            this.horizonPictureBox.Size = new System.Drawing.Size(171, 119);
             this.horizonPictureBox.TabIndex = 0;
             this.horizonPictureBox.TabStop = false;
             // 
@@ -327,7 +356,7 @@
             this.groupBox5.Controls.Add(this.accelYlabel);
             this.groupBox5.Controls.Add(this.accelZlabel);
             this.groupBox5.Controls.Add(this.getAccelerometer);
-            this.groupBox5.Location = new System.Drawing.Point(452, 24);
+            this.groupBox5.Location = new System.Drawing.Point(614, 19);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(183, 238);
             this.groupBox5.TabIndex = 43;
@@ -552,16 +581,16 @@
             this.servoGroupBox.Controls.Add(this.holdButton);
             this.servoGroupBox.Controls.Add(this.additionalTrackBar);
             this.servoGroupBox.Controls.Add(this.servoTrackBar);
-            this.servoGroupBox.Location = new System.Drawing.Point(641, 19);
+            this.servoGroupBox.Location = new System.Drawing.Point(461, 19);
             this.servoGroupBox.Name = "servoGroupBox";
-            this.servoGroupBox.Size = new System.Drawing.Size(147, 224);
+            this.servoGroupBox.Size = new System.Drawing.Size(147, 238);
             this.servoGroupBox.TabIndex = 34;
             this.servoGroupBox.TabStop = false;
             this.servoGroupBox.Text = "Servo Control";
             // 
             // absZeroButton
             // 
-            this.absZeroButton.Location = new System.Drawing.Point(6, 195);
+            this.absZeroButton.Location = new System.Drawing.Point(6, 211);
             this.absZeroButton.Name = "absZeroButton";
             this.absZeroButton.Size = new System.Drawing.Size(126, 20);
             this.absZeroButton.TabIndex = 4;
@@ -571,7 +600,7 @@
             // 
             // releaseButton
             // 
-            this.releaseButton.Location = new System.Drawing.Point(6, 162);
+            this.releaseButton.Location = new System.Drawing.Point(6, 178);
             this.releaseButton.Name = "releaseButton";
             this.releaseButton.Size = new System.Drawing.Size(126, 27);
             this.releaseButton.TabIndex = 3;
@@ -581,7 +610,7 @@
             // 
             // holdButton
             // 
-            this.holdButton.Location = new System.Drawing.Point(6, 129);
+            this.holdButton.Location = new System.Drawing.Point(6, 145);
             this.holdButton.Name = "holdButton";
             this.holdButton.Size = new System.Drawing.Size(126, 27);
             this.holdButton.TabIndex = 2;
@@ -591,11 +620,11 @@
             // 
             // additionalTrackBar
             // 
-            this.additionalTrackBar.Location = new System.Drawing.Point(87, 25);
+            this.additionalTrackBar.Location = new System.Drawing.Point(87, 19);
             this.additionalTrackBar.Maximum = 30;
             this.additionalTrackBar.Name = "additionalTrackBar";
             this.additionalTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.additionalTrackBar.Size = new System.Drawing.Size(45, 104);
+            this.additionalTrackBar.Size = new System.Drawing.Size(45, 123);
             this.additionalTrackBar.TabIndex = 1;
             this.additionalTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.additionalTrackBar.Value = 30;
@@ -603,11 +632,11 @@
             // 
             // servoTrackBar
             // 
-            this.servoTrackBar.Location = new System.Drawing.Point(19, 25);
+            this.servoTrackBar.Location = new System.Drawing.Point(19, 19);
             this.servoTrackBar.Maximum = 215;
             this.servoTrackBar.Name = "servoTrackBar";
             this.servoTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.servoTrackBar.Size = new System.Drawing.Size(45, 104);
+            this.servoTrackBar.Size = new System.Drawing.Size(45, 123);
             this.servoTrackBar.TabIndex = 0;
             this.servoTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.servoTrackBar.Value = 80;
@@ -625,7 +654,7 @@
             // 
             // motorPositionButton
             // 
-            this.motorPositionButton.Location = new System.Drawing.Point(339, 47);
+            this.motorPositionButton.Location = new System.Drawing.Point(316, 197);
             this.motorPositionButton.Name = "motorPositionButton";
             this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
             this.motorPositionButton.TabIndex = 32;
@@ -633,48 +662,11 @@
             this.motorPositionButton.UseVisualStyleBackColor = true;
             this.motorPositionButton.Click += new System.EventHandler(this.motorPositionButton_Click);
             // 
-            // threshLabel
-            // 
-            this.threshLabel.AutoSize = true;
-            this.threshLabel.Location = new System.Drawing.Point(166, 454);
-            this.threshLabel.Name = "threshLabel";
-            this.threshLabel.Size = new System.Drawing.Size(54, 13);
-            this.threshLabel.TabIndex = 31;
-            this.threshLabel.Text = "Threshold";
-            // 
-            // rightIR
-            // 
-            this.rightIR.AutoSize = true;
-            this.rightIR.Location = new System.Drawing.Point(240, 434);
-            this.rightIR.Name = "rightIR";
-            this.rightIR.Size = new System.Drawing.Size(46, 13);
-            this.rightIR.TabIndex = 30;
-            this.rightIR.Text = "Right IR";
-            // 
-            // leftIR
-            // 
-            this.leftIR.AutoSize = true;
-            this.leftIR.Location = new System.Drawing.Point(166, 434);
-            this.leftIR.Name = "leftIR";
-            this.leftIR.Size = new System.Drawing.Size(39, 13);
-            this.leftIR.TabIndex = 29;
-            this.leftIR.Text = "Left IR";
-            // 
-            // lineData
-            // 
-            this.lineData.Location = new System.Drawing.Point(37, 434);
-            this.lineData.Name = "lineData";
-            this.lineData.Size = new System.Drawing.Size(111, 33);
-            this.lineData.TabIndex = 28;
-            this.lineData.Text = "Follow Line";
-            this.lineData.UseVisualStyleBackColor = true;
-            this.lineData.Click += new System.EventHandler(this.lineData_Click);
-            // 
             // directionalSpeed
             // 
             this.directionalSpeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.directionalSpeed.InitialImage = null;
-            this.directionalSpeed.Location = new System.Drawing.Point(145, 133);
+            this.directionalSpeed.Location = new System.Drawing.Point(6, 138);
             this.directionalSpeed.Name = "directionalSpeed";
             this.directionalSpeed.Size = new System.Drawing.Size(256, 256);
             this.directionalSpeed.TabIndex = 10;
@@ -685,30 +677,30 @@
             // 
             // rightSpeed
             // 
-            this.rightSpeed.Location = new System.Drawing.Point(79, 133);
+            this.rightSpeed.Location = new System.Drawing.Point(391, 19);
             this.rightSpeed.Maximum = 128;
             this.rightSpeed.Minimum = -127;
             this.rightSpeed.Name = "rightSpeed";
             this.rightSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rightSpeed.Size = new System.Drawing.Size(45, 258);
+            this.rightSpeed.Size = new System.Drawing.Size(45, 172);
             this.rightSpeed.TabIndex = 9;
             this.rightSpeed.ValueChanged += new System.EventHandler(this.rightSpeed_ValueChanged);
             // 
             // leftSpeed
             // 
-            this.leftSpeed.Location = new System.Drawing.Point(12, 133);
+            this.leftSpeed.Location = new System.Drawing.Point(340, 19);
             this.leftSpeed.Maximum = 128;
             this.leftSpeed.Minimum = -127;
             this.leftSpeed.Name = "leftSpeed";
             this.leftSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.leftSpeed.Size = new System.Drawing.Size(45, 256);
+            this.leftSpeed.Size = new System.Drawing.Size(45, 172);
             this.leftSpeed.TabIndex = 8;
             this.leftSpeed.ValueChanged += new System.EventHandler(this.leftSpeed_ValueChanged);
             // 
             // rightEncoderLabel
             // 
             this.rightEncoderLabel.AutoSize = true;
-            this.rightEncoderLabel.Location = new System.Drawing.Point(377, 82);
+            this.rightEncoderLabel.Location = new System.Drawing.Point(367, 229);
             this.rightEncoderLabel.Name = "rightEncoderLabel";
             this.rightEncoderLabel.Size = new System.Drawing.Size(75, 13);
             this.rightEncoderLabel.TabIndex = 7;
@@ -717,7 +709,7 @@
             // leftEncoderLabel
             // 
             this.leftEncoderLabel.AutoSize = true;
-            this.leftEncoderLabel.Location = new System.Drawing.Point(303, 83);
+            this.leftEncoderLabel.Location = new System.Drawing.Point(293, 228);
             this.leftEncoderLabel.Name = "leftEncoderLabel";
             this.leftEncoderLabel.Size = new System.Drawing.Size(68, 13);
             this.leftEncoderLabel.TabIndex = 6;
@@ -743,7 +735,7 @@
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(7, 77);
+            this.stopButton.Location = new System.Drawing.Point(6, 76);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(117, 23);
             this.stopButton.TabIndex = 3;
@@ -779,6 +771,7 @@
             // 
             // taskGroupBox
             // 
+            this.taskGroupBox.Controls.Add(this.button1);
             this.taskGroupBox.Controls.Add(this.MatlabButton);
             this.taskGroupBox.Controls.Add(this.volcanoButton);
             this.taskGroupBox.Controls.Add(this.lineButton);
@@ -789,7 +782,7 @@
             this.taskGroupBox.Controls.Add(this.crashedRocketButton);
             this.taskGroupBox.Location = new System.Drawing.Point(821, 134);
             this.taskGroupBox.Name = "taskGroupBox";
-            this.taskGroupBox.Size = new System.Drawing.Size(231, 194);
+            this.taskGroupBox.Size = new System.Drawing.Size(231, 239);
             this.taskGroupBox.TabIndex = 44;
             this.taskGroupBox.TabStop = false;
             this.taskGroupBox.Text = "Tasks";
@@ -893,7 +886,7 @@
             this.groupBox4.Controls.Add(this.resetTimer);
             this.groupBox4.Controls.Add(this.sessionTimerLabel);
             this.groupBox4.Controls.Add(this.sessionTimerButton);
-            this.groupBox4.Location = new System.Drawing.Point(821, 334);
+            this.groupBox4.Location = new System.Drawing.Point(821, 379);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(231, 174);
             this.groupBox4.TabIndex = 3;
@@ -945,47 +938,21 @@
             this.sessionTimer.Interval = 1000;
             this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
             // 
-            // drivingLabel
+            // button1
             // 
-            this.drivingLabel.AutoSize = true;
-            this.drivingLabel.Location = new System.Drawing.Point(208, 25);
-            this.drivingLabel.Name = "drivingLabel";
-            this.drivingLabel.Size = new System.Drawing.Size(37, 13);
-            this.drivingLabel.TabIndex = 50;
-            this.drivingLabel.Text = "Status";
-            // 
-            // maxSpeedButton
-            // 
-            this.maxSpeedButton.Location = new System.Drawing.Point(190, 104);
-            this.maxSpeedButton.Name = "maxSpeedButton";
-            this.maxSpeedButton.Size = new System.Drawing.Size(100, 23);
-            this.maxSpeedButton.TabIndex = 52;
-            this.maxSpeedButton.Text = "Set Max Speed";
-            this.maxSpeedButton.UseVisualStyleBackColor = true;
-            this.maxSpeedButton.Click += new System.EventHandler(this.maxSpeedButton_Click);
-            // 
-            // maxSpeedTextBox
-            // 
-            this.maxSpeedTextBox.Location = new System.Drawing.Point(145, 106);
-            this.maxSpeedTextBox.Name = "maxSpeedTextBox";
-            this.maxSpeedTextBox.Size = new System.Drawing.Size(39, 20);
-            this.maxSpeedTextBox.TabIndex = 51;
-            this.maxSpeedTextBox.Text = "100";
-            // 
-            // maxDriveSpeedLabel
-            // 
-            this.maxDriveSpeedLabel.AutoSize = true;
-            this.maxDriveSpeedLabel.Location = new System.Drawing.Point(303, 109);
-            this.maxDriveSpeedLabel.Name = "maxDriveSpeedLabel";
-            this.maxDriveSpeedLabel.Size = new System.Drawing.Size(90, 13);
-            this.maxDriveSpeedLabel.TabIndex = 53;
-            this.maxDriveSpeedLabel.Text = "Drive Speed: 100";
+            this.button1.Location = new System.Drawing.Point(6, 190);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 39);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Einsteinium Objects";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 522);
+            this.ClientSize = new System.Drawing.Size(1058, 556);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -1056,10 +1023,6 @@
         private System.Windows.Forms.Label accelYlabel;
         private System.Windows.Forms.Label accelXlabel;
         private System.Windows.Forms.Label accelZlabel;
-        private System.Windows.Forms.Button lineData;
-        private System.Windows.Forms.Label threshLabel;
-        private System.Windows.Forms.Label rightIR;
-        private System.Windows.Forms.Label leftIR;
         private System.Windows.Forms.Timer motoPositionTimer;
         private System.Windows.Forms.Button motorPositionButton;
         private System.Windows.Forms.Button driveButton;
@@ -1110,6 +1073,7 @@
         private System.Windows.Forms.Button maxSpeedButton;
         private System.Windows.Forms.TextBox maxSpeedTextBox;
         private System.Windows.Forms.Label maxDriveSpeedLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
 

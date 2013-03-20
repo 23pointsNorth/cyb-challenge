@@ -5,7 +5,9 @@ mag_y = load(strcat(path, 'MagDataY.txt'));
 mag_z = load(strcat(path, 'MagDataZ.txt'));
 absVector = load(strcat(path, 'MagAbsValue.txt'));
 
-angle = mag_z;
+angleXY = mag_z; % make it the correct size
+angleXZ = mag_z; % make it the correct size
+angleYZ = mag_z; % make it the correct size
 
 time = (0:1:(size(mag_x) - 1));  
 
@@ -49,13 +51,33 @@ ylabel('Normalized Magnetic Vector');
 title('Magnetic Vector Normalized Data');
 grid on;
 
-%% cALCUATE ANGLE
+%% Calculate angle plot
 
+%% XY
 for i=1:length(mag_z)
-    angle(i) = atan2( mag_x(i), mag_y(i));
+    angleXY(i) = atan2( mag_x(i), mag_y(i));
 end
 
 figure;
-plot(time, angle, 'g');
+title('atan2(x, y)');
+plot(time, angleXY, 'g');
+
+%% XZ
+for i=1:length(mag_z)
+    angleXZ(i) = atan2( mag_x(i), mag_z(i));
+end
+
+figure;
+title('atan2(x, z)');
+plot(time, angleXZ, 'g');
+
+%% YZ
+for i=1:length(mag_z)
+    angleYZ(i) = atan2( mag_y(i), mag_z(i));
+end
+
+figure;
+title('atan2(y, z)');
+plot(time, angleYZ, 'g');
 
 end
