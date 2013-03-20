@@ -55,6 +55,12 @@
     <Compile Include="CrashedRocketForm.Designer.cs">
       <DependentUpon>CrashedRocketForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EObjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EObjects.Designer.cs">
+      <DependentUpon>EObjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="inputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="CrashedRocketForm.resx">
       <DependentUpon>CrashedRocketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EObjects.resx">
+      <DependentUpon>EObjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inputDialog.resx">
       <DependentUpon>inputDialog.cs</DependentUpon>
