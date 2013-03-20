@@ -1118,6 +1118,13 @@ namespace WIFIGUIDemo
             }
         }
 
+        EObjectsForm eObjects;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            eObjects = new EObjectsForm();
+            eObjects.Show();
+        }
+
     }
 }
 
