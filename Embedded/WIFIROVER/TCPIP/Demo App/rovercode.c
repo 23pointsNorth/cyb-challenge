@@ -131,7 +131,7 @@ int DRIVE_MAX_SPEED	= 100;
 int DIRECTION = 1;
 
 #define LEFT_DRIVE_COEF		(float)(1)
-#define RIGHT_DRIVE_COEF	(float)(1.091)
+#define RIGHT_DRIVE_COEF	(float)(1.125)
 
 #define MIN_SPEED			50	// [-127;128] values
 
