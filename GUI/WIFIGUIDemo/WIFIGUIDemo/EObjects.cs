@@ -27,6 +27,7 @@ namespace WIFIGUIDemo
         private void missDeliveredButton_Click(object sender, EventArgs e)
         {
             deliveredObjectsCounter--;
+            if (deliveredObjectsCounter < 0) deliveredObjectsCounter = 0;
             deliveredObjects.Text = "Object Delivered: " + deliveredObjectsCounter.ToString();
         }
     }
