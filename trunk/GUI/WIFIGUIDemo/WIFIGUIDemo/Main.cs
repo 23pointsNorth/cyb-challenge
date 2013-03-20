@@ -116,7 +116,7 @@ namespace WIFIGUIDemo
         int left_encoder = 0;
         int right_encoder = 0;
 
-        public const double DIST_PARAM = 9.5;
+        public const double DIST_PARAM = 9.2;
 
 
         int _1sec_l = 0;
