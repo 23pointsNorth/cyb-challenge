@@ -57,7 +57,6 @@
             this.XLabel = new System.Windows.Forms.Label();
             this.YLabel = new System.Windows.Forms.Label();
             this.ZLabel = new System.Windows.Forms.Label();
-            this.tempLabel = new System.Windows.Forms.Label();
             this.temp_Celsius = new System.Windows.Forms.Label();
             this.tempButton = new System.Windows.Forms.Button();
             this.LightLabel = new System.Windows.Forms.Label();
@@ -114,6 +113,9 @@
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
+            this.RUSAlabel = new System.Windows.Forms.Label();
+            this.PROJECTNOVAlabel = new System.Windows.Forms.Label();
+            this.ControlLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
@@ -138,18 +140,18 @@
             this.groupBox1.Controls.Add(this.lblIPAddress);
             this.groupBox1.Controls.Add(this.txtPort);
             this.groupBox1.Controls.Add(this.txtIPAddress);
-            this.groupBox1.Location = new System.Drawing.Point(821, 12);
+            this.groupBox1.Location = new System.Drawing.Point(958, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(225, 118);
+            this.groupBox1.Size = new System.Drawing.Size(262, 118);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connection";
             // 
             // cmdDisconnect
             // 
-            this.cmdDisconnect.Location = new System.Drawing.Point(15, 82);
+            this.cmdDisconnect.Location = new System.Drawing.Point(17, 82);
             this.cmdDisconnect.Name = "cmdDisconnect";
-            this.cmdDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.cmdDisconnect.Size = new System.Drawing.Size(87, 23);
             this.cmdDisconnect.TabIndex = 5;
             this.cmdDisconnect.Text = "Disconnect";
             this.cmdDisconnect.UseVisualStyleBackColor = true;
@@ -158,9 +160,9 @@
             // cmdConnect
             // 
             this.cmdConnect.Enabled = false;
-            this.cmdConnect.Location = new System.Drawing.Point(138, 82);
+            this.cmdConnect.Location = new System.Drawing.Point(161, 82);
             this.cmdConnect.Name = "cmdConnect";
-            this.cmdConnect.Size = new System.Drawing.Size(75, 23);
+            this.cmdConnect.Size = new System.Drawing.Size(87, 23);
             this.cmdConnect.TabIndex = 4;
             this.cmdConnect.Text = "Connect";
             this.cmdConnect.UseVisualStyleBackColor = true;
@@ -169,39 +171,42 @@
             // lbPort
             // 
             this.lbPort.AutoSize = true;
-            this.lbPort.Location = new System.Drawing.Point(12, 57);
+            this.lbPort.Location = new System.Drawing.Point(14, 57);
             this.lbPort.Name = "lbPort";
-            this.lbPort.Size = new System.Drawing.Size(60, 13);
+            this.lbPort.Size = new System.Drawing.Size(71, 13);
             this.lbPort.TabIndex = 3;
             this.lbPort.Text = "Server Port";
             // 
             // lblIPAddress
             // 
             this.lblIPAddress.AutoSize = true;
-            this.lblIPAddress.Location = new System.Drawing.Point(12, 31);
+            this.lblIPAddress.Location = new System.Drawing.Point(14, 31);
             this.lblIPAddress.Name = "lblIPAddress";
-            this.lblIPAddress.Size = new System.Drawing.Size(92, 13);
+            this.lblIPAddress.Size = new System.Drawing.Size(109, 13);
             this.lblIPAddress.TabIndex = 2;
             this.lblIPAddress.Text = "Server IP Address";
             // 
             // txtPort
             // 
             this.txtPort.Enabled = false;
-            this.txtPort.Location = new System.Drawing.Point(113, 54);
+            this.txtPort.Location = new System.Drawing.Point(132, 54);
             this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(100, 20);
+            this.txtPort.Size = new System.Drawing.Size(116, 20);
             this.txtPort.TabIndex = 1;
             // 
             // txtIPAddress
             // 
             this.txtIPAddress.Enabled = false;
-            this.txtIPAddress.Location = new System.Drawing.Point(113, 28);
+            this.txtIPAddress.Location = new System.Drawing.Point(132, 28);
             this.txtIPAddress.Name = "txtIPAddress";
-            this.txtIPAddress.Size = new System.Drawing.Size(100, 20);
+            this.txtIPAddress.Size = new System.Drawing.Size(116, 20);
             this.txtIPAddress.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ControlLabel);
+            this.groupBox2.Controls.Add(this.PROJECTNOVAlabel);
+            this.groupBox2.Controls.Add(this.RUSAlabel);
             this.groupBox2.Controls.Add(this.saveDirTextBox);
             this.groupBox2.Controls.Add(this.saveDirLabel);
             this.groupBox2.Controls.Add(this.emergencyStop);
@@ -230,27 +235,27 @@
             this.groupBox2.Controls.Add(this.rightMotorSpeed);
             this.groupBox2.Controls.Add(this.leftMotorSpeed);
             this.groupBox2.Controls.Add(this.setSpeed);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(14, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(803, 541);
+            this.groupBox2.Size = new System.Drawing.Size(937, 541);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " Control";
             // 
             // saveDirTextBox
             // 
-            this.saveDirTextBox.Location = new System.Drawing.Point(354, 271);
+            this.saveDirTextBox.Location = new System.Drawing.Point(404, 322);
+            this.saveDirTextBox.MaxLength = 200;
             this.saveDirTextBox.Name = "saveDirTextBox";
-            this.saveDirTextBox.Size = new System.Drawing.Size(254, 20);
+            this.saveDirTextBox.Size = new System.Drawing.Size(296, 20);
             this.saveDirTextBox.TabIndex = 56;
             this.saveDirTextBox.Text = "N:\\..University\\Year2\\Cybs Challenge\\Data\\";
             // 
             // saveDirLabel
             // 
             this.saveDirLabel.AutoSize = true;
-            this.saveDirLabel.Location = new System.Drawing.Point(268, 274);
+            this.saveDirLabel.Location = new System.Drawing.Point(304, 325);
             this.saveDirLabel.Name = "saveDirLabel";
-            this.saveDirLabel.Size = new System.Drawing.Size(80, 13);
+            this.saveDirLabel.Size = new System.Drawing.Size(95, 13);
             this.saveDirLabel.TabIndex = 55;
             this.saveDirLabel.Text = "Save Directory:";
             // 
@@ -259,9 +264,9 @@
             this.emergencyStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.emergencyStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emergencyStop.ForeColor = System.Drawing.Color.Maroon;
-            this.emergencyStop.Location = new System.Drawing.Point(7, 400);
+            this.emergencyStop.Location = new System.Drawing.Point(17, 454);
             this.emergencyStop.Name = "emergencyStop";
-            this.emergencyStop.Size = new System.Drawing.Size(164, 135);
+            this.emergencyStop.Size = new System.Drawing.Size(191, 83);
             this.emergencyStop.TabIndex = 54;
             this.emergencyStop.Text = "Emergency Stop";
             this.emergencyStop.UseVisualStyleBackColor = false;
@@ -270,17 +275,17 @@
             // maxDriveSpeedLabel
             // 
             this.maxDriveSpeedLabel.AutoSize = true;
-            this.maxDriveSpeedLabel.Location = new System.Drawing.Point(190, 110);
+            this.maxDriveSpeedLabel.Location = new System.Drawing.Point(222, 162);
             this.maxDriveSpeedLabel.Name = "maxDriveSpeedLabel";
-            this.maxDriveSpeedLabel.Size = new System.Drawing.Size(90, 13);
+            this.maxDriveSpeedLabel.Size = new System.Drawing.Size(106, 13);
             this.maxDriveSpeedLabel.TabIndex = 53;
             this.maxDriveSpeedLabel.Text = "Drive Speed: 100";
             // 
             // maxSpeedButton
             // 
-            this.maxSpeedButton.Location = new System.Drawing.Point(6, 105);
+            this.maxSpeedButton.Location = new System.Drawing.Point(7, 157);
             this.maxSpeedButton.Name = "maxSpeedButton";
-            this.maxSpeedButton.Size = new System.Drawing.Size(117, 23);
+            this.maxSpeedButton.Size = new System.Drawing.Size(136, 25);
             this.maxSpeedButton.TabIndex = 52;
             this.maxSpeedButton.Text = "Set Max Speed";
             this.maxSpeedButton.UseVisualStyleBackColor = true;
@@ -288,18 +293,18 @@
             // 
             // maxSpeedTextBox
             // 
-            this.maxSpeedTextBox.Location = new System.Drawing.Point(145, 107);
+            this.maxSpeedTextBox.Location = new System.Drawing.Point(169, 159);
             this.maxSpeedTextBox.Name = "maxSpeedTextBox";
-            this.maxSpeedTextBox.Size = new System.Drawing.Size(39, 20);
+            this.maxSpeedTextBox.Size = new System.Drawing.Size(45, 20);
             this.maxSpeedTextBox.TabIndex = 51;
             this.maxSpeedTextBox.Text = "100";
             // 
             // drivingLabel
             // 
             this.drivingLabel.AutoSize = true;
-            this.drivingLabel.Location = new System.Drawing.Point(208, 25);
+            this.drivingLabel.Location = new System.Drawing.Point(243, 77);
             this.drivingLabel.Name = "drivingLabel";
-            this.drivingLabel.Size = new System.Drawing.Size(37, 13);
+            this.drivingLabel.Size = new System.Drawing.Size(43, 13);
             this.drivingLabel.TabIndex = 50;
             this.drivingLabel.Text = "Status";
             // 
@@ -307,9 +312,9 @@
             // 
             this.roverOrientationGroupBox.Controls.Add(this.frontlPictureBox);
             this.roverOrientationGroupBox.Controls.Add(this.horizonPictureBox);
-            this.roverOrientationGroupBox.Location = new System.Drawing.Point(614, 263);
+            this.roverOrientationGroupBox.Location = new System.Drawing.Point(716, 263);
             this.roverOrientationGroupBox.Name = "roverOrientationGroupBox";
-            this.roverOrientationGroupBox.Size = new System.Drawing.Size(183, 269);
+            this.roverOrientationGroupBox.Size = new System.Drawing.Size(213, 269);
             this.roverOrientationGroupBox.TabIndex = 49;
             this.roverOrientationGroupBox.TabStop = false;
             this.roverOrientationGroupBox.Text = "Rover Orientation";
@@ -317,26 +322,26 @@
             // frontlPictureBox
             // 
             this.frontlPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.frontlPictureBox.Location = new System.Drawing.Point(6, 144);
+            this.frontlPictureBox.Location = new System.Drawing.Point(7, 144);
             this.frontlPictureBox.Name = "frontlPictureBox";
-            this.frontlPictureBox.Size = new System.Drawing.Size(171, 119);
+            this.frontlPictureBox.Size = new System.Drawing.Size(199, 119);
             this.frontlPictureBox.TabIndex = 1;
             this.frontlPictureBox.TabStop = false;
             // 
             // horizonPictureBox
             // 
             this.horizonPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.horizonPictureBox.Location = new System.Drawing.Point(6, 19);
+            this.horizonPictureBox.Location = new System.Drawing.Point(7, 19);
             this.horizonPictureBox.Name = "horizonPictureBox";
-            this.horizonPictureBox.Size = new System.Drawing.Size(171, 119);
+            this.horizonPictureBox.Size = new System.Drawing.Size(199, 119);
             this.horizonPictureBox.TabIndex = 0;
             this.horizonPictureBox.TabStop = false;
             // 
             // DrivetextBox
             // 
-            this.DrivetextBox.Location = new System.Drawing.Point(235, 80);
+            this.DrivetextBox.Location = new System.Drawing.Point(307, 132);
             this.DrivetextBox.Name = "DrivetextBox";
-            this.DrivetextBox.Size = new System.Drawing.Size(34, 20);
+            this.DrivetextBox.Size = new System.Drawing.Size(39, 20);
             this.DrivetextBox.TabIndex = 48;
             this.DrivetextBox.Text = "Drive";
             this.DrivetextBox.Visible = false;
@@ -344,25 +349,25 @@
             // degLabel
             // 
             this.degLabel.AutoSize = true;
-            this.degLabel.Location = new System.Drawing.Point(303, 24);
+            this.degLabel.Location = new System.Drawing.Point(353, 76);
             this.degLabel.Name = "degLabel";
-            this.degLabel.Size = new System.Drawing.Size(11, 13);
+            this.degLabel.Size = new System.Drawing.Size(12, 13);
             this.degLabel.TabIndex = 47;
             this.degLabel.Text = "°";
             // 
             // angle_Val
             // 
-            this.angle_Val.Location = new System.Drawing.Point(263, 22);
+            this.angle_Val.Location = new System.Drawing.Point(307, 74);
             this.angle_Val.Name = "angle_Val";
-            this.angle_Val.Size = new System.Drawing.Size(34, 20);
+            this.angle_Val.Size = new System.Drawing.Size(39, 20);
             this.angle_Val.TabIndex = 46;
             this.angle_Val.Text = "90";
             // 
             // start_rotate
             // 
-            this.start_rotate.Location = new System.Drawing.Point(251, 47);
+            this.start_rotate.Location = new System.Drawing.Point(293, 99);
             this.start_rotate.Name = "start_rotate";
-            this.start_rotate.Size = new System.Drawing.Size(72, 23);
+            this.start_rotate.Size = new System.Drawing.Size(84, 25);
             this.start_rotate.TabIndex = 45;
             this.start_rotate.Text = "Rotate";
             this.start_rotate.UseVisualStyleBackColor = true;
@@ -375,7 +380,6 @@
             this.groupBox5.Controls.Add(this.XLabel);
             this.groupBox5.Controls.Add(this.YLabel);
             this.groupBox5.Controls.Add(this.ZLabel);
-            this.groupBox5.Controls.Add(this.tempLabel);
             this.groupBox5.Controls.Add(this.temp_Celsius);
             this.groupBox5.Controls.Add(this.tempButton);
             this.groupBox5.Controls.Add(this.LightLabel);
@@ -392,9 +396,9 @@
             this.groupBox5.Controls.Add(this.accelYlabel);
             this.groupBox5.Controls.Add(this.accelZlabel);
             this.groupBox5.Controls.Add(this.getAccelerometer);
-            this.groupBox5.Location = new System.Drawing.Point(614, 19);
+            this.groupBox5.Location = new System.Drawing.Point(716, 19);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(183, 238);
+            this.groupBox5.Size = new System.Drawing.Size(213, 238);
             this.groupBox5.TabIndex = 43;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Utility";
@@ -402,71 +406,62 @@
             // angleLabel
             // 
             this.angleLabel.AutoSize = true;
-            this.angleLabel.Location = new System.Drawing.Point(5, 188);
+            this.angleLabel.Location = new System.Drawing.Point(5, 185);
             this.angleLabel.Name = "angleLabel";
-            this.angleLabel.Size = new System.Drawing.Size(34, 13);
+            this.angleLabel.Size = new System.Drawing.Size(39, 13);
             this.angleLabel.TabIndex = 46;
             this.angleLabel.Text = "Angle";
             // 
             // GLabel
             // 
             this.GLabel.AutoSize = true;
-            this.GLabel.Location = new System.Drawing.Point(24, 170);
+            this.GLabel.Location = new System.Drawing.Point(27, 159);
             this.GLabel.Name = "GLabel";
-            this.GLabel.Size = new System.Drawing.Size(15, 13);
+            this.GLabel.Size = new System.Drawing.Size(16, 13);
             this.GLabel.TabIndex = 45;
             this.GLabel.Text = "G";
             // 
             // XLabel
             // 
             this.XLabel.AutoSize = true;
-            this.XLabel.Location = new System.Drawing.Point(44, 152);
+            this.XLabel.Location = new System.Drawing.Point(51, 135);
             this.XLabel.Name = "XLabel";
-            this.XLabel.Size = new System.Drawing.Size(14, 13);
+            this.XLabel.Size = new System.Drawing.Size(15, 13);
             this.XLabel.TabIndex = 43;
             this.XLabel.Text = "X";
             // 
             // YLabel
             // 
             this.YLabel.AutoSize = true;
-            this.YLabel.Location = new System.Drawing.Point(86, 152);
+            this.YLabel.Location = new System.Drawing.Point(100, 135);
             this.YLabel.Name = "YLabel";
-            this.YLabel.Size = new System.Drawing.Size(14, 13);
+            this.YLabel.Size = new System.Drawing.Size(15, 13);
             this.YLabel.TabIndex = 44;
             this.YLabel.Text = "Y";
             // 
             // ZLabel
             // 
             this.ZLabel.AutoSize = true;
-            this.ZLabel.Location = new System.Drawing.Point(134, 152);
+            this.ZLabel.Location = new System.Drawing.Point(156, 135);
             this.ZLabel.Name = "ZLabel";
-            this.ZLabel.Size = new System.Drawing.Size(14, 13);
+            this.ZLabel.Size = new System.Drawing.Size(15, 13);
             this.ZLabel.TabIndex = 42;
             this.ZLabel.Text = "Z";
-            // 
-            // tempLabel
-            // 
-            this.tempLabel.AutoSize = true;
-            this.tempLabel.Location = new System.Drawing.Point(6, 16);
-            this.tempLabel.Name = "tempLabel";
-            this.tempLabel.Size = new System.Drawing.Size(67, 13);
-            this.tempLabel.TabIndex = 12;
-            this.tempLabel.Text = "Temperature";
             // 
             // temp_Celsius
             // 
             this.temp_Celsius.AutoSize = true;
-            this.temp_Celsius.Location = new System.Drawing.Point(79, 15);
+            this.temp_Celsius.Location = new System.Drawing.Point(135, 24);
             this.temp_Celsius.Name = "temp_Celsius";
-            this.temp_Celsius.Size = new System.Drawing.Size(40, 13);
+            this.temp_Celsius.Size = new System.Drawing.Size(47, 13);
             this.temp_Celsius.TabIndex = 41;
             this.temp_Celsius.Text = "Celsius";
             // 
             // tempButton
             // 
-            this.tempButton.Location = new System.Drawing.Point(9, 31);
+            this.tempButton.Location = new System.Drawing.Point(10, 19);
             this.tempButton.Name = "tempButton";
-            this.tempButton.Size = new System.Drawing.Size(101, 23);
+            this.tempButton.Size = new System.Drawing.Size(117, 25);
             this.tempButton.TabIndex = 11;
             this.tempButton.Text = "Get Temperature";
             this.tempButton.UseVisualStyleBackColor = true;
@@ -475,44 +470,44 @@
             // LightLabel
             // 
             this.LightLabel.AutoSize = true;
-            this.LightLabel.Location = new System.Drawing.Point(6, 57);
+            this.LightLabel.Location = new System.Drawing.Point(135, 64);
             this.LightLabel.Name = "LightLabel";
-            this.LightLabel.Size = new System.Drawing.Size(30, 13);
+            this.LightLabel.Size = new System.Drawing.Size(35, 13);
             this.LightLabel.TabIndex = 14;
             this.LightLabel.Text = "Light";
             // 
             // z_angle
             // 
             this.z_angle.AutoSize = true;
-            this.z_angle.Location = new System.Drawing.Point(134, 188);
+            this.z_angle.Location = new System.Drawing.Point(156, 185);
             this.z_angle.Name = "z_angle";
-            this.z_angle.Size = new System.Drawing.Size(44, 13);
+            this.z_angle.Size = new System.Drawing.Size(51, 13);
             this.z_angle.TabIndex = 39;
             this.z_angle.Text = "Z Angle";
             // 
             // auxLabel
             // 
             this.auxLabel.AutoSize = true;
-            this.auxLabel.Location = new System.Drawing.Point(48, 57);
+            this.auxLabel.Location = new System.Drawing.Point(177, 64);
             this.auxLabel.Name = "auxLabel";
-            this.auxLabel.Size = new System.Drawing.Size(25, 13);
+            this.auxLabel.Size = new System.Drawing.Size(28, 13);
             this.auxLabel.TabIndex = 15;
             this.auxLabel.Text = "Aux";
             // 
             // y_angle
             // 
             this.y_angle.AutoSize = true;
-            this.y_angle.Location = new System.Drawing.Point(86, 188);
+            this.y_angle.Location = new System.Drawing.Point(100, 185);
             this.y_angle.Name = "y_angle";
-            this.y_angle.Size = new System.Drawing.Size(44, 13);
+            this.y_angle.Size = new System.Drawing.Size(51, 13);
             this.y_angle.TabIndex = 38;
             this.y_angle.Text = "Y Angle";
             // 
             // lightLuxButton
             // 
-            this.lightLuxButton.Location = new System.Drawing.Point(9, 73);
+            this.lightLuxButton.Location = new System.Drawing.Point(10, 57);
             this.lightLuxButton.Name = "lightLuxButton";
-            this.lightLuxButton.Size = new System.Drawing.Size(101, 23);
+            this.lightLuxButton.Size = new System.Drawing.Size(117, 25);
             this.lightLuxButton.TabIndex = 13;
             this.lightLuxButton.Text = "Get Light Aux";
             this.lightLuxButton.UseVisualStyleBackColor = true;
@@ -521,44 +516,44 @@
             // x_angle
             // 
             this.x_angle.AutoSize = true;
-            this.x_angle.Location = new System.Drawing.Point(44, 188);
+            this.x_angle.Location = new System.Drawing.Point(51, 185);
             this.x_angle.Name = "x_angle";
-            this.x_angle.Size = new System.Drawing.Size(44, 13);
+            this.x_angle.Size = new System.Drawing.Size(51, 13);
             this.x_angle.TabIndex = 37;
             this.x_angle.Text = "X Angle";
             // 
             // getXlabel
             // 
             this.getXlabel.AutoSize = true;
-            this.getXlabel.Location = new System.Drawing.Point(6, 103);
+            this.getXlabel.Location = new System.Drawing.Point(7, 87);
             this.getXlabel.Name = "getXlabel";
-            this.getXlabel.Size = new System.Drawing.Size(14, 13);
+            this.getXlabel.Size = new System.Drawing.Size(15, 13);
             this.getXlabel.TabIndex = 18;
             this.getXlabel.Text = "X";
             // 
             // getYlabel
             // 
             this.getYlabel.AutoSize = true;
-            this.getYlabel.Location = new System.Drawing.Point(48, 103);
+            this.getYlabel.Location = new System.Drawing.Point(56, 87);
             this.getYlabel.Name = "getYlabel";
-            this.getYlabel.Size = new System.Drawing.Size(14, 13);
+            this.getYlabel.Size = new System.Drawing.Size(15, 13);
             this.getYlabel.TabIndex = 21;
             this.getYlabel.Text = "Y";
             // 
             // getZlabel
             // 
             this.getZlabel.AutoSize = true;
-            this.getZlabel.Location = new System.Drawing.Point(96, 103);
+            this.getZlabel.Location = new System.Drawing.Point(112, 87);
             this.getZlabel.Name = "getZlabel";
-            this.getZlabel.Size = new System.Drawing.Size(14, 13);
+            this.getZlabel.Size = new System.Drawing.Size(15, 13);
             this.getZlabel.TabIndex = 22;
             this.getZlabel.Text = "Z";
             // 
             // getMagnet
             // 
-            this.getMagnet.Location = new System.Drawing.Point(9, 119);
+            this.getMagnet.Location = new System.Drawing.Point(10, 103);
             this.getMagnet.Name = "getMagnet";
-            this.getMagnet.Size = new System.Drawing.Size(101, 23);
+            this.getMagnet.Size = new System.Drawing.Size(117, 25);
             this.getMagnet.TabIndex = 17;
             this.getMagnet.Text = "Get Magnet";
             this.getMagnet.UseVisualStyleBackColor = true;
@@ -567,35 +562,35 @@
             // accelXlabel
             // 
             this.accelXlabel.AutoSize = true;
-            this.accelXlabel.Location = new System.Drawing.Point(44, 170);
+            this.accelXlabel.Location = new System.Drawing.Point(51, 159);
             this.accelXlabel.Name = "accelXlabel";
-            this.accelXlabel.Size = new System.Drawing.Size(14, 13);
+            this.accelXlabel.Size = new System.Drawing.Size(15, 13);
             this.accelXlabel.TabIndex = 26;
             this.accelXlabel.Text = "X";
             // 
             // accelYlabel
             // 
             this.accelYlabel.AutoSize = true;
-            this.accelYlabel.Location = new System.Drawing.Point(86, 170);
+            this.accelYlabel.Location = new System.Drawing.Point(100, 159);
             this.accelYlabel.Name = "accelYlabel";
-            this.accelYlabel.Size = new System.Drawing.Size(14, 13);
+            this.accelYlabel.Size = new System.Drawing.Size(15, 13);
             this.accelYlabel.TabIndex = 27;
             this.accelYlabel.Text = "Y";
             // 
             // accelZlabel
             // 
             this.accelZlabel.AutoSize = true;
-            this.accelZlabel.Location = new System.Drawing.Point(134, 170);
+            this.accelZlabel.Location = new System.Drawing.Point(156, 159);
             this.accelZlabel.Name = "accelZlabel";
-            this.accelZlabel.Size = new System.Drawing.Size(14, 13);
+            this.accelZlabel.Size = new System.Drawing.Size(15, 13);
             this.accelZlabel.TabIndex = 22;
             this.accelZlabel.Text = "Z";
             // 
             // getAccelerometer
             // 
-            this.getAccelerometer.Location = new System.Drawing.Point(9, 204);
+            this.getAccelerometer.Location = new System.Drawing.Point(10, 204);
             this.getAccelerometer.Name = "getAccelerometer";
-            this.getAccelerometer.Size = new System.Drawing.Size(101, 23);
+            this.getAccelerometer.Size = new System.Drawing.Size(117, 25);
             this.getAccelerometer.TabIndex = 19;
             this.getAccelerometer.Text = "Accelerometer";
             this.getAccelerometer.UseVisualStyleBackColor = true;
@@ -604,9 +599,9 @@
             // smlabel
             // 
             this.smlabel.AutoSize = true;
-            this.smlabel.Location = new System.Drawing.Point(190, 24);
+            this.smlabel.Location = new System.Drawing.Point(222, 76);
             this.smlabel.Name = "smlabel";
-            this.smlabel.Size = new System.Drawing.Size(24, 13);
+            this.smlabel.Size = new System.Drawing.Size(27, 13);
             this.smlabel.TabIndex = 42;
             this.smlabel.Text = "cm.";
             // 
@@ -617,18 +612,18 @@
             this.servoGroupBox.Controls.Add(this.holdButton);
             this.servoGroupBox.Controls.Add(this.additionalTrackBar);
             this.servoGroupBox.Controls.Add(this.servoTrackBar);
-            this.servoGroupBox.Location = new System.Drawing.Point(461, 19);
+            this.servoGroupBox.Location = new System.Drawing.Point(538, 19);
             this.servoGroupBox.Name = "servoGroupBox";
-            this.servoGroupBox.Size = new System.Drawing.Size(147, 238);
+            this.servoGroupBox.Size = new System.Drawing.Size(171, 290);
             this.servoGroupBox.TabIndex = 34;
             this.servoGroupBox.TabStop = false;
             this.servoGroupBox.Text = "Servo Control";
             // 
             // absZeroButton
             // 
-            this.absZeroButton.Location = new System.Drawing.Point(6, 211);
+            this.absZeroButton.Location = new System.Drawing.Point(7, 263);
             this.absZeroButton.Name = "absZeroButton";
-            this.absZeroButton.Size = new System.Drawing.Size(126, 20);
+            this.absZeroButton.Size = new System.Drawing.Size(147, 20);
             this.absZeroButton.TabIndex = 4;
             this.absZeroButton.Text = "Absolute Zero";
             this.absZeroButton.UseVisualStyleBackColor = true;
@@ -636,9 +631,9 @@
             // 
             // releaseButton
             // 
-            this.releaseButton.Location = new System.Drawing.Point(6, 178);
+            this.releaseButton.Location = new System.Drawing.Point(7, 230);
             this.releaseButton.Name = "releaseButton";
-            this.releaseButton.Size = new System.Drawing.Size(126, 27);
+            this.releaseButton.Size = new System.Drawing.Size(147, 27);
             this.releaseButton.TabIndex = 3;
             this.releaseButton.Text = "Release Claim";
             this.releaseButton.UseVisualStyleBackColor = true;
@@ -646,9 +641,9 @@
             // 
             // holdButton
             // 
-            this.holdButton.Location = new System.Drawing.Point(6, 145);
+            this.holdButton.Location = new System.Drawing.Point(7, 197);
             this.holdButton.Name = "holdButton";
-            this.holdButton.Size = new System.Drawing.Size(126, 27);
+            this.holdButton.Size = new System.Drawing.Size(147, 27);
             this.holdButton.TabIndex = 2;
             this.holdButton.Text = "Hold Claim";
             this.holdButton.UseVisualStyleBackColor = true;
@@ -656,11 +651,12 @@
             // 
             // additionalTrackBar
             // 
-            this.additionalTrackBar.Location = new System.Drawing.Point(87, 19);
+            this.additionalTrackBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.additionalTrackBar.Location = new System.Drawing.Point(101, 19);
             this.additionalTrackBar.Maximum = 30;
             this.additionalTrackBar.Name = "additionalTrackBar";
             this.additionalTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.additionalTrackBar.Size = new System.Drawing.Size(45, 123);
+            this.additionalTrackBar.Size = new System.Drawing.Size(45, 172);
             this.additionalTrackBar.TabIndex = 1;
             this.additionalTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.additionalTrackBar.Value = 30;
@@ -668,11 +664,12 @@
             // 
             // servoTrackBar
             // 
-            this.servoTrackBar.Location = new System.Drawing.Point(19, 19);
+            this.servoTrackBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.servoTrackBar.Location = new System.Drawing.Point(22, 19);
             this.servoTrackBar.Maximum = 215;
             this.servoTrackBar.Name = "servoTrackBar";
             this.servoTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.servoTrackBar.Size = new System.Drawing.Size(45, 123);
+            this.servoTrackBar.Size = new System.Drawing.Size(45, 172);
             this.servoTrackBar.TabIndex = 0;
             this.servoTrackBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.servoTrackBar.Value = 80;
@@ -680,9 +677,9 @@
             // 
             // driveButton
             // 
-            this.driveButton.Location = new System.Drawing.Point(145, 77);
+            this.driveButton.Location = new System.Drawing.Point(169, 129);
             this.driveButton.Name = "driveButton";
-            this.driveButton.Size = new System.Drawing.Size(84, 23);
+            this.driveButton.Size = new System.Drawing.Size(117, 25);
             this.driveButton.TabIndex = 33;
             this.driveButton.Text = "Drive";
             this.driveButton.UseVisualStyleBackColor = true;
@@ -690,9 +687,9 @@
             // 
             // motorPositionButton
             // 
-            this.motorPositionButton.Location = new System.Drawing.Point(316, 210);
+            this.motorPositionButton.Location = new System.Drawing.Point(369, 262);
             this.motorPositionButton.Name = "motorPositionButton";
-            this.motorPositionButton.Size = new System.Drawing.Size(107, 23);
+            this.motorPositionButton.Size = new System.Drawing.Size(125, 25);
             this.motorPositionButton.TabIndex = 32;
             this.motorPositionButton.Text = "Moto position";
             this.motorPositionButton.UseVisualStyleBackColor = true;
@@ -702,7 +699,7 @@
             // 
             this.directionalSpeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.directionalSpeed.InitialImage = null;
-            this.directionalSpeed.Location = new System.Drawing.Point(6, 138);
+            this.directionalSpeed.Location = new System.Drawing.Point(17, 188);
             this.directionalSpeed.Name = "directionalSpeed";
             this.directionalSpeed.Size = new System.Drawing.Size(256, 256);
             this.directionalSpeed.TabIndex = 10;
@@ -713,49 +710,51 @@
             // 
             // rightSpeed
             // 
-            this.rightSpeed.Location = new System.Drawing.Point(391, 19);
+            this.rightSpeed.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.rightSpeed.Location = new System.Drawing.Point(456, 19);
             this.rightSpeed.Maximum = 128;
             this.rightSpeed.Minimum = -127;
             this.rightSpeed.Name = "rightSpeed";
             this.rightSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rightSpeed.Size = new System.Drawing.Size(45, 185);
+            this.rightSpeed.Size = new System.Drawing.Size(45, 237);
             this.rightSpeed.TabIndex = 9;
             this.rightSpeed.ValueChanged += new System.EventHandler(this.rightSpeed_ValueChanged);
             // 
             // leftSpeed
             // 
-            this.leftSpeed.Location = new System.Drawing.Point(340, 19);
+            this.leftSpeed.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.leftSpeed.Location = new System.Drawing.Point(397, 19);
             this.leftSpeed.Maximum = 128;
             this.leftSpeed.Minimum = -127;
             this.leftSpeed.Name = "leftSpeed";
             this.leftSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.leftSpeed.Size = new System.Drawing.Size(45, 185);
+            this.leftSpeed.Size = new System.Drawing.Size(45, 237);
             this.leftSpeed.TabIndex = 8;
             this.leftSpeed.ValueChanged += new System.EventHandler(this.leftSpeed_ValueChanged);
             // 
             // rightEncoderLabel
             // 
             this.rightEncoderLabel.AutoSize = true;
-            this.rightEncoderLabel.Location = new System.Drawing.Point(367, 242);
+            this.rightEncoderLabel.Location = new System.Drawing.Point(428, 294);
             this.rightEncoderLabel.Name = "rightEncoderLabel";
-            this.rightEncoderLabel.Size = new System.Drawing.Size(75, 13);
+            this.rightEncoderLabel.Size = new System.Drawing.Size(88, 13);
             this.rightEncoderLabel.TabIndex = 7;
             this.rightEncoderLabel.Text = "Right Encoder";
             // 
             // leftEncoderLabel
             // 
             this.leftEncoderLabel.AutoSize = true;
-            this.leftEncoderLabel.Location = new System.Drawing.Point(293, 242);
+            this.leftEncoderLabel.Location = new System.Drawing.Point(342, 294);
             this.leftEncoderLabel.Name = "leftEncoderLabel";
-            this.leftEncoderLabel.Size = new System.Drawing.Size(68, 13);
+            this.leftEncoderLabel.Size = new System.Drawing.Size(80, 13);
             this.leftEncoderLabel.TabIndex = 6;
             this.leftEncoderLabel.Text = "Left Encoder";
             // 
             // driveSteps
             // 
-            this.driveSteps.Location = new System.Drawing.Point(145, 47);
+            this.driveSteps.Location = new System.Drawing.Point(169, 99);
             this.driveSteps.Name = "driveSteps";
-            this.driveSteps.Size = new System.Drawing.Size(100, 23);
+            this.driveSteps.Size = new System.Drawing.Size(117, 25);
             this.driveSteps.TabIndex = 5;
             this.driveSteps.Text = "Drive Distance";
             this.driveSteps.UseVisualStyleBackColor = true;
@@ -763,17 +762,17 @@
             // 
             // PositionStatusBox
             // 
-            this.PositionStatusBox.Location = new System.Drawing.Point(145, 20);
+            this.PositionStatusBox.Location = new System.Drawing.Point(169, 72);
             this.PositionStatusBox.Name = "PositionStatusBox";
-            this.PositionStatusBox.Size = new System.Drawing.Size(39, 20);
+            this.PositionStatusBox.Size = new System.Drawing.Size(45, 20);
             this.PositionStatusBox.TabIndex = 4;
             this.PositionStatusBox.Text = "10";
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(6, 76);
+            this.stopButton.Location = new System.Drawing.Point(7, 128);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(117, 23);
+            this.stopButton.Size = new System.Drawing.Size(136, 25);
             this.stopButton.TabIndex = 3;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
@@ -781,25 +780,26 @@
             // 
             // rightMotorSpeed
             // 
-            this.rightMotorSpeed.Location = new System.Drawing.Point(79, 20);
+            this.rightMotorSpeed.Location = new System.Drawing.Point(92, 72);
             this.rightMotorSpeed.Name = "rightMotorSpeed";
-            this.rightMotorSpeed.Size = new System.Drawing.Size(45, 20);
+            this.rightMotorSpeed.Size = new System.Drawing.Size(52, 20);
             this.rightMotorSpeed.TabIndex = 2;
             this.rightMotorSpeed.Text = "50";
             // 
             // leftMotorSpeed
             // 
-            this.leftMotorSpeed.Location = new System.Drawing.Point(7, 20);
+            this.leftMotorSpeed.Location = new System.Drawing.Point(8, 72);
             this.leftMotorSpeed.Name = "leftMotorSpeed";
-            this.leftMotorSpeed.Size = new System.Drawing.Size(50, 20);
+            this.leftMotorSpeed.Size = new System.Drawing.Size(58, 20);
             this.leftMotorSpeed.TabIndex = 1;
             this.leftMotorSpeed.Text = "50";
             // 
             // setSpeed
             // 
-            this.setSpeed.Location = new System.Drawing.Point(7, 47);
+            this.setSpeed.ForeColor = System.Drawing.Color.Black;
+            this.setSpeed.Location = new System.Drawing.Point(8, 99);
             this.setSpeed.Name = "setSpeed";
-            this.setSpeed.Size = new System.Drawing.Size(117, 23);
+            this.setSpeed.Size = new System.Drawing.Size(136, 25);
             this.setSpeed.TabIndex = 0;
             this.setSpeed.Text = "Set Motor Speeds";
             this.setSpeed.UseVisualStyleBackColor = true;
@@ -816,18 +816,18 @@
             this.taskGroupBox.Controls.Add(this.riverBedButton);
             this.taskGroupBox.Controls.Add(this.Seismic_Activity);
             this.taskGroupBox.Controls.Add(this.crashedRocketButton);
-            this.taskGroupBox.Location = new System.Drawing.Point(821, 134);
+            this.taskGroupBox.Location = new System.Drawing.Point(958, 134);
             this.taskGroupBox.Name = "taskGroupBox";
-            this.taskGroupBox.Size = new System.Drawing.Size(231, 239);
+            this.taskGroupBox.Size = new System.Drawing.Size(269, 239);
             this.taskGroupBox.TabIndex = 44;
             this.taskGroupBox.TabStop = false;
             this.taskGroupBox.Text = "Tasks";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 190);
+            this.button1.Location = new System.Drawing.Point(7, 190);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 39);
+            this.button1.Size = new System.Drawing.Size(117, 39);
             this.button1.TabIndex = 46;
             this.button1.Text = "Einsteinium Objects";
             this.button1.UseVisualStyleBackColor = true;
@@ -835,9 +835,9 @@
             // 
             // MatlabButton
             // 
-            this.MatlabButton.Location = new System.Drawing.Point(6, 148);
+            this.MatlabButton.Location = new System.Drawing.Point(7, 148);
             this.MatlabButton.Name = "MatlabButton";
-            this.MatlabButton.Size = new System.Drawing.Size(100, 39);
+            this.MatlabButton.Size = new System.Drawing.Size(117, 39);
             this.MatlabButton.TabIndex = 45;
             this.MatlabButton.Text = "Start MATLAB";
             this.MatlabButton.UseVisualStyleBackColor = true;
@@ -845,9 +845,9 @@
             // 
             // volcanoButton
             // 
-            this.volcanoButton.Location = new System.Drawing.Point(123, 148);
+            this.volcanoButton.Location = new System.Drawing.Point(143, 148);
             this.volcanoButton.Name = "volcanoButton";
-            this.volcanoButton.Size = new System.Drawing.Size(100, 39);
+            this.volcanoButton.Size = new System.Drawing.Size(117, 39);
             this.volcanoButton.TabIndex = 44;
             this.volcanoButton.Text = "Volcano";
             this.volcanoButton.UseVisualStyleBackColor = true;
@@ -855,9 +855,9 @@
             // 
             // lineButton
             // 
-            this.lineButton.Location = new System.Drawing.Point(123, 103);
+            this.lineButton.Location = new System.Drawing.Point(143, 103);
             this.lineButton.Name = "lineButton";
-            this.lineButton.Size = new System.Drawing.Size(100, 39);
+            this.lineButton.Size = new System.Drawing.Size(117, 39);
             this.lineButton.TabIndex = 43;
             this.lineButton.Text = "Line Following";
             this.lineButton.UseVisualStyleBackColor = true;
@@ -865,9 +865,9 @@
             // 
             // vortexButton
             // 
-            this.vortexButton.Location = new System.Drawing.Point(6, 103);
+            this.vortexButton.Location = new System.Drawing.Point(7, 103);
             this.vortexButton.Name = "vortexButton";
-            this.vortexButton.Size = new System.Drawing.Size(100, 39);
+            this.vortexButton.Size = new System.Drawing.Size(117, 39);
             this.vortexButton.TabIndex = 42;
             this.vortexButton.Text = "Vortex  /    Magnetic Rock";
             this.vortexButton.UseVisualStyleBackColor = true;
@@ -875,9 +875,9 @@
             // 
             // lightTunnelButton
             // 
-            this.lightTunnelButton.Location = new System.Drawing.Point(6, 19);
+            this.lightTunnelButton.Location = new System.Drawing.Point(7, 19);
             this.lightTunnelButton.Name = "lightTunnelButton";
-            this.lightTunnelButton.Size = new System.Drawing.Size(100, 39);
+            this.lightTunnelButton.Size = new System.Drawing.Size(117, 39);
             this.lightTunnelButton.TabIndex = 35;
             this.lightTunnelButton.Text = "Light Tunnel";
             this.lightTunnelButton.UseVisualStyleBackColor = true;
@@ -885,9 +885,9 @@
             // 
             // riverBedButton
             // 
-            this.riverBedButton.Location = new System.Drawing.Point(6, 61);
+            this.riverBedButton.Location = new System.Drawing.Point(7, 61);
             this.riverBedButton.Name = "riverBedButton";
-            this.riverBedButton.Size = new System.Drawing.Size(100, 39);
+            this.riverBedButton.Size = new System.Drawing.Size(117, 39);
             this.riverBedButton.TabIndex = 36;
             this.riverBedButton.Text = "River Bed";
             this.riverBedButton.UseVisualStyleBackColor = true;
@@ -895,9 +895,9 @@
             // 
             // Seismic_Activity
             // 
-            this.Seismic_Activity.Location = new System.Drawing.Point(123, 61);
+            this.Seismic_Activity.Location = new System.Drawing.Point(143, 61);
             this.Seismic_Activity.Name = "Seismic_Activity";
-            this.Seismic_Activity.Size = new System.Drawing.Size(100, 39);
+            this.Seismic_Activity.Size = new System.Drawing.Size(117, 39);
             this.Seismic_Activity.TabIndex = 40;
             this.Seismic_Activity.Text = "Seismic Activity";
             this.Seismic_Activity.UseVisualStyleBackColor = true;
@@ -905,9 +905,9 @@
             // 
             // crashedRocketButton
             // 
-            this.crashedRocketButton.Location = new System.Drawing.Point(123, 18);
+            this.crashedRocketButton.Location = new System.Drawing.Point(143, 18);
             this.crashedRocketButton.Name = "crashedRocketButton";
-            this.crashedRocketButton.Size = new System.Drawing.Size(100, 39);
+            this.crashedRocketButton.Size = new System.Drawing.Size(117, 39);
             this.crashedRocketButton.TabIndex = 41;
             this.crashedRocketButton.Text = "Crashed Rocket";
             this.crashedRocketButton.UseVisualStyleBackColor = true;
@@ -932,18 +932,18 @@
             this.groupBox4.Controls.Add(this.resetTimer);
             this.groupBox4.Controls.Add(this.sessionTimerLabel);
             this.groupBox4.Controls.Add(this.sessionTimerButton);
-            this.groupBox4.Location = new System.Drawing.Point(821, 379);
+            this.groupBox4.Location = new System.Drawing.Point(958, 379);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(231, 174);
+            this.groupBox4.Size = new System.Drawing.Size(269, 174);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Session Timer";
             // 
             // resetTimer
             // 
-            this.resetTimer.Location = new System.Drawing.Point(6, 143);
+            this.resetTimer.Location = new System.Drawing.Point(7, 143);
             this.resetTimer.Name = "resetTimer";
-            this.resetTimer.Size = new System.Drawing.Size(222, 27);
+            this.resetTimer.Size = new System.Drawing.Size(259, 27);
             this.resetTimer.TabIndex = 2;
             this.resetTimer.Text = "Reset Timer";
             this.resetTimer.UseVisualStyleBackColor = true;
@@ -953,7 +953,7 @@
             // 
             this.sessionTimerLabel.AutoSize = true;
             this.sessionTimerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 54F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sessionTimerLabel.Location = new System.Drawing.Point(9, 24);
+            this.sessionTimerLabel.Location = new System.Drawing.Point(10, 24);
             this.sessionTimerLabel.Name = "sessionTimerLabel";
             this.sessionTimerLabel.Size = new System.Drawing.Size(215, 82);
             this.sessionTimerLabel.TabIndex = 1;
@@ -961,9 +961,9 @@
             // 
             // sessionTimerButton
             // 
-            this.sessionTimerButton.Location = new System.Drawing.Point(6, 110);
+            this.sessionTimerButton.Location = new System.Drawing.Point(7, 110);
             this.sessionTimerButton.Name = "sessionTimerButton";
-            this.sessionTimerButton.Size = new System.Drawing.Size(222, 27);
+            this.sessionTimerButton.Size = new System.Drawing.Size(259, 27);
             this.sessionTimerButton.TabIndex = 0;
             this.sessionTimerButton.Text = "Start Session Timer";
             this.sessionTimerButton.UseVisualStyleBackColor = true;
@@ -984,17 +984,54 @@
             this.sessionTimer.Interval = 1000;
             this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
             // 
+            // RUSAlabel
+            // 
+            this.RUSAlabel.AutoSize = true;
+            this.RUSAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RUSAlabel.Location = new System.Drawing.Point(323, 346);
+            this.RUSAlabel.Name = "RUSAlabel";
+            this.RUSAlabel.Size = new System.Drawing.Size(326, 113);
+            this.RUSAlabel.TabIndex = 57;
+            this.RUSAlabel.Text = "RUSA";
+            // 
+            // PROJECTNOVAlabel
+            // 
+            this.PROJECTNOVAlabel.AutoSize = true;
+            this.PROJECTNOVAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PROJECTNOVAlabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.PROJECTNOVAlabel.Location = new System.Drawing.Point(257, 456);
+            this.PROJECTNOVAlabel.Name = "PROJECTNOVAlabel";
+            this.PROJECTNOVAlabel.Size = new System.Drawing.Size(427, 76);
+            this.PROJECTNOVAlabel.TabIndex = 58;
+            this.PROJECTNOVAlabel.Text = "Project Nova";
+            // 
+            // ControlLabel
+            // 
+            this.ControlLabel.AutoSize = true;
+            this.ControlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlLabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.ControlLabel.Location = new System.Drawing.Point(78, 25);
+            this.ControlLabel.Name = "ControlLabel";
+            this.ControlLabel.Size = new System.Drawing.Size(195, 31);
+            this.ControlLabel.TabIndex = 59;
+            this.ControlLabel.Text = "Rover Control";
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 556);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1234, 556);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.taskGroupBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Main";
-            this.Text = "Rover GUI";
+            this.Text = "Project Nova Base Station";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
@@ -1046,7 +1083,6 @@
         private System.Windows.Forms.TrackBar leftSpeed;
         private System.Windows.Forms.TrackBar rightSpeed;
         private System.Windows.Forms.PictureBox directionalSpeed;
-        private System.Windows.Forms.Label tempLabel;
         private System.Windows.Forms.Button tempButton;
         private System.Windows.Forms.Label auxLabel;
         private System.Windows.Forms.Label LightLabel;
@@ -1113,6 +1149,9 @@
         private System.Windows.Forms.Button emergencyStop;
         private System.Windows.Forms.TextBox saveDirTextBox;
         private System.Windows.Forms.Label saveDirLabel;
+        private System.Windows.Forms.Label PROJECTNOVAlabel;
+        private System.Windows.Forms.Label RUSAlabel;
+        private System.Windows.Forms.Label ControlLabel;
     }
 }
 

@@ -45,9 +45,9 @@
             // 
             // followLineButton
             // 
-            this.followLineButton.Location = new System.Drawing.Point(12, 12);
+            this.followLineButton.Location = new System.Drawing.Point(14, 12);
             this.followLineButton.Name = "followLineButton";
-            this.followLineButton.Size = new System.Drawing.Size(75, 23);
+            this.followLineButton.Size = new System.Drawing.Size(87, 23);
             this.followLineButton.TabIndex = 0;
             this.followLineButton.Text = "Follow Line";
             this.followLineButton.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@
             // 
             // calibrateButton
             // 
-            this.calibrateButton.Location = new System.Drawing.Point(12, 41);
+            this.calibrateButton.Location = new System.Drawing.Point(14, 41);
             this.calibrateButton.Name = "calibrateButton";
-            this.calibrateButton.Size = new System.Drawing.Size(75, 23);
+            this.calibrateButton.Size = new System.Drawing.Size(87, 23);
             this.calibrateButton.TabIndex = 1;
             this.calibrateButton.Text = "Calibrate";
             this.calibrateButton.UseVisualStyleBackColor = true;
@@ -66,18 +66,18 @@
             // leftValueLabel
             // 
             this.leftValueLabel.AutoSize = true;
-            this.leftValueLabel.Location = new System.Drawing.Point(93, 12);
+            this.leftValueLabel.Location = new System.Drawing.Point(108, 12);
             this.leftValueLabel.Name = "leftValueLabel";
-            this.leftValueLabel.Size = new System.Drawing.Size(55, 13);
+            this.leftValueLabel.Size = new System.Drawing.Size(65, 13);
             this.leftValueLabel.TabIndex = 2;
             this.leftValueLabel.Text = "Left Value";
             // 
             // rightValueLabel
             // 
             this.rightValueLabel.AutoSize = true;
-            this.rightValueLabel.Location = new System.Drawing.Point(154, 12);
+            this.rightValueLabel.Location = new System.Drawing.Point(180, 12);
             this.rightValueLabel.Name = "rightValueLabel";
-            this.rightValueLabel.Size = new System.Drawing.Size(62, 13);
+            this.rightValueLabel.Size = new System.Drawing.Size(73, 13);
             this.rightValueLabel.TabIndex = 3;
             this.rightValueLabel.Text = "Right Value";
             // 
@@ -102,26 +102,26 @@
             // calibrationStatusLabel
             // 
             this.calibrationStatusLabel.AutoSize = true;
-            this.calibrationStatusLabel.Location = new System.Drawing.Point(9, 67);
+            this.calibrationStatusLabel.Location = new System.Drawing.Point(10, 67);
             this.calibrationStatusLabel.Name = "calibrationStatusLabel";
-            this.calibrationStatusLabel.Size = new System.Drawing.Size(73, 13);
+            this.calibrationStatusLabel.Size = new System.Drawing.Size(88, 13);
             this.calibrationStatusLabel.TabIndex = 6;
             this.calibrationStatusLabel.Text = "Calibration Off";
             // 
             // maxCalibTextBox
             // 
-            this.maxCalibTextBox.Location = new System.Drawing.Point(12, 83);
+            this.maxCalibTextBox.Location = new System.Drawing.Point(14, 83);
             this.maxCalibTextBox.Name = "maxCalibTextBox";
-            this.maxCalibTextBox.Size = new System.Drawing.Size(28, 20);
+            this.maxCalibTextBox.Size = new System.Drawing.Size(32, 20);
             this.maxCalibTextBox.TabIndex = 7;
             this.maxCalibTextBox.Text = "520";
             this.maxCalibTextBox.TextChanged += new System.EventHandler(this.maxCalibTextBox_TextChanged);
             // 
             // minCalibTextBox
             // 
-            this.minCalibTextBox.Location = new System.Drawing.Point(46, 83);
+            this.minCalibTextBox.Location = new System.Drawing.Point(54, 83);
             this.minCalibTextBox.Name = "minCalibTextBox";
-            this.minCalibTextBox.Size = new System.Drawing.Size(28, 20);
+            this.minCalibTextBox.Size = new System.Drawing.Size(32, 20);
             this.minCalibTextBox.TabIndex = 8;
             this.minCalibTextBox.Text = "10";
             this.minCalibTextBox.TextChanged += new System.EventHandler(this.minCalibTextBox_TextChanged);
@@ -129,17 +129,18 @@
             // onLineStatusLabel
             // 
             this.onLineStatusLabel.AutoSize = true;
-            this.onLineStatusLabel.Location = new System.Drawing.Point(12, 106);
+            this.onLineStatusLabel.Location = new System.Drawing.Point(14, 106);
             this.onLineStatusLabel.Name = "onLineStatusLabel";
-            this.onLineStatusLabel.Size = new System.Drawing.Size(42, 13);
+            this.onLineStatusLabel.Size = new System.Drawing.Size(49, 13);
             this.onLineStatusLabel.TabIndex = 9;
             this.onLineStatusLabel.Text = "IR data";
             // 
             // LineFollowingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 311);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(500, 311);
             this.Controls.Add(this.onLineStatusLabel);
             this.Controls.Add(this.minCalibTextBox);
             this.Controls.Add(this.maxCalibTextBox);
@@ -148,6 +149,8 @@
             this.Controls.Add(this.leftValueLabel);
             this.Controls.Add(this.calibrateButton);
             this.Controls.Add(this.followLineButton);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "LineFollowingForm";
             this.Text = "LineFollowingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LineFollowingForm_FormClosing);
