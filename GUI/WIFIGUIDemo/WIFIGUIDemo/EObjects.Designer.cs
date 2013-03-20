@@ -37,7 +37,7 @@
             // 
             this.deliveredObjects.AutoSize = true;
             this.deliveredObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveredObjects.Location = new System.Drawing.Point(12, 15);
+            this.deliveredObjects.Location = new System.Drawing.Point(14, 15);
             this.deliveredObjects.Name = "deliveredObjects";
             this.deliveredObjects.Size = new System.Drawing.Size(245, 31);
             this.deliveredObjects.TabIndex = 0;
@@ -46,9 +46,9 @@
             // deliveredButton
             // 
             this.deliveredButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveredButton.Location = new System.Drawing.Point(18, 66);
+            this.deliveredButton.Location = new System.Drawing.Point(21, 66);
             this.deliveredButton.Name = "deliveredButton";
-            this.deliveredButton.Size = new System.Drawing.Size(239, 46);
+            this.deliveredButton.Size = new System.Drawing.Size(279, 46);
             this.deliveredButton.TabIndex = 1;
             this.deliveredButton.Text = "Delivered an Object";
             this.deliveredButton.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // missDeliveredButton
             // 
             this.missDeliveredButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.missDeliveredButton.Location = new System.Drawing.Point(18, 118);
+            this.missDeliveredButton.Location = new System.Drawing.Point(21, 118);
             this.missDeliveredButton.Name = "missDeliveredButton";
-            this.missDeliveredButton.Size = new System.Drawing.Size(239, 46);
+            this.missDeliveredButton.Size = new System.Drawing.Size(279, 46);
             this.missDeliveredButton.TabIndex = 2;
             this.missDeliveredButton.Text = "Miss-delivered an Object";
             this.missDeliveredButton.UseVisualStyleBackColor = true;
@@ -67,12 +67,15 @@
             // 
             // EObjectsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 178);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(317, 178);
             this.Controls.Add(this.missDeliveredButton);
             this.Controls.Add(this.deliveredButton);
             this.Controls.Add(this.deliveredObjects);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "EObjectsForm";
             this.Text = "EObjects";
             this.ResumeLayout(false);

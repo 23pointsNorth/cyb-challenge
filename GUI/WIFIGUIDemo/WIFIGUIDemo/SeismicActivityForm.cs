@@ -90,7 +90,7 @@ namespace WIFIGUIDemo
                                 zresult = Accelz / zresult;
                                 double Az = Math.Atan(zresult) * 180 / Math.PI;
 
-                                AccelDataLabel.Text = Ax.ToString(".00") + " " + Ay.ToString(".00") + " " + Az.ToString(".00");
+                                //AccelDataLabel.Text = Ax.ToString(".00") + " " + Ay.ToString(".00") + " " + Az.ToString(".00");
                                 /*
                                 SeismicActivityChart.Series["AccelDataX"].Points.AddXY(avr_e, Accelx);
                                 SeismicActivityChart.Series["AccelDataY"].Points.AddXY(avr_e, Accely);
@@ -142,7 +142,7 @@ namespace WIFIGUIDemo
                             if (id == acc_packet_size - 1) seismicActivityButton_Click(null, null);
                              */
                             seismicActivityButton_Click(null, null);
-                            AccelDataLabel.Text = "Data Collected on the rover.";
+                            //AccelDataLabel.Text = "Data Collected on the rover.";
                         }));
                         break;
 

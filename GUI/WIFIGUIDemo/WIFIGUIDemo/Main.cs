@@ -251,7 +251,7 @@ namespace WIFIGUIDemo
                             this.BeginInvoke(new EventHandler(delegate
                             {
                                 int temp = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
-                                tempLabel.Text = temp.ToString();
+                                //tempLabel.Text = temp.ToString();
                                 double temp_celsius = ConvertToTemperature(temp);
                                 temp_Celsius.Text = temp_celsius.ToString("0.00") + "'C";
                             }));

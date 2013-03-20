@@ -41,17 +41,18 @@
             // 
             // CrashedMessageBox
             // 
-            this.CrashedMessageBox.Location = new System.Drawing.Point(12, 83);
+            this.CrashedMessageBox.BackColor = System.Drawing.SystemColors.Control;
+            this.CrashedMessageBox.Location = new System.Drawing.Point(14, 83);
             this.CrashedMessageBox.Multiline = true;
             this.CrashedMessageBox.Name = "CrashedMessageBox";
-            this.CrashedMessageBox.Size = new System.Drawing.Size(176, 171);
+            this.CrashedMessageBox.Size = new System.Drawing.Size(205, 171);
             this.CrashedMessageBox.TabIndex = 0;
             // 
             // requestMessageButton
             // 
-            this.requestMessageButton.Location = new System.Drawing.Point(12, 12);
+            this.requestMessageButton.Location = new System.Drawing.Point(14, 12);
             this.requestMessageButton.Name = "requestMessageButton";
-            this.requestMessageButton.Size = new System.Drawing.Size(176, 38);
+            this.requestMessageButton.Size = new System.Drawing.Size(205, 38);
             this.requestMessageButton.TabIndex = 1;
             this.requestMessageButton.Text = "Request Message";
             this.requestMessageButton.UseVisualStyleBackColor = true;
@@ -59,9 +60,9 @@
             // 
             // sendEmailButton
             // 
-            this.sendEmailButton.Location = new System.Drawing.Point(12, 260);
+            this.sendEmailButton.Location = new System.Drawing.Point(14, 260);
             this.sendEmailButton.Name = "sendEmailButton";
-            this.sendEmailButton.Size = new System.Drawing.Size(176, 38);
+            this.sendEmailButton.Size = new System.Drawing.Size(205, 38);
             this.sendEmailButton.TabIndex = 2;
             this.sendEmailButton.Text = "Send E-mail";
             this.sendEmailButton.UseVisualStyleBackColor = true;
@@ -69,35 +70,36 @@
             // 
             // decodedMessage
             // 
-            this.decodedMessage.Location = new System.Drawing.Point(194, 83);
+            this.decodedMessage.BackColor = System.Drawing.SystemColors.Control;
+            this.decodedMessage.Location = new System.Drawing.Point(226, 83);
             this.decodedMessage.Multiline = true;
             this.decodedMessage.Name = "decodedMessage";
-            this.decodedMessage.Size = new System.Drawing.Size(176, 171);
+            this.decodedMessage.Size = new System.Drawing.Size(205, 171);
             this.decodedMessage.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 61);
+            this.label1.Location = new System.Drawing.Point(24, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Encoded Message";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 61);
+            this.label2.Location = new System.Drawing.Point(223, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Decoded Message";
             // 
             // clearMsgButton
             // 
-            this.clearMsgButton.Location = new System.Drawing.Point(194, 260);
+            this.clearMsgButton.Location = new System.Drawing.Point(438, 260);
             this.clearMsgButton.Name = "clearMsgButton";
-            this.clearMsgButton.Size = new System.Drawing.Size(176, 38);
+            this.clearMsgButton.Size = new System.Drawing.Size(205, 38);
             this.clearMsgButton.TabIndex = 6;
             this.clearMsgButton.Text = "Clear Messages";
             this.clearMsgButton.UseVisualStyleBackColor = true;
@@ -105,26 +107,28 @@
             // 
             // _2ndDecodeMsgTextBox
             // 
-            this._2ndDecodeMsgTextBox.Location = new System.Drawing.Point(376, 83);
+            this._2ndDecodeMsgTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this._2ndDecodeMsgTextBox.Location = new System.Drawing.Point(439, 83);
             this._2ndDecodeMsgTextBox.Multiline = true;
             this._2ndDecodeMsgTextBox.Name = "_2ndDecodeMsgTextBox";
-            this._2ndDecodeMsgTextBox.Size = new System.Drawing.Size(176, 171);
+            this._2ndDecodeMsgTextBox.Size = new System.Drawing.Size(205, 171);
             this._2ndDecodeMsgTextBox.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(373, 61);
+            this.label3.Location = new System.Drawing.Point(435, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 13);
+            this.label3.Size = new System.Drawing.Size(131, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Decoded Message #2";
             // 
             // CrashedRocketForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 307);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(647, 307);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._2ndDecodeMsgTextBox);
             this.Controls.Add(this.clearMsgButton);
@@ -134,6 +138,7 @@
             this.Controls.Add(this.sendEmailButton);
             this.Controls.Add(this.requestMessageButton);
             this.Controls.Add(this.CrashedMessageBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "CrashedRocketForm";
             this.Text = "CrashedRocketForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CrashedRocketForm_FormClosing);

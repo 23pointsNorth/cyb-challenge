@@ -64,7 +64,7 @@ namespace WIFIGUIDemo
                             IRIntensityDistanceChart.Series["IRDataLeft"].Points.AddXY(avr_e, IRl);
                             IRIntensityDistanceChart.Series["IRDataRight"].Points.AddXY(avr_e, IRr);
 
-                            IRDataLabel.Text = IRl.ToString() + " " + IRr.ToString();
+                            //IRDataLabel.Text = IRl.ToString() + " " + IRr.ToString();
                             //if (map_on) rover.SendData(CommandID.IRDistanceData, new byte[] { });
                            
                         }));
@@ -85,7 +85,7 @@ namespace WIFIGUIDemo
                                 IRIntensityDistanceChart.Series["IRDataRight"].Points.AddXY(avr_e, IRr);
 
                                 //MessageBox.Show(IRl.ToString() + " " + IRr.ToString());
-                                IRDataLabel.Text = IRl.ToString() + " " + IRr.ToString() + " " + i.ToString();
+                                //IRDataLabel.Text = IRl.ToString() + " " + IRr.ToString() + " " + i.ToString();
                             }
                             //if (map_on) rover.SendData(CommandID.IRDistanceData, new byte[] { });
 

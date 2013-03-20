@@ -27,7 +27,7 @@ namespace WIFIGUIDemo
 
         public void AddDataPoint(double pos, double light)
         {
-            //Add data to the datapoint
+            //Add data to the datapoint   
             lightIntensityChart.Series["lightPathPoint"].Points.AddXY(Math.Abs(pos - offset_dist), light);
            
         }
