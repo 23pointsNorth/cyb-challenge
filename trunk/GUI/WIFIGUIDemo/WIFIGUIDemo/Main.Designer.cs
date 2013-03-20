@@ -111,6 +111,7 @@
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.emergencyStop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
@@ -199,6 +200,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.emergencyStop);
             this.groupBox2.Controls.Add(this.maxDriveSpeedLabel);
             this.groupBox2.Controls.Add(this.maxSpeedButton);
             this.groupBox2.Controls.Add(this.maxSpeedTextBox);
@@ -948,6 +950,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // emergencyStop
+            // 
+            this.emergencyStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.emergencyStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emergencyStop.ForeColor = System.Drawing.Color.Maroon;
+            this.emergencyStop.Location = new System.Drawing.Point(7, 400);
+            this.emergencyStop.Name = "emergencyStop";
+            this.emergencyStop.Size = new System.Drawing.Size(164, 135);
+            this.emergencyStop.TabIndex = 54;
+            this.emergencyStop.Text = "Emergency Stop";
+            this.emergencyStop.UseVisualStyleBackColor = false;
+            this.emergencyStop.Click += new System.EventHandler(this.emergencyStop_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1074,6 +1089,7 @@
         private System.Windows.Forms.TextBox maxSpeedTextBox;
         private System.Windows.Forms.Label maxDriveSpeedLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button emergencyStop;
     }
 }
 

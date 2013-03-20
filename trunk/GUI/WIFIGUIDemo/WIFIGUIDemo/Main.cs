@@ -1125,6 +1125,12 @@ namespace WIFIGUIDemo
             eObjects.Show();
         }
 
+        private void emergencyStop_Click(object sender, EventArgs e)
+        {
+            stop();
+            stop();
+        }
+
     }
 }
 
