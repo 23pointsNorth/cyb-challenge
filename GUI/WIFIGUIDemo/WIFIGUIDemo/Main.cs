@@ -93,7 +93,12 @@ namespace WIFIGUIDemo
             directionalSpeed.Image = DRIVE_TARGET;
         }
 
-        public string SAVE_DIR = "C:\\TEST\\DATA\\";
+        private string save_dir = "C:\\TEST\\DATA\\";
+
+        public string SAVE_DIR
+        {
+            get { return saveDirTextBox.Text; }
+        }
 
         public const int MAX_SPEED = 127;
         public const int MIN_SPEED = 50;
