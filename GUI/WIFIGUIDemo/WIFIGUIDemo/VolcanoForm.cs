@@ -16,6 +16,8 @@ namespace WIFIGUIDemo
         Main mainForm;
         TCPClient rover;
 
+        const double OFFSET_TEMP = -3;
+
         public VolcanoForm(Main mForm, TCPClient theClient)
         {
             mainForm = mForm;
@@ -41,7 +43,8 @@ namespace WIFIGUIDemo
                             this.BeginInvoke(new EventHandler(delegate
                             {
                                 int temp = Convert.ToUInt16(NewData[4]) + Convert.ToUInt16(NewData[5] << 8);
-                                double temp_celsius = mainForm.ConvertToTemperature(temp);
+                                double temp_celsius = mainForm.ConvertToTemperature(temp) + 
+                                                     ((adjCheckBox.Checked)?OFFSET_TEMP:0);
                                 volcanoTempChart.Series["Temperature"].Points.AddXY(
                                     (temp_id * dataTimer.Interval)/1000.0 ,temp_celsius);
                                 lastTempLabel.Text = "Last Temp: " + temp_celsius.ToString("00.0") + "'C";

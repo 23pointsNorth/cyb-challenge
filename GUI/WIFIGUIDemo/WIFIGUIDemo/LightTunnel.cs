@@ -102,5 +102,10 @@ namespace WIFIGUIDemo
             else { dir = 1; }
         }
 
+        private void LightTunnel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            stopButton_Click(null, null);
+        }
+
     }
 }
