@@ -3,25 +3,25 @@ function SeismicActivity(path)
 %% Load data
 Fs = 400;                     % Sampling frequency 1037/10
 T = 1/Fs;                     % Sample time
-L = 16*60;                     % Length of signal
+L = 17*60;                     % Length of signal
 
 acc = load(strcat(path,'SeismicData.txt'));
 
 time = (0:T:T*(size(acc) - 1));             % Time vector
 time = time';
 
-size(time)
-size(acc)
+%size(time)
+%size(acc)
 
 %% Plot data Acc
 
-figure;
-plot(time, acc, 'r');
-xlabel('Time (sec)');
-ylabel('Acceleration in Z');
-title('Acceleration data');
-grid on;
-
+%figure;
+%plot(time, acc, 'r');
+%xlabel('Time (sec)');
+%ylabel('Acceleration in Z');
+%title('Acceleration data');
+%grid on;
+%{
 %Draw line tool 1
 peakX = [1 0.95];
 peakY = [1 0.9];
@@ -37,24 +37,25 @@ l2 = imdistline(gca, peakX, peakY);
 api2 = iptgetapi(l2);
 api2.setLabelTextFormatter('%02.0f mm');
 api2.setColor('g');
+%}
 
 %% Fourier 
 
 % Windowing
 w = hanning(length(acc)); 
 w = w';
-figure;
-plot(time, w);
-title('Windowing function')
+%figure;
+%plot(time, w);
+%title('Windowing function')
 
 accw = w*acc;
 for i=1:length(acc)
     accw(i) = acc(i)*w(i);
 end
 
-figure;
-plot(time, accw);
-title('Windowed result')
+%figure;
+%plot(time, accw);
+%title('Windowed result')
 % for windowing use accw later on, otherwise accw = acc
 %accw= acc;
 
