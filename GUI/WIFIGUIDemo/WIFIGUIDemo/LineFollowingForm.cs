@@ -27,10 +27,10 @@ namespace WIFIGUIDemo
         bool turn_back = false;
 
         public bool lineFollowing = false;
-        int MAXSPEED = 100;
-        int MINSPEED = 75;
-        double LINE_FOLLOWING_COEF = 1; // 0..1
-        double FORWARD_COEF = 0.4;
+        int MAXSPEED = 95;
+        int MINSPEED = 35;
+        double LINE_FOLLOWING_COEF = 1.0; // 0..1
+        double FORWARD_COEF = 0.3;
 
         public int range()
         {
@@ -76,6 +76,9 @@ namespace WIFIGUIDemo
 
                             if (lineFollowing)
                             {
+                                distanceChart.Series["left"].Points.AddY(left_motor);
+                                distanceChart.Series["right"].Points.AddY(right_motor);
+
                                 bool l_black = left_value - min < range();
                                 bool r_black = right_value - min < range();
                                 onLineStatusLabel.Text =
@@ -257,7 +260,7 @@ namespace WIFIGUIDemo
 
         private void maxCalibTextBox_TextChanged(object sender, EventArgs e)
         {
-            max = int.Parse(maxCalibTextBox.Text);
+            if (maxCalibTextBox.Text.Length != 0) max = int.Parse(maxCalibTextBox.Text);
         }
     }
 }
