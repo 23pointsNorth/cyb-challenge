@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.followLineButton = new System.Windows.Forms.Button();
             this.calibrateButton = new System.Windows.Forms.Button();
             this.leftValueLabel = new System.Windows.Forms.Label();
@@ -41,6 +45,9 @@
             this.maxCalibTextBox = new System.Windows.Forms.TextBox();
             this.minCalibTextBox = new System.Windows.Forms.TextBox();
             this.onLineStatusLabel = new System.Windows.Forms.Label();
+            this.distanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.clearButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.distanceChart)).BeginInit();
             this.SuspendLayout();
             // 
             // followLineButton
@@ -114,7 +121,7 @@
             this.maxCalibTextBox.Name = "maxCalibTextBox";
             this.maxCalibTextBox.Size = new System.Drawing.Size(32, 20);
             this.maxCalibTextBox.TabIndex = 7;
-            this.maxCalibTextBox.Text = "520";
+            this.maxCalibTextBox.Text = "320";
             this.maxCalibTextBox.TextChanged += new System.EventHandler(this.maxCalibTextBox_TextChanged);
             // 
             // minCalibTextBox
@@ -123,7 +130,7 @@
             this.minCalibTextBox.Name = "minCalibTextBox";
             this.minCalibTextBox.Size = new System.Drawing.Size(32, 20);
             this.minCalibTextBox.TabIndex = 8;
-            this.minCalibTextBox.Text = "10";
+            this.minCalibTextBox.Text = "20";
             this.minCalibTextBox.TextChanged += new System.EventHandler(this.minCalibTextBox_TextChanged);
             // 
             // onLineStatusLabel
@@ -135,12 +142,46 @@
             this.onLineStatusLabel.TabIndex = 9;
             this.onLineStatusLabel.Text = "IR data";
             // 
+            // distanceChart
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.distanceChart.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.distanceChart.Legends.Add(legend4);
+            this.distanceChart.Location = new System.Drawing.Point(111, 41);
+            this.distanceChart.Name = "distanceChart";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series7.Legend = "Legend1";
+            series7.Name = "left";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series8.Legend = "Legend1";
+            series8.Name = "right";
+            this.distanceChart.Series.Add(series7);
+            this.distanceChart.Series.Add(series8);
+            this.distanceChart.Size = new System.Drawing.Size(300, 210);
+            this.distanceChart.TabIndex = 10;
+            this.distanceChart.Text = "chart1";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(14, 228);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(87, 23);
+            this.clearButton.TabIndex = 11;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            // 
             // LineFollowingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(500, 311);
+            this.ClientSize = new System.Drawing.Size(425, 261);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.distanceChart);
             this.Controls.Add(this.onLineStatusLabel);
             this.Controls.Add(this.minCalibTextBox);
             this.Controls.Add(this.maxCalibTextBox);
@@ -154,6 +195,7 @@
             this.Name = "LineFollowingForm";
             this.Text = "LineFollowingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LineFollowingForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.distanceChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +215,7 @@
         private System.Windows.Forms.TextBox maxCalibTextBox;
         private System.Windows.Forms.TextBox minCalibTextBox;
         private System.Windows.Forms.Label onLineStatusLabel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart distanceChart;
+        private System.Windows.Forms.Button clearButton;
     }
 }
