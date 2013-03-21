@@ -43,6 +43,7 @@ grid on;
 %api2.setColor('g');
 
 %% Plot normalized vector
+%{
 figure;
 plot(time, absVector, 'r');
 
@@ -50,7 +51,7 @@ xlabel('Sample');
 ylabel('Normalized Magnetic Vector');
 title('Magnetic Vector Normalized Data');
 grid on;
-
+%}
 %% Calculate angle plot
 
 %% XY
