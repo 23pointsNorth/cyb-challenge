@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lightIntensityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tunnelMapButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
@@ -50,25 +50,25 @@
             // 
             this.lightIntensityChart.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lightIntensityChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.Name = "ChartArea1";
-            this.lightIntensityChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend2.Name = "Legend1";
-            this.lightIntensityChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.lightIntensityChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend1.Name = "Legend1";
+            this.lightIntensityChart.Legends.Add(legend1);
             this.lightIntensityChart.Location = new System.Drawing.Point(14, 41);
             this.lightIntensityChart.Name = "lightIntensityChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "lightPathPoint";
-            this.lightIntensityChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "lightPathPoint";
+            this.lightIntensityChart.Series.Add(series1);
             this.lightIntensityChart.Size = new System.Drawing.Size(752, 251);
             this.lightIntensityChart.TabIndex = 0;
             this.lightIntensityChart.Text = "Light Tunnel Chart";
-            title2.Name = "Title1";
-            title2.Text = "Light Intensity vs Distance Graph";
-            this.lightIntensityChart.Titles.Add(title2);
+            title1.Name = "Title1";
+            title1.Text = "Light Intensity vs Distance Graph";
+            this.lightIntensityChart.Titles.Add(title1);
             // 
             // tunnelMapButton
             // 
@@ -131,7 +131,7 @@
             this.backwardsDirectionRadioButton.AutoSize = true;
             this.backwardsDirectionRadioButton.Location = new System.Drawing.Point(87, 12);
             this.backwardsDirectionRadioButton.Name = "backwardsDirectionRadioButton";
-            this.backwardsDirectionRadioButton.Size = new System.Drawing.Size(87, 17);
+            this.backwardsDirectionRadioButton.Size = new System.Drawing.Size(78, 17);
             this.backwardsDirectionRadioButton.TabIndex = 1;
             this.backwardsDirectionRadioButton.Text = "Backwards";
             this.backwardsDirectionRadioButton.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.forwardDirectionRadioButton.Checked = true;
             this.forwardDirectionRadioButton.Location = new System.Drawing.Point(7, 12);
             this.forwardDirectionRadioButton.Name = "forwardDirectionRadioButton";
-            this.forwardDirectionRadioButton.Size = new System.Drawing.Size(70, 17);
+            this.forwardDirectionRadioButton.Size = new System.Drawing.Size(63, 17);
             this.forwardDirectionRadioButton.TabIndex = 0;
             this.forwardDirectionRadioButton.TabStop = true;
             this.forwardDirectionRadioButton.Text = "Forward";
@@ -166,6 +166,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "LightTunnel";
             this.Text = "LightTunnel";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LightTunnel_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LightTunnel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.LightTunnel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.lightIntensityChart)).EndInit();

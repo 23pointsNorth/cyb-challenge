@@ -72,7 +72,7 @@ namespace WIFIGUIDemo
                                 for (int i = 4; i < NewData.Count; i++)
                                 {
                                     int letter = NewData[i]/2;
-                                    if (letter >= 32 && letter <= 127) { _2ndDecodeMsgTextBox.Text += (char)letter; }
+                                    if (letter > 32 && letter < 127) { _2ndDecodeMsgTextBox.Text += (char)letter; }
                                 }
                             }));
                             break;

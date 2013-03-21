@@ -107,6 +107,8 @@ namespace WIFIGUIDemo
         Bitmap FRONT_ROVER = new Bitmap("front_rover.png");
         Bitmap DRIVE_TARGET = new Bitmap("drive_target.png");
 
+        const float Z_ACC_OFFSET = 0.2f;
+
         int ENCODER_SPEED = -100;
         double LEFT_PARAM = 1.25f;
         double RIGHT_PARAM = 1.0f;
@@ -301,7 +303,7 @@ namespace WIFIGUIDemo
 
                                     Accelx = Accelx / 1024;
                                     Accely = Accely / 1024;
-                                    Accelz = Accelz / 1024;
+                                    Accelz = Accelz / 1024 - Z_ACC_OFFSET;
 
                                     float x1 = (Accelx * 100) + 100;
                                     float y1 = (Accely * 100) + 100;
@@ -329,7 +331,7 @@ namespace WIFIGUIDemo
 
                                     x_angle.Text = Ax.ToString("0.00");
                                     y_angle.Text = Ay.ToString("0.00");
-                                    z_angle.Text = Az.ToString("0.00");
+                                    z_angle.Text = (90 - Az).ToString("0.00");
 
                                     DrawHorizontalRover(horizonPictureBox, HORIZONTAL_ROVER, (float)Ay);
                                     DrawHorizontalRover(frontlPictureBox, FRONT_ROVER, (float)Ax);

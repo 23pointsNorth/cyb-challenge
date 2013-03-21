@@ -1,7 +1,7 @@
 function LightTunnel(path)
 
 IR_SCALE_FACTOR = 1;
-DISTANCE_SCALE_FACTOR = 1;
+DISTANCE_SCALE_FACTOR = 1.06;
 
 %file = strcat('N:\\Data\\', filename);
 
