@@ -37,6 +37,9 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ControlLabel = new System.Windows.Forms.Label();
+            this.PROJECTNOVAlabel = new System.Windows.Forms.Label();
+            this.RUSAlabel = new System.Windows.Forms.Label();
             this.saveDirTextBox = new System.Windows.Forms.TextBox();
             this.saveDirLabel = new System.Windows.Forms.Label();
             this.emergencyStop = new System.Windows.Forms.Button();
@@ -113,9 +116,6 @@
             this.accelTimer = new System.Windows.Forms.Timer(this.components);
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.sessionTimer = new System.Windows.Forms.Timer(this.components);
-            this.RUSAlabel = new System.Windows.Forms.Label();
-            this.PROJECTNOVAlabel = new System.Windows.Forms.Label();
-            this.ControlLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.roverOrientationGroupBox.SuspendLayout();
@@ -241,6 +241,38 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // ControlLabel
+            // 
+            this.ControlLabel.AutoSize = true;
+            this.ControlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlLabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.ControlLabel.Location = new System.Drawing.Point(78, 25);
+            this.ControlLabel.Name = "ControlLabel";
+            this.ControlLabel.Size = new System.Drawing.Size(195, 31);
+            this.ControlLabel.TabIndex = 59;
+            this.ControlLabel.Text = "Rover Control";
+            // 
+            // PROJECTNOVAlabel
+            // 
+            this.PROJECTNOVAlabel.AutoSize = true;
+            this.PROJECTNOVAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PROJECTNOVAlabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.PROJECTNOVAlabel.Location = new System.Drawing.Point(257, 456);
+            this.PROJECTNOVAlabel.Name = "PROJECTNOVAlabel";
+            this.PROJECTNOVAlabel.Size = new System.Drawing.Size(427, 76);
+            this.PROJECTNOVAlabel.TabIndex = 58;
+            this.PROJECTNOVAlabel.Text = "Project Nova";
+            // 
+            // RUSAlabel
+            // 
+            this.RUSAlabel.AutoSize = true;
+            this.RUSAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RUSAlabel.Location = new System.Drawing.Point(323, 346);
+            this.RUSAlabel.Name = "RUSAlabel";
+            this.RUSAlabel.Size = new System.Drawing.Size(326, 113);
+            this.RUSAlabel.TabIndex = 57;
+            this.RUSAlabel.Text = "RUSA";
+            // 
             // saveDirTextBox
             // 
             this.saveDirTextBox.Location = new System.Drawing.Point(404, 322);
@@ -248,7 +280,7 @@
             this.saveDirTextBox.Name = "saveDirTextBox";
             this.saveDirTextBox.Size = new System.Drawing.Size(296, 20);
             this.saveDirTextBox.TabIndex = 56;
-            this.saveDirTextBox.Text = "N:\\..University\\Year2\\Cybs Challenge\\Data\\";
+            this.saveDirTextBox.Text = "N:\\CybData\\";
             // 
             // saveDirLabel
             // 
@@ -983,38 +1015,6 @@
             // 
             this.sessionTimer.Interval = 1000;
             this.sessionTimer.Tick += new System.EventHandler(this.sessionTimer_Tick);
-            // 
-            // RUSAlabel
-            // 
-            this.RUSAlabel.AutoSize = true;
-            this.RUSAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RUSAlabel.Location = new System.Drawing.Point(323, 346);
-            this.RUSAlabel.Name = "RUSAlabel";
-            this.RUSAlabel.Size = new System.Drawing.Size(326, 113);
-            this.RUSAlabel.TabIndex = 57;
-            this.RUSAlabel.Text = "RUSA";
-            // 
-            // PROJECTNOVAlabel
-            // 
-            this.PROJECTNOVAlabel.AutoSize = true;
-            this.PROJECTNOVAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PROJECTNOVAlabel.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.PROJECTNOVAlabel.Location = new System.Drawing.Point(257, 456);
-            this.PROJECTNOVAlabel.Name = "PROJECTNOVAlabel";
-            this.PROJECTNOVAlabel.Size = new System.Drawing.Size(427, 76);
-            this.PROJECTNOVAlabel.TabIndex = 58;
-            this.PROJECTNOVAlabel.Text = "Project Nova";
-            // 
-            // ControlLabel
-            // 
-            this.ControlLabel.AutoSize = true;
-            this.ControlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ControlLabel.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.ControlLabel.Location = new System.Drawing.Point(78, 25);
-            this.ControlLabel.Name = "ControlLabel";
-            this.ControlLabel.Size = new System.Drawing.Size(195, 31);
-            this.ControlLabel.TabIndex = 59;
-            this.ControlLabel.Text = "Rover Control";
             // 
             // Main
             // 

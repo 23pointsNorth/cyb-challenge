@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.getTempButton = new System.Windows.Forms.Button();
             this.volcanoTempChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataTimer = new System.Windows.Forms.Timer(this.components);
@@ -58,27 +58,27 @@
             // 
             this.volcanoTempChart.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.volcanoTempChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "ChartArea1";
-            this.volcanoTempChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend1.Name = "Legend1";
-            this.volcanoTempChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.volcanoTempChart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend2.Name = "Legend1";
+            this.volcanoTempChart.Legends.Add(legend2);
             this.volcanoTempChart.Location = new System.Drawing.Point(14, 54);
             this.volcanoTempChart.Name = "volcanoTempChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Temperature";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.volcanoTempChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Temperature";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.volcanoTempChart.Series.Add(series2);
             this.volcanoTempChart.Size = new System.Drawing.Size(742, 251);
             this.volcanoTempChart.TabIndex = 5;
             this.volcanoTempChart.Text = "Volcano Temperature";
-            title1.Name = "title";
-            title1.Text = "Temperature (\'C)";
-            this.volcanoTempChart.Titles.Add(title1);
+            title2.Name = "title";
+            title2.Text = "Temperature (\'C)";
+            this.volcanoTempChart.Titles.Add(title2);
             // 
             // dataTimer
             // 
@@ -126,11 +126,13 @@
             // adjCheckBox
             // 
             this.adjCheckBox.AutoSize = true;
-            this.adjCheckBox.Location = new System.Drawing.Point(322, 19);
+            this.adjCheckBox.Checked = true;
+            this.adjCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.adjCheckBox.Location = new System.Drawing.Point(296, 29);
             this.adjCheckBox.Name = "adjCheckBox";
-            this.adjCheckBox.Size = new System.Drawing.Size(88, 17);
+            this.adjCheckBox.Size = new System.Drawing.Size(201, 17);
             this.adjCheckBox.TabIndex = 10;
-            this.adjCheckBox.Text = "Adjustment";
+            this.adjCheckBox.Text = "Adjustment for low temperature";
             this.adjCheckBox.UseVisualStyleBackColor = true;
             // 
             // VolcanoForm
